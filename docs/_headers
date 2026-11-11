@@ -1,0 +1,66 @@
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U=' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src 'none'; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Cache-Control: public, max-age=0, must-revalidate
+
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Markdown copies: point search engines at the HTML page and keep the .md file out of the index.
+
+/about.md
+  Link: <https://example.com/about.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/accessibility.md
+  Link: <https://example.com/accessibility.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/blog/first-day-in-johannesburg.md
+  Link: <https://example.com/blog/first-day-in-johannesburg.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/blog.md
+  Link: <https://example.com/blog.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/contact.md
+  Link: <https://example.com/contact.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/events.md
+  Link: <https://example.com/events.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/faq.md
+  Link: <https://example.com/faq.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/getting-around.md
+  Link: <https://example.com/getting-around.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/index.md
+  Link: <https://example.com/>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/neighbourhoods.md
+  Link: <https://example.com/neighbourhoods.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/things-to-do.md
+  Link: <https://example.com/things-to-do.html>; rel="canonical"
+  X-Robots-Tag: noindex

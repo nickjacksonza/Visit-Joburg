@@ -1,0 +1,173 @@
+[
+  {
+    "name": "hero",
+    "dir": "",
+    "w": 1200,
+    "h": 750,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "text": "Johannesburg Skyline",
+    "alt": "Placeholder image for the Johannesburg skyline",
+    "sizes": "(min-width: 56em) 470px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "card-history",
+    "dir": "",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "History",
+    "alt": "Placeholder image for history in Johannesburg",
+    "sizes": "(min-width: 48em) 450px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "card-neighbourhoods",
+    "dir": "",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Neighbourhoods",
+    "alt": "Placeholder image for neighbourhoods in Johannesburg",
+    "sizes": "(min-width: 48em) 450px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "card-outdoors",
+    "dir": "",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Outdoors",
+    "alt": "Placeholder image for outdoors in Johannesburg",
+    "sizes": "(min-width: 48em) 450px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-apartheid-museum",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Apartheid Museum",
+    "alt": "Placeholder image for Apartheid Museum",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-constitution-hill",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Constitution Hill",
+    "alt": "Placeholder image for Constitution Hill",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-vilakazi-street",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Vilakazi Street, Soweto",
+    "alt": "Placeholder image for Vilakazi Street, Soweto",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-hector-pieterson",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Hector Pieterson Memorial and Museum",
+    "alt": "Placeholder image for Hector Pieterson Memorial and Museum",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-cradle",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Cradle of Humankind",
+    "alt": "Placeholder image for Cradle of Humankind",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-botanical-garden",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Johannesburg Botanical Garden",
+    "alt": "Placeholder image for Johannesburg Botanical Garden",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-origins-centre",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Origins Centre",
+    "alt": "Placeholder image for Origins Centre",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-liliesleaf",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Liliesleaf",
+    "alt": "Placeholder image for Liliesleaf",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "post-first-day",
+    "dir": "blog",
+    "w": 1200,
+    "h": 630,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "text": "Your First Day",
+    "alt": "Placeholder image for a first day in Johannesburg",
+    "sizes": "(min-width: 60rem) 928px, calc(100vw - 2rem)"
+  }
+]

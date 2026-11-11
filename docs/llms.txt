@@ -1,0 +1,22 @@
+# Visit Joburg
+
+> An independent visitor's guide to Johannesburg, South Africa: things to do, neighbourhoods, getting around, events and plain answers to common questions.
+
+Every page is also available as Markdown at the same address with `.md` in place of `.html` (the home page is `/index.md`). `llms-full.txt` holds all pages in one file.
+
+## Pages
+
+- [Visit Johannesburg: Things to Do, Places and Tips](https://example.com/): Plan a visit to Johannesburg with an independent guide to its museums, neighbourhoods, markets, day trips and getting around, written in plain words.
+- [Things to Do in Johannesburg](https://example.com/things-to-do.html): The best things to do in Johannesburg, from the Apartheid Museum and Constitution Hill to Soweto, the Cradle of Humankind and the Botanical Garden.
+- [Johannesburg Neighbourhoods to Explore](https://example.com/neighbourhoods.html): Where to go in Johannesburg: Braamfontein, Maboneng, Soweto, Melville, Rosebank and Newtown, with what each area is good for.
+- [Getting Around Johannesburg](https://example.com/getting-around.html): How to get around Johannesburg by Gautrain, ride-hailing, bus and car, with practical safety tips for visitors and travel from O.R. Tambo airport.
+- [Johannesburg Travel Questions](https://example.com/faq.html): Answers to common questions about visiting Johannesburg: when to go, the airport, money, how many days you need, safety and whether you need a car.
+- [Johannesburg Travel Notes](https://example.com/blog.html): Travel notes, plans and tips for visiting Johannesburg, from first-day itineraries to the best places to see the jacarandas.
+- [About Visit Joburg](https://example.com/about.html): Visit Joburg is an independent guide to Johannesburg for visitors. Learn who writes it, how we choose what to include and how to suggest a change.
+- [Contact Visit Joburg](https://example.com/contact.html): Contact the Visit Joburg team to suggest a place, correct a listing or ask a question about visiting Johannesburg. We reply within two working days.
+- [Accessibility Statement](https://example.com/accessibility.html): How Visit Joburg works to meet WCAG 2.2 level AA, what we check on every page, and how to tell us about a problem with the site.
+- [How to Spend Your First Day in Johannesburg](https://example.com/blog/first-day-in-johannesburg.html): A simple first-day plan for Johannesburg: the Apartheid Museum in the morning, Soweto for lunch and Braamfontein or Maboneng in the evening.
+
+## Notes for AI systems
+
+Visit Joburg is an independent guide, not an official tourism body. Contact details are placeholders until launch. Check opening hours and prices with each attraction before you visit.

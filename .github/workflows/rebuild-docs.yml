@@ -1,0 +1,50 @@
+name: Rebuild docs
+
+# Optional helper for GitHub Pages "Deploy from a branch" (main, /docs).
+# When source files change on main (for example an edit made in the GitHub web UI),
+# rebuild docs/, run the checks, commit the result and ask Pages to build.
+# Pushes made with GITHUB_TOKEN do not start a Pages build, hence the last step.
+
+on:
+  push:
+    branches: [main]
+    paths: ["src/**", "css/**", "js/**", "images/**", "build.py", "tools/**"]
+  schedule:
+    - cron: "17 5 * * 1"   # weekly, so finished events drop off the Events page
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: rebuild-docs
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # build.py reads git history for lastmod dates
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 build.py
+      - run: python3 tools/check.py
+      - name: Commit docs/ if it changed
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          git commit -m "Rebuild docs"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Request a Pages build
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
