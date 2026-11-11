@@ -7,19 +7,28 @@ An independent visitor's guide to Johannesburg, built from the my-site schema, S
     python3 build.py                        # src/ -> docs/ (standard library only)
     python3 tools/check.py                  # must pass before every commit
     python3 tools/check_schema_vocab.py     # schema.org names (needs network)
+    node tools/test_editor.js               # after editor or events JSON changes
     cd docs && python3 -m http.server 3057  # preview
     pip install pillow && python3 tools/make_images.py   # placehold.co WebP/AVIF placeholders into images/
 
 ## Rules
 
-- `docs/` is generated and committed. Rebuild and commit it with every change to `src/`, `css/`, `js/` or `images/`. Never edit `docs/` by hand.
-- `src/data/site.json` is the single source for anything on more than one page (contact details, city, attractions, neighbourhoods, FAQs, events, posts, analytics ids). Visible lists and their JSON-LD are built from it, so they stay in step. `src/data/images.json` lists each image, its sizes and alt text.
+- `docs/` is generated and committed. Rebuild and commit it with every change to `src/`, `content/`, `css/`, `js/`, `editor/` or `images/`. Never edit `docs/` by hand.
+- `src/data/site.json` is the single source for anything on more than one page (contact details, city, attractions, neighbourhoods, FAQs, posts, analytics ids). Visible lists and their JSON-LD are built from it, so they stay in step. `src/data/images.json` lists each image, its sizes and alt text.
 - Pages are `src/pages/**.html` with front matter (`title`, `description`, `kind`, optional `robots`, `crumb`, `hero`, `body_class`). `kind` picks the schema built in `graph()` in `build.py`: `home`, `attractions`, `neighbourhoods`, `events`, `faq`, `blog`, `about`, `contact`. Pages under `blog/` are posts and need a matching entry in `posts`.
 - Every internal link and asset path is relative to the page depth (`{{ root }}`). Never hardcode a leading `/`.
 - No inline `style=""` attributes and no inline event handlers: the Content Security Policy blocks them. Inline `<script>` blocks are allowed only because `build.py` hashes them into the policy.
 - `example.com` appears only in `site.json` (`domain`, `email`, placeholder URLs); static files use `__DOMAIN__`, `__EMAIL__` and `__CSP__`, which `build.py` fills in.
 - Pages that must stay out of search set `robots: noindex, ...`; they are left out of the sitemap and `llms.txt`. `events.html` is noindex until real events replace the samples.
 - No iframes or third-party scripts that load on page load. The CSP sets `frame-src 'none'`; widen it only for a click-to-load embed.
+
+## Events editor
+
+- `content/events.json` is the single source for events. Do not copy it into `src/data/`. `build.py` (`load_events`) validates it with the same rules as `editor/editor-lib.js`; a bad edit fails the build.
+- The file keeps one event per line, soonest first. Times are local (`2026-12-05T09:00`); `timezone` adds the offset at build. Events with `published: false`, or that have ended, are left off the page and out of the schema.
+- `editor/` is the owner's editor (static, served at `/editor/`, noindex, not in the sitemap or the `tools/check.py` page checks). It holds only `editor/sealed.json`, the encrypted token. Never commit a token.
+- After changing `editor/editor-lib.js` or the JSON layout, run `node tools/test_editor.js`. It checks that saving does not reformat the file.
+- Saves commit the JSON to `main`; `rebuild-docs.yml` rebuilds `docs/` and publishes. The workflow name must stay "Rebuild docs" because the editor follows that run.
 
 ## Content
 

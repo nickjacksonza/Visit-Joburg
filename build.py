@@ -8,7 +8,7 @@
 Pages are src/pages/**.html (front matter + body). Placeholders {{ like_this }}
 resolve from src/data/site.json, the front matter and the HTML fragments built
 below. Visible lists (attractions, neighbourhoods, FAQs, events) and their JSON-LD
-come from the same data, so the two cannot drift apart.
+come from the same data. Events live in content/events.json, which the editor at /editor/ writes, so the two cannot drift apart.
 """
 import base64, datetime, hashlib, html, json, re, shutil, subprocess, sys, urllib.parse
 from pathlib import Path
@@ -26,6 +26,48 @@ LANG = site.get("lang", "en")
 CITY = site["city"]
 esc = html.escape
 VERSIONS = {}
+# ---------------------------------------------------------------- editable events
+EVENTS_FILE = ROOT / "content" / "events.json"
+LIMITS = {"name": 80, "description": 300, "place": 60, "street": 80, "url": 200}
+BAD_CHARS = re.compile(r"[<>\x00-\x1f\x7f]")
+SLUG = re.compile(r"^[a-z0-9][a-z0-9-]{0,60}$")
+WHEN = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$")
+
+
+def load_events():
+    """Read and validate content/events.json. Same rules as editor/editor-lib.js.
+    A bad edit made in the editor or on GitHub fails the build, so nothing broken goes live."""
+    data = json.loads(EVENTS_FILE.read_text(encoding="utf-8"))
+    if len(data["events"]) > 200:
+        raise SystemExit("events.json: more than 200 events")
+    seen = set()
+    for e in data["events"]:
+        where = f"events.json: {e.get('name') or e.get('id')}"
+        for k, lim in LIMITS.items():
+            v = e.get(k)
+            if not isinstance(v, str) or not v.strip() or len(v) > lim or BAD_CHARS.search(v):
+                raise SystemExit(f"{where}: bad {k}")
+        if not e["url"].startswith("https://"):
+            raise SystemExit(f"{where}: link must start with https://")
+        for k in ("start", "end"):
+            if not isinstance(e.get(k), str) or not WHEN.match(e[k]):
+                raise SystemExit(f"{where}: {k} must look like 2026-12-05T09:00")
+            datetime.datetime.fromisoformat(e[k])  # raises on a date that does not exist
+        if e["end"] <= e["start"]:
+            raise SystemExit(f"{where}: end must be after start")
+        p = e.get("price")
+        if isinstance(p, bool) or not isinstance(p, (int, float)) or not 0 <= p <= 100000 or abs(round(p * 100) - p * 100) > 1e-9:
+            raise SystemExit(f"{where}: price must be 0 to 100000 with at most two decimals")
+        if not isinstance(e.get("published"), bool):
+            raise SystemExit(f"{where}: published must be true or false")
+        if not SLUG.match(e.get("id", "")) or e["id"] in seen:
+            raise SystemExit(f"{where}: missing or duplicate id")
+        seen.add(e["id"])
+        e["start_iso"], e["end_iso"] = e["start"] + ":00" + data["timezone"], e["end"] + ":00" + data["timezone"]
+    return data
+
+
+EVENTS = load_events()
 IMAGES = {i["name"]: i for i in json.loads((SRC / "data" / "images.json").read_text(encoding="utf-8"))}
 
 
@@ -51,7 +93,7 @@ def img_url(name):
 
 # ---------------------------------------------------------------- helpers
 def rands(v):
-    return "Free" if float(v) == 0 else f"R{v}"
+    return "Free" if float(v) == 0 else f"R{v:,.2f}".replace(".00", "").replace(",", " ")
 
 
 def parse_page(path):
@@ -130,16 +172,18 @@ def fmt_date(d):
 def upcoming_events():
     """Events whose end time is still ahead, soonest first. Rebuild (the workflow also runs weekly) to drop finished ones."""
     now = datetime.datetime.now(datetime.timezone.utc)
-    return sorted((e for e in site["events"] if datetime.datetime.fromisoformat(e["end"]) > now), key=lambda e: e["start"])
+    return sorted((e for e in EVENTS["events"] if e["published"] and datetime.datetime.fromisoformat(e["end_iso"]) > now), key=lambda e: e["start"])
 
 
 def fmt_when(e):
     s, t = datetime.datetime.fromisoformat(e["start"]), datetime.datetime.fromisoformat(e["end"])
+    if s.date() != t.date():
+        return f'{s.strftime("%A %-d %B %Y, %H:%M")} to {t.strftime("%A %-d %B %Y, %H:%M")}'
     return f'{s.strftime("%A %-d %B %Y")}, {s.strftime("%H:%M")} to {t.strftime("%H:%M")}'
 
 
 def events_html():
-    out = [f'<article class="card" id="{e["id"]}"><h3>{esc(e["name"])}</h3><p><time datetime="{e["start"]}">{fmt_when(e)}</time></p>'
+    out = [f'<article class="card" id="{e["id"]}"><h3>{esc(e["name"])}</h3><p><time datetime="{e["start_iso"]}">{fmt_when(e)}</time></p>'
            f'<p class="muted">{esc(e["street"])}, {esc(e["place"])} &middot; {rands(e["price"])}</p><p>{esc(e["description"])}</p>'
            f'<p><a href="{esc(e["url"])}">Event details<span class="visually-hidden">: {esc(e["name"])}</span></a></p></article>' for e in upcoming_events()]
     return "\n".join(out) if out else "<p>No events are listed right now. Check back soon.</p>"
@@ -193,11 +237,11 @@ def faq_node(url):
 
 
 def event_node(e, url):
-    return {"@type": "Event", "@id": f"{url}#{e['id']}", "name": e["name"], "description": e["description"], "startDate": e["start"], "endDate": e["end"],
+    return {"@type": "Event", "@id": f"{url}#{e['id']}", "name": e["name"], "description": e["description"], "startDate": e["start_iso"], "endDate": e["end_iso"],
             "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
             "image": [f"{D}/images/og-default.png"], "url": e["url"],
             "location": {"@type": "Place", "name": e["place"], "address": addr(e["street"]), "containedInPlace": {"@id": DEST}},
-            "offers": {"@type": "Offer", "price": e["price"], "priceCurrency": site["currency"], "availability": "https://schema.org/InStock", "url": e["url"]}}
+            "offers": {"@type": "Offer", "price": f'{e["price"]:.2f}', "priceCurrency": EVENTS["currency"], "availability": "https://schema.org/InStock", "url": e["url"]}}
 
 
 def graph(page):
@@ -303,7 +347,7 @@ def nav_html(root, current):
 # Content Security Policy. Inline scripts are allowed by hash only; build() adds the hashes it finds.
 CSP_BASE = ("default-src 'self'; script-src 'self' {hashes} https://www.googletagmanager.com; style-src 'self'; "
             "img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; font-src 'self'; "
-            "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; "
+            "connect-src 'self' https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; "
             "frame-src 'none'; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'")
 INLINE_JS = re.compile(r"<script>(.*?)</script>", re.S)
 
@@ -388,6 +432,8 @@ def build():
     VERSIONS["css"], VERSIONS["js"] = (hashlib.sha256(x.encode()).hexdigest()[:8] for x in (css, js))
     (OUT / "css" / "site.css").write_text(css, encoding="utf-8")
     (OUT / "js" / "scripts.js").write_text(js, encoding="utf-8")
+    if (ROOT / "editor").exists():  # the owner's events editor, served at /editor/ (noindex, not in the sitemap)
+        shutil.copytree(ROOT / "editor", OUT / "editor")
     for d in ("images", "fonts"):
         if (ROOT / d).exists():
             shutil.copytree(ROOT / d, OUT / d)
@@ -398,7 +444,8 @@ def build():
         meta, body = parse_page(path)
         # 404.html is served at any missing URL, at any depth, so its links must be absolute.
         root = D + "/" if rel == "404.html" else "../" * rel.count("/")
-        mod[rel] = max(page_modified(d) for d in (path, SRC / "data" / "site.json"))
+        deps = [path, SRC / "data" / "site.json"] + ([EVENTS_FILE] if rel == "events.html" else [])
+        mod[rel] = max(page_modified(d) for d in deps)
         ctx = build_context(meta, body, rel, root, mod[rel])
         doc = partials["head"] + '<body class="{{ body_class }}">\n' + partials["header"] + '<main id="main">\n' + body + "</main>\n" + partials["footer"] + "</body>\n</html>\n"
         out = OUT / rel

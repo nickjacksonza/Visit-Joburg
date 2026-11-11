@@ -4,5 +4,6 @@
 #   Disallow: /
 User-agent: *
 Allow: /
+Disallow: /editor/
 
 Sitemap: https://example.com/sitemap.xml

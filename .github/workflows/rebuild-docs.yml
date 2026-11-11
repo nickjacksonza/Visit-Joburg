@@ -8,7 +8,7 @@ name: Rebuild docs
 on:
   push:
     branches: [main]
-    paths: ["src/**", "css/**", "js/**", "images/**", "build.py", "tools/**"]
+    paths: ["src/**", "content/**", "css/**", "js/**", "images/**", "editor/**", "build.py", "tools/**"]
   schedule:
     - cron: "17 5 * * 1"   # weekly, so finished events drop off the Events page
   workflow_dispatch:
@@ -31,6 +31,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - run: node tools/test_editor.js   # the editor rules and the shipped JSON must agree
       - run: python3 build.py
       - run: python3 tools/check.py
       - name: Commit docs/ if it changed

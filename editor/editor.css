@@ -1,0 +1,28 @@
+:root{--ink:#1c2b2a;--bg:#f6faf9;--card:#fff;--line:#cfdcda;--brand:#1a5551;--err:#a12828;--ok:#1d6b2f}
+@media (prefers-color-scheme:dark){:root{--ink:#e8f1f0;--bg:#0f1a19;--card:#162423;--line:#2a3f3d;--brand:#7cc4bd;--err:#ff9b9b;--ok:#8fe0a0}}
+*{box-sizing:border-box}
+body{margin:0;font:1rem/1.5 system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+h1{font-size:1.4rem;margin:0}h2{font-size:1.15rem;margin:1.5rem 0 .25rem}
+.panel{max-width:30rem;margin:3rem auto;padding:0 1rem}
+form,label{display:grid;gap:.5rem}form{gap:.9rem}label{font-weight:600}
+input,button{font:inherit;min-height:44px;padding:.4rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+input[type=checkbox]{min-height:0;width:1.2rem;height:1.2rem}
+.btn{cursor:pointer;font-weight:600}.primary{background:var(--brand);color:var(--bg);border-color:var(--brand)}
+.link{background:none;border:0;text-decoration:underline;cursor:pointer}
+.top{display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;border-bottom:1px solid var(--line)}
+#app{max-width:56rem;margin:0 auto;padding:0 1rem 7rem}
+.hint,.note{color:var(--ink);opacity:.75;margin:.1rem 0 .6rem}
+.row{display:grid;gap:.6rem 1rem;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.8rem;margin:.8rem 0;grid-template-columns:1fr 1fr}
+.row label{font-weight:600;font-size:.9rem}.row label.inline{display:inline-flex;gap:.4rem;align-items:center}
+#app>.btn{margin:.2rem .4rem .2rem 0}
+@media (max-width:36em){.row{grid-template-columns:1fr}}
+.row .wide{grid-column:1/-1}.row.off{opacity:.65}.row.gone{display:none}
+.tags,.acts{display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center}
+.tags label{display:inline-flex;gap:.35rem;font-weight:400;align-items:center}
+.acts{justify-content:space-between}
+.msg{margin:0;padding:.6rem .8rem;border-radius:8px;border:1px solid var(--line)}.err{color:var(--err);border-color:var(--err)}.ok{color:var(--ok);border-color:var(--ok)}
+.status:not(:empty){max-width:56rem;margin:1rem auto;padding:0 1rem}
+.bar{position:fixed;inset:auto 0 0 0;display:flex;gap:.6rem;align-items:center;justify-content:flex-end;padding:.7rem 1rem;background:var(--card);border-top:1px solid var(--line)}
+.bar span{margin-right:auto}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+[hidden]{display:none!important}

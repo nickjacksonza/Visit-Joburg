@@ -90,6 +90,10 @@ def check_node(n, name):
         if isinstance(v, (dict, list)): check_node(v, name)
 
 
+ed = (DOCS / "editor" / "index.html").read_text(encoding="utf-8") if (DOCS / "editor").exists() else ""
+if ed and 'content="noindex, nofollow"' not in ed: err("editor/index.html: must be noindex")
+if (DOCS / "editor" / "sealed.json").exists() and re.search(r"(github_pat_|ghp_)", (DOCS / "editor" / "sealed.json").read_text()): err("editor/sealed.json: holds a plain token")
+
 import datetime
 sec = (DOCS / ".well-known" / "security.txt").read_text(encoding="utf-8")
 exp = datetime.datetime.fromisoformat(re.search(r"Expires: (\S+)", sec).group(1).replace("Z", "+00:00"))
@@ -97,6 +101,7 @@ days = (exp - datetime.datetime.now(datetime.timezone.utc)).days
 if not 30 <= days <= 366: err(f"security.txt: Expires is {days} days away; keep it between 30 and 366")
 
 for f in sorted(DOCS.rglob("*.html")):
+    if "editor" in f.relative_to(DOCS).parts: continue  # the editor is a tool, not a content page
     name = f.relative_to(DOCS).as_posix(); p = P(); p.feed(f.read_text(encoding="utf-8"))
     if not p.lang: err(f"{name}: no lang")
     if not 10 <= len(p.title) <= 70: err(f"{name}: title length {len(p.title)}")

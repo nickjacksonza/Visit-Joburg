@@ -30,7 +30,7 @@ def walk(n, page):
             walk(v, page)
 
 
-pages = list(DOCS.rglob("*.html"))
+pages = [f for f in DOCS.rglob("*.html") if "editor" not in f.relative_to(DOCS).parts]
 for f in pages:
     for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', f.read_text(encoding="utf-8"), re.S):
         walk(json.loads(block), f.relative_to(DOCS).as_posix())
