@@ -38,6 +38,8 @@ def load_events():
     """Read and validate content/events.json. Same rules as editor/editor-lib.js.
     A bad edit made in the editor or on GitHub fails the build, so nothing broken goes live."""
     data = json.loads(EVENTS_FILE.read_text(encoding="utf-8"))
+    if not isinstance(data.get("timezone"), str) or not re.fullmatch(r"[+-](0\d|1[0-4]):[0-5]\d", data["timezone"]):
+        raise SystemExit("events.json: timezone must be an offset like +02:00")
     if len(data["events"]) > 200:
         raise SystemExit("events.json: more than 200 events")
     seen = set()

@@ -19,6 +19,8 @@ bad(() => L.clean(wrap(ev({ url: "javascript:alert(1)" }))));
 bad(() => L.clean(wrap(ev({ url: "http://example.com" }))));
 bad(() => L.clean(wrap(ev({ published: "yes" }))));
 bad(() => L.clean(wrap(ev({ id: "x" }), ev({ id: "x" }))));
+bad(() => L.clean(Object.assign(wrap(ev({})), { timezone: "" })));
+bad(() => L.clean(Object.assign(wrap(ev({})), { timezone: "SAST" })));
 const c = L.clean(wrap(ev({ name: "  Late   Show ", start: "2027-05-01T20:00", end: "2027-05-01T22:00" }), ev({ name: "Early" })));
 assert.deepStrictEqual(c.events.map((e) => e.id), ["early", "late-show"], "events are sorted by start and get ids from their names");
 assert.strictEqual(L.ended(ev({ end: "2027-01-01T12:00" }), "+02:00", new Date("2027-01-01T10:30:00Z")), true);

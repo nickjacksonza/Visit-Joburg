@@ -49,6 +49,7 @@
   // Returns a cleaned copy, soonest event first, with keys in the file's usual order. Throws Error with a plain message.
   function clean(data) {
     if (!data || !Array.isArray(data.events)) throw new Error("The file has no events list.");
+    if (typeof data.timezone !== "string" || !/^[+-](0\d|1[0-4]):[0-5]\d$/.test(data.timezone)) throw new Error("The file's timezone must be an offset like +02:00.");
     if (data.events.length > MAX_EVENTS) throw new Error("Keep the list to " + MAX_EVENTS + " events. Remove some past ones.");
     var seen = {};
     var events = data.events.map(function (e) { return cleanEvent(e, seen); });
