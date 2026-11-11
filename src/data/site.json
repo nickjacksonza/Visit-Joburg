@@ -1,0 +1,282 @@
+{
+  "name": "Visit Joburg",
+  "legal_name": "Visit Joburg",
+  "short_name": "Visit Joburg",
+  "domain": "https://example.com",
+  "lang": "en-ZA",
+  "og_locale": "en_ZA",
+  "tagline": "An independent visitor's guide to Johannesburg.",
+  "description": "An independent visitor's guide to Johannesburg, South Africa: things to do, neighbourhoods, getting around, events and plain answers to common questions.",
+  "phone": "010 000 0000",
+  "phone_e164": "+27100000000",
+  "email": "hello@example.com",
+  "founded": "2026",
+  "ga4_id": "",
+  "google_site_verification": "",
+  "formspree_id": "your-form-id",
+  "analytics_requires_consent": false,
+  "cname": "",
+  "currency": "ZAR",
+  "social": {
+    "facebook": "https://www.facebook.com/example",
+    "instagram": "https://www.instagram.com/example"
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "index.html"
+    },
+    {
+      "label": "Things to Do",
+      "href": "things-to-do.html"
+    },
+    {
+      "label": "Neighbourhoods",
+      "href": "neighbourhoods.html"
+    },
+    {
+      "label": "Getting Around",
+      "href": "getting-around.html"
+    },
+    {
+      "label": "Events",
+      "href": "events.html"
+    },
+    {
+      "label": "Blog",
+      "href": "blog.html"
+    },
+    {
+      "label": "FAQ",
+      "href": "faq.html"
+    },
+    {
+      "label": "Contact",
+      "href": "contact.html"
+    }
+  ],
+  "city": {
+    "name": "Johannesburg",
+    "alternate_names": [
+      "Joburg",
+      "Jozi",
+      "eGoli"
+    ],
+    "region": "Gauteng",
+    "country": "ZA",
+    "lat": -26.2041,
+    "lng": 28.0473,
+    "wikipedia": "https://en.wikipedia.org/wiki/Johannesburg"
+  },
+  "attractions": [
+    {
+      "id": "apartheid-museum",
+      "name": "Apartheid Museum",
+      "area": "Ormonde",
+      "street": "Northern Parkway and Gold Reef Road",
+      "lat": -26.2375,
+      "lng": 28.0103,
+      "type": "Museum",
+      "summary": "The story of apartheid and the struggle against it, told through film, photographs and personal accounts. Allow at least two to three hours.",
+      "tags": [
+        "History",
+        "Museum"
+      ],
+      "img": "attr-apartheid-museum"
+    },
+    {
+      "id": "constitution-hill",
+      "name": "Constitution Hill",
+      "area": "Braamfontein",
+      "street": "11 Kotze Street",
+      "lat": -26.1889,
+      "lng": 28.0425,
+      "type": "LandmarksOrHistoricalBuildings",
+      "summary": "A former prison complex where Nelson Mandela and Mahatma Gandhi were held, now home to the Constitutional Court. Guided tours run through the day.",
+      "tags": [
+        "History",
+        "Architecture"
+      ],
+      "img": "attr-constitution-hill"
+    },
+    {
+      "id": "vilakazi-street",
+      "name": "Vilakazi Street, Soweto",
+      "area": "Orlando West, Soweto",
+      "street": "Vilakazi Street",
+      "lat": -26.2385,
+      "lng": 27.9081,
+      "type": "TouristAttraction",
+      "summary": "The only street in the world where two Nobel Peace Prize winners lived: Nelson Mandela and Archbishop Desmond Tutu. Visit Mandela House and eat at one of the street's restaurants.",
+      "tags": [
+        "History",
+        "Food"
+      ],
+      "img": "attr-vilakazi-street"
+    },
+    {
+      "id": "hector-pieterson",
+      "name": "Hector Pieterson Memorial and Museum",
+      "area": "Orlando West, Soweto",
+      "street": "Khumalo Street",
+      "lat": -26.2381,
+      "lng": 27.9095,
+      "type": "Museum",
+      "summary": "A memorial to the students killed in the Soweto uprising of 16 June 1976, a short walk from Vilakazi Street.",
+      "tags": [
+        "History",
+        "Museum"
+      ],
+      "img": "attr-hector-pieterson"
+    },
+    {
+      "id": "cradle-of-humankind",
+      "name": "Cradle of Humankind",
+      "area": "About 50 km northwest of the city",
+      "street": "Maropeng Visitor Centre, R400",
+      "lat": -25.9667,
+      "lng": 27.6622,
+      "type": "TouristAttraction",
+      "summary": "A UNESCO World Heritage Site with some of the world's richest fossil finds of early humans. Visit the Maropeng visitor centre and the Sterkfontein Caves. Plan a full day.",
+      "tags": [
+        "Day trip",
+        "Science",
+        "Outdoors"
+      ],
+      "img": "attr-cradle",
+      "locality": "Mogale City"
+    },
+    {
+      "id": "botanical-garden",
+      "name": "Johannesburg Botanical Garden",
+      "area": "Emmarentia",
+      "street": "Olifants Road",
+      "lat": -26.1597,
+      "lng": 28.0028,
+      "type": "Park",
+      "summary": "A large public garden with a rose garden, herb garden and walking paths beside Emmarentia Dam. Free to enter and good for a picnic.",
+      "tags": [
+        "Outdoors",
+        "Free"
+      ],
+      "img": "attr-botanical-garden",
+      "free": true
+    },
+    {
+      "id": "origins-centre",
+      "name": "Origins Centre",
+      "area": "Braamfontein",
+      "street": "University of the Witwatersrand, Yale Road",
+      "lat": -26.1925,
+      "lng": 28.03,
+      "type": "Museum",
+      "summary": "A museum at Wits University about the origins of modern humans, with a large collection of southern African rock art.",
+      "tags": [
+        "Science",
+        "Museum"
+      ],
+      "img": "attr-origins-centre"
+    },
+    {
+      "id": "liliesleaf",
+      "name": "Liliesleaf",
+      "area": "Rivonia",
+      "street": "7 George Avenue",
+      "lat": -26.0442,
+      "lng": 28.0569,
+      "type": "Museum",
+      "summary": "The farm that served as a secret base for the liberation movement in the 1960s. The 1963 police raid here led to the Rivonia Trial.",
+      "tags": [
+        "History",
+        "Museum"
+      ],
+      "img": "attr-liliesleaf"
+    }
+  ],
+  "neighbourhoods": [
+    {
+      "id": "braamfontein",
+      "name": "Braamfontein",
+      "lat": -26.1929,
+      "lng": 28.0357,
+      "summary": "A student district next to Wits University. Rooftop bars, galleries, coffee shops and a busy Saturday food market.",
+      "for": "Food markets, nightlife, Constitution Hill"
+    },
+    {
+      "id": "maboneng",
+      "name": "Maboneng",
+      "lat": -26.2044,
+      "lng": 28.0583,
+      "summary": "A small, walkable precinct on the east side of the city centre, known for street art, galleries, independent shops and restaurants.",
+      "for": "Street art, galleries, weekend markets"
+    },
+    {
+      "id": "soweto",
+      "name": "Soweto",
+      "lat": -26.2485,
+      "lng": 27.854,
+      "summary": "South Africa's best-known township and the heart of much of the country's history. Go with a local guide to get the most from it.",
+      "for": "History, Vilakazi Street, local food"
+    },
+    {
+      "id": "melville",
+      "name": "Melville",
+      "lat": -26.175,
+      "lng": 28.008,
+      "summary": "A relaxed suburb with a strip of cafés, bookshops and bars along 7th Street, close to the Melville Koppies nature reserve.",
+      "for": "Cafés, live music, a walk on the koppies"
+    },
+    {
+      "id": "rosebank",
+      "name": "Rosebank",
+      "lat": -26.146,
+      "lng": 28.0436,
+      "summary": "A compact business and shopping district with its own Gautrain station, a weekend rooftop market and several galleries.",
+      "for": "A first base, shopping, galleries"
+    },
+    {
+      "id": "newtown",
+      "name": "Newtown",
+      "lat": -26.203,
+      "lng": 28.032,
+      "summary": "A cultural quarter in the west of the city centre, home to the Market Theatre and Mary Fitzgerald Square.",
+      "for": "Theatre, music, history"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "When is the best time to visit Johannesburg?",
+      "a": "Any time of year works. Summer (October to March) is warm, with short afternoon thunderstorms. Winter (June to August) is dry and sunny, with cold nights. In October and November, jacaranda trees turn many streets purple."
+    },
+    {
+      "q": "Which airport serves Johannesburg?",
+      "a": "O.R. Tambo International Airport (JNB), about 25 km east of the city centre. The Gautrain runs from the airport to Sandton, and from there to Rosebank and Park Station."
+    },
+    {
+      "q": "What currency is used in Johannesburg?",
+      "a": "The South African rand (ZAR). Cards are widely accepted. Carry a little cash for markets, tips and car guards."
+    },
+    {
+      "q": "How many days do I need in Johannesburg?",
+      "a": "Two or three days covers the main museums, Soweto and one or two neighbourhoods. Add a day for the Cradle of Humankind or Pretoria."
+    },
+    {
+      "q": "Is Johannesburg safe for visitors?",
+      "a": "Most visits pass without trouble if you take sensible care. Use ride-hailing or the Gautrain instead of walking at night, keep phones and bags out of sight, and go with a local guide in areas you do not know."
+    },
+    {
+      "q": "Do I need a car in Johannesburg?",
+      "a": "No. The Gautrain, ride-hailing apps and guided tours cover most of what visitors want to see. A car helps for day trips out of the city."
+    }
+  ],
+  "posts": [
+    {
+      "slug": "first-day-in-johannesburg",
+      "title": "How to Spend Your First Day in Johannesburg",
+      "description": "A simple first-day plan for Johannesburg: the Apartheid Museum in the morning, Soweto for lunch and Braamfontein or Maboneng in the evening.",
+      "date": "2026-11-11",
+      "updated": "2026-11-11",
+      "img": "post-first-day"
+    }
+  ]
+}

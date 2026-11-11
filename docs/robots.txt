@@ -1,0 +1,9 @@
+# Everyone, including search and AI answer engines, may crawl the whole site.
+# To opt out of AI training or answer crawlers, add a block per bot, for example:
+#   User-agent: GPTBot
+#   Disallow: /
+User-agent: *
+Allow: /
+Disallow: /editor/
+
+Sitemap: https://example.com/sitemap.xml

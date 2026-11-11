@@ -1,0 +1,7 @@
+/* TEAM */
+Site: Visit Joburg
+Contact: hello@example.com
+
+/* SITE */
+Built with: Python 3 (standard library), HTML, CSS, JSON-LD
+Last update: 2026-11-11
