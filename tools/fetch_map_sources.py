@@ -99,10 +99,11 @@ OTHER_ROADS = [
 MAIN_TYPES = {"motorway", "trunk", "primary", "secondary", "tertiary", "motorway_link", "trunk_link", "primary_link"}
 
 
-def fetch_named(name, types):
-    """Every road segment with this exact name (or ref), paging past Nominatim's 50-result limit."""
+def fetch_named(name, types, max_pages=25):
+    """Every road segment with this exact name (or ref), paging past Nominatim's 50-result limit. A short name such as
+    R21 also matches many unrelated places, so paging stops after max_pages."""
     seen, lines, ids = [], [], []
-    while True:
+    for _ in range(max_pages):
         extra = {"exclude_place_ids": ",".join(seen)} if seen else {}
         res = search(name, True, limit=50, extratags=1, **extra)
         new = [r for r in res if str(r["place_id"]) not in seen]
@@ -120,13 +121,16 @@ def fetch_named(name, types):
 
 
 def fetch_other_roads():
-    out = {}
+    """Saves after each road and skips roads already in the file, so a stopped run picks up where it left off."""
+    path = OUT.parent / "main_roads.json"
+    out = json.loads(path.read_text(encoding="utf-8")) if path.exists() and "--refresh" not in sys.argv else {}
     for key, label, name, kind in OTHER_ROADS:
+        if key in out:
+            continue
         lines, ids = fetch_named(name, {"motorway", "trunk"} if kind == "freeway" else MAIN_TYPES)
         out[key] = {"label": label, "name": name, "kind": kind, "ways": ids, "segments": lines}
-        print(f"  {label} ({name}): {len(lines)} segments")
-    path = OUT.parent / "main_roads.json"
-    path.write_text(json.dumps(out, separators=(",", ":")) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(out, separators=(",", ":")) + "\n", encoding="utf-8")
+        print(f"  {label} ({name}): {len(lines)} segments", flush=True)
     print(f"wrote {path.relative_to(ROOT)}")
 
 

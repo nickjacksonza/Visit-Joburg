@@ -26,7 +26,7 @@ Hexes: a grid of pointy-top hexagons (HEX_KM from centre to corner) laid over th
 area its centre falls in, and every area keeps at least one. Each area's hexagons form one shape, id hex-<place id>.
 The map page fills these when a toggle (a tag or visitor type) matches the area. Base outlines © OpenStreetMap contributors (ODbL).
 """
-import json, math, sys
+import colorsys, json, math, sys
 from pathlib import Path
 from shapely.geometry import MultiPoint, Point, mapping, shape
 from shapely.geometry import LineString, MultiLineString
@@ -212,36 +212,54 @@ def path_d(g):
     return " ".join(out)
 
 
+# ---------------------------------------------------------------- colour: a colour wheel on a forest
+FOREST, FOREST_DARK, PAPER, INK = "#1c4a2e", "#10291a", "#faf8f4", "#1a1c20"
+_cbx, _cby = proj(CBD["lng"], CBD["lat"])
+
+
+def wheel(x, y):
+    """A hexagon's colour from its place around the city centre: the compass direction sets the hue (north red, then
+    orange, yellow, green, blue, indigo and violet going clockwise), and the distance sets how rich it is, from soft grey
+    at the centre to full colour about 14 km out. Every hexagon gets its own colour, so the wheel blends smoothly."""
+    dx, dy = x - _cbx, y - _cby
+    bearing = (math.degrees(math.atan2(dx, -dy)) + 360) % 360
+    k = min(1.0, math.hypot(dx, dy) / 14)
+    r, g, b = colorsys.hls_to_rgb(bearing / 360, 0.80 - 0.22 * k, 0.08 + 0.72 * k)
+    return "#" + "".join(f"{round(v * 255):02x}" for v in (r, g, b))
+
+
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace('"', "&quot;")
 
 
 svg = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.0f} {H:.0f}" width="{W:.0f}" height="{H:.0f}">',
-       f'<rect id="background" width="{W:.0f}" height="{H:.0f}" fill="#faf8f4"/>']
+       f'<rect id="background" width="{W:.0f}" height="{H:.0f}" fill="{FOREST}"/>']
 
 svg.append('<g id="regions">')
 for rid, r in regions.items():
     members = [shapes[p["id"]] for p in areas if p["region"] == rid]
     if members:
         g = unary_union(members).buffer(0.15).buffer(-0.15)
-        svg.append(f'<path id="region-{rid}" data-name="{esc(r["name"])}" d="{path_d(g)}" fill="{PALETTE[rid]}" fill-opacity="0.10" stroke="{PALETTE[rid]}" stroke-width="3"/>')
+        svg.append(f'<path id="region-{rid}" data-name="{esc(r["name"])}" d="{path_d(g)}" fill="none" stroke="{PAPER}" stroke-opacity="0.35" stroke-width="2"/>')
 svg.append("</g>")
 
+svg.append('<g id="hexes">')
+for p in areas:  # one group per area, one hexagon each, coloured by the wheel; the forest shows through the gaps
+    hx = "".join(f'<path d="M{" L".join(f"{(x - ox) * UNIT:.1f},{(y - oy) * UNIT:.1f}" for x, y in hexagon(cx, cy, HEX_KM * 0.94))}Z" fill="{wheel(cx, cy)}"/>'
+                 for cx, cy in hex_of[p["id"]])
+    svg.append(f'<g id="hex-{p["id"]}" data-place="{p["id"]}">{hx}</g>')
+svg.append("</g>")
 svg.append('<g id="areas">')
 for p in areas:
     pid = p["id"]
     c = PALETTE[p["region"]]
     svg.append(f'<path id="{pid}" data-name="{esc(p["name"])}" data-region="{p["region"]}" data-shape="{kinds[pid]}"'
-               f'{" data-major=\"true\"" if p["major"] else ""} d="{path_d(shapes[pid])}" fill="{c}" fill-opacity="{0.22 if kinds[pid] == "outline" else 0.12}" '
-               f'stroke="#1a1c20" stroke-opacity="0.45" stroke-width="{1 if kinds[pid] == "outline" else 0.6}"'
+               f'{" data-major=\"true\"" if p["major"] else ""} d="{path_d(shapes[pid])}" fill="none" '
+               f'stroke="{INK}" stroke-opacity="0.55" stroke-width="{1.2 if kinds[pid] == "outline" else 0.8}"'
                f'{" stroke-dasharray=\"3 2\"" if kinds[pid] == "rough" else ""}/>')
 svg.append("</g>")
 
-svg.append('<g id="hexes">')
-for p in areas:
-    d = " ".join("M" + " L".join(f"{(x - ox) * UNIT:.1f},{(y - oy) * UNIT:.1f}" for x, y in hexagon(cx, cy)) + "Z" for cx, cy in hex_of[p["id"]])
-    svg.append(f'<path id="hex-{p["id"]}" data-place="{p["id"]}" d="{d}" fill="{PALETTE[p["region"]]}" fill-opacity="0.35" stroke="#faf8f4" stroke-width="1.5"/>')
-svg.append("</g>")
+
 
 # Other freeways and main roads, under the ring road so the ring stays the most prominent line.
 _main = ROOT / "src" / "map" / "source" / "main_roads.json"
@@ -266,10 +284,10 @@ if _main.exists():
     svg.append('<g id="main-roads">')
     for key, r, d, _ in drawn:
         if r["kind"] == "main":
-            svg.append(f'<path id="road-{key}-casing" d="{d}" fill="none" stroke="#5f646d" stroke-opacity="0.7" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>')
+            svg.append(f'<path id="road-{key}-casing" d="{d}" fill="none" stroke="{FOREST_DARK}" stroke-opacity="0.55" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>')
     for key, r, d, _ in drawn:
         if r["kind"] == "main":
-            svg.append(f'<path id="road-{key}" data-name="{esc(r["name"])}" d="{d}" fill="none" stroke="#faf8f4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>')
+            svg.append(f'<path id="road-{key}" data-name="{esc(r["name"])}" d="{d}" fill="none" stroke="{PAPER}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>')
     for key, r, d, longest in drawn:  # name along the road, at the middle of its longest stretch
         if r["kind"] != "main":
             continue
@@ -280,15 +298,15 @@ if _main.exists():
         m = longest.interpolate(0.5, normalized=True)
         mx, my = (m.x - ox) * UNIT, (m.y - oy) * UNIT
         svg.append(f'<text id="road-label-{key}" x="{mx:.0f}" y="{my + 3:.0f}" transform="rotate({ang:.0f} {mx:.0f} {my:.0f})" font-family="Inter, Arial, sans-serif" font-size="8" '
-                   f'font-weight="700" text-anchor="middle" fill="#1a1c20" stroke="#faf8f4" stroke-width="2.5" paint-order="stroke">{esc(r["label"])}</text>')
+                   f'font-weight="700" text-anchor="middle" fill="{PAPER}" stroke="{FOREST_DARK}" stroke-width="2.5" paint-order="stroke">{esc(r["label"])}</text>')
     svg.append("</g>")
     svg.append('<g id="freeways">')
     for key, r, d, _ in drawn:
         if r["kind"] == "freeway":
-            svg.append(f'<path id="road-{key}-casing" d="{d}" fill="none" stroke="#1a1c20" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>')
+            svg.append(f'<path id="road-{key}-casing" d="{d}" fill="none" stroke="{FOREST_DARK}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>')
     for key, r, d, _ in drawn:
         if r["kind"] == "freeway":
-            svg.append(f'<path id="road-{key}" data-name="{esc(r["name"])}" d="{d}" fill="none" stroke="#f5c400" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>')
+            svg.append(f'<path id="road-{key}" data-name="{esc(r["name"])}" d="{d}" fill="none" stroke="#d9d6cf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>')
     for key, r, d, longest in drawn:
         if r["kind"] != "freeway":
             continue
@@ -325,9 +343,9 @@ if _roads.exists():
         markers.append((key, r, (m.x - ox) * UNIT, (m.y - oy) * UNIT))
     svg.append('<g id="ring-road">')
     for key, r, d in lines_d:  # dark casing under each road, then the road on top
-        svg.append(f'<path id="ring-{key}-casing" d="{d}" fill="none" stroke="#1a1c20" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>')
+        svg.append(f'<path id="ring-{key}-casing" d="{d}" fill="none" stroke="{FOREST_DARK}" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>')
     for key, r, d in lines_d:
-        svg.append(f'<path id="ring-{key}" data-name="{r["number"]} {esc(r["name"])}" d="{d}" fill="none" stroke="#f5c400" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>')
+        svg.append(f'<path id="ring-{key}" data-name="{r["number"]} {esc(r["name"])}" d="{d}" fill="none" stroke="{PAPER}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>')
     for key, r, x, y in markers:
         w = 12 + 8 * len(r["number"])
         svg.append(f'<g id="marker-{key}"><rect x="{x - w / 2:.0f}" y="{y - 11:.0f}" width="{w}" height="22" rx="5" fill="#175cd3" stroke="#faf8f4" stroke-width="2"/>'
@@ -374,7 +392,7 @@ if _ring.exists():
         lx, ly = x + ux / n * 1.1, y + uy / n * 1.1  # the exit number sits just outside the ring
         sx, sy = (x - ox) * UNIT, (y - oy) * UNIT
         svg.append(f'<g id="{tid}" data-name="{esc(full)}"><circle cx="{sx:.0f}" cy="{sy:.0f}" r="4" fill="#faf8f4" stroke="#1a1c20" stroke-width="2"/>'
-                   + (f'<text x="{(lx - ox) * UNIT:.0f}" y="{(ly - oy) * UNIT + 3:.0f}" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700" text-anchor="middle" fill="#1a1c20">{esc(refs[0])}</text>' if refs else "")
+                   + (f'<text x="{(lx - ox) * UNIT:.0f}" y="{(ly - oy) * UNIT + 3:.0f}" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700" text-anchor="middle" fill="{PAPER}" stroke="{FOREST_DARK}" stroke-width="2.5" paint-order="stroke">{esc(refs[0])}</text>' if refs else "")
                    + "</g>")
     svg.append("</g>")
     svg.append('<g id="ring-bridges">')
@@ -388,7 +406,7 @@ city = SRC.get("_city", {})
 if city.get("found"):
     g = proj_geom(city["geojson"])
     if g is not None and g.geom_type in ("Polygon", "MultiPolygon"):
-        svg.append(f'<g id="city-boundary"><path id="city-of-johannesburg" d="{path_d(g)}" fill="none" stroke="#1a1c20" stroke-width="2.5" stroke-dasharray="10 5" stroke-opacity="0.6"/></g>')
+        svg.append(f'<g id="city-boundary"><path id="city-of-johannesburg" d="{path_d(g)}" fill="none" stroke="{PAPER}" stroke-width="2" stroke-dasharray="10 5" stroke-opacity="0.4"/></g>')
 
 svg.append('<g id="attractions">')
 seen = set()
@@ -403,14 +421,14 @@ for p in places:
     else:
         continue
     seen.add(p.get("attraction_id"))
-    svg.append(f'<circle id="{p["id"]}" data-name="{esc(p["name"])}" cx="{(x - ox) * UNIT:.1f}" cy="{(y - oy) * UNIT:.1f}" r="6" fill="#b54708" stroke="#faf8f4" stroke-width="2"/>')
+    svg.append(f'<circle id="{p["id"]}" data-name="{esc(p["name"])}" cx="{(x - ox) * UNIT:.1f}" cy="{(y - oy) * UNIT:.1f}" r="5" fill="{INK}" stroke="{PAPER}" stroke-width="2"/>')
 for a in SITE["attractions"]:  # the detailed things-to-do attractions not already listed under an area
     if a["id"] in seen or (MAJOR and a.get("neighbourhood") not in {p["id"] for p in areas}):
         continue
     x, y = proj(a["lng"], a["lat"])
     if not (minx - PAD < x < maxx + PAD and miny - PAD < y < maxy + PAD):
         continue
-    svg.append(f'<circle id="{a["id"]}" data-name="{esc(a["name"])}" cx="{(x - ox) * UNIT:.1f}" cy="{(y - oy) * UNIT:.1f}" r="6" fill="#b54708" stroke="#faf8f4" stroke-width="2"/>')
+    svg.append(f'<circle id="{a["id"]}" data-name="{esc(a["name"])}" cx="{(x - ox) * UNIT:.1f}" cy="{(y - oy) * UNIT:.1f}" r="5" fill="{INK}" stroke="{PAPER}" stroke-width="2"/>')
 svg.append("</g>")
 
 svg.append('<g id="labels">')
@@ -418,7 +436,7 @@ for p in areas:
     c = shapes[p["id"]].representative_point()
     size, weight = (11, 700) if p["major"] else (8, 400)
     svg.append(f'<text id="label-{p["id"]}" x="{(c.x - ox) * UNIT:.1f}" y="{(c.y - oy) * UNIT:.1f}" font-family="Inter, Arial, sans-serif" '
-               f'font-size="{size}" font-weight="{weight}" text-anchor="middle" fill="#1a1c20">{esc(p["name"])}</text>')
+               f'font-size="{size}" font-weight="{weight}" text-anchor="middle" fill="{INK}" stroke="{PAPER}" stroke-width="2.5" paint-order="stroke" stroke-opacity="0.85">{esc(p["name"])}</text>')
 svg.append("</g>")
 
 # View frames: a dashed box per view in map.json, for checking what each view shows. The city view frames the ring road.
@@ -435,8 +453,8 @@ for v in MAPCFG["views"]:
         b = unary_union(got).bounds
     m = 1.0  # km of margin
     x0, y0, x1, y1 = (b[0] - m - ox) * UNIT, (b[1] - m - oy) * UNIT, (b[2] + m - ox) * UNIT, (b[3] + m - oy) * UNIT
-    svg.append(f'<g id="view-{v["id"]}"><rect x="{x0:.0f}" y="{y0:.0f}" width="{x1 - x0:.0f}" height="{y1 - y0:.0f}" fill="none" stroke="#6927da" stroke-width="2" stroke-dasharray="8 4"/>'
-               f'<text x="{x0 + 4:.0f}" y="{y0 - 5:.0f}" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#6927da">View: {esc(v["name"])}</text></g>')
+    svg.append(f'<g id="view-{v["id"]}"><rect x="{x0:.0f}" y="{y0:.0f}" width="{x1 - x0:.0f}" height="{y1 - y0:.0f}" fill="none" stroke="{PAPER}" stroke-width="1.5" stroke-dasharray="8 4"/>'
+               f'<text x="{x0 + 4:.0f}" y="{y0 - 5:.0f}" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="{PAPER}">View: {esc(v["name"])}</text></g>')
 svg.append("</g>")
 
 # Places outside the map: an arrow on the edge pointing their way, with the distance from the city centre.
@@ -460,10 +478,10 @@ for p in places:
         ty += 16 if down else -16
     placed.append((sx, ty))
     anchor = "end" if sx > W - 150 else "start" if sx < 150 else "middle"
-    svg.append(f'<g id="{p["id"]}" data-name="{esc(p["name"])}"><path d="M-10,-7 L10,0 L-10,7 Z" transform="translate({sx:.0f},{sy:.0f}) rotate({ang:.0f})" fill="#5f646d"/>'
-               f'<text x="{sx:.0f}" y="{ty:.0f}" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="{anchor}" fill="#1a1c20">{esc(p["name"])}, {km:.0f} km from the centre</text></g>')
+    svg.append(f'<g id="{p["id"]}" data-name="{esc(p["name"])}"><path d="M-10,-7 L10,0 L-10,7 Z" transform="translate({sx:.0f},{sy:.0f}) rotate({ang:.0f})" fill="{PAPER}"/>'
+               f'<text x="{sx:.0f}" y="{ty:.0f}" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="{anchor}" fill="{PAPER}">{esc(p["name"])}, {km:.0f} km from the centre</text></g>')
 svg.append("</g>")
-svg.append(f'<g id="credit"><text x="{W - 12:.0f}" y="{H - 12:.0f}" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="end" fill="#5f646d">Base outlines © OpenStreetMap contributors</text></g>')
+svg.append(f'<g id="credit"><text x="{W - 12:.0f}" y="{H - 12:.0f}" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="end" fill="{PAPER}" fill-opacity="0.75">Base outlines © OpenStreetMap contributors</text></g>')
 svg.append("</svg>")
 OUT.write_text("\n".join(svg) + "\n", encoding="utf-8")
 # The hexagons as data, for tools/make_hex_view.py and, later, the map page: centres in SVG units.
@@ -471,6 +489,7 @@ OUT.write_text("\n".join(svg) + "\n", encoding="utf-8")
     "hex_radius": round(HEX_KM * UNIT, 2), "unit_per_km": UNIT, "width": round(W), "height": round(H),
     "projection": {"lat0": lat0, "lng0": lng0, "kx": KX, "ky": KY, "ox": ox, "oy": oy},
     "areas": {pid: [[round((x - ox) * UNIT, 1), round((y - oy) * UNIT, 1)] for x, y in cs] for pid, cs in hex_of.items()},
+    "colours": {pid: [wheel(x, y) for x, y in cs] for pid, cs in hex_of.items()},
 }, separators=(",", ":")) + "\n", encoding="utf-8")
 
 # ---------------------------------------------------------------- audit

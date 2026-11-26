@@ -8,8 +8,8 @@ src/data/neighbourhoods.json. Writes src/map/exploded-<view>.svg.
 
 The city lies flat and faded, seen from the south at a tilt, with the ring road on it. The view's areas are lifted out
 of it and each is raised into a column of hexagons. A column's height is the number of hexagons the area touches, so
-bigger areas stand taller. Areas with the given tag are coloured in the highlight colour; the rest of the segment in
-its region's colour. A label floats above each column on a short leader line.
+bigger areas stand taller. Every hexagon keeps its colour from the base map's colour wheel; areas with the given tag
+are outlined in white and keep full colour, the rest of the segment is softened. A label floats above each column on a short leader line.
 """
 import json, math, re, sys
 from pathlib import Path
@@ -25,7 +25,8 @@ view = next(v for v in MAP["views"] if v["id"] == view_id)
 places = {p["id"]: p for p in DATA["places"]}
 REGION = {"far-north-midrand": "#f5c400", "north-west-randburg": "#18794e", "sandton-rosebank": "#175cd3",
           "central-east-west": "#b42318", "south": "#b54708", "soweto": "#6927da"}
-HIGHLIGHT = "#f5c400"
+FOREST, FOREST_DARK, PAPER, INK = "#1c4a2e", "#10291a", "#faf8f4", "#1a1c20"
+COLOUR = {a: dict(zip(map(tuple, HEX["areas"][a]), HEX["colours"][a])) for a in HEX["areas"]}
 TILT, LIFT, PER_HEX, BASE_H = 0.5, 70, 2.5, 8   # y squash, lift of the segment, height per hexagon, minimum height
 R = HEX["hex_radius"]
 
@@ -61,24 +62,25 @@ height = {a: BASE_H + PER_HEX * len(HEX["areas"][a]) for a in seg}
 out = []
 # 1. The flat city, faded, with the ring road.
 for a, cs in HEX["areas"].items():
-    col = REGION.get(places[a]["region"], "#5f646d")
     for cx, cy in cs:
-        out.append(poly(hexpts(cx, cy), fill=col, fill_opacity="0.18" if a in seg else "0.28", stroke="#faf8f4", stroke_width="1"))
+        out.append(poly(hexpts(cx, cy, 0, R * 0.92), fill=COLOUR[a][(cx, cy)], fill_opacity="0.18" if a in seg else "0.55"))
 for d in re.findall(r'<path id="ring-n(?:1|3|12)" [^>]*d="([^"]+)"', DRAFT):
     for piece in d.split("M")[1:]:  # each M starts a separate stretch of road
         pts = [tuple(map(float, xy.split(","))) for xy in re.findall(r"[\d.]+,[\d.]+", piece)]
         flat = " L".join(f"{x:.0f},{y * TILT:.0f}" for x, y in pts)
-        out.append(f'<path d="M{flat}" fill="none" stroke="#1a1c20" stroke-width="7" stroke-linejoin="round"/>')
-        out.append(f'<path d="M{flat}" fill="none" stroke="#f5c400" stroke-width="4" stroke-linejoin="round"/>')
+        out.append(f'<path d="M{flat}" fill="none" stroke="{FOREST_DARK}" stroke-width="7" stroke-linejoin="round"/>')
+        out.append(f'<path d="M{flat}" fill="none" stroke="{PAPER}" stroke-width="4" stroke-linejoin="round"/>')
 # 2. The lifted segment: columns drawn back to front (north first).
 cols = sorted(((cy, cx, a) for a in seg for cx, cy in HEX["areas"][a]))
 for cy, cx, a in cols:
-    hit = tag and tag in places[a]["tags"]
-    col = HIGHLIGHT if hit else REGION.get(places[a]["region"], "#5f646d")
+    hit = bool(tag) and tag in places[a]["tags"]
+    col = COLOUR[a][(cx, cy)]
+    if tag and not hit:
+        col = shade(col, 0.55)  # not a match: softened, so the matches stand out
     top, bot = hexpts(cx, cy, LIFT + height[a]), hexpts(cx, cy, LIFT)
     for k, dark in ((0, 0.62), (1, 0.75)):  # the two south-facing sides: vertices 0-1 and 1-2
-        out.append(poly([top[k], top[k + 1], bot[k + 1], bot[k]], fill=shade(col, dark), stroke="#1a1c20", stroke_width="0.4", stroke_opacity="0.4"))
-    out.append(poly(top, fill=col, stroke="#faf8f4", stroke_width="0.8"))
+        out.append(poly([top[k], top[k + 1], bot[k + 1], bot[k]], fill=shade(col, dark), stroke=FOREST_DARK, stroke_width="0.4", stroke_opacity="0.5"))
+    out.append(poly(top, fill=col, stroke=PAPER if hit else FOREST_DARK, stroke_width="1.6" if hit else "0.6"))
 # 3. Labels in a column to the right of the segment, each with a leader line to the top of its area's column.
 tops = []
 for a in seg:
@@ -92,18 +94,18 @@ y0 = min(y for (_, y), _ in tops) - 10
 for i, ((x, y), a) in enumerate(tops):
     ly = y0 + i * 17
     hit = tag and tag in places[a]["tags"]
-    out.append(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="2.5" fill="#1a1c20"/>')
-    out.append(f'<path d="M{x:.0f},{y:.0f} L{right - 40:.0f},{ly:.0f} L{right - 6:.0f},{ly:.0f}" fill="none" stroke="#1a1c20" stroke-width="0.8" stroke-opacity="0.6"/>')
+    out.append(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="2.5" fill="{PAPER}"/>')
+    out.append(f'<path d="M{x:.0f},{y:.0f} L{right - 40:.0f},{ly:.0f} L{right - 6:.0f},{ly:.0f}" fill="none" stroke="{PAPER}" stroke-width="0.8" stroke-opacity="0.6"/>')
     out.append(f'<text x="{right:.0f}" y="{ly + 4:.0f}" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="{700 if places[a]["major"] else 400}" '
-               f'fill="#1a1c20">{places[a]["name"]} ({len(HEX["areas"][a])}){" ★" if hit else ""}</text>')
+               f'fill="{PAPER}">{places[a]["name"]} ({len(HEX["areas"][a])}){" ★" if hit else ""}</text>')
 
 xs = [float(v) for v in re.findall(r"[ML ](-?[\d.]+),", " ".join(out))]
 ys = [float(v) for v in re.findall(r",(-?[\d.]+)", " ".join(out))]
 minx, maxx, miny, maxy = min(xs) - 20, max(xs) + 200, min(ys) - 60, max(ys) + 20
-title = f'{view["name"]}, lifted out. Height and (number) = hexagons each area touches' + (f'. Yellow ★ = {tag}' if tag else "")
+title = f'{view["name"]}, lifted out. Height and (number) = hexagons each area touches' + (f'. White outline and ★ = {tag}' if tag else "")
 svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{minx:.0f} {miny:.0f} {maxx - minx:.0f} {maxy - miny:.0f}" width="{maxx - minx:.0f}" height="{maxy - miny:.0f}">'
-       f'<rect x="{minx:.0f}" y="{miny:.0f}" width="{maxx - minx:.0f}" height="{maxy - miny:.0f}" fill="#faf8f4"/>'
-       + "".join(f'<text x="{minx + 16:.0f}" y="{miny + 24 + 18 * i:.0f}" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="{700 if i == 0 else 400}" fill="#1a1c20">{line}</text>'
+       f'<rect x="{minx:.0f}" y="{miny:.0f}" width="{maxx - minx:.0f}" height="{maxy - miny:.0f}" fill="{FOREST}"/>'
+       + "".join(f'<text x="{minx + 16:.0f}" y="{miny + 24 + 18 * i:.0f}" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="{700 if i == 0 else 400}" fill="{PAPER}">{line}</text>'
                  for i, line in enumerate(title.split(". ", 1)))
        + "".join(out) + "</svg>")
 path = ROOT / "src" / "map" / f"exploded-{view_id}.svg"

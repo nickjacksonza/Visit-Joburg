@@ -5,8 +5,8 @@
     python3 tools/make_detail.py sandton           # draw src/map/detail-sandton.svg
 
 Boxes are listed in DETAILS below (west, south, east, north). --fetch keeps only the streets (type, name, points) in
-src/map/source/detail-<id>.json. The drawing follows the black-and-white poster style: every street in black, wider
-for bigger roads. On top: the hexagon outlines of the areas in the box, the freeways, the attractions and area names.
+src/map/source/detail-<id>.json. The drawing is the black-and-white poster style turned negative on the forest: every street
+in white, wider for bigger roads, over the base map's colour-wheel hexagons. On top: the hexagon outlines of the areas in the box, the freeways, the attractions and area names.
 1 km = 10 units, the same as joburg-draft.svg, so a detail view lines up with the base map.
 Street data © OpenStreetMap contributors (ODbL).
 """
@@ -50,35 +50,36 @@ def xy(lng, lat):
 w, s, e, n = det["bbox"]
 x0, y1 = xy(w, s)
 x1, y0 = xy(e, n)
-out = [f'<rect x="{x0:.1f}" y="{y0:.1f}" width="{x1 - x0:.1f}" height="{y1 - y0:.1f}" fill="#faf8f4"/>']
+FOREST, FOREST_DARK, PAPER, INK = "#1c4a2e", "#10291a", "#faf8f4", "#1a1c20"
+out = [f'<rect x="{x0:.1f}" y="{y0:.1f}" width="{x1 - x0:.1f}" height="{y1 - y0:.1f}" fill="{FOREST}"/>']
 # Hexagons of the areas in the box, as faint coloured outlines under the streets.
 R = HEX["hex_radius"]
 inbox = lambda x, y: x0 - R < x < x1 + R and y0 - R < y < y1 + R
 for a, cs in HEX["areas"].items():
-    for cx, cy in cs:
+    for (cx, cy), col in zip(cs, HEX["colours"][a]):
         if inbox(cx, cy):
             pts = [(cx + R * math.cos(math.radians(30 + 60 * k)), cy + R * math.sin(math.radians(30 + 60 * k))) for k in range(6)]
-            out.append(f'<path id="hex-{a}-{cx:.0f}-{cy:.0f}" d="M{" L".join(f"{x:.2f},{y:.2f}" for x, y in pts)}Z" fill="#175cd3" fill-opacity="0.06" stroke="#175cd3" stroke-opacity="0.45" stroke-width="0.05"/>')
+            out.append(f'<path id="hex-{a}-{cx:.0f}-{cy:.0f}" d="M{" L".join(f"{x:.2f},{y:.2f}" for x, y in pts)}Z" fill="{col}" fill-opacity="0.45" stroke="{FOREST}" stroke-width="0.12"/>')
 # Streets, smallest first so bigger roads draw on top.
 for st in sorted(det["streets"], key=lambda st: WIDTH[st["type"]]):
     if len(st["pts"]) < 2:
         continue
     d = "M" + " L".join(f"{x:.2f},{y:.2f}" for x, y in (xy(*p) for p in st["pts"]))
-    out.append(f'<path d="{d}" fill="none" stroke="#1a1c20" stroke-width="{WIDTH[st["type"]]}" stroke-linecap="round" stroke-linejoin="round"/>')
+    out.append(f'<path d="{d}" fill="none" stroke="{PAPER}" stroke-width="{WIDTH[st["type"]]}" stroke-linecap="round" stroke-linejoin="round"/>')
 # Freeways and the ring road from the base map, on top in yellow.
 for m in re.finditer(r'<path id="(road-(?:m1|m2|ben-schoeman|r21)|ring-n(?:1|3|12))" [^>]*d="([^"]+)"', DRAFT):
-    out.append(f'<path d="{m.group(2)}" fill="none" stroke="#f5c400" stroke-width="0.45" stroke-opacity="0.85" stroke-linejoin="round"/>')
+    out.append(f'<path d="{m.group(2)}" fill="none" stroke="{FOREST_DARK}" stroke-width="0.5" stroke-opacity="0.9" stroke-linejoin="round"/>')
 # Attractions and area names inside the box.
 for m in re.finditer(r'<circle id="([^"]+)" data-name="([^"]+)" cx="([\d.]+)" cy="([\d.]+)"', DRAFT):
     cx, cy = float(m.group(3)), float(m.group(4))
     if inbox(cx, cy):
-        out.append(f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="0.22" fill="#b54708" stroke="#faf8f4" stroke-width="0.08"/>'
-                   f'<text x="{cx + 0.35:.2f}" y="{cy - 0.3:.2f}" font-family="Inter, Arial, sans-serif" font-size="0.42" font-weight="700" fill="#b54708" stroke="#faf8f4" stroke-width="0.1" paint-order="stroke">{m.group(2)}</text>')
+        out.append(f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="0.22" fill="{INK}" stroke="{PAPER}" stroke-width="0.08"/>'
+                   f'<text x="{cx + 0.35:.2f}" y="{cy - 0.3:.2f}" font-family="Inter, Arial, sans-serif" font-size="0.42" font-weight="700" fill="{PAPER}" stroke="{FOREST_DARK}" stroke-width="0.12" paint-order="stroke">{m.group(2)}</text>')
 for a, cs in HEX["areas"].items():
     mx = sum(c[0] for c in cs) / len(cs); my = sum(c[1] for c in cs) / len(cs)
     if inbox(mx, my):
-        out.append(f'<text x="{mx:.2f}" y="{my:.2f}" font-family="Inter, Arial, sans-serif" font-size="0.6" font-weight="700" letter-spacing="0.08" text-anchor="middle" fill="#175cd3" stroke="#faf8f4" stroke-width="0.15" paint-order="stroke">{places[a]["name"].upper()}</text>')
-out.append(f'<text x="{x1 - 0.2:.2f}" y="{y1 - 0.2:.2f}" font-family="Inter, Arial, sans-serif" font-size="0.3" text-anchor="end" fill="#5f646d">Streets © OpenStreetMap contributors</text>')
+        out.append(f'<text x="{mx:.2f}" y="{my:.2f}" font-family="Inter, Arial, sans-serif" font-size="0.6" font-weight="700" letter-spacing="0.08" text-anchor="middle" fill="{INK}" stroke="{PAPER}" stroke-width="0.15" paint-order="stroke">{places[a]["name"].upper()}</text>')
+out.append(f'<text x="{x1 - 0.2:.2f}" y="{y1 - 0.2:.2f}" font-family="Inter, Arial, sans-serif" font-size="0.3" text-anchor="end" fill="{PAPER}" fill-opacity="0.8">Streets © OpenStreetMap contributors</text>')
 W, H = x1 - x0, y1 - y0
 svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{x0:.1f} {y0:.1f} {W:.1f} {H:.1f}" width="{W * 25:.0f}" height="{H * 25:.0f}">'
        f'<clipPath id="box"><rect x="{x0:.1f}" y="{y0:.1f}" width="{W:.1f}" height="{H:.1f}"/></clipPath><g clip-path="url(#box)">' + "".join(out) + "</g></svg>")

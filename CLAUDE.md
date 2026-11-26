@@ -47,6 +47,7 @@ An independent visitor's guide to Johannesburg, built from the my-site schema, S
 - Toggles highlight areas with hexagons: the `hexes` layer has one shape per area, `hex-<place id>`. Do not shade the area outlines themselves.
 - The ring road (N1 Western, N3 Eastern and N12 Southern Bypass, layer `ring-road`) is the map's main landmark. Keep it prominent and above the area shading in every view. Its turnoffs (`ring-turnoffs`, ids `turnoff-<road>-<exit>`) and bridges (`ring-bridges`) sit on top of it.
 - `tools/fetch_map_sources.py` and `tools/make_map.py` are one-off tools: they need the network and `pip install shapely`. The site build never runs them.
+- The map's look is a forest-green base with colour-wheel hexagons (hue from the compass direction around the city centre, richness from distance). When the map page is built, define these as map tokens in `css/styles.css` (a forest token and stepped hue classes), never as inline styles, and check label contrast on them.
 - Keep the credit "Base outlines © OpenStreetMap contributors". Never trace copyrighted maps; use them only to check names and positions.
 
 ## Content

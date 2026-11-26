@@ -21,7 +21,7 @@ and `src/data/map.json`.
 Every shape's `id` is the place's `id` in `neighbourhoods.json`, for example `fourways`. In Figma this is the layer
 name. Names, tags, summaries and guides stay in the JSON, so the SVG never repeats them.
 
-- Layer groups, bottom to top: `regions`, `areas`, `hexes`, `ring-road`, `ring-turnoffs`, `ring-bridges`, `city-boundary`, `attractions`, `labels`, `outlying`, `credit`.
+- Layer groups, bottom to top: `regions`, `hexes`, `areas` (outlines only), `main-roads`, `freeways`, `ring-road`, `ring-turnoffs`, `ring-bridges`, `city-boundary`, `attractions`, `labels`, `outlying`, `credit`.
 - `hexes` holds the highlight shapes: one shape per area, `hex-<place id>`, made of the hexagons (about 1.4 km across)
   whose centres fall in that area. Every area has at least one. The map page fills them when a toggle matches.
 - `ring-road` is the map's main landmark: `ring-n1`, `ring-n3` and `ring-n12`, each over a dark casing, with route
@@ -34,7 +34,15 @@ name. Names, tags, summaries and guides stay in the JSON, so the SVG never repea
   cell around a single point: the ground nearer that point than any other, at most 2.5 km out (4 km in the main-areas
   draft). Redraw rough shapes
   where it matters.
-- Colours in the SVG are only for editing. The site replaces them with its own colour tokens.
+- The look: a forest-green base (`#1c4a2e`) with the hexagons as a colour wheel on top. Each hexagon's hue is its compass
+  direction from the city centre (north red, then clockwise through orange, yellow, green, blue, indigo and violet), and
+  its richness grows with distance, from soft grey at the centre to full colour about 14 km out (`wheel()` in
+  `tools/make_map.py`). The ring road is white on dark green so it stands out from every colour.
+- `views` holds a dashed frame per view in `src/data/map.json`, as a guide. The city view frames the ring road, and
+  `hexes_across_ring` sets the hexagon size from the ring road's width (20 across: about 1 km each).
+- `hexes.json` keeps every hexagon's centre and colour, and the map's projection, for the other tools and the map page.
+- Prototypes: `exploded-sandton-rosebank.svg` (`tools/make_hex_view.py`) lifts a view out of the city as columns of
+  hexagons, and `detail-sandton.svg` (`tools/make_detail.py`) shows street-level detail of a dense area.
 
 ## Refine in Figma, then export
 
