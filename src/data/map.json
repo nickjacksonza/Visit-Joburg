@@ -1,0 +1,18 @@
+{
+  "views": [
+    {"id": "city", "name": "Whole city", "fit": "all", "labels": "major", "for": "Getting your bearings"},
+    {"id": "sandton-rosebank", "name": "Sandton and Rosebank", "fit": ["sandown", "rosebank", "illovo", "melrose", "hyde-park", "morningside"], "labels": "all", "for": "Business visitors and a first base"},
+    {"id": "central", "name": "Central", "fit": ["braamfontein", "newtown", "marshalltown", "maboneng", "hillbrow", "auckland-park"], "labels": "all", "for": "History, arts and food"},
+    {"id": "soweto", "name": "Soweto", "fit": ["soweto", "diepkloof", "orlando-east"], "labels": "all", "for": "History and guided tours"},
+    {"id": "far-north", "name": "Far North", "fit": ["fourways", "lonehill", "dainfern", "kyalami", "sunninghill"], "labels": "all", "for": "Families, shopping and entertainment"}
+  ],
+  "visitor_types": [
+    {"id": "first-time", "name": "First-time visitor", "view": "city", "tags": ["history", "food", "markets"]},
+    {"id": "business", "name": "Business traveller", "view": "sandton-rosebank", "tags": ["food", "nightlife", "shopping"]},
+    {"id": "family", "name": "Family day out", "view": "city", "tags": ["family", "outdoors"]},
+    {"id": "history", "name": "History and culture", "view": "central", "tags": ["history", "arts"]},
+    {"id": "food-nightlife", "name": "Food and nightlife", "view": "city", "tags": ["food", "nightlife", "markets"]},
+    {"id": "shopping", "name": "Shopping", "view": "city", "tags": ["shopping", "markets"]}
+  ],
+  "credit": "Base outlines © OpenStreetMap contributors"
+}
