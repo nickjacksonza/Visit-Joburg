@@ -14,13 +14,21 @@ The draft is a starting point to refine in Figma, true to geography (1 km = 10 S
   kept within 2.5 km of the point (data-shape="rough"). Redraw these by hand where it matters.
 - An area or attraction not found is left out and listed in audit.md.
 
-Every shape's id is its id in neighbourhoods.json. Layers: regions, areas, city-boundary, attractions, labels,
-outlying, credit. Base outlines © OpenStreetMap contributors (ODbL).
+Every shape's id is its id in neighbourhoods.json. Layers: regions, areas, hexes, ring-road, city-boundary, attractions,
+labels, outlying, credit.
+
+Ring road: the N1 Western, N3 Eastern and N12 Southern Bypass from src/map/source/roads.json, drawn thick on a dark
+casing so it is the first thing a visitor sees, with a route marker on each.
+
+Hexes: a grid of pointy-top hexagons (HEX_KM from centre to corner) laid over the areas. Each hexagon belongs to the
+area its centre falls in, and every area keeps at least one. Each area's hexagons form one shape, id hex-<place id>.
+The map page fills these when a toggle (a tag or visitor type) matches the area. Base outlines © OpenStreetMap contributors (ODbL).
 """
 import json, math, sys
 from pathlib import Path
 from shapely.geometry import MultiPoint, Point, mapping, shape
-from shapely.ops import unary_union, voronoi_diagram
+from shapely.geometry import LineString, MultiLineString
+from shapely.ops import linemerge, unary_union, voronoi_diagram
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / "src" / "data" / "neighbourhoods.json").read_text(encoding="utf-8"))
@@ -30,6 +38,7 @@ OUT, AUDIT = ROOT / "src" / "map" / "joburg-draft.svg", ROOT / "src" / "map" / "
 UNIT = 10          # SVG units per km
 MAJOR = "--major" in sys.argv
 CELL_KM = 4.0 if MAJOR else 2.5   # a rough cell reaches at most this far from its point (main areas are further apart)
+HEX_KM = 0.8      # hexagon size, centre to corner: about 1.4 km across
 MAX_KM2 = 250      # an outline bigger than this is not a suburb; treat the match as a point
 PALETTE = {"far-north-midrand": "#f5c400", "north-west-randburg": "#18794e", "sandton-rosebank": "#175cd3",
            "central-east-west": "#b42318", "south": "#b54708", "soweto": "#6927da", "outlying": "#5f646d"}
@@ -120,6 +129,51 @@ for p in areas:
         g = pts[pid].buffer(0.4)
     shapes[pid], kinds[pid] = g, "rough"
 
+# ---------------------------------------------------------------- hexagon grid for highlighting
+def hexagon(cx, cy, r=HEX_KM):
+    return [(cx + r * math.cos(math.radians(30 + 60 * k)), cy + r * math.sin(math.radians(30 + 60 * k))) for k in range(6)]
+
+
+hex_of = {p["id"]: [] for p in areas}
+_w, _h = math.sqrt(3) * HEX_KM, 1.5 * HEX_KM
+_minx, _miny, _maxx, _maxy = unary_union(list(shapes.values())).bounds
+centres = []
+row, y = 0, _miny - _h
+while y <= _maxy + _h:
+    x = _minx - _w + (_w / 2 if row % 2 else 0)
+    while x <= _maxx + _w:
+        centres.append((x, y))
+        x += _w
+    y += _h
+    row += 1
+owner = {}
+for c in centres:
+    pt = Point(c)
+    for p in areas:  # outlines first (they are real boundaries), then rough cells
+        if kinds[p["id"]] == "outline" and shapes[p["id"]].contains(pt):
+            owner[c] = p["id"]
+            break
+    else:
+        for p in areas:
+            if shapes[p["id"]].contains(pt):
+                owner[c] = p["id"]
+                break
+for c, pid in owner.items():
+    hex_of[pid].append(c)
+for p in areas:  # a small area with no hexagon takes the nearest one from a neighbour that has more than one
+    pid = p["id"]
+    if hex_of[pid]:
+        continue
+    rp = shapes[pid].representative_point()
+    for c in sorted(centres, key=lambda c: (c[0] - rp.x) ** 2 + (c[1] - rp.y) ** 2):
+        donor = owner.get(c)
+        if donor is None or len(hex_of[donor]) > 1:
+            if donor:
+                hex_of[donor].remove(c)
+            owner[c] = pid
+            hex_of[pid].append(c)
+            break
+
 # ---------------------------------------------------------------- SVG
 allg = unary_union(list(shapes.values()) + [study])
 minx, miny, maxx, maxy = allg.bounds
@@ -169,6 +223,42 @@ for p in areas:
                f'stroke="#1a1c20" stroke-opacity="0.45" stroke-width="{1 if kinds[pid] == "outline" else 0.6}"'
                f'{" stroke-dasharray=\"3 2\"" if kinds[pid] == "rough" else ""}/>')
 svg.append("</g>")
+
+svg.append('<g id="hexes">')
+for p in areas:
+    d = " ".join("M" + " L".join(f"{(x - ox) * UNIT:.1f},{(y - oy) * UNIT:.1f}" for x, y in hexagon(cx, cy)) + "Z" for cx, cy in hex_of[p["id"]])
+    svg.append(f'<path id="hex-{p["id"]}" data-place="{p["id"]}" d="{d}" fill="{PALETTE[p["region"]]}" fill-opacity="0.35" stroke="#faf8f4" stroke-width="1.5"/>')
+svg.append("</g>")
+
+_roads = ROOT / "src" / "map" / "source" / "roads.json"
+if _roads.exists():
+    ROADS = json.loads(_roads.read_text(encoding="utf-8"))
+    frame = shape({"type": "Polygon", "coordinates": [[(ox, oy), (ox + W / UNIT, oy), (ox + W / UNIT, oy + H / UNIT), (ox, oy + H / UNIT), (ox, oy)]]})
+    lines_d, markers = [], []
+    for key, r in ROADS.items():
+        parts = []
+        for seg in r["segments"]:
+            g = proj_geom(seg)
+            parts += list(g.geoms) if g.geom_type == "MultiLineString" else [g]
+        merged = linemerge(unary_union(parts)).intersection(frame).simplify(0.06)
+        segs = list(merged.geoms) if hasattr(merged, "geoms") else [merged]
+        d = " ".join("M" + " L".join(f"{(x - ox) * UNIT:.0f},{(y - oy) * UNIT:.0f}" for x, y in s.coords) for s in segs if s.geom_type == "LineString" and s.length > 0.2)
+        lines_d.append((key, r, d))
+        longest = max((s for s in segs if s.geom_type == "LineString"), key=lambda s: s.length)
+        label_pts = [shapes[q["id"]].representative_point() for q in areas]
+        m = max((longest.interpolate(f, normalized=True) for f in (0.3, 0.4, 0.5, 0.6, 0.7)),
+                key=lambda pt: min(pt.distance(lp) for lp in label_pts))  # the spot along the road furthest from any label
+        markers.append((key, r, (m.x - ox) * UNIT, (m.y - oy) * UNIT))
+    svg.append('<g id="ring-road">')
+    for key, r, d in lines_d:  # dark casing under each road, then the road on top
+        svg.append(f'<path id="ring-{key}-casing" d="{d}" fill="none" stroke="#1a1c20" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>')
+    for key, r, d in lines_d:
+        svg.append(f'<path id="ring-{key}" data-name="{r["number"]} {esc(r["name"])}" d="{d}" fill="none" stroke="#f5c400" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>')
+    for key, r, x, y in markers:
+        w = 12 + 8 * len(r["number"])
+        svg.append(f'<g id="marker-{key}"><rect x="{x - w / 2:.0f}" y="{y - 11:.0f}" width="{w}" height="22" rx="5" fill="#175cd3" stroke="#faf8f4" stroke-width="2"/>'
+                   f'<text x="{x:.0f}" y="{y + 5:.0f}" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="#faf8f4">{r["number"]}</text></g>')
+    svg.append("</g>")
 
 city = SRC.get("_city", {})
 if city.get("found"):
@@ -240,7 +330,8 @@ missing = [p for p in places if p["id"] not in hits]
 lines = ["# Map draft audit", "", f"Draft of {'main areas only' if MAJOR else 'every area'}.", "", f"Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = {UNIT} SVG units. The draft is {W / UNIT:.0f} by {H / UNIT:.0f} km.", "",
          f"- Areas with an OpenStreetMap outline: {sum(v == 'outline' for v in kinds.values())}",
          f"- Areas drawn as rough cells from a point: {sum(v == 'rough' for v in kinds.values())}",
-         f"- Places not found: {len(missing)}", ""]
+         f"- Places not found: {len(missing)}",
+         f"- Hexagons: {sum(len(v) for v in hex_of.values())}, {HEX_KM * math.sqrt(3):.1f} km across; fewest in one area: {min(len(v) for v in hex_of.values())}", ""]
 if missing:
     lines += ["## Not found", "", "Add these by hand in Figma, or fix the name and fetch again.", ""]
     lines += [f"- {p['name']} ({p['kind']}, {regions[p['region']]['name']})" for p in missing] + [""]

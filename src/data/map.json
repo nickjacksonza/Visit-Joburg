@@ -14,5 +14,7 @@
     {"id": "food-nightlife", "name": "Food and nightlife", "view": "city", "tags": ["food", "nightlife", "markets"]},
     {"id": "shopping", "name": "Shopping", "view": "city", "tags": ["shopping", "markets"]}
   ],
+  "highlight": {"shape": "hexagon", "layer": "hexes", "note": "A toggle fills the hexagons (hex-<place id>) of every area whose tags match."},
+  "landmark": {"layer": "ring-road", "note": "The ring road (N1 Western, N3 Eastern and N12 Southern Bypass) is always shown, above the area shading, in every view."},
   "credit": "Base outlines © OpenStreetMap contributors"
 }

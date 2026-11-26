@@ -4,6 +4,7 @@
     python3 tools/fetch_map_sources.py            # only places not yet in the cache
     python3 tools/fetch_map_sources.py --refresh  # fetch every place again
     python3 tools/fetch_map_sources.py --retry    # look again for places not found, using addresses (see below)
+    python3 tools/fetch_map_sources.py --roads    # the ring road (N1 Western, N3 Eastern and N12 Southern Bypass) to src/map/source/roads.json
     python3 tools/fetch_map_sources.py --major    # only the main areas, the attractions in them, the places outside the city and the city boundary
 
 Looks up every place in src/data/neighbourhoods.json with OpenStreetMap's Nominatim search, plus the City of
@@ -69,7 +70,35 @@ def keep(r, q):
             "class": r["category"], "type": r["type"], "lat": float(r["lat"]), "lng": float(r["lon"]), "geojson": r["geojson"]}
 
 
+RING = {"n1": ("N1", "Western Bypass"), "n3": ("N3", "Eastern Bypass"), "n12": ("N12", "Southern Bypass")}
+
+
+def fetch_roads():
+    """Every motorway segment named after each bypass, paging past Nominatim's 50-result limit."""
+    out = {}
+    for key, (number, name) in RING.items():
+        seen, lines = [], []
+        while True:
+            extra = {"exclude_place_ids": ",".join(seen)} if seen else {}
+            res = search(name, True, limit=50, **extra)
+            new = [r for r in res if str(r["place_id"]) not in seen]
+            if not new:
+                break
+            for r in new:
+                seen.append(str(r["place_id"]))
+                if r["category"] == "highway" and r["geojson"]["type"] in ("LineString", "MultiLineString") and r.get("name") == name:
+                    lines.append(r["geojson"])
+            time.sleep(1.1)
+        out[key] = {"number": number, "name": name, "segments": lines}
+        print(f"  {number} {name}: {len(lines)} segments")
+    path = OUT.parent / "roads.json"
+    path.write_text(json.dumps(out, separators=(",", ":")) + "\n", encoding="utf-8")
+    print(f"wrote {path.relative_to(ROOT)}")
+
+
 def main():
+    if "--roads" in sys.argv:
+        return fetch_roads()
     data = json.loads((ROOT / "src" / "data" / "neighbourhoods.json").read_text(encoding="utf-8"))
     cache = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() and "--refresh" not in sys.argv else {}
     jobs = [(pid, q, None) for pid, (q, _) in EXTRA.items()]

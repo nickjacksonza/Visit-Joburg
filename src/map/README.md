@@ -9,6 +9,7 @@ and `src/data/map.json`.
 | File | What it is |
 |------|------------|
 | `source/nominatim.json` | OpenStreetMap search results, fetched once by `tools/fetch_map_sources.py` (`--major` for the main areas only). Kept so the draft can be redrawn without the network. |
+| `source/roads.json` | The ring road's motorway segments (N1 Western, N3 Eastern and N12 Southern Bypass), fetched with `tools/fetch_map_sources.py --roads`. |
 | `source/positions.json` | Positions for places the search could not find or matched wrongly, each with its source (mostly the place's Wikipedia article). |
 | `joburg-draft.svg` | The first draft, drawn by `tools/make_map.py --major`: the 57 main areas, their attractions and arrows to places outside the city. 1 km = 10 units. Do not edit by hand: redraw it, or edit in Figma. |
 | `audit.md` | What the draft could and could not match: outlines, rough cells, places not found and the matches to check. |
@@ -19,7 +20,11 @@ and `src/data/map.json`.
 Every shape's `id` is the place's `id` in `neighbourhoods.json`, for example `fourways`. In Figma this is the layer
 name. Names, tags, summaries and guides stay in the JSON, so the SVG never repeats them.
 
-- Layer groups: `regions`, `areas`, `city-boundary`, `attractions`, `labels`, `outlying`, `credit`.
+- Layer groups, bottom to top: `regions`, `areas`, `hexes`, `ring-road`, `city-boundary`, `attractions`, `labels`, `outlying`, `credit`.
+- `hexes` holds the highlight shapes: one shape per area, `hex-<place id>`, made of the hexagons (about 1.4 km across)
+  whose centres fall in that area. Every area has at least one. The map page fills them when a toggle matches.
+- `ring-road` is the map's main landmark: `ring-n1`, `ring-n3` and `ring-n12`, each over a dark casing, with route
+  markers `marker-n1`, `marker-n3` and `marker-n12`. It stays above the area shading in every view.
 - Region shapes are named `region-<region id>`, labels `label-<place id>`.
 - `data-shape="outline"` means the shape came from an OpenStreetMap outline. `data-shape="rough"` means it is a rough
   cell around a single point: the ground nearer that point than any other, at most 2.5 km out (4 km in the main-areas
