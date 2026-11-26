@@ -22,6 +22,25 @@ Head back towards the city centre for Constitution Hill. The old prison cells si
 
 Constitution Hill sits on the edge of Braamfontein, so you can end the day at a rooftop bar or a restaurant a few minutes away. If you prefer street art and small galleries, take a short ride to Maboneng instead. Either way, book your ride home rather than walking after dark.
 
+### Braamfontein at a Glance
+
+A student district next to Wits University. Rooftop bars, galleries, coffee shops and a busy Saturday food market.
+
+**Part of the city**
+
+Central, East and West
+
+**Good for**
+
+History, Food, Nightlife, Arts, Markets
+
+**Places here**
+
+- [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
+- [Origins Centre](https://example.com/things-to-do.html#origins-centre)
+
+[Read the Braamfontein guide](https://example.com/neighbourhoods/braamfontein.html) · [Open in Maps: Braamfontein](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0357)
+
 ## Before You Go
 
 - Check opening days. Many museums close on Mondays.

@@ -10,7 +10,7 @@ Johannesburg is South Africa's biggest city and the place where much of its mode
 
 - **1,750 m**above sea level, so days are mild and nights can be cool
 - **8**places to visit in this guide
-- **6**neighbourhoods worth an afternoon
+- **7**neighbourhoods worth an afternoon
 - **1886**the year gold was found on the Witwatersrand and the city began
 
 ## What to See When You Visit Johannesburg
@@ -231,29 +231,13 @@ Joburg is spread out, so it helps to think of it as a set of smaller places. Pic
 
 ## Where to Go
 
-### Braamfontein
+### Fourways
 
-A student district next to Wits University. Rooftop bars, galleries, coffee shops and a busy Saturday food market.
+A busy suburb in the far north of the city, known for large shopping centres and the Montecasino entertainment complex.
 
-Good for: Food markets, nightlife, Constitution Hill
+Good for: Shopping, theatre and a family day out
 
-[Open in Maps: Braamfontein](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0357)
-
-### Maboneng
-
-A small, walkable precinct on the east side of the city centre, known for street art, galleries, independent shops and restaurants.
-
-Good for: Street art, galleries, weekend markets
-
-[Open in Maps: Maboneng](https://www.google.com/maps/search/?api=1&query=-26.2044,28.0583)
-
-### Soweto
-
-South Africa's best-known township and the heart of much of the country's history. Go with a local guide to get the most from it.
-
-Good for: History, Vilakazi Street, local food
-
-[Open in Maps: Soweto](https://www.google.com/maps/search/?api=1&query=-26.2485,27.854)
+[Read the Fourways guide](https://example.com/neighbourhoods/fourways.html)
 
 ### Melville
 
@@ -271,6 +255,14 @@ Good for: A first base, shopping, galleries
 
 [Open in Maps: Rosebank](https://www.google.com/maps/search/?api=1&query=-26.146,28.0436)
 
+### Braamfontein
+
+A student district next to Wits University. Rooftop bars, galleries, coffee shops and a busy Saturday food market.
+
+Good for: Food markets, nightlife, Constitution Hill
+
+[Read the Braamfontein guide](https://example.com/neighbourhoods/braamfontein.html) · [Open in Maps: Braamfontein](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0357)
+
 ### Newtown
 
 A cultural quarter in the west of the city centre, home to the Market Theatre and Mary Fitzgerald Square.
@@ -279,9 +271,210 @@ Good for: Theatre, music, history
 
 [Open in Maps: Newtown](https://www.google.com/maps/search/?api=1&query=-26.203,28.032)
 
+### Maboneng
+
+A small, walkable precinct on the east side of the city centre, known for street art, galleries, independent shops and restaurants.
+
+Good for: Street art, galleries, weekend markets
+
+[Open in Maps: Maboneng](https://www.google.com/maps/search/?api=1&query=-26.2044,28.0583)
+
+### Soweto
+
+South Africa's best-known township and the heart of much of the country's history. Go with a local guide to get the most from it.
+
+Good for: History, Vilakazi Street, local food
+
+[Open in Maps: Soweto](https://www.google.com/maps/search/?api=1&query=-26.2485,27.854)
+
 ## Where to Stay
 
 For a first visit, stay in Rosebank or Sandton. Both have Gautrain stations, a good choice of hotels and restaurants within a short walk. Melville and Parkhurst have smaller guest houses with a quieter, local feel.
+
+## Every Area in This Guide
+
+We are writing up 160 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
+
+### Far North and Midrand (16 areas)
+
+- Austin View
+- Beaulieu
+- Blue Hills
+- Carlswald
+- Chartwell
+- Crowthorne
+- Dainfern
+- **[Fourways](https://example.com/neighbourhoods/fourways.html)**
+- **Glen Austin**
+- **Glenferness**
+- **Halfway House**
+- Kyalami
+- **Lonehill**
+- Paulshof
+- President Park
+- Sunninghill
+
+### North West and Randburg (34 areas)
+
+- Blackheath
+- Blairgowrie
+- Boskruin
+- Craighall Park
+- Cresta
+- Crosby
+- Darrenwood
+- **Douglasdale**
+- **Emmarentia**
+- **Fairland**
+- **Ferndale**
+- **Florida**
+- Fontainebleau
+- Honeydew
+- **Jukskei Park**
+- Kya Sand
+- **Linden**
+- Maraisburg
+- Melville
+- Newlands
+- North Riding
+- **Northcliff**
+- Northwold
+- **Olivedale**
+- Radiokop
+- **Randpark Ridge**
+- **Robindale**
+- Ruimsig
+- Sharonlea
+- Sundowner
+- **Triomf**
+- Victory Park
+- Weltevreden Park
+- Westdene
+
+### Sandton, Rosebank and North Central (56 areas)
+
+- Abbotsford
+- Athol
+- **Bedfordview**
+- **Bordeaux**
+- Bramley
+- **Bruma**
+- **Bryanston**
+- **Buccleuch**
+- Dowerglen
+- Dunkeld
+- Dunkeld West
+- Duxberry
+- **Edenvale**
+- Elton Hill
+- Fairmount
+- Gallo Manor
+- Glenadrienne
+- Greenside
+- **Houghton**
+- **Hurlingham**
+- **Hyde Park**
+- **Illovo**
+- Inanda
+- **Kelvin**
+- Killarney
+- Linbro Park
+- Marlboro Gardens
+- **Melrose**
+- Melrose Arch
+- Melrose North
+- **Modderfontein**
+- **Morningside**
+- Norwood
+- Oaklands
+- **Observatory**
+- **Orchards**
+- Parkhurst
+- **Parkmore**
+- **Parktown**
+- Parktown North
+- **Parkview**
+- Parkwood
+- Rembrandt Park
+- **River Club**
+- **Rivonia**
+- **Rosebank**
+- **Sandhurst**
+- **Sandown**
+- **Sandringham**
+- **Saxonwold**
+- Strathavon
+- Waverley
+- Westcliff
+- Winston Ridge
+- **Woodmead**
+- **Wynberg**
+
+### Central, East and West (16 areas)
+
+- **Auckland Park**
+- **[Braamfontein](https://example.com/neighbourhoods/braamfontein.html)**
+- City Deep
+- Denver
+- Heriotdale
+- Hillbrow
+- **Kensington**
+- Langlaagte
+- Maboneng
+- Malvern
+- Marshalltown
+- Mayfair
+- Newtown
+- **Riverlea**
+- Selby
+- **Yeoville**
+
+### South (34 areas)
+
+- Alan Manor
+- Alberante
+- Alrode
+- Booysens
+- Castleview
+- Crown Mines
+- **Diepkloof**
+- Eikenhof
+- Elandspark
+- Eldorado Park
+- Florentia
+- Forest Hill
+- **Glenvista**
+- **Kenilworth**
+- Kibler Park
+- Linmeyer
+- **Meredale**
+- Meyersdal
+- Mondeor
+- Mulbarton
+- Naturena
+- Oakdene
+- Orlando East
+- Ormonde
+- Ridgeway
+- **Robertsham**
+- Roseacre
+- Rosettenville
+- South Hills
+- Southcrest
+- Southdale
+- Steeldale
+- Turffontein
+- Winchester Hills
+
+### Soweto (1 area)
+
+- **Soweto**
+
+### Just Outside the City (3 areas)
+
+- **Hartbeespoort**
+- Lanseria
+- Nooitgedacht
 
 Next: [how to get around](https://example.com/getting-around.html).
 
@@ -405,7 +598,7 @@ Visit Joburg is not linked to the City of Johannesburg, the Gauteng Tourism Auth
 
 If something is wrong or missing, [tell us](https://example.com/contact.html). We read every message.
 
-Last reviewed: 11 November 2026.
+Last reviewed: 26 November 2026.
 
 Source: https://example.com/about.html
 
@@ -452,7 +645,7 @@ Every build runs automated checks on headings, images, links, forms and colour c
 
 Email hello@example.com. We reply within two working days.
 
-Last reviewed: 11 November 2026.
+Last reviewed: 26 November 2026.
 
 Source: https://example.com/accessibility.html
 
@@ -483,6 +676,25 @@ Head back towards the city centre for Constitution Hill. The old prison cells si
 
 Constitution Hill sits on the edge of Braamfontein, so you can end the day at a rooftop bar or a restaurant a few minutes away. If you prefer street art and small galleries, take a short ride to Maboneng instead. Either way, book your ride home rather than walking after dark.
 
+### Braamfontein at a Glance
+
+A student district next to Wits University. Rooftop bars, galleries, coffee shops and a busy Saturday food market.
+
+**Part of the city**
+
+Central, East and West
+
+**Good for**
+
+History, Food, Nightlife, Arts, Markets
+
+**Places here**
+
+- [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
+- [Origins Centre](https://example.com/things-to-do.html#origins-centre)
+
+[Read the Braamfontein guide](https://example.com/neighbourhoods/braamfontein.html) · [Open in Maps: Braamfontein](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0357)
+
 ## Before You Go
 
 - Check opening days. Many museums close on Mondays.
@@ -492,3 +704,94 @@ Constitution Hill sits on the edge of Braamfontein, so you can end the day at a 
 Want more ideas? See all [things to do in Johannesburg](https://example.com/things-to-do.html).
 
 Source: https://example.com/blog/first-day-in-johannesburg.html
+
+
+---
+
+Neighbourhood guide
+
+# Braamfontein
+
+Braamfontein sits just north of the city centre, between the University of the Witwatersrand and Constitution Hill. It is young, busy and easy to explore on foot by day.
+
+## Braamfontein at a Glance
+
+A student district next to Wits University. Rooftop bars, galleries, coffee shops and a busy Saturday food market.
+
+**Part of the city**
+
+Central, East and West
+
+**Good for**
+
+History, Food, Nightlife, Arts, Markets
+
+**Places here**
+
+- [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
+- [Origins Centre](https://example.com/things-to-do.html#origins-centre)
+
+[Open in Maps: Braamfontein](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0357)
+
+## What to Do
+
+Start at Constitution Hill, the former prison that is now home to the Constitutional Court. Then walk west into the main streets of Braamfontein for coffee, galleries and shops run by local designers.
+
+On Saturdays, a food market in Juta Street draws a big crowd. Arrive before midday for the best choice. In the evening, rooftop bars and restaurants fill up with students and people who work nearby.
+
+## Getting There
+
+Braamfontein is a short ride-hailing trip from Rosebank or the city centre. Park Station, on the Gautrain line, is about a 15-minute walk away. The Nelson Mandela Bridge links Braamfontein with Newtown to the south.
+
+## Staying Safe
+
+The main streets are busy and well used in the day. After dark, use ride-hailing rather than walking between venues, and keep your phone out of sight on the street.
+
+See more [neighbourhoods](https://example.com/neighbourhoods.html) or the full list of [things to do](https://example.com/things-to-do.html).
+
+Source: https://example.com/neighbourhoods/braamfontein.html
+
+
+---
+
+Neighbourhood guide
+
+# Fourways
+
+Fourways is a large suburb in the far north of Johannesburg. Most visitors come for its shopping centres and for Montecasino, an entertainment complex with theatres, restaurants and a casino.
+
+## Fourways at a Glance
+
+A busy suburb in the far north of the city, known for large shopping centres and the Montecasino entertainment complex.
+
+**Part of the city**
+
+Far North and Midrand
+
+**Good for**
+
+Shopping, Entertainment, Family
+
+**Places here**
+
+- Cedar Square
+- Fourways Mall
+- Montecasino
+
+## What to Do
+
+Montecasino is built to look like an Italian village, with streets, squares and restaurants under one roof. It has theatres that stage musicals and shows, cinemas and a bird garden that suits a family outing.
+
+Fourways Mall is one of the largest shopping centres in South Africa. Cedar Square is smaller and quicker to get around. Both have restaurants for a meal between shops.
+
+## Getting There
+
+Fourways has no Gautrain station, so most visitors arrive by car or ride-hailing. From Sandton, the trip takes about 20 to 40 minutes, depending on traffic. Allow extra time at rush hour.
+
+## Nearby
+
+Lonehill, Dainfern and Kyalami are close by. Further south, Bryanston and Sandton have more hotels and restaurants.
+
+See more [neighbourhoods](https://example.com/neighbourhoods.html) or the full list of [things to do](https://example.com/things-to-do.html).
+
+Source: https://example.com/neighbourhoods/fourways.html
