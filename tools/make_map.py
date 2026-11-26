@@ -40,7 +40,8 @@ OUT, AUDIT = ROOT / "src" / "map" / "joburg-draft.svg", ROOT / "src" / "map" / "
 UNIT = 10          # SVG units per km
 MAJOR = "--major" in sys.argv
 CELL_KM = 4.0 if MAJOR else 2.5   # a rough cell reaches at most this far from its point (main areas are further apart)
-HEX_KM = 0.8      # hexagon size, centre to corner: about 1.4 km across
+MAPCFG = json.loads((ROOT / "src" / "data" / "map.json").read_text(encoding="utf-8"))
+HEX_KM = 0.8      # hexagon size, centre to corner; replaced below by the ring road's width / hexes_across_ring
 MAX_KM2 = 250      # an outline bigger than this is not a suburb; treat the match as a point
 PALETTE = {"far-north-midrand": "#f5c400", "north-west-randburg": "#18794e", "sandton-rosebank": "#175cd3",
            "central-east-west": "#b42318", "south": "#b54708", "soweto": "#6927da", "outlying": "#5f646d"}
@@ -132,6 +133,16 @@ for p in areas:
     shapes[pid], kinds[pid] = g, "rough"
 
 # ---------------------------------------------------------------- hexagon grid for highlighting
+# The ring road sets the scale: the whole-city view frames it, and hexes_across_ring hexagons span its width.
+_roads_file = ROOT / "src" / "map" / "source" / "roads.json"
+RING_BOX = None
+if _roads_file.exists():
+    _ring = unary_union([proj_geom(s) for r in json.loads(_roads_file.read_text(encoding="utf-8")).values() for s in r["segments"]])
+    RING_BOX = _ring.bounds
+    HEX_KM = (RING_BOX[2] - RING_BOX[0]) / MAPCFG.get("hexes_across_ring", 20) / math.sqrt(3)
+
+
+
 def hexagon(cx, cy, r=HEX_KM):
     return [(cx + r * math.cos(math.radians(30 + 60 * k)), cy + r * math.sin(math.radians(30 + 60 * k))) for k in range(6)]
 
@@ -231,6 +242,62 @@ for p in areas:
     d = " ".join("M" + " L".join(f"{(x - ox) * UNIT:.1f},{(y - oy) * UNIT:.1f}" for x, y in hexagon(cx, cy)) + "Z" for cx, cy in hex_of[p["id"]])
     svg.append(f'<path id="hex-{p["id"]}" data-place="{p["id"]}" d="{d}" fill="{PALETTE[p["region"]]}" fill-opacity="0.35" stroke="#faf8f4" stroke-width="1.5"/>')
 svg.append("</g>")
+
+# Other freeways and main roads, under the ring road so the ring stays the most prominent line.
+_main = ROOT / "src" / "map" / "source" / "main_roads.json"
+if _main.exists():
+    MR = json.loads(_main.read_text(encoding="utf-8"))
+    _frame = shape({"type": "Polygon", "coordinates": [[(ox, oy), (ox + W / UNIT, oy), (ox + W / UNIT, oy + H / UNIT), (ox, oy + H / UNIT), (ox, oy)]]})
+    drawn = []
+    for key, r in MR.items():
+        parts = []
+        for seg in r["segments"]:
+            g = proj_geom(seg)
+            if g is not None:
+                parts += list(g.geoms) if g.geom_type == "MultiLineString" else [g]
+        if not parts:
+            continue
+        merged = linemerge(unary_union(parts)).intersection(_frame).simplify(0.05)
+        segs = [s for s in (merged.geoms if hasattr(merged, "geoms") else [merged]) if s.geom_type == "LineString" and s.length > 0.15]
+        if not segs:
+            continue
+        d = " ".join("M" + " L".join(f"{(x - ox) * UNIT:.0f},{(y - oy) * UNIT:.0f}" for x, y in s.coords) for s in segs)
+        drawn.append((key, r, d, max(segs, key=lambda s: s.length)))
+    svg.append('<g id="main-roads">')
+    for key, r, d, _ in drawn:
+        if r["kind"] == "main":
+            svg.append(f'<path id="road-{key}-casing" d="{d}" fill="none" stroke="#5f646d" stroke-opacity="0.7" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>')
+    for key, r, d, _ in drawn:
+        if r["kind"] == "main":
+            svg.append(f'<path id="road-{key}" data-name="{esc(r["name"])}" d="{d}" fill="none" stroke="#faf8f4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>')
+    for key, r, d, longest in drawn:  # name along the road, at the middle of its longest stretch
+        if r["kind"] != "main":
+            continue
+        a, b = longest.interpolate(0.47, normalized=True), longest.interpolate(0.53, normalized=True)
+        ang = math.degrees(math.atan2(b.y - a.y, b.x - a.x))
+        if ang > 90 or ang < -90:
+            ang -= 180 if ang > 0 else -180
+        m = longest.interpolate(0.5, normalized=True)
+        mx, my = (m.x - ox) * UNIT, (m.y - oy) * UNIT
+        svg.append(f'<text id="road-label-{key}" x="{mx:.0f}" y="{my + 3:.0f}" transform="rotate({ang:.0f} {mx:.0f} {my:.0f})" font-family="Inter, Arial, sans-serif" font-size="8" '
+                   f'font-weight="700" text-anchor="middle" fill="#1a1c20" stroke="#faf8f4" stroke-width="2.5" paint-order="stroke">{esc(r["label"])}</text>')
+    svg.append("</g>")
+    svg.append('<g id="freeways">')
+    for key, r, d, _ in drawn:
+        if r["kind"] == "freeway":
+            svg.append(f'<path id="road-{key}-casing" d="{d}" fill="none" stroke="#1a1c20" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>')
+    for key, r, d, _ in drawn:
+        if r["kind"] == "freeway":
+            svg.append(f'<path id="road-{key}" data-name="{esc(r["name"])}" d="{d}" fill="none" stroke="#f5c400" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>')
+    for key, r, d, longest in drawn:
+        if r["kind"] != "freeway":
+            continue
+        m = longest.interpolate(0.5, normalized=True)
+        mx, my = (m.x - ox) * UNIT, (m.y - oy) * UNIT
+        w = 10 + 7 * len(r["label"])
+        svg.append(f'<g id="marker-{key}"><rect x="{mx - w / 2:.0f}" y="{my - 9:.0f}" width="{w}" height="18" rx="4" fill="#175cd3" stroke="#faf8f4" stroke-width="1.5"/>'
+                   f'<text x="{mx:.0f}" y="{my + 4:.0f}" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#faf8f4">{esc(r["label"])}</text></g>')
+    svg.append("</g>")
 
 _roads = ROOT / "src" / "map" / "source" / "roads.json"
 if _roads.exists():
@@ -354,6 +421,24 @@ for p in areas:
                f'font-size="{size}" font-weight="{weight}" text-anchor="middle" fill="#1a1c20">{esc(p["name"])}</text>')
 svg.append("</g>")
 
+# View frames: a dashed box per view in map.json, for checking what each view shows. The city view frames the ring road.
+svg.append('<g id="views">')
+for v in MAPCFG["views"]:
+    if v["fit"] == "ring-road" and RING_BOX:
+        b = RING_BOX
+    elif v["fit"] == "all":
+        b = unary_union(list(shapes.values())).bounds
+    else:
+        got = [shapes[a] for a in v["fit"] if a in shapes]
+        if not got:
+            continue
+        b = unary_union(got).bounds
+    m = 1.0  # km of margin
+    x0, y0, x1, y1 = (b[0] - m - ox) * UNIT, (b[1] - m - oy) * UNIT, (b[2] + m - ox) * UNIT, (b[3] + m - oy) * UNIT
+    svg.append(f'<g id="view-{v["id"]}"><rect x="{x0:.0f}" y="{y0:.0f}" width="{x1 - x0:.0f}" height="{y1 - y0:.0f}" fill="none" stroke="#6927da" stroke-width="2" stroke-dasharray="8 4"/>'
+               f'<text x="{x0 + 4:.0f}" y="{y0 - 5:.0f}" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#6927da">View: {esc(v["name"])}</text></g>')
+svg.append("</g>")
+
 # Places outside the map: an arrow on the edge pointing their way, with the distance from the city centre.
 svg.append('<g id="outlying">')
 cx, cy = (minx + maxx) / 2, (miny + maxy) / 2
@@ -381,6 +466,12 @@ svg.append("</g>")
 svg.append(f'<g id="credit"><text x="{W - 12:.0f}" y="{H - 12:.0f}" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="end" fill="#5f646d">Base outlines © OpenStreetMap contributors</text></g>')
 svg.append("</svg>")
 OUT.write_text("\n".join(svg) + "\n", encoding="utf-8")
+# The hexagons as data, for tools/make_hex_view.py and, later, the map page: centres in SVG units.
+(ROOT / "src" / "map" / "hexes.json").write_text(json.dumps({
+    "hex_radius": round(HEX_KM * UNIT, 2), "unit_per_km": UNIT, "width": round(W), "height": round(H),
+    "projection": {"lat0": lat0, "lng0": lng0, "kx": KX, "ky": KY, "ox": ox, "oy": oy},
+    "areas": {pid: [[round((x - ox) * UNIT, 1), round((y - oy) * UNIT, 1)] for x, y in cs] for pid, cs in hex_of.items()},
+}, separators=(",", ":")) + "\n", encoding="utf-8")
 
 # ---------------------------------------------------------------- audit
 missing = [p for p in places if p["id"] not in hits]

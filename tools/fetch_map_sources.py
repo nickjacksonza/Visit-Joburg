@@ -5,6 +5,7 @@
     python3 tools/fetch_map_sources.py --refresh  # fetch every place again
     python3 tools/fetch_map_sources.py --retry    # look again for places not found, using addresses (see below)
     python3 tools/fetch_map_sources.py --roads    # the ring road (N1 Western, N3 Eastern and N12 Southern Bypass) to src/map/source/roads.json
+    python3 tools/fetch_map_sources.py --main-roads   # other freeways and the main roads to src/map/source/main_roads.json
     python3 tools/fetch_map_sources.py --ring     # the ring road's turnoffs and bridges to src/map/source/ring_details.json (run --roads first)
     python3 tools/fetch_map_sources.py --major    # only the main areas, the attractions in them, the places outside the city and the city boundary
 
@@ -72,6 +73,61 @@ def keep(r, q):
 
 
 RING = {"n1": ("N1", "Western Bypass"), "n3": ("N3", "Eastern Bypass"), "n12": ("N12", "Southern Bypass")}
+# Other roads drawn on the map: (id, label on the map, name in OpenStreetMap, kind). Freeways are drawn thicker than main roads.
+OTHER_ROADS = [
+    ("ben-schoeman", "N1", "Ben Schoeman Highway", "freeway"),
+    ("m1", "M1", "M1", "freeway"),
+    ("m2", "M2", "M2", "freeway"),
+    ("r21", "R21", "R21", "freeway"),
+    ("winnie-mandela", "Winnie Mandela Dr", "Winnie Mandela Drive", "main"),
+    ("jan-smuts", "Jan Smuts Ave", "Jan Smuts Avenue", "main"),
+    ("bram-fischer", "Bram Fischer Dr", "Bram Fischer Drive", "main"),
+    ("louis-botha", "Louis Botha Ave", "Louis Botha Avenue", "main"),
+    ("ontdekkers", "Ontdekkers Rd", "Ontdekkers Road", "main"),
+    ("malibongwe", "Malibongwe Dr", "Malibongwe Drive", "main"),
+    ("rivonia", "Rivonia Rd", "Rivonia Road", "main"),
+    ("beyers-naude", "Beyers Naudé Dr", "Beyers Naudé Drive", "main"),
+    ("oxford", "Oxford Rd", "Oxford Road", "main"),
+    ("empire", "Empire Rd", "Empire Road", "main"),
+    ("main-reef", "Main Reef Rd", "Main Reef Road", "main"),
+    ("witkoppen", "Witkoppen Rd", "Witkoppen Road", "main"),
+    ("katherine", "Katherine St", "Katherine Street", "main"),
+    ("hendrik-potgieter", "Hendrik Potgieter Rd", "Hendrik Potgieter Road", "main"),
+    ("marlboro", "Marlboro Dr", "Marlboro Drive", "main"),
+    ("linksfield", "Linksfield Rd", "Linksfield Road", "main"),
+]
+MAIN_TYPES = {"motorway", "trunk", "primary", "secondary", "tertiary", "motorway_link", "trunk_link", "primary_link"}
+
+
+def fetch_named(name, types):
+    """Every road segment with this exact name (or ref), paging past Nominatim's 50-result limit."""
+    seen, lines, ids = [], [], []
+    while True:
+        extra = {"exclude_place_ids": ",".join(seen)} if seen else {}
+        res = search(name, True, limit=50, extratags=1, **extra)
+        new = [r for r in res if str(r["place_id"]) not in seen]
+        if not new:
+            break
+        for r in new:
+            seen.append(str(r["place_id"]))
+            ref = ((r.get("extratags") or {}).get("ref") or "").split(";")
+            if r["category"] == "highway" and r["type"] in types and r["geojson"]["type"] in ("LineString", "MultiLineString") and (r.get("name") == name or name in ref):
+                lines.append(r["geojson"])
+                if r["osm_type"] == "way":
+                    ids.append(r["osm_id"])
+        time.sleep(1.1)
+    return lines, ids
+
+
+def fetch_other_roads():
+    out = {}
+    for key, label, name, kind in OTHER_ROADS:
+        lines, ids = fetch_named(name, {"motorway", "trunk"} if kind == "freeway" else MAIN_TYPES)
+        out[key] = {"label": label, "name": name, "kind": kind, "ways": ids, "segments": lines}
+        print(f"  {label} ({name}): {len(lines)} segments")
+    path = OUT.parent / "main_roads.json"
+    path.write_text(json.dumps(out, separators=(",", ":")) + "\n", encoding="utf-8")
+    print(f"wrote {path.relative_to(ROOT)}")
 
 
 def fetch_roads():
@@ -149,6 +205,8 @@ def fetch_ring():
 def main():
     if "--roads" in sys.argv:
         return fetch_roads()
+    if "--main-roads" in sys.argv:
+        return fetch_other_roads()
     if "--ring" in sys.argv:
         return fetch_ring()
     data = json.loads((ROOT / "src" / "data" / "neighbourhoods.json").read_text(encoding="utf-8"))

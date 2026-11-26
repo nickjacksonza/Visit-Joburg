@@ -1,6 +1,6 @@
 {
   "views": [
-    {"id": "city", "name": "Whole city", "fit": "all", "labels": "major", "for": "Getting your bearings"},
+    {"id": "city", "name": "Whole city", "fit": "ring-road", "labels": "major", "for": "Getting your bearings"},
     {"id": "sandton-rosebank", "name": "Sandton and Rosebank", "fit": ["sandown", "rosebank", "illovo", "melrose", "hyde-park", "morningside"], "labels": "all", "for": "Business visitors and a first base"},
     {"id": "central", "name": "Central", "fit": ["braamfontein", "newtown", "marshalltown", "maboneng", "hillbrow", "auckland-park"], "labels": "all", "for": "History, arts and food"},
     {"id": "soweto", "name": "Soweto", "fit": ["soweto", "diepkloof", "orlando-east"], "labels": "all", "for": "History and guided tours"},
@@ -14,6 +14,7 @@
     {"id": "food-nightlife", "name": "Food and nightlife", "view": "city", "tags": ["food", "nightlife", "markets"]},
     {"id": "shopping", "name": "Shopping", "view": "city", "tags": ["shopping", "markets"]}
   ],
+  "hexes_across_ring": 20,
   "highlight": {"shape": "hexagon", "layer": "hexes", "note": "A toggle fills the hexagons (hex-<place id>) of every area whose tags match."},
   "landmark": {"layer": "ring-road", "note": "The ring road (N1 Western, N3 Eastern and N12 Southern Bypass) is always shown, above the area shading, in every view."},
   "credit": "Base outlines © OpenStreetMap contributors"
