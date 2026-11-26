@@ -45,7 +45,7 @@ An independent visitor's guide to Johannesburg, built from the my-site schema, S
 - Every shape's `id` (its Figma layer name) is its place id in `neighbourhoods.json`. Never repeat names, tags or summaries in the SVG.
 - `src/data/map.json` holds the map views (each frames a list of areas), the visitor types (a view plus tags), the highlight style and the landmark.
 - Toggles highlight areas with hexagons: the `hexes` layer has one shape per area, `hex-<place id>`. Do not shade the area outlines themselves.
-- The ring road (N1 Western, N3 Eastern and N12 Southern Bypass, layer `ring-road`) is the map's main landmark. Keep it prominent and above the area shading in every view.
+- The ring road (N1 Western, N3 Eastern and N12 Southern Bypass, layer `ring-road`) is the map's main landmark. Keep it prominent and above the area shading in every view. Its turnoffs (`ring-turnoffs`, ids `turnoff-<road>-<exit>`) and bridges (`ring-bridges`) sit on top of it.
 - `tools/fetch_map_sources.py` and `tools/make_map.py` are one-off tools: they need the network and `pip install shapely`. The site build never runs them.
 - Keep the credit "Base outlines © OpenStreetMap contributors". Never trace copyrighted maps; use them only to check names and positions.
 

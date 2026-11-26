@@ -5,6 +5,7 @@
     python3 tools/fetch_map_sources.py --refresh  # fetch every place again
     python3 tools/fetch_map_sources.py --retry    # look again for places not found, using addresses (see below)
     python3 tools/fetch_map_sources.py --roads    # the ring road (N1 Western, N3 Eastern and N12 Southern Bypass) to src/map/source/roads.json
+    python3 tools/fetch_map_sources.py --ring     # the ring road's turnoffs and bridges to src/map/source/ring_details.json (run --roads first)
     python3 tools/fetch_map_sources.py --major    # only the main areas, the attractions in them, the places outside the city and the city boundary
 
 Looks up every place in src/data/neighbourhoods.json with OpenStreetMap's Nominatim search, plus the City of
@@ -77,7 +78,7 @@ def fetch_roads():
     """Every motorway segment named after each bypass, paging past Nominatim's 50-result limit."""
     out = {}
     for key, (number, name) in RING.items():
-        seen, lines = [], []
+        seen, lines, ids = [], [], []
         while True:
             extra = {"exclude_place_ids": ",".join(seen)} if seen else {}
             res = search(name, True, limit=50, **extra)
@@ -88,17 +89,68 @@ def fetch_roads():
                 seen.append(str(r["place_id"]))
                 if r["category"] == "highway" and r["geojson"]["type"] in ("LineString", "MultiLineString") and r.get("name") == name:
                     lines.append(r["geojson"])
+                    if r["osm_type"] == "way":
+                        ids.append(r["osm_id"])
             time.sleep(1.1)
-        out[key] = {"number": number, "name": name, "segments": lines}
+        out[key] = {"number": number, "name": name, "ways": ids, "segments": lines}
         print(f"  {number} {name}: {len(lines)} segments")
     path = OUT.parent / "roads.json"
     path.write_text(json.dumps(out, separators=(",", ":")) + "\n", encoding="utf-8")
     print(f"wrote {path.relative_to(ROOT)}")
 
 
+OSM_API = "https://api.openstreetmap.org/api/0.6"
+
+
+def osm_get(kind, ids):
+    """Fetch OSM elements in batches from the main API (ways or nodes), politely, one request a second."""
+    out = []
+    step = 100 if kind == "ways" else 250
+    for i in range(0, len(ids), step):
+        url = f"{OSM_API}/{kind}.json?{kind}={','.join(map(str, ids[i:i + step]))}"
+        req = urllib.request.Request(url, headers={"User-Agent": AGENT})
+        with urllib.request.urlopen(req, timeout=90) as r:
+            out += json.load(r)["elements"]
+        time.sleep(1.0)
+    return out
+
+
+def fetch_ring():
+    """Turnoffs (motorway junction points, with the road's name and exit number) and bridges on the ring road."""
+    roads = json.loads((OUT.parent / "roads.json").read_text(encoding="utf-8"))
+    way_road = {w: k for k, r in roads.items() for w in r["ways"]}
+    ways = osm_get("ways", sorted(way_road))
+    node_ids = sorted({n for w in ways for n in w.get("nodes", [])})
+    print(f"  {len(ways)} ways, {len(node_ids)} points")
+    nodes = {n["id"]: n for n in osm_get("nodes", node_ids)}
+    road_of_node = {}
+    for w in ways:
+        for n in w.get("nodes", []):
+            road_of_node.setdefault(n, way_road[w["id"]])
+    junctions = [{"road": road_of_node[n["id"]], "name": n["tags"].get("name") or n["tags"].get("exit_to") or "", "ref": n["tags"].get("ref", ""),
+                  "lat": n["lat"], "lng": n["lon"], "osm": f'node/{n["id"]}'}
+                 for n in nodes.values() if n.get("tags", {}).get("highway") == "motorway_junction"]
+    bridges = []
+    for w in ways:
+        tags = w.get("tags", {})
+        if tags.get("bridge") in (None, "no"):
+            continue
+        pts = [nodes[n] for n in w.get("nodes", []) if n in nodes]
+        if not pts:
+            continue
+        mid = pts[len(pts) // 2]
+        bridges.append({"road": way_road[w["id"]], "name": tags.get("bridge:name") or tags.get("name", ""), "kind": tags.get("bridge"),
+                        "lat": mid["lat"], "lng": mid["lon"], "osm": f'way/{w["id"]}'})
+    path = OUT.parent / "ring_details.json"
+    path.write_text(json.dumps({"junctions": junctions, "bridges": bridges}, indent=0, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"wrote {path.relative_to(ROOT)}: {len(junctions)} junction points, {len(bridges)} bridge segments")
+
+
 def main():
     if "--roads" in sys.argv:
         return fetch_roads()
+    if "--ring" in sys.argv:
+        return fetch_ring()
     data = json.loads((ROOT / "src" / "data" / "neighbourhoods.json").read_text(encoding="utf-8"))
     cache = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() and "--refresh" not in sys.argv else {}
     jobs = [(pid, q, None) for pid, (q, _) in EXTRA.items()]

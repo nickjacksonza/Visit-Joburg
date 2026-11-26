@@ -18,7 +18,9 @@ Every shape's id is its id in neighbourhoods.json. Layers: regions, areas, hexes
 labels, outlying, credit.
 
 Ring road: the N1 Western, N3 Eastern and N12 Southern Bypass from src/map/source/roads.json, drawn thick on a dark
-casing so it is the first thing a visitor sees, with a route marker on each.
+casing so it is the first thing a visitor sees, with a route marker on each. Its turnoffs (layer ring-turnoffs: a stop
+and exit number at each interchange, full name in data-name) and bridges (layer ring-bridges) come from
+src/map/source/ring_details.json. Both carriageways' points are merged into one per turnoff and per bridge.
 
 Hexes: a grid of pointy-top hexagons (HEX_KM from centre to corner) laid over the areas. Each hexagon belongs to the
 area its centre falls in, and every area keeps at least one. Each area's hexagons form one shape, id hex-<place id>.
@@ -245,9 +247,14 @@ if _roads.exists():
         d = " ".join("M" + " L".join(f"{(x - ox) * UNIT:.0f},{(y - oy) * UNIT:.0f}" for x, y in s.coords) for s in segs if s.geom_type == "LineString" and s.length > 0.2)
         lines_d.append((key, r, d))
         longest = max((s for s in segs if s.geom_type == "LineString"), key=lambda s: s.length)
-        label_pts = [shapes[q["id"]].representative_point() for q in areas]
-        m = max((longest.interpolate(f, normalized=True) for f in (0.3, 0.4, 0.5, 0.6, 0.7)),
-                key=lambda pt: min(pt.distance(lp) for lp in label_pts))  # the spot along the road furthest from any label
+        _rd = ROOT / "src" / "map" / "source" / "ring_details.json"
+        stops = [Point(proj(j["lng"], j["lat"])) for j in json.loads(_rd.read_text(encoding="utf-8"))["junctions"]] if _rd.exists() else []
+        cands = [longest.interpolate(f / 20, normalized=True) for f in range(3, 18)]
+        m = max(cands, key=lambda pt: min((pt.distance(s) for s in stops), default=0))  # the stretch furthest from any turnoff
+        bx, by = proj(CBD["lng"], CBD["lat"])
+        ux, uy = m.x - bx, m.y - by
+        n = math.hypot(ux, uy) or 1
+        m = Point(m.x + ux / n * 2.4, m.y + uy / n * 2.4)  # just outside the ring, beyond the exit numbers
         markers.append((key, r, (m.x - ox) * UNIT, (m.y - oy) * UNIT))
     svg.append('<g id="ring-road">')
     for key, r, d in lines_d:  # dark casing under each road, then the road on top
@@ -258,6 +265,56 @@ if _roads.exists():
         w = 12 + 8 * len(r["number"])
         svg.append(f'<g id="marker-{key}"><rect x="{x - w / 2:.0f}" y="{y - 11:.0f}" width="{w}" height="22" rx="5" fill="#175cd3" stroke="#faf8f4" stroke-width="2"/>'
                    f'<text x="{x:.0f}" y="{y + 5:.0f}" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="#faf8f4">{r["number"]}</text></g>')
+    svg.append("</g>")
+
+_ring = ROOT / "src" / "map" / "source" / "ring_details.json"
+turnoffs, bridges = [], []
+if _ring.exists():
+    RD = json.loads(_ring.read_text(encoding="utf-8"))
+    dist = lambda a, b: math.hypot((a["lng"] - b["lng"]) * KX, (a["lat"] - b["lat"]) * KY)
+    for j in RD["junctions"]:  # one turnoff per interchange: same exit number or name nearby, or within 600 m
+        refs = set(j["ref"].replace(";", ",").split(",")) - {""}
+        for c in turnoffs:
+            if dist(j, c[0]) < 0.6 or (dist(j, c[0]) < 2.5 and ((refs & c[1]) or (j["name"] and j["name"] in c[2]))):
+                c[0].setdefault("_pts", [c[0]]).append(j); c[1].update(refs)
+                if j["name"]: c[2].add(j["name"])
+                break
+        else:
+            turnoffs.append([j, set(refs), {j["name"]} if j["name"] else set()])
+    for b in RD["bridges"]:
+        if not any(dist(b, c) < 0.35 for c in bridges):
+            bridges.append(b)
+    def exit_label(c):
+        refs = sorted(c[1], key=lambda r: (len(r), r))
+        names = sorted(c[2], key=lambda n: (n in ("Johannesburg", "Roodepoort", "Sandton", "Edenvale"), len(n)))  # a road name beats a destination
+        return refs, names
+    svg.append('<g id="ring-turnoffs">')
+    ring_cx, ring_cy = proj(CBD["lng"], CBD["lat"])
+    used = set()
+    for c in turnoffs:
+        pts = c[0].get("_pts", [c[0]])
+        lat = sum(q["lat"] for q in pts) / len(pts); lng = sum(q["lng"] for q in pts) / len(pts)
+        x, y = proj(lng, lat)
+        refs, names = exit_label(c)
+        slug = lambda s: "-".join("".join(ch if ch.isalnum() else " " for ch in s.lower()).split())
+        tid = f'turnoff-{c[0]["road"]}-{refs[0].lower() if refs else (slug(names[0]) if names else "unnamed")}'
+        if tid in used:  # same exit number twice (one interchange, two roads): add the road's name
+            tid += "-" + (slug(names[0]) if names else str(len(used)))
+        used.add(tid)
+        full = (f"Exit {', '.join(refs)}" if refs else "Turnoff") + (f": {names[0]}" if names else "")
+        ux, uy = x - ring_cx, y - ring_cy
+        n = math.hypot(ux, uy) or 1
+        lx, ly = x + ux / n * 1.1, y + uy / n * 1.1  # the exit number sits just outside the ring
+        sx, sy = (x - ox) * UNIT, (y - oy) * UNIT
+        svg.append(f'<g id="{tid}" data-name="{esc(full)}"><circle cx="{sx:.0f}" cy="{sy:.0f}" r="4" fill="#faf8f4" stroke="#1a1c20" stroke-width="2"/>'
+                   + (f'<text x="{(lx - ox) * UNIT:.0f}" y="{(ly - oy) * UNIT + 3:.0f}" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700" text-anchor="middle" fill="#1a1c20">{esc(refs[0])}</text>' if refs else "")
+                   + "</g>")
+    svg.append("</g>")
+    svg.append('<g id="ring-bridges">')
+    for i, b in enumerate(bridges, 1):
+        x, y = proj(b["lng"], b["lat"])
+        sx, sy = (x - ox) * UNIT, (y - oy) * UNIT
+        svg.append(f'<path id="bridge-{b["road"]}-{i}" d="M{sx:.0f},{sy - 3:.0f} L{sx + 3:.0f},{sy:.0f} L{sx:.0f},{sy + 3:.0f} L{sx - 3:.0f},{sy:.0f}Z" fill="#1a1c20"/>')
     svg.append("</g>")
 
 city = SRC.get("_city", {})
@@ -335,6 +392,12 @@ lines = ["# Map draft audit", "", f"Draft of {'main areas only' if MAJOR else 'e
 if missing:
     lines += ["## Not found", "", "Add these by hand in Figma, or fix the name and fetch again.", ""]
     lines += [f"- {p['name']} ({p['kind']}, {regions[p['region']]['name']})" for p in missing] + [""]
+if turnoffs:
+    lines += ["## Ring road turnoffs", "", "Names as OpenStreetMap has them. Check these, and fill in any that are missing or only name a destination.", ""]
+    for c in sorted(turnoffs, key=lambda c: (c[0]["road"], min((int("".join(ch for ch in r if ch.isdigit()) or 0) for r in c[1]), default=0))):
+        refs, names = exit_label(c)
+        lines.append(f"- {c[0]['road'].upper()}: " + (f"exit {', '.join(refs)}" if refs else "no exit number") + (f", {' / '.join(names)}" if names else ", no name"))
+    lines += ["", f"Bridges on the ring road: {len(bridges)}.", ""]
 if notes:
     lines += ["## Notes", ""] + [f"- {PLACES_NAME}: {n}" for PLACES_NAME, n in ((next(p['name'] for p in places if p['id'] == k), v) for k, v in notes.items())] + [""]
 lines += ["## Check these matches", "", "The search may have found a place with the same name elsewhere. Each line is the place and what it matched.", ""]

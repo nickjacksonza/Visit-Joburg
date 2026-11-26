@@ -18,6 +18,43 @@ Add these by hand in Figma, or fix the name and fetch again.
 - Nooitgedacht (area, Just Outside the City)
 - Gosforth Park (attraction, Just Outside the City)
 
+## Ring road turnoffs
+
+Names as OpenStreetMap has them. Check these, and fill in any that are missing or only name a destination.
+
+- N1: no exit number, no name
+- N1: exit 67, 69, M70 Soweto Highway
+- N1: exit 67, N12
+- N1: exit 71, Johannesburg
+- N1: exit 75, Roodepoort
+- N1: exit 78, Gordon Road
+- N1: exit 80, Roodepoort
+- N1: exit 85, M5 Honeydew
+- N1: exit 90, R512 Malibongwe Drive
+- N1: exit 95, Sandton
+- N1: exit 100, M9 Rivonia Road
+- N1: exit 104, 104A, 104B, Buccleuch Interchange
+- N12: no exit number, Old Potch Road
+- N12: exit 391, Uncle Charlies Interchange
+- N12: exit 393, Johannesburg
+- N12: exit 396, Johannesburg
+- N12: exit 399, Johannesburg
+- N12: exit 402, Reading Interchange
+- N12: exit 404, no name
+- N12: exit 406, N17
+- N3: exit 105, 106, N3 / N12 / Rand Airport Road
+- N3: exit 108A, 108B, Geldenhuys Interchange
+- N3: exit 108, no name
+- N3: exit 110, Van Buuren Road
+- N3: exit 113, Gilloolys Interchange
+- N3: exit 116, M16 Linksfield Road
+- N3: exit 119A, 119A Edenvale
+- N3: exit 119B, 119B Johannesburg / R25 Modderfontein Road
+- N3: exit 121, London Road
+- N3: exit 124, Marlboro Dr
+
+Bridges on the ring road: 28.
+
 ## Check these matches
 
 The search may have found a place with the same name elsewhere. Each line is the place and what it matched.
