@@ -8,8 +8,9 @@ and `src/data/map.json`.
 
 | File | What it is |
 |------|------------|
-| `source/nominatim.json` | OpenStreetMap search results for every place, fetched once by `tools/fetch_map_sources.py`. Kept so the draft can be redrawn without the network. |
-| `joburg-draft.svg` | The first draft, drawn by `tools/make_map.py`. 1 km = 10 units. Do not edit by hand: redraw it, or edit in Figma. |
+| `source/nominatim.json` | OpenStreetMap search results, fetched once by `tools/fetch_map_sources.py` (`--major` for the main areas only). Kept so the draft can be redrawn without the network. |
+| `source/positions.json` | Positions for places the search could not find or matched wrongly, each with its source (mostly the place's Wikipedia article). |
+| `joburg-draft.svg` | The first draft, drawn by `tools/make_map.py --major`: the 57 main areas, their attractions and arrows to places outside the city. 1 km = 10 units. Do not edit by hand: redraw it, or edit in Figma. |
 | `audit.md` | What the draft could and could not match: outlines, rough cells, places not found and the matches to check. |
 | `joburg.svg` | The edited base map, exported from Figma. The site reads this one. (Not made yet.) |
 
@@ -27,7 +28,7 @@ name. Names, tags, summaries and guides stay in the JSON, so the SVG never repea
 
 ## Refine in Figma, then export
 
-1. Open the "Visit Joburg Map" file in Figma. Edit shapes on the Map page. Keep each layer's name as it is.
+1. Open the [Visit Joburg Map](https://www.figma.com/design/PKTBz5zCVfH6QHb0Z3uoOf) file in Figma. Its "Read me" page repeats these steps. Edit shapes on the Map page. Keep each layer's name as it is.
 2. To add an area, draw it inside the `areas` group and name the layer with the place's id from `neighbourhoods.json`.
 3. To stretch a busy part of the city (for example the centre), scale those shapes together. Keep the rest true to scale.
 4. Select the `Joburg base map` frame, then Export > SVG, with "Include 'id' attribute" turned on.

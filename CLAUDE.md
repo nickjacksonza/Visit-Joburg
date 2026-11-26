@@ -39,6 +39,14 @@ An independent visitor's guide to Johannesburg, built from the my-site schema, S
 - An area with a summary gets a card on the neighbourhoods page. To give it a guide page, add `src/pages/neighbourhoods/<id>.html` with `{{ info_box }}` after the lead paragraph. Any other page can show an area's box with `{{ info_box_<id> }}` under an `h2` (the box uses an `h3`).
 - Attractions in `site.json` carry a `neighbourhood` id, so they show up in that area's info box.
 
+## Map
+
+- The base map is our own SVG, true to geography (1 km = 10 units). `tools/make_map.py` draws the draft `src/map/joburg-draft.svg` from `src/map/source/`; it is refined in the Figma file "Visit Joburg Map" and exported back as `src/map/joburg.svg`. See `src/map/README.md`.
+- Every shape's `id` (its Figma layer name) is its place id in `neighbourhoods.json`. Never repeat names, tags or summaries in the SVG.
+- `src/data/map.json` holds the map views (each frames a list of areas) and the visitor types (a view plus tags).
+- `tools/fetch_map_sources.py` and `tools/make_map.py` are one-off tools: they need the network and `pip install shapely`. The site build never runs them.
+- Keep the credit "Base outlines © OpenStreetMap contributors". Never trace copyrighted maps; use them only to check names and positions.
+
 ## Content
 
 - Facts about places must be checkable and slow to change. Do not list opening hours or prices for attractions; tell visitors to check with the place.

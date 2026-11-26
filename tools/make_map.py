@@ -6,7 +6,7 @@
     python3 tools/make_map.py            # every area found
     python3 tools/make_map.py --major    # main areas only (the first draft)
 
-Reads src/data/neighbourhoods.json and src/map/source/nominatim.json. Writes the draft SVG and src/map/audit.md.
+Reads src/data/neighbourhoods.json, src/map/source/nominatim.json and src/map/source/positions.json. Writes the draft SVG and src/map/audit.md.
 The draft is a starting point to refine in Figma, true to geography (1 km = 10 SVG units):
 
 - An area mapped as an outline in OpenStreetMap keeps that outline (data-shape="outline").
@@ -35,11 +35,29 @@ PALETTE = {"far-north-midrand": "#f5c400", "north-west-randburg": "#18794e", "sa
            "central-east-west": "#b42318", "south": "#b54708", "soweto": "#6927da", "outlying": "#5f646d"}
 
 places = DATA["places"]
-regions = {r["id"]: r for r in DATA["regions"]}
-hits = {pid: v for pid, v in SRC.items() if v.get("found")}
 if MAJOR:  # main areas, the attractions inside them, and the places outside the city
     majors = {p["id"] for p in places if p["major"]}
     places = [p for p in places if p["major"] or p["parent"] in majors or p["region"] == "outlying"]
+regions = {r["id"]: r for r in DATA["regions"]}
+hits = {pid: dict(v) for pid, v in SRC.items() if v.get("found")}
+for p in places:  # a position already in neighbourhoods.json beats a search result
+    if p.get("geo") and p["id"] in hits:
+        hits[p["id"]].update(lat=p["geo"]["lat"], lng=p["geo"]["lng"], geojson={"type": "Point", "coordinates": [p["geo"]["lng"], p["geo"]["lat"]]})
+    elif p.get("geo"):
+        hits[p["id"]] = {"found": True, "display_name": "position from neighbourhoods.json", "lat": p["geo"]["lat"], "lng": p["geo"]["lng"],
+                         "geojson": {"type": "Point", "coordinates": [p["geo"]["lng"], p["geo"]["lat"]]}}
+# A match more than FAR_KM from the city centre (80 km for places outside the city) is the same name somewhere else: drop it.
+FAR_KM = 40
+CBD = SITE["city"]
+for p in places:
+    h = hits.get(p["id"])
+    if h and math.hypot((h["lng"] - CBD["lng"]) * 100, (h["lat"] - CBD["lat"]) * 111) > (80 if p["region"] == "outlying" else FAR_KM):
+        del hits[p["id"]]
+_pos = ROOT / "src" / "map" / "source" / "positions.json"
+for pid, v in (json.loads(_pos.read_text(encoding="utf-8")) if _pos.exists() else {}).items():
+    if not pid.startswith("_") and pid not in hits:  # positions for places the search could not find
+        hits[pid] = {"found": True, "display_name": v["source"], "lat": v["lat"], "lng": v["lng"],
+                     "geojson": {"type": "Point", "coordinates": [v["lng"], v["lat"]]}}
 in_city = [p for p in places if p["region"] != "outlying" and p["id"] in hits]
 lat0 = sum(hits[p["id"]]["lat"] for p in in_city) / len(in_city)
 lng0 = sum(hits[p["id"]]["lng"] for p in in_city) / len(in_city)
@@ -184,26 +202,34 @@ svg.append("</g>")
 svg.append('<g id="labels">')
 for p in areas:
     c = shapes[p["id"]].representative_point()
-    size, weight = (15, 700) if p["major"] else (10, 400)
+    size, weight = (11, 700) if p["major"] else (8, 400)
     svg.append(f'<text id="label-{p["id"]}" x="{(c.x - ox) * UNIT:.1f}" y="{(c.y - oy) * UNIT:.1f}" font-family="Inter, Arial, sans-serif" '
                f'font-size="{size}" font-weight="{weight}" text-anchor="middle" fill="#1a1c20">{esc(p["name"])}</text>')
 svg.append("</g>")
 
-# Places outside the map: an arrow on the edge pointing their way.
+# Places outside the map: an arrow on the edge pointing their way, with the distance from the city centre.
 svg.append('<g id="outlying">')
 cx, cy = (minx + maxx) / 2, (miny + maxy) / 2
+bx, by = proj(CBD["lng"], CBD["lat"])
+placed = []
 for p in places:
     if p["region"] != "outlying" or p["id"] not in hits:
         continue
     x, y = proj(hits[p["id"]]["lng"], hits[p["id"]]["lat"])
     dx, dy = x - cx, y - cy
-    k = min((maxx - cx + PAD * 0.5) / abs(dx) if dx else 1e9, (maxy - cy + PAD * 0.5) / abs(dy) if dy else 1e9)
+    k = min((maxx - cx + PAD * 0.6) / abs(dx) if dx else 1e9, (maxy - cy + PAD * 0.6) / abs(dy) if dy else 1e9)
     ex, ey = cx + dx * k, cy + dy * k
-    km = math.hypot(x - ex, y - ey)
+    km = math.hypot(x - bx, y - by)
     ang = math.degrees(math.atan2(dy, dx))
     sx, sy = (ex - ox) * UNIT, (ey - oy) * UNIT
-    svg.append(f'<g id="{p["id"]}" data-name="{esc(p["name"])}"><path d="M-10,-7 L10,0 L-10,7 Z" transform="translate({sx:.1f},{sy:.1f}) rotate({ang:.0f})" fill="#5f646d"/>'
-               f'<text x="{sx:.1f}" y="{sy + 24:.1f}" font-family="Inter, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1a1c20">{esc(p["name"])} ({km:.0f} km)</text></g>')
+    down = dy >= 0 or sy < 60  # near the top edge, put the label below the arrow so it stays on the map
+    ty = sy + 24 if down else sy - 16
+    while any(abs(ty - py) < 16 and abs(sx - px) < 220 for px, py in placed):
+        ty += 16 if down else -16
+    placed.append((sx, ty))
+    anchor = "end" if sx > W - 150 else "start" if sx < 150 else "middle"
+    svg.append(f'<g id="{p["id"]}" data-name="{esc(p["name"])}"><path d="M-10,-7 L10,0 L-10,7 Z" transform="translate({sx:.0f},{sy:.0f}) rotate({ang:.0f})" fill="#5f646d"/>'
+               f'<text x="{sx:.0f}" y="{ty:.0f}" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="{anchor}" fill="#1a1c20">{esc(p["name"])}, {km:.0f} km from the centre</text></g>')
 svg.append("</g>")
 svg.append(f'<g id="credit"><text x="{W - 12:.0f}" y="{H - 12:.0f}" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="end" fill="#5f646d">Base outlines © OpenStreetMap contributors</text></g>')
 svg.append("</svg>")

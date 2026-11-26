@@ -3,6 +3,7 @@
 
     python3 tools/fetch_map_sources.py            # only places not yet in the cache
     python3 tools/fetch_map_sources.py --refresh  # fetch every place again
+    python3 tools/fetch_map_sources.py --retry    # look again for places not found, using addresses (see below)
     python3 tools/fetch_map_sources.py --major    # only the main areas, the attractions in them, the places outside the city and the city boundary
 
 Looks up every place in src/data/neighbourhoods.json with OpenStreetMap's Nominatim search, plus the City of
@@ -21,13 +22,13 @@ OUT = ROOT / "src" / "map" / "source" / "nominatim.json"
 API = "https://nominatim.openstreetmap.org/search"
 AGENT = "visit-joburg-map-draft/0.1 (static site build tool)"
 # Greater Johannesburg, west, north, east, south. Places in the city are looked up inside this box only.
-VIEWBOX = "27.65,-25.80,28.35,-26.45"
+VIEWBOX = "27.75,-25.90,28.30,-26.40"
 AREA_CLASSES = {("place", t) for t in ("suburb", "neighbourhood", "quarter", "town", "village", "hamlet", "city_block", "locality", "city")} | {("boundary", "administrative")}
 EXTRA = {"_city": ("City of Johannesburg Metropolitan Municipality", None)}
 
 
-def search(q, bounded=True):
-    params = {"q": q, "format": "jsonv2", "polygon_geojson": 1, "polygon_threshold": 0.0002, "limit": 8, "countrycodes": "za"}
+def search(q, bounded=True, **extra):
+    params = {**extra, "q": q, "format": "jsonv2", "polygon_geojson": 1, "polygon_threshold": 0.0002, "limit": 8, "countrycodes": "za"}
     if bounded:
         params.update({"viewbox": VIEWBOX, "bounded": 1})
     req = urllib.request.Request(f"{API}?{urllib.parse.urlencode(params)}", headers={"User-Agent": AGENT})
@@ -42,6 +43,23 @@ def pick(results, kind):
         with_shape = [r for r in areas if r["geojson"]["type"] in ("Polygon", "MultiPolygon")]
         return (with_shape or areas or [None])[0]
     return results[0] if results else None
+
+
+ADDRESS_KEYS = ("suburb", "quarter", "neighbourhood", "city_district", "town", "village", "hamlet")
+
+
+def by_address(name, bounded):
+    """Many suburbs are not mapped as places, only named in the addresses of things inside them. Take the middle point
+    (median) of up to 20 such addresses as a rough centre, and mark it as approximate."""
+    res = search(f"{name}, Johannesburg" if bounded else name, bounded, addressdetails=1, limit=20)
+    pts = [(float(r["lat"]), float(r["lon"])) for r in res
+           if any((r.get("address") or {}).get(k, "").lower() == name.lower() for k in ADDRESS_KEYS)]
+    if not pts:
+        return None
+    lats, lngs = sorted(p[0] for p in pts), sorted(p[1] for p in pts)
+    lat, lng = lats[len(lats) // 2], lngs[len(lngs) // 2]
+    return {"found": True, "approx": True, "name": name, "display_name": f"median of {len(pts)} addresses in {name}", "osm": None,
+            "class": "address", "type": "median", "lat": lat, "lng": lng, "geojson": {"type": "Point", "coordinates": [lng, lat]}}
 
 
 def keep(r, q):
@@ -62,7 +80,8 @@ def main():
         outside = p["region"] == "outlying"
         q = p["name"] if outside or p["kind"] == "attraction" else f'{p["name"]}, Johannesburg'
         jobs.append((p["id"], q, p))
-    todo = [j for j in jobs if j[0] not in cache]
+    retry = "--retry" in sys.argv
+    todo = [j for j in jobs if j[0] not in cache or (retry and not cache[j[0]].get("found"))]
     print(f"{len(todo)} to fetch, {len(jobs) - len(todo)} cached")
     OUT.parent.mkdir(parents=True, exist_ok=True)
     for n, (pid, q, p) in enumerate(todo, 1):
@@ -75,6 +94,9 @@ def main():
                 q = f'{p["name"]}, Gauteng'
                 res = search(q, bounded)
             cache[pid] = keep(pick(res, kind), q)
+            if retry and not cache[pid]["found"] and p:
+                time.sleep(1.1)
+                cache[pid] = by_address(p["name"], bounded) or cache[pid]
         except Exception as e:  # keep going; a failed place is fetched again on the next run
             print(f"  {pid}: {e}")
         if n % 20 == 0:
@@ -83,6 +105,7 @@ def main():
         time.sleep(1.1)
     OUT.write_text(json.dumps(cache, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     found = [k for k, v in cache.items() if v.get("found")]
+    print(f"approximate (from addresses): {sum(1 for v in cache.values() if v.get('approx'))}")
     shaped = [k for k in found if cache[k]["geojson"]["type"] in ("Polygon", "MultiPolygon")]
     print(f"done: {len(found)} found, {len(shaped)} with an outline, {len(cache) - len(found)} not found")
 
