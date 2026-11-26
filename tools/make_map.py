@@ -3,7 +3,8 @@
 
     pip install shapely          # once; only this tool needs it, the site build does not
     python3 tools/fetch_map_sources.py
-    python3 tools/make_map.py
+    python3 tools/make_map.py            # every area found
+    python3 tools/make_map.py --major    # main areas only (the first draft)
 
 Reads src/data/neighbourhoods.json and src/map/source/nominatim.json. Writes the draft SVG and src/map/audit.md.
 The draft is a starting point to refine in Figma, true to geography (1 km = 10 SVG units):
@@ -16,7 +17,7 @@ The draft is a starting point to refine in Figma, true to geography (1 km = 10 S
 Every shape's id is its id in neighbourhoods.json. Layers: regions, areas, city-boundary, attractions, labels,
 outlying, credit. Base outlines © OpenStreetMap contributors (ODbL).
 """
-import json, math
+import json, math, sys
 from pathlib import Path
 from shapely.geometry import MultiPoint, Point, mapping, shape
 from shapely.ops import unary_union, voronoi_diagram
@@ -27,7 +28,8 @@ SITE = json.loads((ROOT / "src" / "data" / "site.json").read_text(encoding="utf-
 SRC = json.loads((ROOT / "src" / "map" / "source" / "nominatim.json").read_text(encoding="utf-8"))
 OUT, AUDIT = ROOT / "src" / "map" / "joburg-draft.svg", ROOT / "src" / "map" / "audit.md"
 UNIT = 10          # SVG units per km
-CELL_KM = 2.5      # a rough cell reaches at most this far from its point
+MAJOR = "--major" in sys.argv
+CELL_KM = 4.0 if MAJOR else 2.5   # a rough cell reaches at most this far from its point (main areas are further apart)
 MAX_KM2 = 250      # an outline bigger than this is not a suburb; treat the match as a point
 PALETTE = {"far-north-midrand": "#f5c400", "north-west-randburg": "#18794e", "sandton-rosebank": "#175cd3",
            "central-east-west": "#b42318", "south": "#b54708", "soweto": "#6927da", "outlying": "#5f646d"}
@@ -35,6 +37,9 @@ PALETTE = {"far-north-midrand": "#f5c400", "north-west-randburg": "#18794e", "sa
 places = DATA["places"]
 regions = {r["id"]: r for r in DATA["regions"]}
 hits = {pid: v for pid, v in SRC.items() if v.get("found")}
+if MAJOR:  # main areas, the attractions inside them, and the places outside the city
+    majors = {p["id"] for p in places if p["major"]}
+    places = [p for p in places if p["major"] or p["parent"] in majors or p["region"] == "outlying"]
 in_city = [p for p in places if p["region"] != "outlying" and p["id"] in hits]
 lat0 = sum(hits[p["id"]]["lat"] for p in in_city) / len(in_city)
 lng0 = sum(hits[p["id"]]["lng"] for p in in_city) / len(in_city)
@@ -106,11 +111,11 @@ W, H = (maxx - minx + 2 * PAD) * UNIT, (maxy - miny + 2 * PAD) * UNIT
 
 
 def xy(x, y):
-    return f"{(x - ox) * UNIT:.1f},{(y - oy) * UNIT:.1f}"
+    return f"{(x - ox) * UNIT:.0f},{(y - oy) * UNIT:.0f}"
 
 
 def path_d(g):
-    g = g.simplify(0.03, preserve_topology=True)
+    g = g.simplify(0.05, preserve_topology=True)  # 50 m: plenty for a draft, and keeps the file small
     polys = [g] if g.geom_type == "Polygon" else list(getattr(g, "geoms", []))
     out = []
     for poly in polys:
@@ -168,7 +173,7 @@ for p in places:
     seen.add(p.get("attraction_id"))
     svg.append(f'<circle id="{p["id"]}" data-name="{esc(p["name"])}" cx="{(x - ox) * UNIT:.1f}" cy="{(y - oy) * UNIT:.1f}" r="6" fill="#b54708" stroke="#faf8f4" stroke-width="2"/>')
 for a in SITE["attractions"]:  # the detailed things-to-do attractions not already listed under an area
-    if a["id"] in seen:
+    if a["id"] in seen or (MAJOR and a.get("neighbourhood") not in {p["id"] for p in areas}):
         continue
     x, y = proj(a["lng"], a["lat"])
     if not (minx - PAD < x < maxx + PAD and miny - PAD < y < maxy + PAD):
@@ -206,7 +211,7 @@ OUT.write_text("\n".join(svg) + "\n", encoding="utf-8")
 
 # ---------------------------------------------------------------- audit
 missing = [p for p in places if p["id"] not in hits]
-lines = ["# Map draft audit", "", f"Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = {UNIT} SVG units. The draft is {W / UNIT:.0f} by {H / UNIT:.0f} km.", "",
+lines = ["# Map draft audit", "", f"Draft of {'main areas only' if MAJOR else 'every area'}.", "", f"Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = {UNIT} SVG units. The draft is {W / UNIT:.0f} by {H / UNIT:.0f} km.", "",
          f"- Areas with an OpenStreetMap outline: {sum(v == 'outline' for v in kinds.values())}",
          f"- Areas drawn as rough cells from a point: {sum(v == 'rough' for v in kinds.values())}",
          f"- Places not found: {len(missing)}", ""]

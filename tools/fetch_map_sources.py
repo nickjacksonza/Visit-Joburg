@@ -3,6 +3,7 @@
 
     python3 tools/fetch_map_sources.py            # only places not yet in the cache
     python3 tools/fetch_map_sources.py --refresh  # fetch every place again
+    python3 tools/fetch_map_sources.py --major    # only the main areas, the attractions in them, the places outside the city and the city boundary
 
 Looks up every place in src/data/neighbourhoods.json with OpenStreetMap's Nominatim search, plus the City of
 Johannesburg boundary, and saves the answers to src/map/source/nominatim.json. Nominatim allows at most one request a
@@ -54,7 +55,10 @@ def main():
     data = json.loads((ROOT / "src" / "data" / "neighbourhoods.json").read_text(encoding="utf-8"))
     cache = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() and "--refresh" not in sys.argv else {}
     jobs = [(pid, q, None) for pid, (q, _) in EXTRA.items()]
+    majors = {p["id"] for p in data["places"] if p["major"]}
     for p in data["places"]:
+        if "--major" in sys.argv and not (p["major"] or p["parent"] in majors or p["region"] == "outlying"):
+            continue
         outside = p["region"] == "outlying"
         q = p["name"] if outside or p["kind"] == "attraction" else f'{p["name"]}, Johannesburg'
         jobs.append((p["id"], q, p))
