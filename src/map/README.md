@@ -22,7 +22,8 @@ name. Names, tags, summaries and guides stay in the JSON, so the SVG never repea
 - Layer groups: `regions`, `areas`, `city-boundary`, `attractions`, `labels`, `outlying`, `credit`.
 - Region shapes are named `region-<region id>`, labels `label-<place id>`.
 - `data-shape="outline"` means the shape came from an OpenStreetMap outline. `data-shape="rough"` means it is a rough
-  cell around a single point: the ground nearer that point than any other, at most 2.5 km out. Redraw rough shapes
+  cell around a single point: the ground nearer that point than any other, at most 2.5 km out (4 km in the main-areas
+  draft). Redraw rough shapes
   where it matters.
 - Colours in the SVG are only for editing. The site replaces them with its own colour tokens.
 
