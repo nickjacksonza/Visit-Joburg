@@ -1,4 +1,4 @@
-// Area lists editor: content/areas.json. Each list names a cluster of suburbs (The Parks, Town), picks the colour they
+// Area lists editor: content/area-lists.json. Each list names a cluster of suburbs (The Parks, Town), picks the colour they
 // rise in on the map, and says where it shows: in the area picker, in the Area lists panel, or both.
 // Sign-in and saving are in core.js. The suburbs come from src/data/neighbourhoods.json on GitHub.
 (function () {
@@ -10,7 +10,7 @@
   function extra(a) {  // every area, grouped by part of the city, from neighbourhoods.json
     return a.getFile("src/data/neighbourhoods.json").then(function (f) {
       var d = JSON.parse(f.text), byId = {};
-      d.places.forEach(function (p) { if (p.kind === "area") byId[p.id] = p; });
+      d.places.forEach(function (p) { byId[p.id] = p; });
       places = { byId: byId, regions: d.regions };
       return byId;
     });
@@ -86,6 +86,6 @@
     api.touch();
   }
 
-  EditorCore({ file: "content/areas.json", noun: "area lists", commit: "Area lists", siteUrl: "../index.html#map-h",
+  EditorCore({ file: "content/area-lists.json", noun: "area lists", commit: "Area lists", siteUrl: "../index.html#map-h",
     clean: function (d, byId) { return L.clean(d, byId); }, dump: L.dump, summary: L.summary, render: render, extra: extra });
 })();

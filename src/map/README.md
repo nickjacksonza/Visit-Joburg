@@ -1,19 +1,18 @@
 # The base map
 
 The map of Johannesburg is our own SVG. It starts as a draft drawn from open data, is refined in Figma, and is
-exported back here as `joburg.svg`. The site will build the map page from that file plus `src/data/neighbourhoods.json`
-and `src/data/map.json`.
+exported back here as `joburg.svg`. The home page builds its map from that file (or the draft until then), plus
+`src/data/neighbourhoods.json`, `content/area-lists.json` and `src/data/map.json`.
 
 ## Files
 
 | File | What it is |
 |------|------------|
-| `source/nominatim.json` | OpenStreetMap search results, fetched once by `tools/fetch_map_sources.py` (`--major` for the main areas only). Kept so the draft can be redrawn without the network. |
+| `source/nominatim.json` | OpenStreetMap search answers, kept by `tools/fetch_map_sources.py` so the map can be redrawn without the network. The tool copies each found centre into the place's `geo` (with `geo_source`); the map tool uses this file only for area outlines. |
 | `source/roads.json` | The ring road's motorway segments (N1 Western, N3 Eastern and N12 Southern Bypass), fetched with `tools/fetch_map_sources.py --roads`. |
 | `source/ring_details.json` | The ring road's turnoffs (motorway junction points, with name and exit number) and bridges, from OpenStreetMap's main data API with `tools/fetch_map_sources.py --ring`. |
-| `source/positions.json` | Positions for places the search could not find or matched wrongly, each with its source (mostly the place's Wikipedia article). |
-| `joburg-draft.svg` | The first draft, drawn by `tools/make_map.py --major`: the 57 main areas, their attractions and arrows to places outside the city. 1 km = 10 units. Do not edit by hand: redraw it, or edit in Figma. |
-| `audit.md` | What the draft could and could not match: outlines, rough cells, places not found and the matches to check. |
+| `joburg-draft.svg` | The draft, drawn by `tools/make_map.py` from every area and attraction with a position (`geo` in `src/data/neighbourhoods.json` and `attractions.json`), with arrows to places outside the city. 1 km = 10 units. Do not edit by hand: redraw it, or edit in Figma. |
+| `audit.md` | Outlines found, places still without a position, the ring road turnoffs to check, and where each position came from. |
 | `joburg.svg` | The edited base map, exported from Figma. The site reads this one. (Not made yet.) |
 
 ## How a shape links to the data
@@ -68,5 +67,6 @@ name. Names, tags, summaries and guides stay in the JSON, so the SVG never repea
 ## Credit
 
 The draft outlines and points are © OpenStreetMap contributors, under the Open Database License. Keep the credit line
-on the map. Reference maps under someone else's copyright (such as printed or watermarked maps) may be used to check
-names and positions, but not traced.
+on the map. Public map services (Google Maps, OpenStreetMap, Wikipedia) may be used to look up an address or a place's
+position, with the source recorded in `geo_source`. Shapes, artwork and tiles from someone else's map are never traced or
+copied.

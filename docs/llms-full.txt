@@ -17,7 +17,7 @@ Johannesburg is South Africa's biggest city and the place where much of its mode
 
 Joburg spreads over a wide area, with the ring road of the N1, N3 and N12 round the middle. Pick an area, or tap the map, to raise it and read a short note. The [neighbourhoods list](https://example.com/neighbourhoods.html) has every area in words.
 
-Pick an areaChoose an areaThe ParksSandtonTownAll of Far North and MidrandDainfernFourwaysGlen AustinHalfway HouseKyalamiLonehillAll of North West and RandburgBlairgowrieCraighall ParkDouglasdaleEmmarentiaFairlandFerndaleFloridaJukskei ParkLindenMelvilleNorthcliffOlivedaleRandpark RidgeRobindaleTriomfAll of Sandton, Rosebank and North CentralAlexandraAtholhurstAthollBedfordviewBenmore GardensBordeauxBrumaBryanstonBuccleuchChislehurstonDunkeldDunkeld WestEdenvaleGreensideHoughtonHurlinghamHyde ParkIllovoInandaKelvinMelroseModderfonteinMorningsideObservatoryOrchardsParkhurstParkmoreParktownParktown NorthParkviewParkwoodRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldSimbaWestcliffWierda ValleyWoodmeadWynbergAll of CentralBereaBraamfonteinDoornfonteinHillbrowJoubert ParkMabonengMarshalltownNewtownYeovilleAll of EastCity DeepDenverKensingtonAll of WestAuckland ParkRiverleaAll of SouthEldorado ParkGlenvistaKenilworthMeredaleMondeorOrmondeRobertshamTurffonteinAll of SowetoDiepkloofDlaminiDobsonvilleDubeEmndeniJabavuJabulaniKlipspruitKliptownMapetlaMeadowlandsMofoloMolapoMoletsaneMorokaNalediOrlando EastOrlando WestPimvilleProtea GlenProtea NorthSenaoaneTladiZola
+Pick an areaChoose an areaThe ParksSandtonTownAll of Far North and MidrandAustin ViewBeaulieuBlue HillsCarlswaldCrowthorneDainfernFourwaysGlen AustinHalfway HouseKyalamiLonehillPaulshofPresident ParkSunninghillAll of North West and RandburgBlackheathBlairgowrieBoskruinCraighall ParkCrestaCrosbyDarrenwoodDouglasdaleEmmarentiaFairlandFerndaleFloridaFontainebleauHoneydewJukskei ParkLindenMaraisburgMelvilleNewlandsNorth RidingNorthcliffNorthwoldOlivedaleRadiokopRandpark RidgeRobindaleSharonleaSundownerTriomfVictory ParkWestdeneAll of Sandton, Rosebank and North CentralAbbotsfordAlexandraAtholhurstAthollBedfordviewBenmore GardensBordeauxBramleyBrumaBryanstonBuccleuchChislehurstonDowerglenDunkeldDunkeld WestDuxberryEdenvaleFairmountGallo ManorGreensideHoughtonHurlinghamHyde ParkIllovoInandaKelvinKillarneyMelroseMelrose NorthModderfonteinMorningsideNorwoodOaklandsObservatoryOrchardsParkhurstParkmoreParktownParktown NorthParkviewParkwoodRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldSimbaStrathavonWaverleyWestcliffWierda ValleyWoodmeadWynbergAll of CentralBereaBraamfonteinDoornfonteinHillbrowJoubert ParkMabonengMarshalltownNewtownYeovilleAll of EastCity DeepDenverKensingtonMalvernAll of WestAuckland ParkLanglaagteMayfairRiverleaAll of SouthAlan ManorAlberanteBooysensCastleviewEikenhofElandsparkEldorado ParkForest HillGlenvistaKenilworthKibler ParkLinmeyerMeredaleMeyersdalMondeorMulbartonNaturenaOakdeneOrmondeRidgewayRobertshamRoseacreRosettenvilleSouth HillsSouthcrestTurffonteinWinchester HillsAll of SowetoDiepkloofDlaminiDobsonvilleDubeEmndeniJabavuJabulaniKlipspruitKliptownMapetlaMeadowlandsMofoloMolapoMoletsaneMorokaNalediOrlando EastOrlando WestPimvilleProtea GlenProtea NorthSenaoaneTladiZola
 
 ### Area Lists
 
@@ -137,7 +137,7 @@ Ormonde
 The story of apartheid and the struggle against it, told through film, photographs and personal accounts. Allow at least two to three hours.
 
 - History
-- Museum
+- Museums
 
 [Open in Maps: Apartheid Museum](https://www.google.com/maps/search/?api=1&query=-26.2375,28.0103)
 
@@ -170,7 +170,7 @@ Orlando West, Soweto
 A memorial to the students killed in the Soweto uprising of 16 June 1976, a short walk from Vilakazi Street.
 
 - History
-- Museum
+- Museums
 
 [Open in Maps: Hector Pieterson Memorial and Museum](https://www.google.com/maps/search/?api=1&query=-26.2381,27.9095)
 
@@ -180,9 +180,10 @@ About 50 km northwest of the city
 
 A UNESCO World Heritage Site with some of the world's richest fossil finds of early humans. Visit the Maropeng visitor centre and the Sterkfontein Caves. Plan a full day.
 
-- Day trip
+- Day trips
 - Science
 - Outdoors
+- History
 
 [Open in Maps: Cradle of Humankind](https://www.google.com/maps/search/?api=1&query=-25.9667,27.6622)
 
@@ -204,7 +205,9 @@ Braamfontein
 A museum at Wits University about the origins of modern humans, with a large collection of southern African rock art.
 
 - Science
-- Museum
+- Museums
+- History
+- Arts
 
 [Open in Maps: Origins Centre](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0283)
 
@@ -215,7 +218,7 @@ Rivonia
 The farm that served as a secret base for the liberation movement in the 1960s. The 1963 police raid here led to the Rivonia Trial.
 
 - History
-- Museum
+- Museums
 
 [Open in Maps: Liliesleaf](https://www.google.com/maps/search/?api=1&query=-26.044,28.0546)
 
@@ -226,7 +229,7 @@ Orlando West, Soweto
 Nelson Mandela's family home on Vilakazi Street, now a museum about his life and the Mandela family. Combine it with the Hector Pieterson Memorial nearby.
 
 - History
-- Museum
+- Museums
 
 [Open in Maps: Mandela House](https://www.google.com/maps/search/?api=1&query=-26.2385,27.9088)
 
@@ -238,6 +241,7 @@ A public park with a lake, rowing boats, picnic lawns and a fountain, beside the
 
 - Outdoors
 - Family
+- Arts
 
 [Open in Maps: Zoo Lake](https://www.google.com/maps/search/?api=1&query=-26.1594,28.0305)
 
@@ -247,7 +251,7 @@ Near Hartbeespoort, about 40 km north west of the city
 
 A wildlife park about 13 km from Lanseria Airport, with guided and self-drive game drives among lions, cheetahs and giraffes. Plan half a day.
 
-- Day trip
+- Day trips
 - Family
 - Outdoors
 
@@ -271,7 +275,7 @@ Neighbourhoods
 
 # Johannesburg Neighbourhoods to Explore
 
-Joburg is spread out, so it helps to think of it as a set of smaller places. Pick one or two areas a day and travel between them by Gautrain or ride-hailing.
+Joburg is spread out, so it helps to think of it as a set of smaller places. Pick one or two areas a day and travel between them by Gautrain or ride-hailing. The [map on the home page](https://example.com/index.html#map-h) shows where each one sits.
 
 ## Where to Go
 
@@ -281,7 +285,7 @@ A busy suburb in the far north of the city, known for large shopping centres and
 
 Good for: Shopping, theatre and a family day out
 
-[Read the Fourways guide](https://example.com/neighbourhoods/fourways.html)
+[Read the Fourways guide](https://example.com/neighbourhoods/fourways.html) · [Open in Maps: Fourways](https://www.google.com/maps/search/?api=1&query=-26.0045,28.0042)
 
 ### Melville
 
@@ -329,15 +333,162 @@ South Africa's best-known township and the heart of much of the country's histor
 
 Good for: History, Vilakazi Street, local food
 
-[Open in Maps: Soweto](https://www.google.com/maps/search/?api=1&query=-26.2485,27.854)
-
 ## Where to Stay
 
 For a first visit, stay in Rosebank or Sandton. Both have Gautrain stations, a good choice of hotels and restaurants within a short walk. Melville and Parkhurst have smaller guest houses with a quieter, local feel.
 
+## Areas by the Names Locals Use
+
+Joburgers often name a cluster of suburbs together, such as The Parks or Town, or think of the city by theme. These lists match the ones on the map, where picking one raises its suburbs.
+
+### The Parks (6 areas)
+
+- Parkhurst
+- Parktown North
+- Parkview
+- Parkwood
+- Parktown
+- Parkmore
+
+### Sandton (15 areas)
+
+- Sandown
+- Sandhurst
+- Parkmore
+- Hyde Park
+- Craighall
+- Craighall Park
+- Inanda
+- Bryanston
+- Wierda Valley
+- Benmore Gardens
+- Chislehurston
+- Atholhurst
+- Atholl
+- Simba
+- Kramerville
+
+### Town (9 areas)
+
+Also called the CBD, the inner city.
+
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Newtown
+- Marshalltown
+- Hillbrow
+- Berea
+- Joubert Park
+- Doornfontein
+- Maboneng
+- Yeoville
+
+### Tourist Areas (13 areas)
+
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Newtown
+- Maboneng
+- Marshalltown
+- Hillbrow
+- Orlando West
+- Ormonde
+- Crown Mines
+- Rosebank
+- Sandown
+- Saxonwold
+- Emmarentia
+- Melville
+
+### Good Restaurants (12 areas)
+
+Also called restaurant strips.
+
+- Parkhurst
+- Greenside
+- Melville
+- Linden
+- Parkview
+- Rosebank
+- Illovo
+- Sandown
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Maboneng
+- [Fourways](https://example.com/neighbourhoods/fourways.html)
+- Orlando West
+
+### Nightlife (9 areas)
+
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Maboneng
+- Newtown
+- Melville
+- Greenside
+- Rosebank
+- Sandown
+- [Fourways](https://example.com/neighbourhoods/fourways.html)
+- Orlando West
+
+### Parks and Green Spaces (11 areas)
+
+- Emmarentia
+- Parkview
+- Saxonwold
+- Melville
+- Northcliff
+- Blairgowrie
+- Craighall
+- Kensington
+- Mondeor
+- City Deep
+- Moroka
+
+### Mandela’s Joburg (9 areas)
+
+- Orlando West
+- Alexandra
+- Marshalltown
+- Hillbrow
+- Rivonia
+- Houghton
+- Ormonde
+- Sandown
+- Kliptown
+
+### History and Heritage (10 areas)
+
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Hillbrow
+- Newtown
+- Marshalltown
+- Ormonde
+- Orlando West
+- Rivonia
+- Parktown
+- Crown Mines
+- Kliptown
+
+### Arts and Galleries (7 areas)
+
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Maboneng
+- Newtown
+- Rosebank
+- Parkwood
+- Melville
+- Parkhurst
+
+### Family Days Out (7 areas)
+
+- Crown Mines
+- Saxonwold
+- Parkview
+- Emmarentia
+- [Fourways](https://example.com/neighbourhoods/fourways.html)
+- Turffontein
+- City Deep
+
 ## Every Area in This Guide
 
-We are writing up 196 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
+We are writing up 196 areas in 9 parts of the city, and 170 of them are on the map so far. Soweto is listed township by township. The main areas are in bold, and an area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -347,12 +498,12 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Carlswald
 - Chartwell
 - Crowthorne
-- **Dainfern**
+- Dainfern
 - **[Fourways](https://example.com/neighbourhoods/fourways.html)**
 - **Glen Austin**
 - **Glenferness**
 - **Halfway House**
-- **Kyalami**
+- Kyalami
 - **Lonehill**
 - Paulshof
 - President Park
@@ -361,10 +512,10 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 ### North West and Randburg (35 areas)
 
 - Blackheath
-- **Blairgowrie**
+- Blairgowrie
 - Boskruin
-- **Craighall**
-- **Craighall Park**
+- Craighall
+- Craighall Park
 - Cresta
 - Crosby
 - Darrenwood
@@ -379,7 +530,7 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Kya Sand
 - **Linden**
 - Maraisburg
-- **Melville**
+- Melville
 - Newlands
 - North Riding
 - **Northcliff**
@@ -400,34 +551,34 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 
 - Abbotsford
 - **Alexandra**
-- **Atholhurst**
-- **Atholl**
+- Atholhurst
+- Atholl
 - **Bedfordview**
-- **Benmore Gardens**
+- Benmore Gardens
 - **Bordeaux**
 - Bramley
 - **Bruma**
 - **Bryanston**
 - **Buccleuch**
-- **Chislehurston**
+- Chislehurston
 - Dowerglen
-- **Dunkeld**
-- **Dunkeld West**
+- Dunkeld
+- Dunkeld West
 - Duxberry
 - **Edenvale**
 - Elton Hill
 - Fairmount
 - Gallo Manor
 - Glenadrienne
-- **Greenside**
+- Greenside
 - **Houghton**
 - **Hurlingham**
 - **Hyde Park**
 - **Illovo**
-- **Inanda**
+- Inanda
 - **Kelvin**
 - Killarney
-- **Kramerville**
+- Kramerville
 - Linbro Park
 - Marlboro Gardens
 - **Melrose**
@@ -439,12 +590,12 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Oaklands
 - **Observatory**
 - **Orchards**
-- **Parkhurst**
+- Parkhurst
 - **Parkmore**
 - **Parktown**
-- **Parktown North**
+- Parktown North
 - **Parkview**
-- **Parkwood**
+- Parkwood
 - Rembrandt Park
 - **River Club**
 - **Rivonia**
@@ -453,32 +604,32 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - **Sandown**
 - **Sandringham**
 - **Saxonwold**
-- **Simba**
+- Simba
 - Strathavon
 - Waverley
-- **Westcliff**
-- **Wierda Valley**
+- Westcliff
+- Wierda Valley
 - Winston Ridge
 - **Woodmead**
 - **Wynberg**
 
 ### Central (10 areas)
 
-- **Berea**
+- Berea
 - **[Braamfontein](https://example.com/neighbourhoods/braamfontein.html)**
-- **Doornfontein**
-- **Hillbrow**
-- **Joubert Park**
-- **Maboneng**
-- **Marshalltown**
-- **Newtown**
+- Doornfontein
+- Hillbrow
+- Joubert Park
+- Maboneng
+- Marshalltown
+- Newtown
 - Selby
 - **Yeoville**
 
 ### East (5 areas)
 
-- **City Deep**
-- **Denver**
+- City Deep
+- Denver
 - Heriotdale
 - **Kensington**
 - Malvern
@@ -497,10 +648,10 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Alrode
 - Booysens
 - Castleview
-- **Crown Mines**
+- Crown Mines
 - Eikenhof
 - Elandspark
-- **Eldorado Park**
+- Eldorado Park
 - Florentia
 - Forest Hill
 - **Glenvista**
@@ -509,11 +660,11 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Linmeyer
 - **Meredale**
 - Meyersdal
-- **Mondeor**
+- Mondeor
 - Mulbarton
 - Naturena
 - Oakdene
-- **Ormonde**
+- Ormonde
 - Ridgeway
 - **Robertsham**
 - Roseacre
@@ -522,39 +673,39 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Southcrest
 - Southdale
 - Steeldale
-- **Turffontein**
+- Turffontein
 - Winchester Hills
 
 ### Soweto (28 areas)
 
-- **Chiawelo**
+- Chiawelo
 - **Diepkloof**
-- **Dlamini**
-- **Dobsonville**
-- **Dube**
-- **Emndeni**
-- **Jabavu**
-- **Jabulani**
-- **Klipspruit**
-- **Kliptown**
-- **Mapetla**
-- **Meadowlands**
-- **Mofolo**
-- **Molapo**
-- **Moletsane**
-- **Moroka**
-- **Naledi**
-- **Orlando East**
+- Dlamini
+- Dobsonville
+- Dube
+- Emndeni
+- Jabavu
+- Jabulani
+- Klipspruit
+- Kliptown
+- Mapetla
+- Meadowlands
+- Mofolo
+- Molapo
+- Moletsane
+- Moroka
+- Naledi
+- Orlando East
 - **Orlando West**
-- **Phiri**
-- **Pimville**
-- **Protea Glen**
-- **Protea North**
-- **Senaoane**
-- Soweto
-- **Tladi**
-- **Zola**
-- **Zondi**
+- Phiri
+- Pimville
+- Protea Glen
+- Protea North
+- Senaoane
+- **Soweto**
+- Tladi
+- Zola
+- Zondi
 
 ### Just Outside the City (3 areas)
 
@@ -776,8 +927,8 @@ History, Food, Nightlife, Arts, Markets
 
 **Places here**
 
-- [Origins Centre](https://example.com/things-to-do.html#origins-centre)
 - [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
+- [Origins Centre](https://example.com/things-to-do.html#origins-centre)
 
 [Read the Braamfontein guide](https://example.com/neighbourhoods/braamfontein.html) · [Open in Maps: Braamfontein](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0357)
 
@@ -814,8 +965,8 @@ History, Food, Nightlife, Arts, Markets
 
 **Places here**
 
-- [Origins Centre](https://example.com/things-to-do.html#origins-centre)
 - [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
+- [Origins Centre](https://example.com/things-to-do.html#origins-centre)
 
 [Open in Maps: Braamfontein](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0357)
 
@@ -863,6 +1014,8 @@ Shopping, Entertainment, Family
 - Cedar Square
 - Fourways Mall
 - Montecasino
+
+[Open in Maps: Fourways](https://www.google.com/maps/search/?api=1&query=-26.0045,28.0042)
 
 ## What to Do
 

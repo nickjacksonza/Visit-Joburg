@@ -8,17 +8,19 @@
     python3 tools/fetch_map_sources.py --corner "Waterfall Avenue" "Athole Avenue"   # where two streets meet, for a place's geo
     python3 tools/fetch_map_sources.py --main-roads   # other freeways and the main roads to src/map/source/main_roads.json
     python3 tools/fetch_map_sources.py --ring     # the ring road's turnoffs and bridges to src/map/source/ring_details.json (run --roads first)
-    python3 tools/fetch_map_sources.py --major    # only the main areas, the attractions in them, the places outside the city and the city boundary
 
-Looks up every place in src/data/neighbourhoods.json with OpenStreetMap's Nominatim search, plus the City of
-Johannesburg boundary, and saves the answers to src/map/source/nominatim.json. Nominatim allows at most one request a
+Looks up every area and attraction without a position (geo) in src/data/neighbourhoods.json and attractions.json with
+OpenStreetMap's Nominatim search, plus the City of Johannesburg boundary, and saves the answers to
+src/map/source/nominatim.json. It then fills in geo for the places it found, with geo_source "OpenStreetMap", skipping
+matches that are too far away or that land on another place's point. Nominatim allows at most one request a
 second, so a full run takes about four minutes. tools/make_map.py then builds the draft SVG from this file
 without the network.
 
 The data is © OpenStreetMap contributors, under the Open Database License (ODbL). Keep the credit line on the map,
 and keep this file open if it is published.
 """
-import json, sys, time, urllib.error, urllib.parse, urllib.request
+import json, math, sys, time, urllib.error, urllib.parse, urllib.request
+import placesio
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -256,12 +258,12 @@ def main():
         return fetch_other_roads()
     if "--ring" in sys.argv:
         return fetch_ring()
-    data = json.loads((ROOT / "src" / "data" / "neighbourhoods.json").read_text(encoding="utf-8"))
+    pdata, adata = placesio.load()
     cache = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() and "--refresh" not in sys.argv else {}
     jobs = [(pid, q, None) for pid, (q, _) in EXTRA.items()]
-    majors = {p["id"] for p in data["places"] if p["major"]}
-    for p in data["places"]:
-        if "--major" in sys.argv and not (p["major"] or p["parent"] in majors or p["region"] == "outlying"):
+    places = [dict(p, kind="area") for p in pdata["places"]] + [dict(x, kind="attraction") for x in adata["attractions"]]
+    for p in places:
+        if p.get("geo") or p.get("map") is False:  # already placed, or not drawn as itself
             continue
         outside = p["region"] == "outlying"
         q = p["name"] if outside or p["kind"] == "attraction" else f'{p["name"]}, Johannesburg'
@@ -294,6 +296,34 @@ def main():
     print(f"approximate (from addresses): {sum(1 for v in cache.values() if v.get('approx'))}")
     shaped = [k for k in found if cache[k]["geojson"]["type"] in ("Polygon", "MultiPolygon")]
     print(f"done: {len(found)} found, {len(shaped)} with an outline, {len(cache) - len(found)} not found")
+    apply(pdata, adata, cache)
+
+
+def apply(pdata, adata, cache):
+    """Fill in geo for places without one, from the search answers, and record the source. A match too far from the
+    city centre (40 km, or 80 km for places outside the city) is the same name somewhere else, and a match on the very
+    point of a place already placed is the search mistaking one name for another: both are skipped."""
+    site = json.loads((ROOT / "src" / "data" / "site.json").read_text(encoding="utf-8"))
+    cbd = site["city"]
+    every = pdata["places"] + adata["attractions"]
+    taken = {(round(p["geo"]["lat"], 4), round(p["geo"]["lng"], 4)) for p in every if p.get("geo")}
+    added, skipped = [], []
+    for p in every:
+        h = cache.get(p["id"], {})
+        if p.get("geo") or p.get("map") is False or not h.get("found"):
+            continue
+        far = math.hypot((h["lng"] - cbd["lng"]) * 100, (h["lat"] - cbd["lat"]) * 111) > (80 if p["region"] == "outlying" else 40)
+        k = (round(h["lat"], 4), round(h["lng"], 4))
+        if far or k in taken or h.get("approx"):
+            skipped.append(p["name"])
+            continue
+        p["geo"], p["geo_source"] = {"lat": k[0], "lng": k[1]}, "OpenStreetMap"
+        taken.add(k)
+        added.append(p["name"])
+    placesio.save(pdata, adata)
+    print(f"placed {len(added)}: {', '.join(added) or 'none'}")
+    if skipped:
+        print(f"not placed (too far, or on another place's point, or only approximate): {', '.join(skipped)}")
 
 
 if __name__ == "__main__":

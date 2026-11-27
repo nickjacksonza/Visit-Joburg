@@ -93,11 +93,11 @@ def check_node(n, name):
 
 # Every area-list colour the editor offers needs a --map-hl-<colour> token in the stylesheet.
 _css = (ROOT / "css" / "styles.css").read_text(encoding="utf-8") if (ROOT / "css" / "styles.css").exists() else ""
-_areas = ROOT / "content" / "areas.json"
+_areas = ROOT / "content" / "area-lists.json"
 if _areas.exists():
     for c in json.loads(_areas.read_text(encoding="utf-8"))["colours"]:
         if f"--map-hl-{c}:" not in _css: err(f"css/styles.css: no --map-hl-{c} token for the area-list colour {c}")
-for page in ("index.html", "areas.html"):
+for page in ("index.html", "area-lists.html"):
     _e = DOCS / "editor" / page
     if _e.exists() and 'content="noindex, nofollow"' not in _e.read_text(encoding="utf-8"): err(f"editor/{page}: must be noindex")
 ed = (DOCS / "editor" / "index.html").read_text(encoding="utf-8") if (DOCS / "editor").exists() else ""

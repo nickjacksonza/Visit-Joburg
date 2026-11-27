@@ -6303,5 +6303,643 @@
     ]
    ]
   }
+ },
+ "abbotsford": {
+  "query": "Abbotsford, Johannesburg",
+  "found": true,
+  "name": "Abbotsford",
+  "display_name": "Abbotsford, Johannesburg Ward 74, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2076, South Africa",
+  "osm": "node/253927547",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1431769,
+  "lng": 28.0684413,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0684413,
+    -26.1431769
+   ]
+  }
+ },
+ "bramley": {
+  "query": "Bramley, Johannesburg",
+  "found": true,
+  "name": "Bramley",
+  "display_name": "Bramley, Johannesburg Ward 74, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2041, South Africa",
+  "osm": "node/262719426",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1247222,
+  "lng": 28.0788889,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0788889,
+    -26.1247222
+   ]
+  }
+ },
+ "killarney": {
+  "query": "Killarney, Johannesburg",
+  "found": true,
+  "name": "Killarney",
+  "display_name": "Killarney, Johannesburg Ward 73, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262707517",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.166751,
+  "lng": 28.0504636,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0504636,
+    -26.166751
+   ]
+  }
+ },
+ "elton-hill": {
+  "query": "Elton Hill, Gauteng",
+  "found": false
+ },
+ "winston-ridge": {
+  "query": "Winston Ridge, Gauteng",
+  "found": false
+ },
+ "melrose-arch": {
+  "query": "Melrose Arch, Gauteng",
+  "found": false
+ },
+ "melrose-north": {
+  "query": "Melrose North, Johannesburg",
+  "found": true,
+  "name": "Melrose North",
+  "display_name": "Melrose North, Johannesburg Ward 74, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2076, South Africa",
+  "osm": "node/262721321",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1341667,
+  "lng": 28.0641667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0641667,
+    -26.1341667
+   ]
+  }
+ },
+ "waverley": {
+  "query": "Waverley, Johannesburg",
+  "found": true,
+  "name": "Waverley",
+  "display_name": "Waverley, Johannesburg Ward 74, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa",
+  "osm": "way/170138202",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1347222,
+  "lng": 28.0791667,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      28.0683047,
+      -26.138992
+     ],
+     [
+      28.0699155,
+      -26.1407234
+     ],
+     [
+      28.0717236,
+      -26.1440876
+     ],
+     [
+      28.07217,
+      -26.144244
+     ],
+     [
+      28.0733373,
+      -26.1431113
+     ],
+     [
+      28.0867603,
+      -26.1396431
+     ],
+     [
+      28.0850672,
+      -26.1258715
+     ],
+     [
+      28.0727526,
+      -26.128564
+     ],
+     [
+      28.0691265,
+      -26.1377919
+     ],
+     [
+      28.0683047,
+      -26.138992
+     ]
+    ]
+   ]
+  }
+ },
+ "rembrandt-park": {
+  "query": "Rembrandt Park, Gauteng",
+  "found": false
+ },
+ "fairmount": {
+  "query": "Fairmount, Johannesburg",
+  "found": true,
+  "name": "Fairmount",
+  "display_name": "Fairmount, Johannesburg Ward 72, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2037, South Africa",
+  "osm": "node/262706181",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1438889,
+  "lng": 28.1022222,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1022222,
+    -26.1438889
+   ]
+  }
+ },
+ "dowerglen": {
+  "query": "Dowerglen, Gauteng",
+  "found": true,
+  "name": "Dowerglen",
+  "display_name": "Dowerglen, Ekurhuleni Ward 19, City of Ekurhuleni Metropolitan Municipality, Gauteng, 2145, South Africa",
+  "osm": "node/262719946",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1469444,
+  "lng": 28.1391667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1391667,
+    -26.1469444
+   ]
+  }
+ },
+ "norwood": {
+  "query": "Norwood, Johannesburg",
+  "found": true,
+  "name": "Norwood",
+  "display_name": "Norwood, Johannesburg Ward 73, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/253198379",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1588889,
+  "lng": 28.0725,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0725,
+    -26.1588889
+   ]
+  }
+ },
+ "oaklands": {
+  "query": "Oaklands, Johannesburg",
+  "found": true,
+  "name": "Oaklands",
+  "display_name": "Oaklands, Johannesburg Ward 73, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262714246",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1480556,
+  "lng": 28.0680556,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0680556,
+    -26.1480556
+   ]
+  }
+ },
+ "selby": {
+  "query": "Selby, Gauteng",
+  "found": false
+ },
+ "malvern": {
+  "query": "Malvern, Johannesburg",
+  "found": true,
+  "name": "Malvern",
+  "display_name": "Malvern, Johannesburg Ward 118, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262709321",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2013889,
+  "lng": 28.1019444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1019444,
+    -26.2013889
+   ]
+  }
+ },
+ "heriotdale": {
+  "query": "Heriotdale, Gauteng",
+  "found": false
+ },
+ "mayfair": {
+  "query": "Mayfair, Johannesburg",
+  "found": true,
+  "name": "Mayfair",
+  "display_name": "Mayfair, Johannesburg Ward 58, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/242925051",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.205,
+  "lng": 28.0141667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0141667,
+    -26.205
+   ]
+  }
+ },
+ "langlaagte": {
+  "query": "Langlaagte, Johannesburg",
+  "found": true,
+  "name": "Langlaagte North",
+  "display_name": "Langlaagte North, Johannesburg Ward 58, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262708479",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1994444,
+  "lng": 27.9966667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9966667,
+    -26.1994444
+   ]
+  }
+ },
+ "booysens": {
+  "query": "Booysens, Johannesburg",
+  "found": true,
+  "name": "Booysens",
+  "display_name": "Booysens, Johannesburg Ward 124, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262695369",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2291667,
+  "lng": 28.0247222,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0247222,
+    -26.2291667
+   ]
+  }
+ },
+ "southdale": {
+  "query": "Southdale, Gauteng",
+  "found": false
+ },
+ "rosettenville": {
+  "query": "Rosettenville, Johannesburg",
+  "found": true,
+  "name": "Rosettenville",
+  "display_name": "Rosettenville, Johannesburg Ward 56, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262715692",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2452778,
+  "lng": 28.0580556,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0580556,
+    -26.2452778
+   ]
+  }
+ },
+ "oakdene": {
+  "query": "Oakdene, Johannesburg",
+  "found": true,
+  "name": "Oakdene",
+  "display_name": "Oakdene, Johannesburg Ward 56, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262714245",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2636111,
+  "lng": 28.0525,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0525,
+    -26.2636111
+   ]
+  }
+ },
+ "roseacre": {
+  "query": "Roseacre, Johannesburg",
+  "found": true,
+  "name": "Roseacre",
+  "display_name": "Roseacre, Johannesburg Ward 57, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262715637",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2372222,
+  "lng": 28.0827778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0827778,
+    -26.2372222
+   ]
+  }
+ },
+ "elandspark": {
+  "query": "Elandspark, Johannesburg",
+  "found": true,
+  "name": "Elandspark",
+  "display_name": "Elandspark, Johannesburg Ward 57, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262705468",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.24,
+  "lng": 28.1105556,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1105556,
+    -26.24
+   ]
+  }
+ },
+ "steeldale": {
+  "query": "Steeldale, Gauteng",
+  "found": false
+ },
+ "eikenhof": {
+  "query": "Eikenhof, Gauteng",
+  "found": true,
+  "name": "Eikenhof",
+  "display_name": "Eikenhof, Midvaal Ward 7, Midvaal Local Municipality, Sedibeng District Municipality, Gauteng, South Africa",
+  "osm": "node/12874748578",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.3468204,
+  "lng": 28.04178,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.04178,
+    -26.3468204
+   ]
+  }
+ },
+ "naturena": {
+  "query": "Naturena, Johannesburg",
+  "found": true,
+  "name": "Naturena",
+  "display_name": "Naturena, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262713100",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2832168,
+  "lng": 27.959597,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.959597,
+    -26.2832168
+   ]
+  }
+ },
+ "alan-manor": {
+  "query": "Alan Manor, Johannesburg",
+  "found": true,
+  "name": "Alan Manor",
+  "display_name": "Alan Manor, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262694575",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2776913,
+  "lng": 27.9928566,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9928566,
+    -26.2776913
+   ]
+  }
+ },
+ "linmeyer": {
+  "query": "Linmeyer, Johannesburg",
+  "found": true,
+  "name": "Linmeyer",
+  "display_name": "Linmeyer, Johannesburg Ward 56, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262708731",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2597222,
+  "lng": 28.0672222,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0672222,
+    -26.2597222
+   ]
+  }
+ },
+ "south-hills": {
+  "query": "South Hills, Johannesburg",
+  "found": true,
+  "name": "South Hills",
+  "display_name": "South Hills, Johannesburg Ward 57, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262716154",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2530556,
+  "lng": 28.0894444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0894444,
+    -26.2530556
+   ]
+  }
+ },
+ "alberante": {
+  "query": "Alberante, Gauteng",
+  "found": true,
+  "name": "Alberante",
+  "display_name": "Alberante, Ekurhuleni Ward 37, Alberton, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1449, South Africa",
+  "osm": "node/262694591",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2677778,
+  "lng": 28.1052778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1052778,
+    -26.2677778
+   ]
+  }
+ },
+ "florentia": {
+  "query": "Florentia, Gauteng",
+  "found": false
+ },
+ "mulbarton": {
+  "query": "Mulbarton, Johannesburg",
+  "found": true,
+  "name": "Mulbarton",
+  "display_name": "Mulbarton, Johannesburg Ward 23, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262712760",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2933333,
+  "lng": 28.0580556,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0580556,
+    -26.2933333
+   ]
+  }
+ },
+ "kibler-park": {
+  "query": "Kibler Park, Johannesburg",
+  "found": true,
+  "name": "Kibler Park",
+  "display_name": "Kibler Park, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262707503",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.3122222,
+  "lng": 28.0086111,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0086111,
+    -26.3122222
+   ]
+  }
+ },
+ "meyersdal": {
+  "query": "Meyersdal, Gauteng",
+  "found": true,
+  "name": "Meyersdal",
+  "display_name": "Meyersdal, Ekurhuleni Ward 94, Alberton, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1448, South Africa",
+  "osm": "node/262710078",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2941667,
+  "lng": 28.0975,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0975,
+    -26.2941667
+   ]
+  }
+ },
+ "alrode": {
+  "query": "Alrode, Gauteng",
+  "found": false
+ },
+ "ridgeway": {
+  "query": "Ridgeway, Johannesburg",
+  "found": true,
+  "name": "Ridgeway",
+  "display_name": "Ridgeway, Johannesburg Ward 54, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262715302",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2644444,
+  "lng": 28.0027778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0027778,
+    -26.2644444
+   ]
+  }
+ },
+ "winchester-hills": {
+  "query": "Winchester Hills, Johannesburg",
+  "found": true,
+  "name": "Winchester Hills",
+  "display_name": "Winchester Hills, Johannesburg Ward 54, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262718805",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2683445,
+  "lng": 28.0179525,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0179525,
+    -26.2683445
+   ]
+  }
+ },
+ "forest-hill": {
+  "query": "Forest Hill, Johannesburg",
+  "found": true,
+  "name": "Forest Hill",
+  "display_name": "Forest Hill, Johannesburg Ward 55, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262706285",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2544444,
+  "lng": 28.0394444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0394444,
+    -26.2544444
+   ]
+  }
+ },
+ "southcrest": {
+  "query": "Southcrest, Gauteng",
+  "found": true,
+  "name": "Southcrest",
+  "display_name": "Southcrest, Ekurhuleni Ward 37, Alberton, City of Ekurhuleni Metropolitan Municipality, Gauteng, 2197, South Africa",
+  "osm": "node/262716158",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2544444,
+  "lng": 28.1075,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1075,
+    -26.2544444
+   ]
+  }
+ },
+ "castleview": {
+  "query": "Castleview, Gauteng",
+  "found": true,
+  "name": "Castleview",
+  "display_name": "Castleview, Ekurhuleni Ward 36, Germiston, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1403, South Africa",
+  "osm": "node/262704615",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2541667,
+  "lng": 28.1669444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1669444,
+    -26.2541667
+   ]
+  }
  }
 }

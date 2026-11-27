@@ -1,4 +1,4 @@
-// Area lists editor: rules for content/areas.json. No DOM here, so tools/test_editor.js runs it in Node.
+// Area lists editor: rules for content/area-lists.json. No DOM here, so tools/test_editor.js runs it in Node.
 // build.py applies the same rules (load_areas), so a bad edit fails the rebuild and nothing goes live.
 (function (root) {
   "use strict";
