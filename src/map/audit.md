@@ -2,18 +2,19 @@
 
 Draft of main areas only.
 
-Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = 10 SVG units. The draft is 56 by 56 km.
+Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = 10 SVG units. The draft is 56 by 57 km.
 
 - Areas with an OpenStreetMap outline: 3
-- Areas drawn as rough cells from a point: 88
-- Places not found: 15
-- Hexagons, city level: 1119, 1.0 km across; fewest in one area: 1
-- Hexagons, region level (hexes-region.svg): 6999, 419 m across; fewest in one area: 9
+- Areas drawn as rough cells from a point: 98
+- Places not found: 18
+- Hexagons, city level: 1168, 1.0 km across; fewest in one area: 1
+- Hexagons, region level (hexes-region.svg): 7303, 419 m across; fewest in one area: 9
 
 ## Not found
 
 Add these by hand in Figma, or fix the name and fetch again.
 
+- Kyalami (area, Far North and Midrand)
 - Glenferness (area, Far North and Midrand)
 - Craighall (area, North West and Randburg)
 - Wierda Valley (area, Sandton, Rosebank and North Central)
@@ -23,6 +24,8 @@ Add these by hand in Figma, or fix the name and fetch again.
 - Kramerville (area, Sandton, Rosebank and North Central)
 - Athol (area, Sandton, Rosebank and North Central)
 - Dunkeld West (area, Sandton, Rosebank and North Central)
+- City Deep (area, East)
+- Crown Mines (area, South)
 - Chiawelo (area, Soweto)
 - Phiri (area, Soweto)
 - Zondi (area, Soweto)
@@ -71,6 +74,7 @@ Bridges on the ring road: 28.
 
 The search may have found a place with the same name elsewhere. Each line is the place and what it matched.
 
+- Dainfern: OpenStreetMap: Dainfern Golf Estate (residential area)
 - Lonehill: Wikipedia: Lone Hill
 - Fourways: Fourways, Johannesburg Ward 94, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2055, South
 - Cedar Square: Cedar Square Shopping Centre, Tuscany Place, Craigavon, Johannesburg Ward 96, Randburg, City of Johannesburg M
@@ -84,6 +88,7 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Randpark Ridge: Randpark Ridge, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2156, South Africa
 - Ferndale: Ferndale, Johannesburg Ward 104, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2194, Sout
 - Fairland: Fairland, Johannesburg Ward 98, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2160, South
+- Blairgowrie: Blairgowrie, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 1865, So
 - Craighall Park: Craighall Park, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2024, 
 - Robindale: Robindale, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 1865, Sout
 - Linden: Linden, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2104, South A
@@ -92,6 +97,7 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Johannesburg Botanical Garden: Walter Sisulu National Botanical Gardens, Krugersdorp, Mogale City Local Municipality, West Rand District Muni
 - Florida: Florida, Johannesburg Ward 70, Roodepoort, City of Johannesburg Metropolitan Municipality, Gauteng, 2709, Sout
 - Triomf: Sophiatown (Triomf), Johannesburg Ward 86, Johannesburg, City of Johannesburg Metropolitan Municipality, Gaute
+- Melville: Melville, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2092, S
 - Bryanston: Bryanston, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa
 - Rivonia: Rivonia, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2128, South 
 - Liliesleaf: Liliesleaf Farm, George Avenue, Rivonia Gardens, Johannesburg Ward 106, Sandton, City of Johannesburg Metropol
@@ -116,8 +122,10 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Parkhurst: Parkhurst, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, Sou
 - Parktown North: Parktown North, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006
 - Parkwood: Parkwood, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, Sout
+- Greenside: Greenside, Johannesburg Ward 87, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, Sout
 - Parkview: Parkview, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Zoo Lake: Zoo Lake, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2193, Sout
+- Westcliff: Westcliff, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, 
 - Parktown: Parktown, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Inanda: Inanda, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 1969, South Af
 - Illovo: Illovo, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2196, South Af
@@ -143,12 +151,21 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Joubert Park: OpenStreetMap: Joubert Park, the park the suburb is named after
 - Doornfontein: Doornfontein, Johannesburg Ward 123, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 20
 - Kensington: Kensington, Johannesburg Ward 66, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
+- Denver: Denver, Johannesburg Ward 65, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, Sou
+- Wemmer Pan: Wemmer Pan, Johannesburg Ward 57, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
 - Auckland Park: Wikipedia: Auckland Park
 - Riverlea: Riverlea, Johannesburg Ward 68, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
+- Eldorado Park: OpenStreetMap: Eldoradopark (place, spelled as one word there)
+- Ormonde: Ormonde, Johannesburg Ward 54, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, So
+- Gold Reef City: Gold Reef City, Gold Reef Road, Booysens Reserve, Johannesburg Ward 54, Johannesburg, City of Johannesburg Met
+- Turffontein: Turffontein, Johannesburg Ward 124, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 200
+- Santarama: Santarama Miniland, Marlborough Road, Kenilworth, Johannesburg Ward 57, Johannesburg, City of Johannesburg Met
 - Robertsham: Robertsham, Johannesburg Ward 54, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
 - Kenilworth: Kenilworth, Johannesburg Ward 124, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001
 - Meredale: Wikipedia: Meredale
 - Southgate: Southgate Mall, Columbine Avenue, Alan Manor, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metrop
+- Mondeor: Mondeor, Johannesburg Ward 54, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, So
+- Klipriviersberg Nature Reserve: Klipriviersberg Nature Reserve, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Glenvista: Glenvista, Johannesburg Ward 23, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, 
 - Orlando West: Orlando West, Johannesburg Ward 40, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 200
 - Mandela House: Mandela House, 8115, Vilakazi Street, Johannesburg Ward 39, Johannesburg, City of Johannesburg Metropolitan Mu

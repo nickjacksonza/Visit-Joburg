@@ -70,6 +70,15 @@ for pid, v in (json.loads(_pos.read_text(encoding="utf-8")) if _pos.exists() els
     if not pid.startswith("_") and pid not in hits:  # positions for places the search could not find
         hits[pid] = {"found": True, "display_name": v["source"], "lat": v["lat"], "lng": v["lng"],
                      "geojson": {"type": "Point", "coordinates": [v["lng"], v["lat"]]}}
+_seen_pt = {}
+for p in places:  # two places on the very same point means the search matched one name to the other place: drop the later
+    h = hits.get(p["id"])
+    if h:
+        k = (round(h["lat"], 5), round(h["lng"], 5))
+        if k in _seen_pt:
+            del hits[p["id"]]
+        else:
+            _seen_pt[k] = p["id"]
 in_city = [p for p in places if p["region"] != "outlying" and p["id"] in hits]
 lat0 = sum(hits[p["id"]]["lat"] for p in in_city) / len(in_city)
 lng0 = sum(hits[p["id"]]["lng"] for p in in_city) / len(in_city)

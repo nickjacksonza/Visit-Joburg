@@ -1,5 +1,7 @@
 {
   "_about": "Positions for places the OpenStreetMap search could not find. Each is the coordinate on the place's English Wikipedia article (the article title is given). tools/make_map.py uses these when the search found nothing or found the wrong place.",
+  "eldorado-park": {"lat": -26.295, "lng": 27.9028, "source": "OpenStreetMap: Eldoradopark (place, spelled as one word there)"},
+  "dainfern": {"lat": -25.9838, "lng": 27.9978, "source": "OpenStreetMap: Dainfern Golf Estate (residential area)"},
   "joubert-park": {"lat": -26.1955, "lng": 28.0468, "source": "OpenStreetMap: Joubert Park, the park the suburb is named after"},
   "auckland-park": {"lat": -26.189, "lng": 28.0089, "source": "Wikipedia: Auckland Park"},
   "glen-austin": {"lat": -25.9667, "lng": 28.15, "source": "Wikipedia: Glen Austin"},

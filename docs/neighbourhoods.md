@@ -78,12 +78,12 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Carlswald
 - Chartwell
 - Crowthorne
-- Dainfern
+- **Dainfern**
 - **[Fourways](https://example.com/neighbourhoods/fourways.html)**
 - **Glen Austin**
 - **Glenferness**
 - **Halfway House**
-- Kyalami
+- **Kyalami**
 - **Lonehill**
 - Paulshof
 - President Park
@@ -92,7 +92,7 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 ### North West and Randburg (35 areas)
 
 - Blackheath
-- Blairgowrie
+- **Blairgowrie**
 - Boskruin
 - **Craighall**
 - **Craighall Park**
@@ -110,7 +110,7 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Kya Sand
 - **Linden**
 - Maraisburg
-- Melville
+- **Melville**
 - Newlands
 - North Riding
 - **Northcliff**
@@ -150,7 +150,7 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Fairmount
 - Gallo Manor
 - Glenadrienne
-- Greenside
+- **Greenside**
 - **Houghton**
 - **Hurlingham**
 - **Hyde Park**
@@ -187,7 +187,7 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - **Simba**
 - Strathavon
 - Waverley
-- Westcliff
+- **Westcliff**
 - **Wierda Valley**
 - Winston Ridge
 - **Woodmead**
@@ -208,8 +208,8 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 
 ### East (5 areas)
 
-- City Deep
-- Denver
+- **City Deep**
+- **Denver**
 - Heriotdale
 - **Kensington**
 - Malvern
@@ -228,10 +228,10 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Alrode
 - Booysens
 - Castleview
-- Crown Mines
+- **Crown Mines**
 - Eikenhof
 - Elandspark
-- Eldorado Park
+- **Eldorado Park**
 - Florentia
 - Forest Hill
 - **Glenvista**
@@ -240,11 +240,11 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Linmeyer
 - **Meredale**
 - Meyersdal
-- Mondeor
+- **Mondeor**
 - Mulbarton
 - Naturena
 - Oakdene
-- Ormonde
+- **Ormonde**
 - Ridgeway
 - **Robertsham**
 - Roseacre
@@ -253,7 +253,7 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 - Southcrest
 - Southdale
 - Steeldale
-- Turffontein
+- **Turffontein**
 - Winchester Hills
 
 ### Soweto (28 areas)

@@ -213,7 +213,7 @@ function groupLabels(){
 var layer=document.createElementNS(NS,'g');
 layer.id='group-labels';
 var done={};
-[].forEach.call(document.querySelectorAll('option[value^="group:"], .map-list'),function(o){
+[].forEach.call(sel.querySelectorAll('option[value^="group:"]'),function(o){
 var key=o.getAttribute('value')||o.getAttribute('data-list');
 if(done[key])return;
 done[key]=1;
