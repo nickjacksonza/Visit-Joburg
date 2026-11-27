@@ -10,18 +10,18 @@ Johannesburg is South Africa's biggest city and the place where much of its mode
 
 - **1,750 m**above sea level, so days are mild and nights can be cool
 - **11**places to visit in this guide
-- **7**neighbourhoods worth an afternoon
+- **32**neighbourhoods worth an afternoon
 - **1886**the year gold was found on the Witwatersrand and the city began
 
 ## Map of Johannesburg's Suburbs
 
 Joburg spreads over a wide area, with the ring road of the N1, N3 and N12 round the middle. Pick an area, or tap the map, to raise it and read a short note. The [neighbourhoods list](https://example.com/neighbourhoods.html) has every area in words.
 
-Pick an areaChoose an areaThe ParksSandtonTownAll of Far North and MidrandAustin ViewBeaulieuBlue HillsCarlswaldCrowthorneDainfernFourwaysGlen AustinHalfway HouseKyalamiLonehillPaulshofPresident ParkSunninghillAll of North West and RandburgBlackheathBlairgowrieBoskruinCraighall ParkCrestaCrosbyDarrenwoodDouglasdaleEmmarentiaFairlandFerndaleFloridaFontainebleauHoneydewJukskei ParkLindenMaraisburgMelvilleNewlandsNorth RidingNorthcliffNorthwoldOlivedaleRadiokopRandpark RidgeRobindaleSharonleaSundownerTriomfVictory ParkWestdeneAll of Sandton, Rosebank and North CentralAbbotsfordAlexandraAtholhurstAthollBedfordviewBenmore GardensBordeauxBramleyBrumaBryanstonBuccleuchChislehurstonDowerglenDunkeldDunkeld WestDuxberryEdenvaleFairmountGallo ManorGreensideHoughtonHurlinghamHyde ParkIllovoInandaKelvinKillarneyMelroseMelrose NorthModderfonteinMorningsideNorwoodOaklandsObservatoryOrchardsParkhurstParkmoreParktownParktown NorthParkviewParkwoodRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldSimbaStrathavonWaverleyWestcliffWierda ValleyWoodmeadWynbergAll of CentralBereaBraamfonteinDoornfonteinHillbrowJoubert ParkMabonengMarshalltownNewtownYeovilleAll of EastCity DeepDenverKensingtonMalvernAll of WestAuckland ParkLanglaagteMayfairRiverleaAll of SouthAlan ManorAlberanteBooysensCastleviewEikenhofElandsparkEldorado ParkForest HillGlenvistaKenilworthKibler ParkLinmeyerMeredaleMeyersdalMondeorMulbartonNaturenaOakdeneOrmondeRidgewayRobertshamRoseacreRosettenvilleSouth HillsSouthcrestTurffonteinWinchester HillsAll of SowetoDiepkloofDlaminiDobsonvilleDubeEmndeniJabavuJabulaniKlipspruitKliptownMapetlaMeadowlandsMofoloMolapoMoletsaneMorokaNalediOrlando EastOrlando WestPimvilleProtea GlenProtea NorthSenaoaneTladiZola
+Pick an areaChoose an areaThe ParksSandtonTownGautrain stationsAll of Far North and MidrandAustin ViewBeaulieuBlue HillsCarlswaldCrowthorneDainfernFourwaysGlen AustinHalfway HouseKyalamiLonehillPaulshofPresident ParkSunninghillAll of North West and RandburgBlackheathBlairgowrieBoskruinCraighall ParkCrestaCrosbyDarrenwoodDouglasdaleEmmarentiaFairlandFerndaleFloridaFontainebleauHoneydewJukskei ParkLindenMaraisburgMelvilleNewlandsNorth RidingNorthcliffNorthwoldOlivedaleRadiokopRandpark RidgeRobindaleSharonleaSundownerTriomfVictory ParkWestdeneAll of Sandton, Rosebank and North CentralAbbotsfordAlexandraAtholhurstAthollBedfordviewBenmore GardensBordeauxBramleyBrumaBryanstonBuccleuchChislehurstonDowerglenDunkeldDunkeld WestDuxberryEdenvaleFairmountGallo ManorGreensideHoughtonHurlinghamHyde ParkIllovoInandaKelvinKillarneyMelroseMelrose NorthModderfonteinMorningsideNorwoodOaklandsObservatoryOrchardsParkhurstParkmoreParktownParktown NorthParkviewParkwoodRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldSimbaStrathavonWaverleyWestcliffWierda ValleyWoodmeadWynbergAll of CentralBereaBraamfonteinDoornfonteinHillbrowJoubert ParkMabonengMarshalltownNewtownYeovilleAll of EastCity DeepDenverKensingtonMalvernAll of WestAuckland ParkLanglaagteMayfairRiverleaAll of SouthAlan ManorAlberanteBooysensCastleviewEikenhofElandsparkEldorado ParkForest HillGlenvistaKenilworthKibler ParkLinmeyerMeredaleMeyersdalMondeorMulbartonNaturenaOakdeneOrmondeRidgewayRobertshamRoseacreRosettenvilleSouth HillsSouthcrestTurffonteinWinchester HillsAll of SowetoDiepkloofDlaminiDobsonvilleDubeEmndeniJabavuJabulaniKlipspruitKliptownMapetlaMeadowlandsMofoloMolapoMoletsaneMorokaNalediOrlando EastOrlando WestPimvilleProtea GlenProtea NorthSenaoaneTladiZola
 
 ### Area Lists
 
-Draft map: shapes are approximate. Base outlines © OpenStreetMap contributors.
+Draft map: shapes are approximate. The orange line is the Gautrain. Base outlines © OpenStreetMap contributors.
 
 ## What to See When You Visit Johannesburg
 
@@ -279,6 +279,12 @@ Joburg is spread out, so it helps to think of it as a set of smaller places. Pic
 
 ## Where to Go
 
+### Lonehill
+
+A residential suburb in the far north of the city, next to Fourways. We list no visitor sights here yet; Fourways' shopping centres are a short drive away.
+
+[Open in Maps: Lonehill](https://www.google.com/maps/search/?api=1&query=-26.012,28.027)
+
 ### Fourways
 
 A busy suburb in the far north of the city, known for large shopping centres and the Montecasino entertainment complex.
@@ -286,6 +292,102 @@ A busy suburb in the far north of the city, known for large shopping centres and
 Good for: Shopping, theatre and a family day out
 
 [Read the Fourways guide](https://example.com/neighbourhoods/fourways.html) · [Open in Maps: Fourways](https://www.google.com/maps/search/?api=1&query=-26.0045,28.0042)
+
+### Glenferness
+
+A residential area in the far north of the city. We list no visitor sights here yet.
+
+### Halfway House
+
+A suburb in Midrand, named for its position roughly halfway between Johannesburg and Pretoria. Mostly offices, homes and shops.
+
+[Open in Maps: Halfway House](https://www.google.com/maps/search/?api=1&query=-25.9949,28.1289)
+
+### Glen Austin
+
+A semi-rural area of smallholdings in Midrand, in the far north of the city. We list no visitor sights here yet.
+
+[Open in Maps: Glen Austin](https://www.google.com/maps/search/?api=1&query=-25.9667,28.15)
+
+### Jukskei Park
+
+A residential suburb in the north-west of the city, named after the Jukskei River. We list no visitor sights here yet.
+
+[Open in Maps: Jukskei Park](https://www.google.com/maps/search/?api=1&query=-26.038,27.981)
+
+### Douglasdale
+
+A residential suburb in the north of the city, between Sandton and Fourways. We list no visitor sights here yet.
+
+[Open in Maps: Douglasdale](https://www.google.com/maps/search/?api=1&query=-26.0389,27.995)
+
+### Olivedale
+
+A residential suburb in the north-west of the city, near Randburg. We list no visitor sights here yet.
+
+[Open in Maps: Olivedale](https://www.google.com/maps/search/?api=1&query=-26.0556,27.9789)
+
+### Randpark Ridge
+
+A residential suburb in the north-west of the city, near Randburg. We list no visitor sights here yet.
+
+[Open in Maps: Randpark Ridge](https://www.google.com/maps/search/?api=1&query=-26.1008,27.9569)
+
+### Ferndale
+
+A residential suburb next to the Randburg town centre, in the north-west of the city. We list no visitor sights here yet.
+
+[Open in Maps: Ferndale](https://www.google.com/maps/search/?api=1&query=-26.0847,27.9894)
+
+### Fairland
+
+A residential suburb in the north-west of the city, near Randburg and Northcliff. We list no visitor sights here yet.
+
+[Open in Maps: Fairland](https://www.google.com/maps/search/?api=1&query=-26.1336,27.9444)
+
+### Robindale
+
+A residential suburb in the north-west of the city, near Randburg. We list no visitor sights here yet.
+
+[Open in Maps: Robindale](https://www.google.com/maps/search/?api=1&query=-26.115,27.9944)
+
+### Linden
+
+A residential suburb in the north-west of the city with a choice of restaurants and cafés. It is a short drive from Melville and Parkhurst.
+
+Good for: Restaurants and cafés
+
+[Open in Maps: Linden](https://www.google.com/maps/search/?api=1&query=-26.1319,27.9933)
+
+### Northcliff
+
+A suburb on and around Northcliff Hill, one of the highest points in the city. Quiet, leafy streets with views over the northern suburbs.
+
+Good for: Views and quiet streets
+
+[Open in Maps: Northcliff](https://www.google.com/maps/search/?api=1&query=-26.1311,27.9622)
+
+### Emmarentia
+
+A leafy suburb around Emmarentia Dam, where people walk, run and sail. The Johannesburg Botanical Garden is on the dam's edge.
+
+Good for: Walks, picnics and the Botanical Garden
+
+[Open in Maps: Emmarentia](https://www.google.com/maps/search/?api=1&query=-26.1472,27.9958)
+
+### Florida
+
+A suburb in the north-west of the city, close to Roodepoort, built around Florida Lake. Mostly homes and shops.
+
+[Open in Maps: Florida](https://www.google.com/maps/search/?api=1&query=-26.1753,27.9233)
+
+### Triomf
+
+Built in the 1950s on the site of Sophiatown, whose residents were forced to leave under apartheid. The name Sophiatown was restored in 2006.
+
+Good for: Apartheid-era history
+
+[Open in Maps: Triomf](https://www.google.com/maps/search/?api=1&query=-26.175,27.9764)
 
 ### Melville
 
@@ -295,6 +397,184 @@ Good for: Cafés, live music, a walk on the koppies
 
 [Open in Maps: Melville](https://www.google.com/maps/search/?api=1&query=-26.175,28.008)
 
+### Sandton
+
+The business and shopping heart of northern Johannesburg. Sandton City, Nelson Mandela Square, many hotels and a Gautrain station sit close together.
+
+Good for: Shopping, hotels and a Gautrain base
+
+[Read the Sandton guide](https://example.com/neighbourhoods/sandton.html)
+
+### Bryanston
+
+An established northern suburb with large gardens, a shopping centre and a well-known organic market. A short drive from Sandton.
+
+Good for: A market morning and a quiet meal
+
+[Open in Maps: Bryanston](https://www.google.com/maps/search/?api=1&query=-26.0514,28.0281)
+
+### Rivonia
+
+A northern suburb known for Liliesleaf, the farm where anti-apartheid leaders were arrested in 1963 and which is now a museum. Also home to offices and restaurants.
+
+Good for: Liliesleaf and the Rivonia Trial story
+
+[Open in Maps: Rivonia](https://www.google.com/maps/search/?api=1&query=-26.0533,28.0594)
+
+### Woodmead
+
+A business district on the N1 north of Sandton, with offices and retail parks. Most visitors pass through on the way to somewhere else.
+
+[Open in Maps: Woodmead](https://www.google.com/maps/search/?api=1&query=-26.0433,28.0644)
+
+### Morningside
+
+A residential suburb on the edge of Sandton, with a shopping centre and a number of restaurants. It lies close to the Sandton Gautrain station.
+
+Good for: Restaurants near Sandton
+
+[Open in Maps: Morningside](https://www.google.com/maps/search/?api=1&query=-26.0781,28.0644)
+
+### River Club
+
+A small suburb in the Sandton area, in the north of the city. We list no visitor sights here yet.
+
+[Open in Maps: River Club](https://www.google.com/maps/search/?api=1&query=-26.0744,28.0433)
+
+### Sandown
+
+The part of Sandton around Sandton City and Nelson Mandela Square. Shops, restaurants, hotels and the Sandton Gautrain station are all within walking distance.
+
+Good for: Shopping, hotels and a Gautrain station
+
+[Open in Maps: Sandown](https://www.google.com/maps/search/?api=1&query=-26.0919,28.0658)
+
+### Buccleuch
+
+A suburb beside the N1 in the north of the city, with offices and light industry. We list no visitor sights here yet.
+
+[Open in Maps: Buccleuch](https://www.google.com/maps/search/?api=1&query=-26.0553,28.1108)
+
+### Modderfontein
+
+Once the site of a dynamite factory founded in the 1890s. Today it mixes new housing and offices with the Modderfontein Reserve, which has walking trails.
+
+Good for: A walk in the reserve
+
+[Open in Maps: Modderfontein](https://www.google.com/maps/search/?api=1&query=-26.0845,28.1669)
+
+### Kelvin
+
+A mostly industrial and commercial suburb on the north-eastern side of the city. We list no visitor sights here yet.
+
+[Open in Maps: Kelvin](https://www.google.com/maps/search/?api=1&query=-26.075,28.0947)
+
+### Bordeaux
+
+A residential suburb in the north-west of the city, close to Randburg and Craighall. We list no visitor sights here yet.
+
+[Open in Maps: Bordeaux](https://www.google.com/maps/search/?api=1&query=-26.0964,28.0136)
+
+### Parkmore
+
+A suburb just west of Sandton's business centre, with offices, apartment blocks and houses. It is one of the Parks and also counted as part of Sandton.
+
+[Open in Maps: Parkmore](https://www.google.com/maps/search/?api=1&query=-26.0953,28.0375)
+
+### Hurlingham
+
+A residential suburb in the Sandton area, in the north of the city. We list no visitor sights here yet.
+
+[Open in Maps: Hurlingham](https://www.google.com/maps/search/?api=1&query=-26.1022,28.0278)
+
+### Sandhurst
+
+One of the city's wealthiest residential suburbs, close to Sandton's centre. Large houses sit behind high walls, so it is a place to drive through rather than visit.
+
+[Open in Maps: Sandhurst](https://www.google.com/maps/search/?api=1&query=-26.1078,28.0442)
+
+### Wynberg
+
+A mostly industrial and commercial suburb next to Alexandra, on the north-eastern side of the city. We list no visitor sights here yet.
+
+[Open in Maps: Wynberg](https://www.google.com/maps/search/?api=1&query=-26.1107,28.0835)
+
+### Alexandra
+
+A dense township founded in 1912, just east of Sandton. Nelson Mandela lived here in the 1940s. Go with a local guide.
+
+Good for: Local history, with a guide
+
+[Open in Maps: Alexandra](https://www.google.com/maps/search/?api=1&query=-26.1044,28.0989)
+
+### Hyde Park
+
+A wealthy residential suburb best known for Hyde Park Corner, a shopping centre with fashion and homeware shops, restaurants and cafés.
+
+Good for: Shopping and a coffee
+
+[Open in Maps: Hyde Park](https://www.google.com/maps/search/?api=1&query=-26.1197,28.0397)
+
+### The Parks
+
+A local name for a group of leafy suburbs north of the city centre whose names start with Park, from Parkhurst and Parkview to Parktown.
+
+Good for: Restaurants, Zoo Lake and old houses
+
+[Read the The Parks guide](https://example.com/neighbourhoods/the-parks.html)
+
+### Parkhurst
+
+A residential suburb known for 4th Avenue, a street of restaurants, cafés and independent shops. One of the Parks.
+
+Good for: Restaurants and browsing on 4th Avenue
+
+[Open in Maps: Parkhurst](https://www.google.com/maps/search/?api=1&query=-26.1397,28.0189)
+
+### Parktown North
+
+A residential suburb with a mix of houses and offices, north of Parkwood and Parkhurst. One of the Parks.
+
+[Open in Maps: Parktown North](https://www.google.com/maps/search/?api=1&query=-26.1394,28.0303)
+
+### Parkwood
+
+A quiet residential suburb close to Rosebank, between Parkhurst and Parktown North. One of the Parks.
+
+[Open in Maps: Parkwood](https://www.google.com/maps/search/?api=1&query=-26.1508,28.0303)
+
+### Parkview
+
+A leafy residential suburb beside Zoo Lake, with a golf course and a small strip of shops and restaurants on Tyrone Avenue. One of the Parks.
+
+Good for: Zoo Lake, picnics and a quiet lunch
+
+[Open in Maps: Parkview](https://www.google.com/maps/search/?api=1&query=-26.1642,28.0253)
+
+### Parktown
+
+A suburb on a ridge north of Braamfontein, known for its old houses, many designed by Herbert Baker, and for several large hospitals. One of the Parks.
+
+Good for: Old houses and city views
+
+[Open in Maps: Parktown](https://www.google.com/maps/search/?api=1&query=-26.1817,28.0278)
+
+### Illovo
+
+A suburb between Sandton and Rosebank along Oxford Road, with offices, apartment blocks and restaurants.
+
+Good for: Restaurants and a base near both
+
+[Open in Maps: Illovo](https://www.google.com/maps/search/?api=1&query=-26.1228,28.0553)
+
+### Melrose
+
+An upmarket suburb best known for Melrose Arch, a walkable precinct of restaurants, shops, offices and hotels.
+
+Good for: A walkable evening out
+
+[Open in Maps: Melrose](https://www.google.com/maps/search/?api=1&query=-26.14,28.0494)
+
 ### Rosebank
 
 A compact business and shopping district with its own Gautrain station, a weekend rooftop market and several galleries.
@@ -302,6 +582,60 @@ A compact business and shopping district with its own Gautrain station, a weeken
 Good for: A first base, shopping, galleries
 
 [Open in Maps: Rosebank](https://www.google.com/maps/search/?api=1&query=-26.146,28.0436)
+
+### Saxonwold
+
+A leafy suburb of old houses and large gardens, home to the Johannesburg Zoo. Zoo Lake is next door.
+
+Good for: The Johannesburg Zoo
+
+[Open in Maps: Saxonwold](https://www.google.com/maps/search/?api=1&query=-26.1583,28.0394)
+
+### Orchards
+
+A residential suburb in the north-east of the city. We list no visitor sights here yet.
+
+[Open in Maps: Orchards](https://www.google.com/maps/search/?api=1&query=-26.1547,28.0794)
+
+### Sandringham
+
+A residential suburb in the north-east of the city. We list no visitor sights here yet.
+
+[Open in Maps: Sandringham](https://www.google.com/maps/search/?api=1&query=-26.1494,28.1019)
+
+### Edenvale
+
+A town just east of Johannesburg, in the Ekurhuleni municipality, close to OR Tambo International Airport. Mostly homes, shops and light industry.
+
+[Open in Maps: Edenvale](https://www.google.com/maps/search/?api=1&query=-26.1367,28.1511)
+
+### Houghton
+
+A leafy, wealthy suburb where Nelson Mandela lived for many years and died in 2013. The Nelson Mandela Foundation has its offices here. The Mandela home is private.
+
+Good for: Mandela history, from the street
+
+[Open in Maps: Houghton](https://www.google.com/maps/search/?api=1&query=-26.1582,28.059)
+
+### Observatory
+
+A residential suburb on a ridge east of the city centre, named after the observatory built there in the early 1900s. Observatory Park is in the suburb.
+
+[Open in Maps: Observatory](https://www.google.com/maps/search/?api=1&query=-26.1803,28.0819)
+
+### Bruma
+
+A suburb in the east of the city, centred on Bruma Lake. Mostly shops, offices and apartment blocks.
+
+[Open in Maps: Bruma](https://www.google.com/maps/search/?api=1&query=-26.1767,28.1083)
+
+### Bedfordview
+
+A suburb just east of Johannesburg on the N3, in the Ekurhuleni municipality, with the Eastgate shopping centre and a number of restaurants.
+
+Good for: Shopping and restaurants on the way to the airport
+
+[Open in Maps: Bedfordview](https://www.google.com/maps/search/?api=1&query=-26.1764,28.1425)
 
 ### Braamfontein
 
@@ -319,6 +653,14 @@ Good for: Theatre, music, history
 
 [Open in Maps: Newtown](https://www.google.com/maps/search/?api=1&query=-26.203,28.032)
 
+### Yeoville
+
+A busy, mixed suburb east of Hillbrow. Rockey Street was known for its bars and live music, and the area has long been home to many people from other African countries.
+
+Good for: Local history and a lively street
+
+[Open in Maps: Yeoville](https://www.google.com/maps/search/?api=1&query=-26.1839,28.0642)
+
 ### Maboneng
 
 A small, walkable precinct on the east side of the city centre, known for street art, galleries, independent shops and restaurants.
@@ -327,11 +669,77 @@ Good for: Street art, galleries, weekend markets
 
 [Open in Maps: Maboneng](https://www.google.com/maps/search/?api=1&query=-26.2044,28.0583)
 
+### Kensington
+
+A residential suburb in the east of the city. We list no visitor sights here yet.
+
+[Open in Maps: Kensington](https://www.google.com/maps/search/?api=1&query=-26.1961,28.0969)
+
+### Auckland Park
+
+A suburb in the west of the city, home to the Kingsway campus of the University of Johannesburg and the main studios of the SABC.
+
+[Open in Maps: Auckland Park](https://www.google.com/maps/search/?api=1&query=-26.189,28.0089)
+
+### Riverlea
+
+A residential suburb in the west of the city. We list no visitor sights here yet.
+
+[Open in Maps: Riverlea](https://www.google.com/maps/search/?api=1&query=-26.2117,27.974)
+
+### Robertsham
+
+A residential suburb in the south of the city. We list no visitor sights here yet.
+
+[Open in Maps: Robertsham](https://www.google.com/maps/search/?api=1&query=-26.2428,28.0164)
+
+### Kenilworth
+
+A residential suburb in the south of the city. We list no visitor sights here yet.
+
+[Open in Maps: Kenilworth](https://www.google.com/maps/search/?api=1&query=-26.2461,28.0489)
+
+### Meredale
+
+A suburb in the south of the city, home to the Southgate shopping centre.
+
+Good for: Shopping
+
+[Open in Maps: Meredale](https://www.google.com/maps/search/?api=1&query=-26.273,27.977)
+
+### Glenvista
+
+A residential suburb in the south of the city. We list no visitor sights here yet.
+
+[Open in Maps: Glenvista](https://www.google.com/maps/search/?api=1&query=-26.2828,28.0547)
+
 ### Soweto
 
 South Africa's best-known township and the heart of much of the country's history. Go with a local guide to get the most from it.
 
 Good for: History, Vilakazi Street, local food
+
+### Orlando West
+
+The part of Soweto that most visitors see first. Vilakazi Street, Mandela House and the Hector Pieterson Memorial and Museum are all within a short walk of each other.
+
+Good for: Mandela House, Vilakazi Street and the 1976 uprising
+
+[Open in Maps: Orlando West](https://www.google.com/maps/search/?api=1&query=-26.2206,27.9147)
+
+### Diepkloof
+
+A township in Soweto, home to the Chris Hani Baragwanath Hospital. We list no other visitor sights here yet.
+
+[Open in Maps: Diepkloof](https://www.google.com/maps/search/?api=1&query=-26.2419,27.9503)
+
+### Hartbeespoort
+
+A dam and holiday town about an hour's drive north-west of the city, in North West province. Popular for weekend trips from Johannesburg.
+
+Good for: A day out of the city
+
+[Open in Maps: Hartbeespoort](https://www.google.com/maps/search/?api=1&query=-25.7442,27.8994)
 
 ## Where to Stay
 
@@ -488,7 +896,7 @@ Also called restaurant strips.
 
 ## Every Area in This Guide
 
-We are writing up 196 areas in 9 parts of the city, and 170 of them are on the map so far. Soweto is listed township by township. The main areas are in bold, and an area with a guide is a link.
+We are writing up 198 areas in 9 parts of the city, and 170 of them are on the map so far. Soweto is listed township by township. The main areas are in bold, and an area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -547,7 +955,7 @@ We are writing up 196 areas in 9 parts of the city, and 170 of them are on the m
 - Weltevreden Park
 - Westdene
 
-### Sandton, Rosebank and North Central (63 areas)
+### Sandton, Rosebank and North Central (65 areas)
 
 - Abbotsford
 - **Alexandra**
@@ -603,9 +1011,11 @@ We are writing up 196 areas in 9 parts of the city, and 170 of them are on the m
 - **Sandhurst**
 - **Sandown**
 - **Sandringham**
+- **[Sandton](https://example.com/neighbourhoods/sandton.html)**
 - **Saxonwold**
 - Simba
 - Strathavon
+- **[The Parks](https://example.com/neighbourhoods/the-parks.html)**
 - Waverley
 - Westcliff
 - Wierda Valley
@@ -732,6 +1142,8 @@ O.R. Tambo International Airport is about 25 km east of the city centre. The Gau
 
 ## Gautrain
 
+Read our [Gautrain guide](https://example.com/gautrain.html) for the stations and what is near each one.
+
 The Gautrain is a fast, clean rapid rail line that links the airport, Sandton, Rosebank, the city centre and Pretoria. Pay with a Gautrain card or a contactless bank card at the gates. Feeder buses run from most stations.
 
 ## Ride-Hailing and Taxis
@@ -755,6 +1167,85 @@ South Africa drives on the left. A car is useful for day trips, such as the Crad
 - In an emergency, call 10111 for the police or 112 from a mobile phone.
 
 Source: https://example.com/getting-around.html
+
+
+---
+
+Transport
+
+# Gautrain Guide for Visitors
+
+The Gautrain is the rapid rail line that links O.R. Tambo International Airport, Sandton, Rosebank, Park Station in the city centre, Midrand and Pretoria. It is the quickest way to cross the north of Johannesburg, and the easiest way to leave the airport.
+
+## The Two Lines
+
+The Gautrain has two lines. They meet at Marlboro station, just east of Sandton.
+
+- **North-South line:** Park Station, Rosebank, Sandton, Marlboro, Midrand, Centurion, Pretoria and Hatfield.
+- **Airport line:** Sandton, Marlboro, Rhodesfield and O.R. Tambo International Airport.
+
+The orange line on our [map of Johannesburg](https://example.com/index.html#map-h) shows both lines. It joins the stations in order and does not follow the exact track.
+
+## Stations Visitors Use Most
+
+### O.R. Tambo International Airport
+
+The station is in the Central Terminal Building. The trip to Sandton takes about 15 minutes. Most visitors take this train on arrival and a ride-hailing car for the last stretch to their hotel.
+
+### Sandton
+
+Sandton station is on the corner of Rivonia Road and West Street, beside [Sandton](https://example.com/neighbourhoods/sandton.html)'s shopping centres. Sandton City and Nelson Mandela Square are a short walk away. This is where most people change trains between the airport and the rest of the city.
+
+### Rosebank
+
+Rosebank station is on Oxford Road at the corner of Baker Street, in the middle of the shops and the weekend rooftop market. It is also the best station for the [Parks](https://example.com/neighbourhoods/the-parks.html): Parkhurst, Parkview and Parktown are a short ride-hailing trip away.
+
+### Park Station
+
+Park Station is in the city centre. From here you can reach [Braamfontein](https://example.com/neighbourhoods/braamfontein.html) and Constitution Hill by a short walk or ride. Take care in the streets around the station and use ride-hailing after dark.
+
+### Midrand, Centurion, Pretoria and Hatfield
+
+These stations serve the north of the Johannesburg area and Pretoria. They are further than most first-time visitors go, but they are the way to reach Pretoria for a day trip.
+
+## Tickets and Cards
+
+You pay at the station gates. The Gautrain website explains the cards and ways to pay, and lists current fares. Fares change, so we do not list them here.
+
+## Timetable
+
+Trains run every day, with the first departures from the main stations at about 05:30 and the last at about 20:30.
+
+- **Weekdays, peak:** a train every 10 minutes.
+- **Weekdays, off-peak:** a train every 20 minutes.
+- **Weekends and public holidays:** every 30 minutes from 05:30 to 09:00 and from 16:00 to 20:30, and every 20 minutes from 09:00 to 16:00.
+
+[Download the Gautrain train schedule (PDF, 420 KB)](https://example.com/downloads/gautrain-train-schedule-2025.pdf). It shows every departure on both lines, on weekdays and on weekends and public holidays. It comes from the Gautrain's 2025 fare guide brochure, made in June 2025.
+
+The Gautrain changes its timetable from time to time. Before you travel, and again on the day if you have a flight to catch, check the [official Gautrain website](https://www.gautrain.co.za/) for a newer version.
+
+### When Each Station Opens and Closes
+
+Stations open a little before the first train and close a little after the last. Times differ by station:
+
+- Park: 05:14 to 21:28
+- Rosebank: 05:18 to 21:24
+- Sandton: 05:06 to 21:20
+- Marlboro: 05:10 to 21:15
+- Midrand: 05:33 to 21:09
+- Centurion: 05:24 to 21:08
+- Pretoria: 05:17 to 21:17
+- Hatfield: 05:09 to 21:22
+- Rhodesfield: 05:14 to 21:12
+- O.R. Tambo International Airport: 05:12 to 21:14
+
+## Getting From the Station to Your Destination
+
+Gautrain buses connect stations with nearby suburbs, and ride-hailing cars wait outside the main stations. Routes and stops change, so check the Gautrain website for the current bus routes.
+
+See also [getting around Johannesburg](https://example.com/getting-around.html) and the [neighbourhoods](https://example.com/neighbourhoods.html) guide.
+
+Source: https://example.com/gautrain.html
 
 
 ---
@@ -1034,3 +1525,213 @@ Lonehill, Dainfern and Kyalami are close by. Further south, Bryanston and Sandto
 See more [neighbourhoods](https://example.com/neighbourhoods.html) or the full list of [things to do](https://example.com/things-to-do.html).
 
 Source: https://example.com/neighbourhoods/fourways.html
+
+
+---
+
+Neighbourhood guide
+
+# Sandton
+
+Sandton is the business and shopping district of northern Johannesburg. It is the part of the city with the most hotels, offices and large shopping centres, and it is the easiest place to reach from the airport by train.
+
+## Sandton at a Glance
+
+The business and shopping heart of northern Johannesburg. Sandton City, Nelson Mandela Square, many hotels and a Gautrain station sit close together.
+
+**Part of the city**
+
+Sandton, Rosebank and North Central
+
+**Good for**
+
+Shopping, Food
+
+## What to Do
+
+Most visitors start at Sandton City, a large shopping centre opened in 1973. A walkway leads from it to Nelson Mandela Square, where a bronze statue of Nelson Mandela stands among restaurants and cafés. Both are easy to reach on foot from the Sandton Gautrain station.
+
+Sandton is a shopping and dining area more than a sightseeing one. For museums and history, plan day trips to [Braamfontein](https://example.com/neighbourhoods/braamfontein.html) or the Apartheid Museum, listed on the [things to do](https://example.com/things-to-do.html) page.
+
+People use "Sandton" for a wider group of suburbs than the business district. The ones below are the most useful to know. Areas around the centre are quiet and residential, so expect to travel by car or ride-hailing.
+
+## Sandown
+
+This is the part of Sandton most people mean when they say they are staying in Sandton.
+
+### Sandown at a Glance
+
+The part of Sandton around Sandton City and Nelson Mandela Square. Shops, restaurants, hotels and the Sandton Gautrain station are all within walking distance.
+
+**Part of the city**
+
+Sandton, Rosebank and North Central
+
+**Good for**
+
+Shopping, Food, Nightlife
+
+**Places here**
+
+- Nelson Mandela Square
+- Sandton Station
+- Sandton City
+
+[Open in Maps: Sandown](https://www.google.com/maps/search/?api=1&query=-26.0919,28.0658)
+
+## Hyde Park
+
+### Hyde Park at a Glance
+
+A wealthy residential suburb best known for Hyde Park Corner, a shopping centre with fashion and homeware shops, restaurants and cafés.
+
+**Part of the city**
+
+Sandton, Rosebank and North Central
+
+**Good for**
+
+Shopping
+
+[Open in Maps: Hyde Park](https://www.google.com/maps/search/?api=1&query=-26.1197,28.0397)
+
+## Bryanston
+
+### Bryanston at a Glance
+
+An established northern suburb with large gardens, a shopping centre and a well-known organic market. A short drive from Sandton.
+
+**Part of the city**
+
+Sandton, Rosebank and North Central
+
+**Good for**
+
+Markets, Food
+
+[Open in Maps: Bryanston](https://www.google.com/maps/search/?api=1&query=-26.0514,28.0281)
+
+## Sandhurst
+
+### Sandhurst at a Glance
+
+One of the city's wealthiest residential suburbs, close to Sandton's centre. Large houses sit behind high walls, so it is a place to drive through rather than visit.
+
+**Part of the city**
+
+Sandton, Rosebank and North Central
+
+[Open in Maps: Sandhurst](https://www.google.com/maps/search/?api=1&query=-26.1078,28.0442)
+
+## Getting There
+
+The [Gautrain](https://example.com/gautrain.html) runs from OR Tambo International Airport to Sandton station in about 15 minutes. From there, Rosebank is one stop away and Park Station, in the city centre, is a longer ride on the same line. Check the current timetable and fares on the Gautrain website before you travel.
+
+Outside the centre, distances are larger than they look on a map. Use ride-hailing or a hotel transfer, and allow extra time at rush hour.
+
+## Staying Safe
+
+The area around Sandton City and Nelson Mandela Square is busy and well guarded in the day. In the evening, book a ride-hailing car to the door rather than walking between venues, and keep phones and bags out of sight on the street.
+
+See more [neighbourhoods](https://example.com/neighbourhoods.html) or the full list of [things to do](https://example.com/things-to-do.html).
+
+Source: https://example.com/neighbourhoods/sandton.html
+
+
+---
+
+Neighbourhood guide
+
+# The Parks
+
+"The Parks" is a local name for a group of suburbs north of the city centre whose names start with Park: Parkhurst, Parkview, Parktown, Parkwood, Parktown North and Parkmore. They are leafy, mostly residential and close to Rosebank.
+
+## The Parks at a Glance
+
+A local name for a group of leafy suburbs north of the city centre whose names start with Park, from Parkhurst and Parkview to Parktown.
+
+**Part of the city**
+
+Sandton, Rosebank and North Central
+
+**Good for**
+
+Food, Outdoors
+
+## What to Do
+
+Each suburb has a different character, so pick one or two for a day. Parkhurst has a street of restaurants and shops, Parkview has Zoo Lake, and Parktown has some of the city's oldest houses.
+
+## Parkhurst
+
+Walk 4th Avenue for coffee, lunch and independent shops. It is the busiest of the Parks in the evenings.
+
+### Parkhurst at a Glance
+
+A residential suburb known for 4th Avenue, a street of restaurants, cafés and independent shops. One of the Parks.
+
+**Part of the city**
+
+Sandton, Rosebank and North Central
+
+**Good for**
+
+Food, Shopping
+
+[Open in Maps: Parkhurst](https://www.google.com/maps/search/?api=1&query=-26.1397,28.0189)
+
+## Parkview
+
+Zoo Lake is the main draw. Bring a picnic, hire a rowing boat, or walk around the lake. A small strip of restaurants on Tyrone Avenue is a short drive away.
+
+### Parkview at a Glance
+
+A leafy residential suburb beside Zoo Lake, with a golf course and a small strip of shops and restaurants on Tyrone Avenue. One of the Parks.
+
+**Part of the city**
+
+Sandton, Rosebank and North Central
+
+**Good for**
+
+Outdoors, Food, Family
+
+**Places here**
+
+- [Zoo Lake](https://example.com/things-to-do.html#zoo-lake)
+
+[Open in Maps: Parkview](https://www.google.com/maps/search/?api=1&query=-26.1642,28.0253)
+
+## Parktown
+
+Parktown sits on a ridge, and many of its old houses were designed by the architect Herbert Baker. Most are private, so look from the street and respect residents. The area also has several large hospitals, so traffic is heavy on weekdays.
+
+### Parktown at a Glance
+
+A suburb on a ridge north of Braamfontein, known for its old houses, many designed by Herbert Baker, and for several large hospitals. One of the Parks.
+
+**Part of the city**
+
+Sandton, Rosebank and North Central
+
+**Good for**
+
+History, Architecture
+
+[Open in Maps: Parktown](https://www.google.com/maps/search/?api=1&query=-26.1817,28.0278)
+
+## Parkwood, Parktown North and Parkmore
+
+These three are mostly homes and offices. Parkwood and Parktown North lie close to Rosebank, which makes them handy places to stay. Parkmore is also counted as part of [Sandton](https://example.com/neighbourhoods/sandton.html).
+
+## Getting There
+
+The Parks do not have their own Gautrain stations. Use Rosebank station and take a short ride-hailing trip, or travel by car. Distances between the suburbs are short, but the roads are busy at rush hour.
+
+## Staying Safe
+
+The streets are quiet and the main shopping streets are busy. Keep valuables out of sight, park in guarded or well-lit places, and use ride-hailing after dark.
+
+See more [neighbourhoods](https://example.com/neighbourhoods.html) or the full list of [things to do](https://example.com/things-to-do.html).
+
+Source: https://example.com/neighbourhoods/the-parks.html

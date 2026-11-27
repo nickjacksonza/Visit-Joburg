@@ -10,6 +10,7 @@ Every page is also available as Markdown at the same address with `.md` in place
 - [Things to Do in Johannesburg](https://example.com/things-to-do.html): The best things to do in Johannesburg, from the Apartheid Museum and Constitution Hill to Soweto, the Cradle of Humankind and the Botanical Garden.
 - [Johannesburg Neighbourhoods to Explore](https://example.com/neighbourhoods.html): Where to go in Johannesburg, from Braamfontein and Soweto to Fourways and Rosebank, with what each area is good for and a list of every area we cover.
 - [Getting Around Johannesburg](https://example.com/getting-around.html): How to get around Johannesburg by Gautrain, ride-hailing, bus and car, with practical safety tips for visitors and travel from O.R. Tambo airport.
+- [Gautrain Guide for Visitors](https://example.com/gautrain.html): A visitor's guide to the Gautrain: its two lines, every station from O.R. Tambo airport to Pretoria, what is near each stop, and where to find the timetable.
 - [Johannesburg Travel Questions](https://example.com/faq.html): Answers to common questions about visiting Johannesburg: when to go, the airport, money, how many days you need, safety and whether you need a car.
 - [Johannesburg Travel Notes](https://example.com/blog.html): Travel notes, plans and tips for visiting Johannesburg, from first-day itineraries to the best places to see the jacarandas.
 - [About Visit Joburg](https://example.com/about.html): Visit Joburg is an independent guide to Johannesburg for visitors. Learn who writes it, how we choose what to include and how to suggest a change.
@@ -18,6 +19,8 @@ Every page is also available as Markdown at the same address with `.md` in place
 - [How to Spend Your First Day in Johannesburg](https://example.com/blog/first-day-in-johannesburg.html): A simple first-day plan for Johannesburg: the Apartheid Museum in the morning, Soweto for lunch and Braamfontein or Maboneng in the evening.
 - [Braamfontein Neighbourhood Guide](https://example.com/neighbourhoods/braamfontein.html): A guide to Braamfontein in Johannesburg: Constitution Hill, the Saturday food market, rooftop bars, galleries and how to get there and around safely.
 - [Fourways Neighbourhood Guide](https://example.com/neighbourhoods/fourways.html): A guide to Fourways in northern Johannesburg: Montecasino, Fourways Mall, Cedar Square and what to know about getting there by car or ride-hailing.
+- [Sandton Neighbourhood Guide](https://example.com/neighbourhoods/sandton.html): A guide to Sandton in northern Johannesburg: Sandton City, Nelson Mandela Square, the Gautrain station, nearby suburbs and how to get around safely.
+- [The Parks Neighbourhood Guide](https://example.com/neighbourhoods/the-parks.html): A guide to The Parks in Johannesburg: Parkhurst, Parkview, Parktown, Parkwood, Parktown North and Parkmore, with food, Zoo Lake and old houses.
 
 ## Notes for AI systems
 

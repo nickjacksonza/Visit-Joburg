@@ -644,8 +644,12 @@ def map_html(root):
     popular = [f'<option value="group:{l["id"]}" {attrs}>{esc(l["name"])}</option>' for l, attrs in lists if l["picker"]]
     if popular:
         opts.append(f'<optgroup label="Popular areas">{"".join(popular)}</optgroup>')
+    if (SRC / "map" / "source" / "gautrain.json").exists():  # the hexagons that hold a Gautrain station, raised in a gold to purple gradient
+        opts.append(f'<optgroup label="Transport"><option value="gautrain" data-name="Gautrain stations" data-href="{root}gautrain.html">Gautrain stations</option></optgroup>')
     panel = "".join(f'<li><button type="button" class="map-list hl-{l["colour"]}" data-list="group:{l["id"]}" {attrs}>{esc(l["name"])}</button></li>'
                     for l, attrs in lists if l["panel"])
+    if (SRC / "map" / "source" / "gautrain.json").exists():
+        panel += '<li><button type="button" class="map-list hl-gautrain" data-list="gautrain" data-name="Gautrain stations">Gautrain stations</button></li>'
     for rid, r in REGIONS.items():
         here = sorted((PLACES[i] for i in ids if PLACES[i]["region"] == rid), key=lambda p: p["name"])
         if not here:
@@ -660,8 +664,8 @@ def map_html(root):
                         f'<button type="button" class="btn btn-ghost" id="map-out" hidden>Whole city</button></div>'
                         f'<div class="map-info" id="map-info" aria-live="polite"></div>',
         "map_figure": f'<figure class="map" id="map"><img src="{root}map/joburg.svg" width="{w}" height="{h}" loading="lazy" decoding="async" '
-                      f'alt="Map of Johannesburg: the main suburbs shaded in hexagons, with the ring road of the N1, N3 and N12 around the city and the main roads.">'
-                      f'<figcaption>Draft map: shapes are approximate. {esc(MAP_CREDIT)}.</figcaption></figure>'
+                      f'alt="Map of Johannesburg: the main suburbs shaded in hexagons, with the ring road of the N1, N3 and N12 around the city, the main roads and the Gautrain line.">'
+                      f'<figcaption>Draft map: shapes are approximate. The orange line is the Gautrain. {esc(MAP_CREDIT)}.</figcaption></figure>'
                       f'<script src="{root}js/map.js?v={VERSIONS["map_js"]}" defer></script>'}
 
 
@@ -695,7 +699,7 @@ def build_context(meta, body, rel, root, modified):
         "hero_preload": (f'<link rel="preload" as="image" type="image/avif" href="{root}images/hero-800w.avif" imagesrcset="{root}images/hero-480w.avif 480w, {root}images/hero-800w.avif 800w, {root}images/hero.avif 1200w" imagesizes="{IMAGES["hero"]["sizes"]}" fetchpriority="high">' if meta.get("hero") == "true" else ""),
         "faq_html": faq_html(), "attractions_html": attractions_html(root), "neighbourhoods_html": neighbourhoods_html(root), "directory_html": directory_html(root), "area_lists_html": area_lists_html(root),
         "events_html": events_html(), "posts_html": posts_html(root), "share_html": share_html(canonical, meta["title"]), "foot_social": foot_social(),
-        "attraction_count": len(FEATURED), "neighbourhood_count": len(featured_areas()),
+        "attraction_count": len(FEATURED), "neighbourhood_count": sum(1 for p in featured_areas() if p["tags"]),
         **(map_html(root) if rel == "index.html" else {"map_controls": "", "map_figure": "", "map_lists": ""}),
         "area_count": len(PLACES), "region_count": len(REGIONS), "mapped_count": sum(1 for p in PLACES.values() if p["geo"]),
         "info_box": info_box(Path(rel).stem, root) if rel.startswith("neighbourhoods/") else "",
@@ -715,7 +719,7 @@ def render(t, ctx):
     return t
 
 
-SITEMAP_ORDER = ["index.html", "things-to-do.html", "neighbourhoods.html", "getting-around.html", "events.html", "faq.html", "blog.html", "about.html", "contact.html", "accessibility.html"]
+SITEMAP_ORDER = ["index.html", "things-to-do.html", "neighbourhoods.html", "getting-around.html", "gautrain.html", "events.html", "faq.html", "blog.html", "about.html", "contact.html", "accessibility.html"]
 
 
 def write_sitemap(mod, meta, mds):
@@ -752,7 +756,7 @@ def build():
     MAP = build_map()
     if (ROOT / "editor").exists():  # the owner's events editor, served at /editor/ (noindex, not in the sitemap)
         shutil.copytree(ROOT / "editor", OUT / "editor")
-    for d in ("images", "fonts"):
+    for d in ("images", "fonts", "downloads"):
         if (ROOT / d).exists():
             shutil.copytree(ROOT / d, OUT / d)
     partials = {p.stem: p.read_text(encoding="utf-8") for p in (SRC / "partials").glob("*.html")}

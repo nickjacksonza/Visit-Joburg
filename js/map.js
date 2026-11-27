@@ -136,24 +136,26 @@
     return y / (n.length / 2);
   }
 
-  function lift(groups, name, share, colour) {  // groups: the hexagon groups to raise; name: the label over them; colour: an area list's
+  function lift(groups, name, share, colour, gradient) {  // groups: the hexagon groups to raise; name: the label over them; colour: an area list's
     var cells = [];
     groups.forEach(function (grp) {
-      [].forEach.call(grp.querySelectorAll('path'), function (p) {
+      [].forEach.call(grp.tagName === 'path' ? [grp] : grp.querySelectorAll('path'), function (p) {
         var d = p.getAttribute('d');
         cells.push({ d: d, y: centreY(d) });
       });
     });
     cells.sort(function (a, b) { return a.y - b.y; });
+    var top = cells.length ? cells[0].y : 0, span = cells.length > 1 ? cells[cells.length - 1].y - top : 1;
     var n = cells.length > 300 ? 4 : SLICES, height = view[3] * share;
     var g = document.createElementNS(NS, 'g');
-    g.setAttribute('class', 'lift' + (colour ? ' hl-' + colour : ''));
+    g.setAttribute('class', 'lift' + (colour ? ' hl-' + colour : '') + (gradient ? ' gradient' : ''));
     g.style.setProperty('--step', (height / n).toFixed(2) + 'px');
     cells.forEach(function (c) {
       for (var k = 1; k <= n; k++) {
         var s = document.createElementNS(NS, 'path');
         s.setAttribute('d', c.d);
         s.setAttribute('class', 'slice k' + k + (k === n ? ' top' : ''));
+        if (gradient) s.style.setProperty('--t', ((c.y - top) / span).toFixed(3));  // 0 in the north (gold) to 1 in the south (purple)
         g.appendChild(s);
       }
     });
@@ -224,6 +226,51 @@
     });
   }
 
+  function stationHexes() {  // the 1 km hexagons that hold a Gautrain station, each with its station's name
+    var found = [], seen = {}, paths = [].slice.call(svg.querySelectorAll('#hexes path'));
+    [].forEach.call(svg.querySelectorAll('#gautrain-stations > g, #sandton-station'), function (n) {
+      var b = n.getBBox(), pt = new DOMPoint(b.x + b.width / 2, b.y + b.height / 2), id = n.id.replace(/^station-/, ''),
+        t = svg.getElementById(n.id === 'sandton-station' ? 'station-label-san' : 'station-label-' + id);
+      var hit = null, near = null, best = Infinity;
+      for (var i = 0; i < paths.length && !hit; i++) {
+        if (paths[i].isPointInFill && paths[i].isPointInFill(pt)) hit = paths[i];
+        else {  // a station can sit in the thin gap between two hexagons: take the nearest one, within a hexagon's reach
+          var q = paths[i].getBBox(), dist = Math.hypot(q.x + q.width / 2 - pt.x, q.y + q.height / 2 - pt.y);
+          if (dist < best && dist <= q.width * 0.75) { best = dist; near = paths[i]; }
+        }
+      }
+      hit = hit || near;
+      if (hit && !seen[hit.getAttribute('d')]) { seen[hit.getAttribute('d')] = 1; found.push({ path: hit, name: t ? t.textContent : n.id }); }
+    });
+    return found;
+  }
+
+  function pickGautrain() {  // stay at whole-city view and raise the hexagon under each station, gold in the north to purple in the south
+    clear();
+    pressed('gautrain');
+    var hexes = stationHexes(), opt = sel.querySelector('option[value="gautrain"]');
+    if (!hexes.length) return;
+    out.hidden = false;
+    svg.classList.add('picking');
+    svg.classList.remove('fine');
+    hexes.forEach(function (h) { h.path.classList.add('picked'); });
+    info.textContent = '';
+    var h = document.createElement('h3'), p = document.createElement('p');
+    h.textContent = 'Gautrain stations';
+    p.textContent = hexes.length + ' stations on the map: ' + hexes.map(function (x) { return x.name; }).join(', ') + '. Stations further out are off the edge of the map.';
+    info.appendChild(h);
+    info.appendChild(p);
+    if (opt && opt.getAttribute('data-href')) {
+      var a = document.createElement('a'), q = document.createElement('p');
+      a.href = opt.getAttribute('data-href');
+      a.textContent = 'Read the Gautrain guide';
+      q.appendChild(a);
+      info.appendChild(q);
+    }
+    goal = null;
+    zoomTo(full.slice(), function () { lift(hexes.map(function (x) { return x.path; }), 'Gautrain stations', 0.12, null, true); });
+  }
+
   function union(groups) {
     var x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
     groups.forEach(function (g) {
@@ -270,6 +317,7 @@
   }
 
   function pick(id) {
+    if (id === 'gautrain') return pickGautrain();
     if (id && id.indexOf('all:') === 0) return pickRegion(id.slice(4));
     if (id && id.indexOf('group:') === 0) return pickGroup(sel.options[sel.selectedIndex]);
     pressed(null);
@@ -336,7 +384,7 @@
     b.addEventListener('click', function () {
       var o = sel.querySelector('option[value="' + b.getAttribute('data-list') + '"]');
       sel.value = o ? o.value : '';
-      load().then(function () { pickGroup(b); });
+      load().then(function () { if (b.getAttribute('data-list') === 'gautrain') pickGautrain(); else pickGroup(b); });
     });
   });
   pressed(null);

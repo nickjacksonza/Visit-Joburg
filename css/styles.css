@@ -7,7 +7,7 @@
 --offblack:#1a1c20;--offwhite:#faf8f4;--grey:#5f646d;
 --ink:var(--offblack);--paper:var(--offwhite);--muted:var(--grey);--soft:#f1eee7;--line:#ddd8cd;--brand:var(--blue);--brand-ink:var(--offwhite);--radius:14px;
 --map-forest:#1c4a2e;--map-shadow:#10291a;--map-lift:#f5c400;--map-wall:#8a5a00;--map-ink:#1a1c20;--map-paper:#faf8f4;
---map-hl-yellow:#f5c400;--map-hl-orange:#f08c1a;--map-hl-red:#f4777a;--map-hl-pink:#f17fb0;--map-hl-violet:#b694e6;--map-hl-blue:#79aef9;--map-hl-teal:#3cc6b4;--map-hl-green:#7cc36e}
+--map-hl-yellow:#f5c400;--map-hl-orange:#f08c1a;--map-hl-red:#f4777a;--map-hl-pink:#f17fb0;--map-hl-violet:#b694e6;--map-hl-blue:#79aef9;--map-hl-teal:#3cc6b4;--map-hl-green:#7cc36e;--map-gold:#f5b800;--map-purple:#8a4fe0}
 @media (prefers-color-scheme:dark){:root{--red:#ff8a7a;--orange:#ffa25c;--yellow:#ffd84d;--green:#5fd39a;--blue:#7cb4ff;--violet:#b79cff;
 --offblack:#16181c;--offwhite:#f3f1ec;--grey:#a1a6ae;--ink:var(--offwhite);--paper:var(--offblack);--soft:#202329;--line:#33373f;--brand-ink:var(--offblack)}}
 *{box-sizing:border-box}
@@ -169,17 +169,18 @@ display:inline-flex;align-items:center;gap:.45rem;background:var(--map-paper);co
 .map-svg #fine{display:none}.map-svg.fine #fine{display:inline}.map-svg.fine #hexes{display:none}
 /* Zoomed in, symbols and names keep their size on screen: --z is the share of the whole map in view (1 at full size). */
 .map-svg{--k:.7}
-.map-svg #labels text,.map-svg #ring-turnoffs>g,.map-svg [id^="marker-"],.map-svg #ring-bridges>path,.map-svg #attractions>*,.map-svg .lift-label{transform-box:fill-box;transform-origin:center;transform:scale(calc(var(--z,1) * var(--k)))}
+.map-svg #labels text,.map-svg #ring-turnoffs>g,.map-svg [id^="marker-"],.map-svg #ring-bridges>path,.map-svg #gautrain-stations>g,.map-svg #attractions>*,.map-svg .lift-label{transform-box:fill-box;transform-origin:center;transform:scale(calc(var(--z,1) * var(--k)))}
 .map-svg #main-roads text[font-size="8"]{font-size:calc(8px * var(--z,1) * var(--k));stroke-width:calc(2.5px * var(--z,1) * var(--k))}
 .map-svg #main-roads text[font-size="5.5"]{font-size:calc(5.5px * var(--z,1) * var(--k));stroke-width:calc(1.7px * var(--z,1) * var(--k))}
-.map-svg.zoomed #regions path,.map-svg.zoomed #areas>*,.map-svg.zoomed #main-roads path,.map-svg.zoomed #freeways path,.map-svg.zoomed #ring-road path,.map-svg.zoomed #city-boundary *{vector-effect:non-scaling-stroke}
+.map-svg.zoomed #regions path,.map-svg.zoomed #areas>*,.map-svg.zoomed #main-roads path,.map-svg.zoomed #freeways path,.map-svg.zoomed #ring-road path,.map-svg.zoomed #gautrain path,.map-svg.zoomed #city-boundary *{vector-effect:non-scaling-stroke}
 .map-svg #areas .picked{stroke:var(--map-lift);stroke-width:1.5}
 .lift .slice{fill:var(--map-wall);fill-opacity:.07;stroke:var(--map-lift);stroke-opacity:.4;stroke-width:.4}
 .lift .top{fill:var(--map-lift);fill-opacity:.5;stroke:var(--map-ink);stroke-width:.6}
 /* Names: at whole-city view only the popular areas are named; suburb names show once zoomed in, smaller, and any
    suburb's name shows under the pointer. */
-.map-svg #labels{display:none}.map-svg.zoomed #labels{display:inline}
+.map-svg #labels,.map-svg #gautrain-labels{display:none}.map-svg.zoomed #labels,.map-svg.zoomed #gautrain-labels{display:inline}
 .map-svg #labels text{transform:scale(calc(var(--z,1) * .55))}
+.map-svg #gautrain-labels text{transform-box:fill-box;transform-origin:left center;transform:scale(calc(var(--z,1) * .55))}
 .map-svg #outlying>*{transform-box:fill-box;transform-origin:center;transform:scale(calc(var(--z,1) * var(--k)))}
 .map-pick [hidden]{display:none}
 #group-labels text,.hover-label{font:700 6.5px Inter,Arial,sans-serif;text-anchor:middle;dominant-baseline:middle;fill:var(--map-ink);stroke:var(--map-paper);stroke-width:2px;paint-order:stroke;pointer-events:none}
@@ -191,4 +192,8 @@ display:inline-flex;align-items:center;gap:.45rem;background:var(--map-paper);co
 @media (prefers-reduced-motion:no-preference){.lift .slice{transition:transform .6s cubic-bezier(.2,.8,.2,1)}.lift-label{transition:opacity .3s .4s}}
 /* Area list colours: the button swatch and the raised columns. */
 .hl-yellow{--hl:var(--map-hl-yellow)}.hl-orange{--hl:var(--map-hl-orange)}.hl-red{--hl:var(--map-hl-red)}.hl-pink{--hl:var(--map-hl-pink)}.hl-violet{--hl:var(--map-hl-violet)}.hl-blue{--hl:var(--map-hl-blue)}.hl-teal{--hl:var(--map-hl-teal)}.hl-green{--hl:var(--map-hl-green)}
+.lift.gradient .slice,.lift.gradient .top{fill:color-mix(in srgb,var(--map-gold) calc((1 - var(--t,0)) * 100%),var(--map-purple));stroke:color-mix(in srgb,var(--map-gold) calc((1 - var(--t,0)) * 100%),var(--map-purple))}
+.lift.gradient .slice{fill-opacity:.25;stroke-opacity:.6}.lift.gradient .top{fill-opacity:.85}
+.map-svg.picking #hexes path.picked{opacity:1}
+.hl-gautrain{--hl:var(--map-gold)}.map-list.hl-gautrain::before{background:linear-gradient(135deg,var(--map-gold),var(--map-purple))}
 .lift[class*="hl-"] .top{fill:var(--hl)}.lift[class*="hl-"] .slice{fill:var(--hl);stroke:var(--hl)}

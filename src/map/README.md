@@ -11,6 +11,7 @@ exported back here as `joburg.svg`. The home page builds its map from that file 
 | `source/nominatim.json` | OpenStreetMap search answers, kept by `tools/fetch_map_sources.py` so the map can be redrawn without the network. The tool copies each found centre into the place's `geo` (with `geo_source`); the map tool uses this file only for area outlines. |
 | `source/roads.json` | The ring road's motorway segments (N1 Western, N3 Eastern and N12 Southern Bypass), fetched with `tools/fetch_map_sources.py --roads`. |
 | `source/ring_details.json` | The ring road's turnoffs (motorway junction points, with name and exit number) and bridges, from OpenStreetMap's main data API with `tools/fetch_map_sources.py --ring`. |
+| `source/gautrain.json` | The Gautrain's stations and its two rail lines, from the owner's GeoJSON file. The lines run straight from station to station, so they show the order of stops, not the true track. The file's bus routes (schematic loops) are left out. |
 | `joburg-draft.svg` | The draft, drawn by `tools/make_map.py` from every area and attraction with a position (`geo` in `src/data/neighbourhoods.json` and `attractions.json`), with arrows to places outside the city. 1 km = 10 units. Do not edit by hand: redraw it, or edit in Figma. |
 | `audit.md` | Outlines found, places still without a position, the ring road turnoffs to check, and where each position came from. |
 | `joburg.svg` | The edited base map, exported from Figma. The site reads this one. (Not made yet.) |
@@ -25,6 +26,7 @@ name. Names, tags, summaries and guides stay in the JSON, so the SVG never repea
   whose centres fall in that area. Every area has at least one. The map page fills them when a toggle matches.
   Gaps between areas narrower than about 6 km (`FILL_KM` in `tools/make_map.py`), such as between Soweto and Diepkloof
   or round Kelvin and Woodmead, join the nearest area, so the hexagons cover the city without holes.
+- `gautrain` holds the two Gautrain lines (`line-ns`, `line-ew`, orange over a dark casing), the stations (`station-<code>`; Sandton is drawn as the `sandton-station` attraction) and their names (`station-label-<code>`, shown when zoomed in). It sits under the ring road.
 - `ring-road` is the map's main landmark: `ring-n1`, `ring-n3` and `ring-n12`, each over a dark casing, with route
   markers `marker-n1`, `marker-n3` and `marker-n12`. It stays above the area shading in every view.
 - `ring-turnoffs` has one stop per interchange, `turnoff-<road>-<exit number>` (for example `turnoff-n1-100`), showing

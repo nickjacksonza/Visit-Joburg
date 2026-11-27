@@ -4,6 +4,7 @@
   <url><loc>https://example.com/things-to-do.html</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://example.com/neighbourhoods.html</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://example.com/getting-around.html</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://example.com/gautrain.html</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://example.com/faq.html</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://example.com/blog.html</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://example.com/about.html</loc><lastmod>2026-11-27</lastmod></url>
@@ -12,4 +13,6 @@
   <url><loc>https://example.com/blog/first-day-in-johannesburg.html</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://example.com/neighbourhoods/braamfontein.html</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://example.com/neighbourhoods/fourways.html</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://example.com/neighbourhoods/sandton.html</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://example.com/neighbourhoods/the-parks.html</loc><lastmod>2026-11-27</lastmod></url>
 </urlset>

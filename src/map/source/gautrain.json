@@ -1,0 +1,19 @@
+{
+  "_note": "Gautrain stations and the two rail lines, from the owner's file gautrain_stations_and_feeder_routes.geojson (CRS84: longitude, latitude). The lines run straight from station to station, so they show the order of stops, not the true track. The file's feeder bus routes and depots are left out: its bus routes are schematic loops, not real routes.",
+  "stations": [
+    {"id": "STN-HAT", "name": "Hatfield Station", "line": "North-South", "address": "Jan Shoba St / Cnr Grosvenor & Arcadia Sts, Hatfield, Pretoria", "lng": 28.238, "lat": -25.74765},
+    {"id": "STN-PTA", "name": "Pretoria Station", "line": "North-South", "address": "3rd Ave / Railway St, Salvokop, Pretoria", "lng": 28.18947, "lat": -25.75817},
+    {"id": "STN-CEN", "name": "Centurion Station", "line": "North-South", "address": "264 West Ave & Gerard St, Die Hoewes, Centurion", "lng": 28.18973, "lat": -25.85162},
+    {"id": "STN-MID", "name": "Midrand Station", "line": "North-South", "address": "Old Pretoria Main Rd / K101, Midrand", "lng": 28.1348, "lat": -25.9954},
+    {"id": "STN-MAR", "name": "Marlboro Station", "line": "North-South / East-West Junction", "address": "Marlboro Dr / Cnr Football & Laduma Sts, Sandton", "lng": 28.11163, "lat": -26.08392},
+    {"id": "STN-SAN", "name": "Sandton Station", "line": "North-South / Airport", "address": "Rivonia Rd & West St, Sandown, Sandton", "lng": 28.0572, "lat": -26.1078},
+    {"id": "STN-ROS", "name": "Rosebank Station", "line": "North-South", "address": "Oxford Rd & Baker St, Rosebank, Johannesburg", "lng": 28.044693, "lat": -26.146644},
+    {"id": "STN-PRK", "name": "Park Station", "line": "North-South", "address": "Wolmarans St / Rissik St, Johannesburg CBD", "lng": 28.0421021, "lat": -26.1947639},
+    {"id": "STN-RHO", "name": "Rhodesfield Station", "line": "East-West / Airport", "address": "Anson St & Valencia St, Rhodesfield, Kempton Park", "lng": 28.225046, "lat": -26.128112},
+    {"id": "STN-ORT", "name": "O.R. Tambo International Airport Station", "line": "East-West / Airport", "address": "Central Terminal Building, Kempton Park", "lng": 28.23157, "lat": -26.13293}
+  ],
+  "lines": [
+    {"id": "LINE-NS", "name": "Gautrain North-South Line (Hatfield to Park Station)", "coordinates": [[28.238, -25.74765], [28.18947, -25.75817], [28.18973, -25.85162], [28.1348, -25.9954], [28.12018, -26.04248], [28.11163, -26.08392], [28.0572, -26.1078], [28.044693, -26.146644], [28.0421021, -26.1947639]]},
+    {"id": "LINE-EW", "name": "Gautrain East-West / Airport Line (Sandton to O.R. Tambo)", "coordinates": [[28.0572, -26.1078], [28.11163, -26.08392], [28.225046, -26.128112], [28.23157, -26.13293]]}
+  ]
+}
