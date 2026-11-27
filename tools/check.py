@@ -9,7 +9,8 @@ import json, re, sys
 from html.parser import HTMLParser
 from pathlib import Path
 
-DOCS = Path(__file__).resolve().parent.parent / "docs"
+ROOT = Path(__file__).resolve().parent.parent
+DOCS = ROOT / "docs"
 bad = 0
 
 
@@ -90,6 +91,15 @@ def check_node(n, name):
         if isinstance(v, (dict, list)): check_node(v, name)
 
 
+# Every area-list colour the editor offers needs a --map-hl-<colour> token in the stylesheet.
+_css = (ROOT / "css" / "styles.css").read_text(encoding="utf-8") if (ROOT / "css" / "styles.css").exists() else ""
+_areas = ROOT / "content" / "areas.json"
+if _areas.exists():
+    for c in json.loads(_areas.read_text(encoding="utf-8"))["colours"]:
+        if f"--map-hl-{c}:" not in _css: err(f"css/styles.css: no --map-hl-{c} token for the area-list colour {c}")
+for page in ("index.html", "areas.html"):
+    _e = DOCS / "editor" / page
+    if _e.exists() and 'content="noindex, nofollow"' not in _e.read_text(encoding="utf-8"): err(f"editor/{page}: must be noindex")
 ed = (DOCS / "editor" / "index.html").read_text(encoding="utf-8") if (DOCS / "editor").exists() else ""
 if ed and 'content="noindex, nofollow"' not in ed: err("editor/index.html: must be noindex")
 if (DOCS / "editor" / "sealed.json").exists() and re.search(r"(github_pat_|ghp_)", (DOCS / "editor" / "sealed.json").read_text()): err("editor/sealed.json: holds a plain token")

@@ -30,10 +30,18 @@ hero: true
 
 <section class="band band-map" aria-labelledby="map-h">
   <div class="map-stage">
-    <div class="map-panel">
-      <h2 id="map-h">Map of Johannesburg's Suburbs</h2>
-      <p>Joburg spreads over a wide area, with the ring road of the N1, N3 and N12 round the middle. Pick an area, or tap the map, to raise it and read a short note. The <a href="neighbourhoods.html">neighbourhoods list</a> has every area in words.</p>
-      {{ map_controls }}
+    <div class="map-side">
+      <div class="map-panel">
+        <h2 id="map-h">Map of Johannesburg's Suburbs</h2>
+        <div class="map-panel-body" id="map-pick-body">
+          <p>Joburg spreads over a wide area, with the ring road of the N1, N3 and N12 round the middle. Pick an area, or tap the map, to raise it and read a short note. The <a href="neighbourhoods.html">neighbourhoods list</a> has every area in words.</p>
+          {{ map_controls }}
+        </div>
+      </div>
+      <div class="map-panel map-panel-lists">
+        <h3 id="map-lists-h">Area Lists</h3>
+        <div class="map-panel-body" id="map-lists-body">{{ map_lists }}</div>
+      </div>
     </div>
     {{ map_figure }}
   </div>

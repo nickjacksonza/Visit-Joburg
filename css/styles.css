@@ -6,7 +6,8 @@
 --red:#b42318;--orange:#b54708;--yellow:#f5c400;--green:#18794e;--blue:#175cd3;--violet:#6927da;
 --offblack:#1a1c20;--offwhite:#faf8f4;--grey:#5f646d;
 --ink:var(--offblack);--paper:var(--offwhite);--muted:var(--grey);--soft:#f1eee7;--line:#ddd8cd;--brand:var(--blue);--brand-ink:var(--offwhite);--radius:14px;
---map-forest:#1c4a2e;--map-shadow:#10291a;--map-lift:#f5c400;--map-wall:#8a5a00;--map-ink:#1a1c20;--map-paper:#faf8f4}
+--map-forest:#1c4a2e;--map-shadow:#10291a;--map-lift:#f5c400;--map-wall:#8a5a00;--map-ink:#1a1c20;--map-paper:#faf8f4;
+--map-hl-yellow:#f5c400;--map-hl-orange:#f08c1a;--map-hl-red:#f4777a;--map-hl-pink:#f17fb0;--map-hl-violet:#b694e6;--map-hl-blue:#79aef9;--map-hl-teal:#3cc6b4;--map-hl-green:#7cc36e}
 @media (prefers-color-scheme:dark){:root{--red:#ff8a7a;--orange:#ffa25c;--yellow:#ffd84d;--green:#5fd39a;--blue:#7cb4ff;--violet:#b79cff;
 --offblack:#16181c;--offwhite:#f3f1ec;--grey:#a1a6ae;--ink:var(--offwhite);--paper:var(--offblack);--soft:#202329;--line:#33373f;--brand-ink:var(--offblack)}}
 *{box-sizing:border-box}
@@ -145,9 +146,21 @@ h1,h2,h3,.brand{font-family:var(--display);font-weight:600;letter-spacing:.01em}
 .map img,.map-svg{display:block;width:100%;height:100%;object-fit:contain}
 .map figcaption{position:absolute;right:.8rem;bottom:.5rem;color:var(--map-paper);font-size:.8rem;opacity:.85}
 .map-info{margin-top:1rem}.map-info:empty{display:none}.map-info h3{margin:0 0 .25rem;color:var(--map-paper)}.map-info p{margin:0 0 .5rem}
+.map-panel-lists{display:none}.js .map-panel-lists{display:block;padding-top:0}.js .map-panel-lists[hidden]{display:none}
+.map-panel-lists h3{margin:0 0 .6rem;color:var(--map-paper)}
+.map-panel h2 button,.map-panel h3 button{all:inherit;cursor:pointer;display:flex;width:100%;justify-content:space-between;align-items:center;gap:.5rem;min-height:44px}
+.map-panel h2 button::after,.map-panel h3 button::after{content:"";width:.55rem;height:.55rem;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);margin-right:.3rem}
+.map-panel [aria-expanded="false"]::after{transform:rotate(-45deg)}
+.map-panel button:focus-visible{outline:3px solid var(--map-lift);outline-offset:2px}
+.map-lists{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.map-list{font:inherit;font-weight:600;min-height:44px;padding:.45rem .9rem .45rem .5rem;border:2px solid transparent;border-radius:999px;cursor:pointer;
+display:inline-flex;align-items:center;gap:.45rem;background:var(--map-paper);color:var(--map-ink)}
+.map-list::before{content:"";width:1.1rem;height:1.1rem;border-radius:50%;background:var(--hl,var(--map-lift))}
+.map-list[aria-pressed="true"]{border-color:var(--hl,var(--map-lift));background:var(--map-ink);color:var(--map-paper)}
 @media (min-width:60em){.map{height:min(92vh,68rem)}
-.map-panel{position:absolute;z-index:1;top:1.5rem;left:1.5rem;width:23rem;max-height:calc(100% - 3rem);overflow:auto;padding:1.25rem 1.4rem;
-border-radius:var(--radius);background:var(--map-shadow);box-shadow:0 10px 30px rgb(0 0 0/.35)}}
+.map-side{position:absolute;z-index:1;top:1.5rem;left:1.5rem;width:23rem;max-height:calc(100% - 3rem);overflow:auto;display:grid;gap:.75rem;align-content:start}
+.map-panel{padding:1rem 1.4rem;border-radius:var(--radius);background:var(--map-shadow);box-shadow:0 10px 30px rgb(0 0 0/.35)}
+.js .map-panel-lists{padding-top:1rem}}
 .js .map img{cursor:pointer}
 .map-svg #hexes path{cursor:pointer}
 .map-svg #labels,.map-svg .lift{pointer-events:none}
@@ -161,7 +174,7 @@ border-radius:var(--radius);background:var(--map-shadow);box-shadow:0 10px 30px 
 .map-svg #main-roads text[font-size="5.5"]{font-size:calc(5.5px * var(--z,1) * var(--k));stroke-width:calc(1.7px * var(--z,1) * var(--k))}
 .map-svg.zoomed #regions path,.map-svg.zoomed #areas>*,.map-svg.zoomed #main-roads path,.map-svg.zoomed #freeways path,.map-svg.zoomed #ring-road path,.map-svg.zoomed #city-boundary *{vector-effect:non-scaling-stroke}
 .map-svg #areas .picked{stroke:var(--map-lift);stroke-width:1.5}
-.lift .slice{fill:var(--map-wall);fill-opacity:.16;stroke:var(--map-lift);stroke-opacity:.45;stroke-width:.4}
+.lift .slice{fill:var(--map-wall);fill-opacity:.07;stroke:var(--map-lift);stroke-opacity:.4;stroke-width:.4}
 .lift .top{fill:var(--map-lift);fill-opacity:.5;stroke:var(--map-ink);stroke-width:.6}
 /* Names: at whole-city view only the popular areas are named; suburb names show once zoomed in, smaller, and any
    suburb's name shows under the pointer. */
@@ -176,3 +189,6 @@ border-radius:var(--radius);background:var(--map-shadow);box-shadow:0 10px 30px 
 .lift.up .k1{transform:translateY(calc(var(--step) * -1))}.lift.up .k2{transform:translateY(calc(var(--step) * -2))}.lift.up .k3{transform:translateY(calc(var(--step) * -3))}.lift.up .k4{transform:translateY(calc(var(--step) * -4))}.lift.up .k5{transform:translateY(calc(var(--step) * -5))}.lift.up .k6{transform:translateY(calc(var(--step) * -6))}.lift.up .k7{transform:translateY(calc(var(--step) * -7))}.lift.up .k8{transform:translateY(calc(var(--step) * -8))}
 .lift.up .lift-label{opacity:1}
 @media (prefers-reduced-motion:no-preference){.lift .slice{transition:transform .6s cubic-bezier(.2,.8,.2,1)}.lift-label{transition:opacity .3s .4s}}
+/* Area list colours: the button swatch and the raised columns. */
+.hl-yellow{--hl:var(--map-hl-yellow)}.hl-orange{--hl:var(--map-hl-orange)}.hl-red{--hl:var(--map-hl-red)}.hl-pink{--hl:var(--map-hl-pink)}.hl-violet{--hl:var(--map-hl-violet)}.hl-blue{--hl:var(--map-hl-blue)}.hl-teal{--hl:var(--map-hl-teal)}.hl-green{--hl:var(--map-hl-green)}
+.lift[class*="hl-"] .top{fill:var(--hl)}.lift[class*="hl-"] .slice{fill:var(--hl);stroke:var(--hl)}

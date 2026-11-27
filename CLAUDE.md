@@ -22,6 +22,10 @@ An independent visitor's guide to Johannesburg, built from the my-site schema, S
 - Pages that must stay out of search set `robots: noindex, ...`; they are left out of the sitemap and `llms.txt`. `events.html` is noindex until real events replace the samples.
 - No iframes or third-party scripts that load on page load. The CSP sets `frame-src 'none'`; widen it only for a click-to-load embed.
 
+## Editors
+
+- `editor/` holds two owner's editors on one password: events (`/editor/`) and area lists (`/editor/areas.html`). GitHub Pages can't do HTTP Basic Authentication, so the password unlocks an encrypted GitHub token (`editor/sealed.json`) and saves commit the JSON to `main`. Shared sign-in and saving live in `editor/core.js`; each editor has its rules in a `*-lib.js` file that `build.py` mirrors.
+
 ## Events editor
 
 - `content/events.json` is the single source for events. Do not copy it into `src/data/`. `build.py` (`load_events`) validates it with the same rules as `editor/editor-lib.js`; a bad edit fails the build.
@@ -30,11 +34,15 @@ An independent visitor's guide to Johannesburg, built from the my-site schema, S
 - After changing `editor/editor-lib.js` or the JSON layout, run `node tools/test_editor.js`. It checks that saving does not reformat the file.
 - Saves commit the JSON to `main`; `rebuild-docs.yml` rebuilds `docs/` and publishes. The workflow name must stay "Rebuild docs" because the editor follows that run.
 
+## Area lists
+
+- `content/areas.json` is the single source for area lists: popular names for clusters of suburbs, such as The Parks, Sandton or Town. The owner edits it at `/editor/areas.html`. One list per line: `id`, `name`, `aka`, `colour` (one of `colours` at the top of the file), `picker` and `panel` (where it shows on the map) and `areas` (area ids from `neighbourhoods.json`).
+- `build.py` (`load_areas`) checks it with the same rules as `editor/areas-lib.js`; `node tools/test_editor.js` checks that saving doesn't reformat it. Every colour needs a `--map-hl-<colour>` token in `css/styles.css` (`tools/check.py` checks), and the editor's swatches in `editor/editor.css` match them.
+
 ## Neighbourhoods
 
 - `src/data/neighbourhoods.json` lists every area and attraction the guide plans to cover, one per line, grouped by `region`. It is the single source for the neighbourhoods page, the area guides and the info boxes. `build.py` (`load_places`) checks it and fails the build on a bad entry.
 - Each place has `id`, `name`, `region`, `kind` (`area` or `attraction`), `major` (a main area), `parent` (the area an attraction sits in, or null), `tags`, `geo` and `summary`. Optional: `aka` (other names), `attraction_id` (links to a detailed entry in `site.json` attractions), `direction` (for places outside the city), `good_for` (short text for the card) and `notes` (for the team, never shown on the site).
-- `groups` (near the top of the file) holds popular names for clusters of areas, such as The Parks, Sandton or Town: `id`, `name`, `areas` (area ids) and optional `aka`. They head the map's picker and name the map at whole-city view. Edit the lists freely; the build checks every id.
 - Tags come only from the `tags` list at the top of the file. They will drive the map's shading toggles, so add a new tag there before using it.
 - `geo` stays null until a place is mapped. Fill it with the place's centre, `{"lat": -26.19, "lng": 28.04}`. Never guess coordinates.
 - An area with a summary gets a card on the neighbourhoods page. To give it a guide page, add `src/pages/neighbourhoods/<id>.html` with `{{ info_box }}` after the lead paragraph. Any other page can show an area's box with `{{ info_box_<id> }}` under an `h2` (the box uses an `h3`).
@@ -50,7 +58,7 @@ An independent visitor's guide to Johannesburg, built from the my-site schema, S
 - The ring road (N1 Western, N3 Eastern and N12 Southern Bypass, layer `ring-road`) is the map's main landmark. Keep it prominent and above the area shading in every view. Its turnoffs (`ring-turnoffs`, ids `turnoff-<road>-<exit>`) and bridges (`ring-bridges`) sit on top of it.
 - `tools/fetch_map_sources.py` and `tools/make_map.py` are one-off tools: they need the network and `pip install shapely`. The site build never runs them.
 - The map's look is a forest-green base with colour-wheel hexagons (hue from the compass direction around the city centre, richness from distance). The wheel colours stay as fill attributes in the SVG, so the no-script picture and Figma show them. Every colour the site adds (forest, dimming, the lifted columns, labels) is a `--map-*` token in `css/styles.css`, never an inline style.
-- Home-page map: `build.py` (`build_map`) writes `docs/map/joburg.svg` from `src/map/joburg.svg`, or the draft until the export exists, without the view frames and `data-` notes. The page shows it as a lazy `<img>`; `js/map.js` swaps in the inline SVG when someone uses the suburb picker or taps the map, zooms to the suburb, swaps in the 420 m hexagons (`docs/map/region.json`, centres and colours from `src/map/hexes.json`, fetched on the first zoom) and lifts the suburb's hexagons as columns. While zoomed, names and symbols keep their size on screen (`--z`) and lines keep their width. The picker lists the popular areas first (`group:<id>`: zoom to fit and raise all its suburbs), then each part of the city, starting with "All of <part>" (`all:<region id>`: stays at whole-city view and raises every suburb in that part). Raised columns are see-through so the roads show. At whole-city view only the popular areas are named; suburb names show when zoomed in, and any suburb's name shows under the pointer.
+- Home-page map: `build.py` (`build_map`) writes `docs/map/joburg.svg` from `src/map/joburg.svg`, or the draft until the export exists, without the view frames and `data-` notes. The page shows it as a lazy `<img>`; `js/map.js` swaps in the inline SVG when someone uses the suburb picker or taps the map, zooms to the suburb, swaps in the 420 m hexagons (`docs/map/region.json`, centres and colours from `src/map/hexes.json`, fetched on the first zoom) and lifts the suburb's hexagons as columns. While zoomed, names and symbols keep their size on screen (`--z`) and lines keep their width. The picker lists the area lists first (`group:<id>`: zoom to fit and raise all its suburbs in the list's colour), then each part of the city, starting with "All of <part>" (`all:<region id>`: stays at whole-city view and raises every suburb in that part). A second panel, Area lists, shows the lists marked `panel` as buttons. Both panels fold away under their headings. Raised columns are see-through so the roads show. At whole-city view only the area lists are named; suburb names show when zoomed in, and any suburb's name shows under the pointer.
 - Keep the credit "Base outlines © OpenStreetMap contributors". Never trace copyrighted maps; use them only to check names and positions.
 
 ## Content

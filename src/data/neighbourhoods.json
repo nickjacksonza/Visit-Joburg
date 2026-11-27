@@ -11,11 +11,6 @@
     {"id": "soweto", "name": "Soweto", "direction": "south west"},
     {"id": "outlying", "name": "Just Outside the City", "direction": "outlying"}
   ],
-  "groups": [
-    {"id": "the-parks", "name": "The Parks", "areas": ["parkhurst", "parktown-north", "parkview", "parkwood", "parktown", "parkmore"]},
-    {"id": "sandton", "name": "Sandton", "areas": ["sandown", "sandhurst", "parkmore", "hyde-park", "craighall", "craighall-park", "inanda", "bryanston", "wierda-valley", "benmore-gardens", "chislehurston", "atholhurst", "athol", "simba", "kramerville"]},
-    {"id": "town", "name": "Town", "aka": ["the CBD", "the inner city"], "areas": ["braamfontein", "newtown", "marshalltown", "hillbrow", "berea", "joubert-park", "doornfontein", "maboneng", "yeoville"]}
-  ],
   "places": [
     {"id": "dainfern", "name": "Dainfern", "region": "far-north-midrand", "kind": "area", "major": false, "parent": null, "tags": [], "geo": null, "summary": ""},
     {"id": "chartwell", "name": "Chartwell", "region": "far-north-midrand", "kind": "area", "major": false, "parent": null, "tags": [], "geo": null, "summary": ""},

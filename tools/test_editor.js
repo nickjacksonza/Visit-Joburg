@@ -27,3 +27,27 @@ assert.strictEqual(L.ended(ev({ end: "2027-01-01T12:00" }), "+02:00", new Date("
 assert.strictEqual(L.ended(ev({ end: "2027-01-01T12:00" }), "+02:00", new Date("2027-01-01T09:30:00Z")), false);
 assert.deepStrictEqual(L.summary(data, L.clean(wrap(ev({ id: "new", name: "New" })))).slice(0, 1), ["Added New"]);
 console.log("editor tests passed");
+
+// Area lists editor (editor/areas-lib.js) and content/areas.json.
+const A = require("../editor/areas-lib.js");
+const afile = path.join(__dirname, "..", "content", "areas.json");
+const araw = fs.readFileSync(afile, "utf8"), adata = JSON.parse(araw);
+assert.strictEqual(A.dump(A.clean(adata)), araw, "dump(clean(areas.json)) must equal the file, so saves don't reformat it");
+const places = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "src", "data", "neighbourhoods.json"), "utf8")).places;
+const known = {}; places.forEach((p) => { if (p.kind === "area") known[p.id] = true; });
+A.clean(adata, known);  // every area in the shipped file is a real area
+const li = (o) => Object.assign({ name: "X", aka: [], colour: "yellow", picker: true, panel: true, areas: ["parkview"] }, o);
+const aw = (...l) => ({ colours: ["yellow", "blue"], lists: l });
+bad(() => A.clean(aw(li({ name: "" }))));
+bad(() => A.clean(aw(li({ name: "<b>" }))));
+bad(() => A.clean(aw(li({ colour: "purple" }))));
+bad(() => A.clean(aw(li({ areas: [] }))));
+bad(() => A.clean(aw(li({ areas: ["no-such-place"] })), known));
+bad(() => A.clean(aw(li({ picker: "yes" }))));
+bad(() => A.clean(aw(li({ id: "x" }), li({ id: "x" }))));
+bad(() => A.clean(aw(li({ aka: ["a", "b", "c", "d", "e", "f"] }))));
+const ac = A.clean(aw(li({ name: "  The   Parks ", areas: ["parkview", "parkview", "parktown"] })));
+assert.strictEqual(ac.lists[0].id, "the-parks", "lists get ids from their names");
+assert.deepStrictEqual(ac.lists[0].areas, ["parkview", "parktown"], "repeated suburbs are dropped");
+assert.deepStrictEqual(A.summary(adata, A.clean(aw(li({ id: "new", name: "New" })))).slice(0, 1), ["Added New"]);
+console.log("area lists editor tests passed");

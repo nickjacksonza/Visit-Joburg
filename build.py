@@ -107,25 +107,48 @@ def load_places():
             if len(p.get(k, "")) > lim or BAD_CHARS.search(p.get(k, "")):
                 raise SystemExit(f"{where}: {k} is too long or has < > or control characters")
         places[p["id"]] = p
-    for g in data.get("groups", []):  # popular names for a cluster of areas, such as The Parks or Town
-        where = f"neighbourhoods.json group {g.get('name') or g.get('id')}"
-        if not isinstance(g.get("id"), str) or not SLUG.match(g["id"]) or g["id"] in regions or g["id"] in [x["id"] for x in data["groups"] if x is not g]:
-            raise SystemExit(f"{where}: missing or duplicate id")
-        if not isinstance(g.get("name"), str) or not g["name"].strip() or BAD_CHARS.search(g["name"]):
-            raise SystemExit(f"{where}: bad name")
-        bad = [a for a in g.get("areas", []) if places.get(a, {}).get("kind") != "area"]
-        if bad or not g.get("areas"):
-            raise SystemExit(f"{where}: areas must be area ids listed in places; not found: {bad}")
     for a in site["attractions"]:
         if a.get("neighbourhood") is not None and places.get(a["neighbourhood"], {}).get("kind") != "area":
             raise SystemExit(f"site.json attraction {a['id']}: neighbourhood {a['neighbourhood']!r} is not an area in neighbourhoods.json")
     for page in (SRC / "pages" / "neighbourhoods").glob("*.html"):
         if page.stem not in places or not places[page.stem]["summary"]:
             raise SystemExit(f"{page.relative_to(ROOT)}: add {page.stem!r} to neighbourhoods.json with a summary first")
-    return tags, regions, places, data.get("groups", [])
+    return tags, regions, places
 
 
-TAGS, REGIONS, PLACES, GROUPS = load_places()
+TAGS, REGIONS, PLACES = load_places()
+AREAS_FILE = ROOT / "content" / "areas.json"
+
+
+def load_areas():
+    """Read and check content/areas.json, the area lists the owner edits at /editor/areas.html: popular names for
+    clusters of suburbs (The Parks, Town), each with a colour and where it shows. Same rules as editor/areas-lib.js."""
+    data = json.loads(AREAS_FILE.read_text(encoding="utf-8"))
+    colours, seen = data.get("colours"), set()
+    if not isinstance(colours, list) or not colours or not all(isinstance(c, str) and SLUG.match(c) for c in colours):
+        raise SystemExit("content/areas.json: the colours list is broken")
+    if not isinstance(data.get("lists"), list) or len(data["lists"]) > 40:
+        raise SystemExit("content/areas.json: needs a lists list of at most 40 lists")
+    for l in data["lists"]:
+        where = f"content/areas.json: {l.get('name') or l.get('id')}"
+        if not isinstance(l.get("id"), str) or not SLUG.match(l["id"]) or l["id"] in seen:
+            raise SystemExit(f"{where}: missing or duplicate id")
+        seen.add(l["id"])
+        if not isinstance(l.get("name"), str) or not l["name"].strip() or len(l["name"]) > 40 or BAD_CHARS.search(l["name"]):
+            raise SystemExit(f"{where}: bad name")
+        if not isinstance(l.get("aka"), list) or len(l["aka"]) > 5 or any(not isinstance(a, str) or len(a) > 40 or BAD_CHARS.search(a) for a in l["aka"]):
+            raise SystemExit(f"{where}: bad 'also called' names")
+        if l.get("colour") not in colours:
+            raise SystemExit(f"{where}: colour must be one of {colours}")
+        if not isinstance(l.get("picker"), bool) or not isinstance(l.get("panel"), bool):
+            raise SystemExit(f"{where}: picker and panel must be true or false")
+        bad = [a for a in l.get("areas", []) if PLACES.get(a, {}).get("kind") != "area"]
+        if bad or not l.get("areas") or len(l["areas"]) > 80:
+            raise SystemExit(f"{where}: areas must be 1 to 80 area ids from neighbourhoods.json; not found: {bad}")
+    return data
+
+
+AREAS = load_areas()
 IMAGES = {i["name"]: i for i in json.loads((SRC / "data" / "images.json").read_text(encoding="utf-8"))}
 
 
@@ -560,13 +583,17 @@ def map_html(root):
     lists every area on the map, grouped by part of the city; each option carries what the info panel shows."""
     w, h, ids = MAP
     opts, popular = [], []
-    for g in GROUPS:  # popular names for a cluster of areas: only the areas drawn on the map
-        here = [a for a in g["areas"] if a in ids]
+    lists = []
+    for l in AREAS["lists"]:  # the owner's area lists: only the suburbs drawn on the map
+        here = [a for a in l["areas"] if a in ids]
         if here:
-            aka = f' data-aka="{esc(", ".join(g["aka"]))}"' if g.get("aka") else ""
-            popular.append(f'<option value="group:{g["id"]}" data-name="{esc(g["name"])}" data-areas="{" ".join(here)}"{aka}>{esc(g["name"])}</option>')
+            lists.append((l, f'data-name="{esc(l["name"])}" data-areas="{" ".join(here)}" data-colour="{l["colour"]}"'
+                             + (f' data-aka="{esc(", ".join(l["aka"]))}"' if l["aka"] else "")))
+    popular = [f'<option value="group:{l["id"]}" {attrs}>{esc(l["name"])}</option>' for l, attrs in lists if l["picker"]]
     if popular:
         opts.append(f'<optgroup label="Popular areas">{"".join(popular)}</optgroup>')
+    panel = "".join(f'<li><button type="button" class="map-list hl-{l["colour"]}" data-list="group:{l["id"]}" {attrs}>{esc(l["name"])}</button></li>'
+                    for l, attrs in lists if l["panel"])
     for rid, r in REGIONS.items():
         here = sorted((PLACES[i] for i in ids if PLACES[i]["region"] == rid), key=lambda p: p["name"])
         if not here:
@@ -576,6 +603,7 @@ def map_html(root):
                     + (f' data-href="{root}neighbourhoods/{p["id"]}.html"' if has_page(p) else "") + f'>{esc(p["name"])}</option>' for p in here)
         opts.append(f'<optgroup label="{esc(r["name"])}">{o}</optgroup>')
     return {
+        "map_lists": f'<ul class="map-lists">{panel}</ul>' if panel else "",
         "map_controls": f'<div class="map-pick"><label for="map-area">Pick an area</label><select id="map-area"><option value="">Choose an area</option>{"".join(opts)}</select>'
                         f'<button type="button" class="btn btn-ghost" id="map-out" hidden>Whole city</button></div>'
                         f'<div class="map-info" id="map-info" aria-live="polite"></div>',
@@ -616,7 +644,7 @@ def build_context(meta, body, rel, root, modified):
         "faq_html": faq_html(), "attractions_html": attractions_html(root), "neighbourhoods_html": neighbourhoods_html(root), "directory_html": directory_html(root),
         "events_html": events_html(), "posts_html": posts_html(root), "share_html": share_html(canonical, meta["title"]), "foot_social": foot_social(),
         "attraction_count": len(site["attractions"]), "neighbourhood_count": len(featured_areas()),
-        **(map_html(root) if rel == "index.html" else {"map_controls": "", "map_figure": ""}),
+        **(map_html(root) if rel == "index.html" else {"map_controls": "", "map_figure": "", "map_lists": ""}),
         "area_count": sum(p["kind"] == "area" for p in PLACES.values()),
         "info_box": info_box(Path(rel).stem, root) if rel.startswith("neighbourhoods/") else "",
         **{f"info_box_{pid}": info_box(pid, root, level=3) for pid, p in PLACES.items() if p["kind"] == "area" and p["summary"]},

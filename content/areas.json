@@ -1,0 +1,8 @@
+{
+  "colours": ["yellow", "orange", "red", "pink", "violet", "blue", "teal", "green"],
+  "lists": [
+    {"id": "the-parks", "name": "The Parks", "aka": [], "colour": "green", "picker": true, "panel": true, "areas": ["parkhurst", "parktown-north", "parkview", "parkwood", "parktown", "parkmore"]},
+    {"id": "sandton", "name": "Sandton", "aka": [], "colour": "blue", "picker": true, "panel": true, "areas": ["sandown", "sandhurst", "parkmore", "hyde-park", "craighall", "craighall-park", "inanda", "bryanston", "wierda-valley", "benmore-gardens", "chislehurston", "atholhurst", "athol", "simba", "kramerville"]},
+    {"id": "town", "name": "Town", "aka": ["the CBD", "the inner city"], "colour": "orange", "picker": true, "panel": true, "areas": ["braamfontein", "newtown", "marshalltown", "hillbrow", "berea", "joubert-park", "doornfontein", "maboneng", "yeoville"]}
+  ]
+}
