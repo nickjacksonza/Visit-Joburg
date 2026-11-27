@@ -7,7 +7,8 @@ Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = 10 SVG uni
 - Areas with an OpenStreetMap outline: 3
 - Areas drawn as rough cells from a point: 52
 - Places not found: 4
-- Hexagons: 957, 1.0 km across; fewest in one area: 3
+- Hexagons, city level: 957, 1.0 km across; fewest in one area: 3
+- Hexagons, region level (hexes-region.svg): 5936, 419 m across; fewest in one area: 15
 
 ## Not found
 

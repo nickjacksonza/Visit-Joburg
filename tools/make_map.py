@@ -147,45 +147,54 @@ def hexagon(cx, cy, r=HEX_KM):
     return [(cx + r * math.cos(math.radians(30 + 60 * k)), cy + r * math.sin(math.radians(30 + 60 * k))) for k in range(6)]
 
 
-hex_of = {p["id"]: [] for p in areas}
-_w, _h = math.sqrt(3) * HEX_KM, 1.5 * HEX_KM
-_minx, _miny, _maxx, _maxy = unary_union(list(shapes.values())).bounds
-centres = []
-row, y = 0, _miny - _h
-while y <= _maxy + _h:
-    x = _minx - _w + (_w / 2 if row % 2 else 0)
-    while x <= _maxx + _w:
-        centres.append((x, y))
-        x += _w
-    y += _h
-    row += 1
-owner = {}
-for c in centres:
-    pt = Point(c)
-    for p in areas:  # outlines first (they are real boundaries), then rough cells
-        if kinds[p["id"]] == "outline" and shapes[p["id"]].contains(pt):
-            owner[c] = p["id"]
-            break
-    else:
-        for p in areas:
-            if shapes[p["id"]].contains(pt):
+def build_level(hex_km):
+    """Lay a grid of pointy-top hexagons (hex_km from centre to corner) over the areas. Each hexagon belongs to the area its
+    centre falls in (outlines first, as they are real boundaries, then rough cells), and every area keeps at least one."""
+    from shapely.prepared import prep
+    pshape = {p["id"]: prep(shapes[p["id"]]) for p in areas}
+    order = [p for p in areas if kinds[p["id"]] == "outline"] + [p for p in areas if kinds[p["id"]] != "outline"]
+    level = {p["id"]: [] for p in areas}
+    w, h = math.sqrt(3) * hex_km, 1.5 * hex_km
+    x0, y0, x1, y1 = unary_union(list(shapes.values())).bounds
+    cells, row, y = [], 0, y0 - h
+    while y <= y1 + h:
+        x = x0 - w + (w / 2 if row % 2 else 0)
+        while x <= x1 + w:
+            cells.append((x, y))
+            x += w
+        y += h
+        row += 1
+    owner = {}
+    for c in cells:
+        pt = Point(c)
+        for p in order:
+            if pshape[p["id"]].contains(pt):
                 owner[c] = p["id"]
+                level[p["id"]].append(c)
                 break
-for c, pid in owner.items():
-    hex_of[pid].append(c)
-for p in areas:  # a small area with no hexagon takes the nearest one from a neighbour that has more than one
-    pid = p["id"]
-    if hex_of[pid]:
-        continue
-    rp = shapes[pid].representative_point()
-    for c in sorted(centres, key=lambda c: (c[0] - rp.x) ** 2 + (c[1] - rp.y) ** 2):
-        donor = owner.get(c)
-        if donor is None or len(hex_of[donor]) > 1:
-            if donor:
-                hex_of[donor].remove(c)
-            owner[c] = pid
-            hex_of[pid].append(c)
-            break
+    for p in areas:  # a small area with no hexagon takes the nearest one from a neighbour that has more than one
+        pid = p["id"]
+        if level[pid]:
+            continue
+        rp = shapes[pid].representative_point()
+        for c in sorted(cells, key=lambda c: (c[0] - rp.x) ** 2 + (c[1] - rp.y) ** 2):
+            donor = owner.get(c)
+            if donor is None or len(level[donor]) > 1:
+                if donor:
+                    level[donor].remove(c)
+                owner[c] = pid
+                level[pid].append(c)
+                break
+    return level
+
+
+LEVELS = {l["level"]: l for l in MAPCFG.get("hex_levels", [])}
+_ring_w = (RING_BOX[2] - RING_BOX[0]) if RING_BOX else None
+if _ring_w and "city" in LEVELS:
+    HEX_KM = _ring_w / LEVELS["city"]["hexes_across_ring"] / math.sqrt(3)
+hex_of = build_level(HEX_KM)
+HEX_KM_REGION = _ring_w / LEVELS["region"]["hexes_across_ring"] / math.sqrt(3) if _ring_w and "region" in LEVELS else None
+hex_region = build_level(HEX_KM_REGION) if HEX_KM_REGION else {}
 
 # ---------------------------------------------------------------- SVG
 allg = unary_union(list(shapes.values()) + [study])
@@ -485,11 +494,22 @@ svg.append(f'<g id="credit"><text x="{W - 12:.0f}" y="{H - 12:.0f}" font-family=
 svg.append("</svg>")
 OUT.write_text("\n".join(svg) + "\n", encoding="utf-8")
 # The hexagons as data, for tools/make_hex_view.py and, later, the map page: centres in SVG units.
+if hex_region:  # the region level as its own file, so the map page can load it only when a visitor zooms in
+    reg = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.0f} {H:.0f}" width="{W:.0f}" height="{H:.0f}">', '<g id="hexes-region">']
+    for p in areas:
+        hx = "".join(f'<path d="M{" L".join(f"{(x - ox) * UNIT:.1f},{(y - oy) * UNIT:.1f}" for x, y in hexagon(cx, cy, HEX_KM_REGION * 0.92))}Z" fill="{wheel(cx, cy)}"/>'
+                     for cx, cy in hex_region[p["id"]])
+        reg.append(f'<g id="hex-region-{p["id"]}" data-place="{p["id"]}">{hx}</g>')
+    reg += ["</g>", "</svg>"]
+    (ROOT / "src" / "map" / "hexes-region.svg").write_text("\n".join(reg) + "\n", encoding="utf-8")
 (ROOT / "src" / "map" / "hexes.json").write_text(json.dumps({
     "hex_radius": round(HEX_KM * UNIT, 2), "unit_per_km": UNIT, "width": round(W), "height": round(H),
     "projection": {"lat0": lat0, "lng0": lng0, "kx": KX, "ky": KY, "ox": ox, "oy": oy},
     "areas": {pid: [[round((x - ox) * UNIT, 1), round((y - oy) * UNIT, 1)] for x, y in cs] for pid, cs in hex_of.items()},
     "colours": {pid: [wheel(x, y) for x, y in cs] for pid, cs in hex_of.items()},
+    "levels": {"region": {"hex_radius": round(HEX_KM_REGION * UNIT, 2),
+                          "areas": {pid: [[round((x - ox) * UNIT, 1), round((y - oy) * UNIT, 1)] for x, y in cs] for pid, cs in hex_region.items()},
+                          "colours": {pid: [wheel(x, y) for x, y in cs] for pid, cs in hex_region.items()}}} if hex_region else {},
 }, separators=(",", ":")) + "\n", encoding="utf-8")
 
 # ---------------------------------------------------------------- audit
@@ -498,7 +518,8 @@ lines = ["# Map draft audit", "", f"Draft of {'main areas only' if MAJOR else 'e
          f"- Areas with an OpenStreetMap outline: {sum(v == 'outline' for v in kinds.values())}",
          f"- Areas drawn as rough cells from a point: {sum(v == 'rough' for v in kinds.values())}",
          f"- Places not found: {len(missing)}",
-         f"- Hexagons: {sum(len(v) for v in hex_of.values())}, {HEX_KM * math.sqrt(3):.1f} km across; fewest in one area: {min(len(v) for v in hex_of.values())}", ""]
+         f"- Hexagons, city level: {sum(len(v) for v in hex_of.values())}, {HEX_KM * math.sqrt(3):.1f} km across; fewest in one area: {min(len(v) for v in hex_of.values())}",
+         (f"- Hexagons, region level (hexes-region.svg): {sum(len(v) for v in hex_region.values())}, {HEX_KM_REGION * math.sqrt(3) * 1000:.0f} m across; fewest in one area: {min(len(v) for v in hex_region.values())}" if hex_region else ""), ""]
 if missing:
     lines += ["## Not found", "", "Add these by hand in Figma, or fix the name and fetch again.", ""]
     lines += [f"- {p['name']} ({p['kind']}, {regions[p['region']]['name']})" for p in missing] + [""]
