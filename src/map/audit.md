@@ -6,7 +6,7 @@ Drawn by tools/make_map.py from the positions in neighbourhoods.json and attract
 
 - Areas with an OpenStreetMap outline: 6
 - Areas drawn as rough cells from a point: 162
-- Places not found: 28
+- Places not found: 30
 - Hexagons, city level: 1194, 1.0 km across; fewest in one area: 1
 - Hexagons, region level (hexes-region.svg): 7454, 419 m across; fewest in one area: 3
 
@@ -20,10 +20,12 @@ These have no position (geo). Run tools/fetch_map_sources.py, or look one up (an
 - Ruimsig (area, North West and Randburg)
 - Weltevreden Park (area, North West and Randburg)
 - Craighall (area, North West and Randburg)
+- Sandton (area, Sandton, Rosebank and North Central)
 - Linbro Park (area, Sandton, Rosebank and North Central)
 - Marlboro Gardens (area, Sandton, Rosebank and North Central)
 - Glenadrienne (area, Sandton, Rosebank and North Central)
 - Kramerville (area, Sandton, Rosebank and North Central)
+- The Parks (area, Sandton, Rosebank and North Central)
 - Elton Hill (area, Sandton, Rosebank and North Central)
 - Winston Ridge (area, Sandton, Rosebank and North Central)
 - Melrose Arch (area, Sandton, Rosebank and North Central)
@@ -270,6 +272,7 @@ From geo_source. Check any that look wrong.
 - Montecasino: OpenStreetMap
 - Cresta Centre: OpenStreetMap
 - Nelson Mandela Square: OpenStreetMap
+- Sandton Station: Owner: Gautrain station data file (Rivonia Rd and West St)
 - Sandton City: OpenStreetMap
 - Ellis Park Stadium: OpenStreetMap
 - Wemmer Pan: OpenStreetMap

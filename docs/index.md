@@ -21,7 +21,7 @@ Pick an areaChoose an areaThe ParksSandtonTownAll of Far North and MidrandAustin
 
 ### Area Lists
 
-Draft map: shapes are approximate. Base outlines © OpenStreetMap contributors.
+Draft map: shapes are approximate. The orange line is the Gautrain. Base outlines © OpenStreetMap contributors.
 
 ## What to See When You Visit Johannesburg
 

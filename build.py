@@ -660,8 +660,8 @@ def map_html(root):
                         f'<button type="button" class="btn btn-ghost" id="map-out" hidden>Whole city</button></div>'
                         f'<div class="map-info" id="map-info" aria-live="polite"></div>',
         "map_figure": f'<figure class="map" id="map"><img src="{root}map/joburg.svg" width="{w}" height="{h}" loading="lazy" decoding="async" '
-                      f'alt="Map of Johannesburg: the main suburbs shaded in hexagons, with the ring road of the N1, N3 and N12 around the city and the main roads.">'
-                      f'<figcaption>Draft map: shapes are approximate. {esc(MAP_CREDIT)}.</figcaption></figure>'
+                      f'alt="Map of Johannesburg: the main suburbs shaded in hexagons, with the ring road of the N1, N3 and N12 around the city, the main roads and the Gautrain line.">'
+                      f'<figcaption>Draft map: shapes are approximate. The orange line is the Gautrain. {esc(MAP_CREDIT)}.</figcaption></figure>'
                       f'<script src="{root}js/map.js?v={VERSIONS["map_js"]}" defer></script>'}
 
 
@@ -715,7 +715,7 @@ def render(t, ctx):
     return t
 
 
-SITEMAP_ORDER = ["index.html", "things-to-do.html", "neighbourhoods.html", "getting-around.html", "events.html", "faq.html", "blog.html", "about.html", "contact.html", "accessibility.html"]
+SITEMAP_ORDER = ["index.html", "things-to-do.html", "neighbourhoods.html", "getting-around.html", "gautrain.html", "events.html", "faq.html", "blog.html", "about.html", "contact.html", "accessibility.html"]
 
 
 def write_sitemap(mod, meta, mds):

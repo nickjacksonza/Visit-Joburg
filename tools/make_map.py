@@ -340,6 +340,44 @@ if _main.exists():
                    f'<text x="{mx:.0f}" y="{my + 4:.0f}" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#faf8f4">{esc(r["label"])}</text></g>')
     svg.append("</g>")
 
+# The Gautrain: its two rail lines and the stations inside the map, from src/map/source/gautrain.json. The lines run
+# straight from station to station, so they show the order of stops, not the true track. Under the ring road, which
+# stays the most prominent line. Sandton Station is also an attraction, so its dot is drawn with the attractions.
+_gt = ROOT / "src" / "map" / "source" / "gautrain.json"
+if _gt.exists():
+    GT = json.loads(_gt.read_text(encoding="utf-8"))
+    _gframe = shape({"type": "Polygon", "coordinates": [[(ox, oy), (ox + W / UNIT, oy), (ox + W / UNIT, oy + H / UNIT), (ox, oy + H / UNIT), (ox, oy)]]})
+    GOLD = "#f08c1a"
+    glines = []
+    for ln in GT["lines"]:
+        cut = LineString([proj(x, y) for x, y in ln["coordinates"]]).intersection(_gframe)
+        segs = list(cut.geoms) if hasattr(cut, "geoms") else [cut]
+        d = " ".join("M" + " L".join(f"{(x - ox) * UNIT:.0f},{(y - oy) * UNIT:.0f}" for x, y in sg.coords) for sg in segs if sg.geom_type == "LineString" and sg.length > 0.05)
+        if d:
+            glines.append((ln, d))
+    gstations = []
+    for st in GT["stations"]:
+        x, y = proj(st["lng"], st["lat"])
+        if minx - PAD < x < maxx + PAD and miny - PAD < y < maxy + PAD and _gframe.contains(Point(x, y)):
+            gstations.append((st, (x - ox) * UNIT, (y - oy) * UNIT))
+    svg.append('<g id="gautrain">')
+    for ln, d in glines:
+        svg.append(f'<path id="{ln["id"].lower()}-casing" d="{d}" fill="none" stroke="{FOREST_DARK}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>')
+    for ln, d in glines:
+        svg.append(f'<path id="{ln["id"].lower()}" data-name="{esc(ln["name"])}" d="{d}" fill="none" stroke="{GOLD}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>')
+    svg.append('<g id="gautrain-stations">')
+    for st, sx, sy in gstations:
+        if st["id"] == "STN-SAN":  # drawn as the sandton-station attraction
+            continue
+        svg.append(f'<g id="station-{st["id"][4:].lower()}" data-name="{esc(st["name"])}"><circle cx="{sx:.0f}" cy="{sy:.0f}" r="5" fill="{PAPER}" stroke="{GOLD}" stroke-width="3"/></g>')
+    svg.append("</g>")
+    svg.append('<g id="gautrain-labels">')
+    for st, sx, sy in gstations:
+        name = st["name"].replace(" International Airport Station", " Airport").replace(" Station", "")
+        svg.append(f'<text id="station-label-{st["id"][4:].lower()}" x="{sx + 8:.0f}" y="{sy + 3:.0f}" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700" fill="{INK}" stroke="{PAPER}" stroke-width="2.5" paint-order="stroke">{esc(name)}</text>')
+    svg.append("</g>")
+    svg.append("</g>")
+
 _roads = ROOT / "src" / "map" / "source" / "roads.json"
 if _roads.exists():
     ROADS = json.loads(_roads.read_text(encoding="utf-8"))

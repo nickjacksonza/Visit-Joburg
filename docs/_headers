@@ -49,6 +49,10 @@
   Link: <https://example.com/faq.html>; rel="canonical"
   X-Robots-Tag: noindex
 
+/gautrain.md
+  Link: <https://example.com/gautrain.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
 /getting-around.md
   Link: <https://example.com/getting-around.html>; rel="canonical"
   X-Robots-Tag: noindex

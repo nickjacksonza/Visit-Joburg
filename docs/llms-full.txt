@@ -21,7 +21,7 @@ Pick an areaChoose an areaThe ParksSandtonTownAll of Far North and MidrandAustin
 
 ### Area Lists
 
-Draft map: shapes are approximate. Base outlines © OpenStreetMap contributors.
+Draft map: shapes are approximate. The orange line is the Gautrain. Base outlines © OpenStreetMap contributors.
 
 ## What to See When You Visit Johannesburg
 
@@ -1142,6 +1142,8 @@ O.R. Tambo International Airport is about 25 km east of the city centre. The Gau
 
 ## Gautrain
 
+Read our [Gautrain guide](https://example.com/gautrain.html) for the stations and what is near each one.
+
 The Gautrain is a fast, clean rapid rail line that links the airport, Sandton, Rosebank, the city centre and Pretoria. Pay with a Gautrain card or a contactless bank card at the gates. Feeder buses run from most stations.
 
 ## Ride-Hailing and Taxis
@@ -1165,6 +1167,62 @@ South Africa drives on the left. A car is useful for day trips, such as the Crad
 - In an emergency, call 10111 for the police or 112 from a mobile phone.
 
 Source: https://example.com/getting-around.html
+
+
+---
+
+Transport
+
+# Gautrain Guide for Visitors
+
+The Gautrain is the rapid rail line that links O.R. Tambo International Airport, Sandton, Rosebank, Park Station in the city centre, Midrand and Pretoria. It is the quickest way to cross the north of Johannesburg, and the easiest way to leave the airport.
+
+## The Two Lines
+
+The Gautrain has two lines. They meet at Marlboro station, just east of Sandton.
+
+- **North-South line:** Park Station, Rosebank, Sandton, Marlboro, Midrand, Centurion, Pretoria and Hatfield.
+- **Airport line:** Sandton, Marlboro, Rhodesfield and O.R. Tambo International Airport.
+
+The orange line on our [map of Johannesburg](https://example.com/index.html#map-h) shows both lines. It joins the stations in order and does not follow the exact track.
+
+## Stations Visitors Use Most
+
+### O.R. Tambo International Airport
+
+The station is in the Central Terminal Building. The trip to Sandton takes about 15 minutes. Most visitors take this train on arrival and a ride-hailing car for the last stretch to their hotel.
+
+### Sandton
+
+Sandton station is on the corner of Rivonia Road and West Street, beside [Sandton](https://example.com/neighbourhoods/sandton.html)'s shopping centres. Sandton City and Nelson Mandela Square are a short walk away. This is where most people change trains between the airport and the rest of the city.
+
+### Rosebank
+
+Rosebank station is on Oxford Road at the corner of Baker Street, in the middle of the shops and the weekend rooftop market. It is also the best station for the [Parks](https://example.com/neighbourhoods/the-parks.html): Parkhurst, Parkview and Parktown are a short ride-hailing trip away.
+
+### Park Station
+
+Park Station is in the city centre. From here you can reach [Braamfontein](https://example.com/neighbourhoods/braamfontein.html) and Constitution Hill by a short walk or ride. Take care in the streets around the station and use ride-hailing after dark.
+
+### Midrand, Centurion, Pretoria and Hatfield
+
+These stations serve the north of the Johannesburg area and Pretoria. They are further than most first-time visitors go, but they are the way to reach Pretoria for a day trip.
+
+## Tickets and Cards
+
+You pay at the station gates. The Gautrain website explains the cards and ways to pay, and lists current fares. Fares change, so we do not list them here.
+
+## Timetable
+
+The Gautrain changes its timetable from time to time. Check the latest version on the [official Gautrain website](https://www.gautrain.co.za/) before you travel, and again on the day if you have a flight to catch. Allow extra time to reach the airport.
+
+## Getting From the Station to Your Destination
+
+Gautrain buses connect stations with nearby suburbs, and ride-hailing cars wait outside the main stations. Routes and stops change, so check the Gautrain website for the current bus routes.
+
+See also [getting around Johannesburg](https://example.com/getting-around.html) and the [neighbourhoods](https://example.com/neighbourhoods.html) guide.
+
+Source: https://example.com/gautrain.html
 
 
 ---
@@ -1493,6 +1551,7 @@ Shopping, Food, Nightlife
 **Places here**
 
 - Nelson Mandela Square
+- Sandton Station
 - Sandton City
 
 [Open in Maps: Sandown](https://www.google.com/maps/search/?api=1&query=-26.0919,28.0658)
@@ -1543,7 +1602,7 @@ Sandton, Rosebank and North Central
 
 ## Getting There
 
-The Gautrain runs from OR Tambo International Airport to Sandton station in about 15 minutes. From there, Rosebank is one stop away and Park Station, in the city centre, is a longer ride on the same line. Check the current timetable and fares on the Gautrain website before you travel.
+The [Gautrain](https://example.com/gautrain.html) runs from OR Tambo International Airport to Sandton station in about 15 minutes. From there, Rosebank is one stop away and Park Station, in the city centre, is a longer ride on the same line. Check the current timetable and fares on the Gautrain website before you travel.
 
 Outside the centre, distances are larger than they look on a map. Use ride-hailing or a hotel transfer, and allow extra time at rush hour.
 

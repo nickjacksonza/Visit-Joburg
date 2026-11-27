@@ -43,6 +43,7 @@ Shopping, Food, Nightlife
 **Places here**
 
 - Nelson Mandela Square
+- Sandton Station
 - Sandton City
 
 [Open in Maps: Sandown](https://www.google.com/maps/search/?api=1&query=-26.0919,28.0658)
@@ -93,7 +94,7 @@ Sandton, Rosebank and North Central
 
 ## Getting There
 
-The Gautrain runs from OR Tambo International Airport to Sandton station in about 15 minutes. From there, Rosebank is one stop away and Park Station, in the city centre, is a longer ride on the same line. Check the current timetable and fares on the Gautrain website before you travel.
+The [Gautrain](https://example.com/gautrain.html) runs from OR Tambo International Airport to Sandton station in about 15 minutes. From there, Rosebank is one stop away and Park Station, in the city centre, is a longer ride on the same line. Check the current timetable and fares on the Gautrain website before you travel.
 
 Outside the centre, distances are larger than they look on a map. Use ride-hailing or a hotel transfer, and allow extra time at rush hour.
 

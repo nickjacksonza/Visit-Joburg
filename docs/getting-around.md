@@ -10,6 +10,8 @@ O.R. Tambo International Airport is about 25 km east of the city centre. The Gau
 
 ## Gautrain
 
+Read our [Gautrain guide](https://example.com/gautrain.html) for the stations and what is near each one.
+
 The Gautrain is a fast, clean rapid rail line that links the airport, Sandton, Rosebank, the city centre and Pretoria. Pay with a Gautrain card or a contactless bank card at the gates. Feeder buses run from most stations.
 
 ## Ride-Hailing and Taxis
