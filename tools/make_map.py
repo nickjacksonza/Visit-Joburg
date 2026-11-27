@@ -132,6 +132,19 @@ for p in areas:
         g = pts[pid].buffer(0.4)
     shapes[pid], kinds[pid] = g, "rough"
 
+# Close the gaps: any strip of ground narrower than about 2 * FILL_KM between areas (such as between Soweto and
+# Diepkloof, or round Kelvin and Douglasdale) joins the area whose point is nearest, so the hexagons cover the city
+# without holes. The outer edge stays where it was.
+FILL_KM = 3.0
+footprint = unary_union(list(shapes.values())).buffer(FILL_KM).buffer(-FILL_KM)
+for p in areas:
+    pid = p["id"]
+    if kinds[pid] == "rough":
+        g = shapes[pid].union(cell_of[pid].intersection(footprint))
+        if taken is not None:
+            g = g.difference(taken)
+        shapes[pid] = g.buffer(0)
+
 # ---------------------------------------------------------------- hexagon grid for highlighting
 # The ring road sets the scale: the whole-city view frames it, and hexes_across_ring hexagons span its width.
 _roads_file = ROOT / "src" / "map" / "source" / "roads.json"
@@ -172,6 +185,12 @@ def build_level(hex_km):
                 owner[c] = p["id"]
                 level[p["id"]].append(c)
                 break
+    fp = prep(footprint)
+    for c in cells:  # a gap the Voronoi cells left (next to an outline): the nearest area takes the hexagon
+        if c not in owner and fp.contains(Point(c)):
+            pid = min(areas, key=lambda p: shapes[p["id"]].distance(Point(c)))["id"]
+            owner[c] = pid
+            level[pid].append(c)
     for p in areas:  # a small area with no hexagon takes the nearest one from a neighbour that has more than one
         pid = p["id"]
         if level[pid]:

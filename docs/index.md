@@ -9,7 +9,7 @@ Johannesburg is South Africa's biggest city and the place where much of its mode
 ## Johannesburg at a Glance
 
 - **1,750 m**above sea level, so days are mild and nights can be cool
-- **8**places to visit in this guide
+- **11**places to visit in this guide
 - **7**neighbourhoods worth an afternoon
 - **1886**the year gold was found on the Witwatersrand and the city began
 

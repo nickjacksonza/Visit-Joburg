@@ -9,7 +9,7 @@ Johannesburg is South Africa's biggest city and the place where much of its mode
 ## Johannesburg at a Glance
 
 - **1,750 m**above sea level, so days are mild and nights can be cool
-- **8**places to visit in this guide
+- **11**places to visit in this guide
 - **7**neighbourhoods worth an afternoon
 - **1886**the year gold was found on the Witwatersrand and the city began
 
@@ -196,7 +196,7 @@ A museum at Wits University about the origins of modern humans, with a large col
 - Science
 - Museum
 
-[Open in Maps: Origins Centre](https://www.google.com/maps/search/?api=1&query=-26.1925,28.03)
+[Open in Maps: Origins Centre](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0283)
 
 ### Liliesleaf
 
@@ -207,7 +207,41 @@ The farm that served as a secret base for the liberation movement in the 1960s. 
 - History
 - Museum
 
-[Open in Maps: Liliesleaf](https://www.google.com/maps/search/?api=1&query=-26.0442,28.0569)
+[Open in Maps: Liliesleaf](https://www.google.com/maps/search/?api=1&query=-26.044,28.0546)
+
+### Mandela House
+
+Orlando West, Soweto
+
+Nelson Mandela's family home on Vilakazi Street, now a museum about his life and the Mandela family. Combine it with the Hector Pieterson Memorial nearby.
+
+- History
+- Museum
+
+[Open in Maps: Mandela House](https://www.google.com/maps/search/?api=1&query=-26.2385,27.9088)
+
+### Zoo Lake
+
+Parkview and Saxonwold
+
+A public park with a lake, rowing boats, picnic lawns and a fountain, beside the Johannesburg Zoo. The Artists under the Sun art show is held here every month.
+
+- Outdoors
+- Family
+
+[Open in Maps: Zoo Lake](https://www.google.com/maps/search/?api=1&query=-26.1594,28.0305)
+
+### Lion & Safari Park
+
+Near Hartbeespoort, about 40 km north west of the city
+
+A wildlife park about 13 km from Lanseria Airport, with guided and self-drive game drives among lions, cheetahs and giraffes. Plan half a day.
+
+- Day trip
+- Family
+- Outdoors
+
+[Open in Maps: Lion & Safari Park](https://www.google.com/maps/search/?api=1&query=-25.8322,27.8888)
 
 ## Tips for Your Visit
 
@@ -598,7 +632,7 @@ Visit Joburg is not linked to the City of Johannesburg, the Gauteng Tourism Auth
 
 If something is wrong or missing, [tell us](https://example.com/contact.html). We read every message.
 
-Last reviewed: 26 November 2026.
+Last reviewed: 27 November 2026.
 
 Source: https://example.com/about.html
 
@@ -645,7 +679,7 @@ Every build runs automated checks on headings, images, links, forms and colour c
 
 Email hello@example.com. We reply within two working days.
 
-Last reviewed: 26 November 2026.
+Last reviewed: 27 November 2026.
 
 Source: https://example.com/accessibility.html
 
@@ -690,8 +724,8 @@ History, Food, Nightlife, Arts, Markets
 
 **Places here**
 
-- [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
 - [Origins Centre](https://example.com/things-to-do.html#origins-centre)
+- [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
 
 [Read the Braamfontein guide](https://example.com/neighbourhoods/braamfontein.html) · [Open in Maps: Braamfontein](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0357)
 
@@ -728,8 +762,8 @@ History, Food, Nightlife, Arts, Markets
 
 **Places here**
 
-- [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
 - [Origins Centre](https://example.com/things-to-do.html#origins-centre)
+- [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
 
 [Open in Maps: Braamfontein](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0357)
 

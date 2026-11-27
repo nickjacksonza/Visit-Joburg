@@ -6,16 +6,15 @@ Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = 10 SVG uni
 
 - Areas with an OpenStreetMap outline: 3
 - Areas drawn as rough cells from a point: 52
-- Places not found: 4
-- Hexagons, city level: 957, 1.0 km across; fewest in one area: 3
-- Hexagons, region level (hexes-region.svg): 5936, 419 m across; fewest in one area: 15
+- Places not found: 3
+- Hexagons, city level: 1022, 1.0 km across; fewest in one area: 3
+- Hexagons, region level (hexes-region.svg): 6391, 419 m across; fewest in one area: 23
 
 ## Not found
 
 Add these by hand in Figma, or fix the name and fetch again.
 
 - Glenferness (area, Far North and Midrand)
-- Lion Park (attraction, Just Outside the City)
 - Nooitgedacht (area, Just Outside the City)
 - Gosforth Park (attraction, Just Outside the City)
 
@@ -82,6 +81,7 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Triomf: Sophiatown (Triomf), Johannesburg Ward 86, Johannesburg, City of Johannesburg Metropolitan Municipality, Gaute
 - Bryanston: Bryanston, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa
 - Rivonia: Rivonia, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2128, South 
+- Liliesleaf: position from neighbourhoods.json
 - Woodmead: Woodmead, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2157, South
 - Morningside: Morningside, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2057, So
 - River Club: River Club, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 1617, Sou
@@ -98,6 +98,7 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Wynberg: Wynberg, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2096, South A
 - Hyde Park: Hyde Park, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2024, South
 - Parkview: Parkview, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
+- Zoo Lake: position from neighbourhoods.json
 - Parktown: Parktown, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Illovo: Illovo, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2196, South Af
 - Melrose: Melrose, Johannesburg Ward 74, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2121, South 
@@ -112,6 +113,7 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Bedfordview: Bedfordview, Ekurhuleni Ward 20, City of Ekurhuleni Metropolitan Municipality, Gauteng, 2013, South Africa
 - Auckland Park: Wikipedia: Auckland Park
 - Braamfontein: Braamfontein, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 200
+- Origins Centre: position from neighbourhoods.json
 - Yeoville: Yeoville, Johannesburg Ward 67, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Ellis Park Stadium: Emirates Park, South Park Lane, Commercial area, Troyeville, Johannesburg Ward 123, Johannesburg, City of Joha
 - Kensington: Kensington, Johannesburg Ward 66, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
@@ -124,5 +126,8 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Southgate: Southgate Mall, Columbine Avenue, Alan Manor, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metrop
 - Glenvista: Glenvista, Johannesburg Ward 23, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, 
 - Soweto: Johannesburg Ward 53, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa
+- Mandela House: position from neighbourhoods.json
+- Lion & Safari Park: Lion Park, Nkomazi Ward 7, Nkomazi, Ehlanzeni, Mpumalanga, South Africa
+- Maropeng: position from neighbourhoods.json
 - Lanseria: Wikipedia: Lanseria International Airport (the area is named after it)
 - Hartbeespoort: Wikipedia: Hartbeespoort

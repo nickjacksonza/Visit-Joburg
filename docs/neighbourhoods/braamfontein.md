@@ -18,8 +18,8 @@ History, Food, Nightlife, Arts, Markets
 
 **Places here**
 
-- [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
 - [Origins Centre](https://example.com/things-to-do.html#origins-centre)
+- [Constitution Hill](https://example.com/things-to-do.html#constitution-hill)
 
 [Open in Maps: Braamfontein](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0357)
 

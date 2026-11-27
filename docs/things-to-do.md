@@ -82,7 +82,7 @@ A museum at Wits University about the origins of modern humans, with a large col
 - Science
 - Museum
 
-[Open in Maps: Origins Centre](https://www.google.com/maps/search/?api=1&query=-26.1925,28.03)
+[Open in Maps: Origins Centre](https://www.google.com/maps/search/?api=1&query=-26.1929,28.0283)
 
 ### Liliesleaf
 
@@ -93,7 +93,41 @@ The farm that served as a secret base for the liberation movement in the 1960s. 
 - History
 - Museum
 
-[Open in Maps: Liliesleaf](https://www.google.com/maps/search/?api=1&query=-26.0442,28.0569)
+[Open in Maps: Liliesleaf](https://www.google.com/maps/search/?api=1&query=-26.044,28.0546)
+
+### Mandela House
+
+Orlando West, Soweto
+
+Nelson Mandela's family home on Vilakazi Street, now a museum about his life and the Mandela family. Combine it with the Hector Pieterson Memorial nearby.
+
+- History
+- Museum
+
+[Open in Maps: Mandela House](https://www.google.com/maps/search/?api=1&query=-26.2385,27.9088)
+
+### Zoo Lake
+
+Parkview and Saxonwold
+
+A public park with a lake, rowing boats, picnic lawns and a fountain, beside the Johannesburg Zoo. The Artists under the Sun art show is held here every month.
+
+- Outdoors
+- Family
+
+[Open in Maps: Zoo Lake](https://www.google.com/maps/search/?api=1&query=-26.1594,28.0305)
+
+### Lion & Safari Park
+
+Near Hartbeespoort, about 40 km north west of the city
+
+A wildlife park about 13 km from Lanseria Airport, with guided and self-drive game drives among lions, cheetahs and giraffes. Plan half a day.
+
+- Day trip
+- Family
+- Outdoors
+
+[Open in Maps: Lion & Safari Park](https://www.google.com/maps/search/?api=1&query=-25.8322,27.8888)
 
 ## Tips for Your Visit
 
