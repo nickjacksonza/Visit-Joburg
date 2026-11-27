@@ -129,35 +129,50 @@ h1,h2,h3,.brand{font-family:var(--display);font-weight:600;letter-spacing:.01em}
 .area-list{columns:12rem;column-gap:1.5rem;padding-left:1.1rem;margin:.5rem 0 1rem}.area-list li{break-inside:avoid;margin:.15rem 0}
 /* Map: the same forest-green look in both colour schemes. Picking a suburb dims the other hexagons and lifts the
    suburb's hexagons as columns of slices (k1 to k8), which rise only when the visitor has not asked for reduced motion. */
-.map-pick{display:none}.js .map-pick{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:0 0 1rem}
-.map-pick select{font:inherit;min-height:44px;padding:.5rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);max-width:100%}
-.map{margin:0;background:var(--map-forest);border-radius:var(--radius);overflow:hidden}
-.map img,.map-svg{display:block;width:100%;height:auto}
-.map figcaption{padding:.4rem .8rem;color:var(--map-paper);font-size:.85rem}
-.js .map img{cursor:pointer}.map-svg #hexes path{cursor:pointer}
+.map-pick{display:none}.js .map-pick{display:flex;flex-wrap:wrap;gap:.6rem;align-items:end}
+.map-pick label{flex:1 1 12rem;color:var(--map-paper)}
+.map-pick select{font:inherit;font-weight:400;min-height:44px;padding:.5rem .6rem;border:0;border-radius:8px;background:var(--map-paper);color:var(--map-ink);width:100%}
+/* The map band: full width, forest green to the edges, the map as big as the screen allows (up to 1920 px wide). On
+   wide screens the panel floats over the map's left side; js/map.js keeps the map clear of it. */
+.band-map{background:var(--map-forest);color:var(--map-paper);padding:0}
+.band-map a{color:var(--map-lift)}
+.band-map h2{color:var(--map-paper);margin:0 0 .5rem}
+.map-stage{position:relative;max-width:1920px;margin:0 auto}
+.map-panel{padding:1.5rem 1rem 1rem}
+.map-panel p{margin:0 0 1rem}
+.map-panel .btn-ghost{color:var(--map-paper);border-color:var(--map-paper)}
+.map{margin:0;height:min(78vh,62rem);min-height:26rem;position:relative}
+.map img,.map-svg{display:block;width:100%;height:100%;object-fit:contain}
+.map figcaption{position:absolute;right:.8rem;bottom:.5rem;color:var(--map-paper);font-size:.8rem;opacity:.85}
+.map-info{margin-top:1rem}.map-info:empty{display:none}.map-info h3{margin:0 0 .25rem;color:var(--map-paper)}.map-info p{margin:0 0 .5rem}
+@media (min-width:60em){.map{height:min(92vh,68rem)}
+.map-panel{position:absolute;z-index:1;top:1.5rem;left:1.5rem;width:23rem;max-height:calc(100% - 3rem);overflow:auto;padding:1.25rem 1.4rem;
+border-radius:var(--radius);background:var(--map-shadow);box-shadow:0 10px 30px rgb(0 0 0/.35)}}
+.js .map img{cursor:pointer}
+.map-svg #hexes path{cursor:pointer}
 .map-svg #labels,.map-svg .lift{pointer-events:none}
 .map-svg.picking #hexes path,.map-svg.picking #fine path{opacity:.35}
 .map-svg #hexes .picked path,.map-svg #fine .picked path{opacity:1}
 .map-svg #fine{display:none}.map-svg.fine #fine{display:inline}.map-svg.fine #hexes{display:none}
 /* Zoomed in, symbols and names keep their size on screen: --z is the share of the whole map in view (1 at full size). */
-.map-svg #labels text,.map-svg #ring-turnoffs>g,.map-svg [id^="marker-"],.map-svg #ring-bridges>path,.map-svg #attractions>*,.map-svg .lift-label{transform-box:fill-box;transform-origin:center;transform:scale(var(--z,1))}
-.map-svg #main-roads text[font-size="8"]{font-size:calc(8px * var(--z,1));stroke-width:calc(2.5px * var(--z,1))}
-.map-svg #main-roads text[font-size="5.5"]{font-size:calc(5.5px * var(--z,1));stroke-width:calc(1.7px * var(--z,1))}
+.map-svg{--k:.7}
+.map-svg #labels text,.map-svg #ring-turnoffs>g,.map-svg [id^="marker-"],.map-svg #ring-bridges>path,.map-svg #attractions>*,.map-svg .lift-label{transform-box:fill-box;transform-origin:center;transform:scale(calc(var(--z,1) * var(--k)))}
+.map-svg #main-roads text[font-size="8"]{font-size:calc(8px * var(--z,1) * var(--k));stroke-width:calc(2.5px * var(--z,1) * var(--k))}
+.map-svg #main-roads text[font-size="5.5"]{font-size:calc(5.5px * var(--z,1) * var(--k));stroke-width:calc(1.7px * var(--z,1) * var(--k))}
 .map-svg.zoomed #regions path,.map-svg.zoomed #areas>*,.map-svg.zoomed #main-roads path,.map-svg.zoomed #freeways path,.map-svg.zoomed #ring-road path,.map-svg.zoomed #city-boundary *{vector-effect:non-scaling-stroke}
-.map-pick .btn{margin:0}
 .map-svg #areas .picked{stroke:var(--map-lift);stroke-width:1.5}
 .lift .slice{fill:var(--map-wall);fill-opacity:.16;stroke:var(--map-lift);stroke-opacity:.45;stroke-width:.4}
 .lift .top{fill:var(--map-lift);fill-opacity:.5;stroke:var(--map-ink);stroke-width:.6}
 /* Names: at whole-city view only the popular areas are named; suburb names show once zoomed in, smaller, and any
    suburb's name shows under the pointer. */
 .map-svg #labels{display:none}.map-svg.zoomed #labels{display:inline}
-.map-svg #labels text{transform:scale(calc(var(--z,1) * .75))}
-.map-svg #outlying text{transform-box:fill-box;transform-origin:left center;transform:scale(.75)}
-#group-labels text,.hover-label{font:700 9px Inter,Arial,sans-serif;text-anchor:middle;dominant-baseline:middle;fill:var(--map-ink);stroke:var(--map-paper);stroke-width:2.5px;paint-order:stroke;pointer-events:none}
-#group-labels text{font-size:11px}.map-svg.zoomed #group-labels,.map-svg.picking #group-labels{display:none}
+.map-svg #labels text{transform:scale(calc(var(--z,1) * .55))}
+.map-svg #outlying>*{transform-box:fill-box;transform-origin:center;transform:scale(calc(var(--z,1) * var(--k)))}
+.map-pick [hidden]{display:none}
+#group-labels text,.hover-label{font:700 6.5px Inter,Arial,sans-serif;text-anchor:middle;dominant-baseline:middle;fill:var(--map-ink);stroke:var(--map-paper);stroke-width:2px;paint-order:stroke;pointer-events:none}
+#group-labels text{font-size:8px;letter-spacing:.04em}.map-svg.zoomed #group-labels,.map-svg.picking #group-labels{display:none}
 .hover-label{display:none;transform-box:fill-box;transform-origin:center;transform:scale(var(--z,1))}.hover-label.on{display:inline}
 .lift-label{opacity:0;fill:var(--map-ink);stroke:var(--map-paper)}
 .lift.up .k1{transform:translateY(calc(var(--step) * -1))}.lift.up .k2{transform:translateY(calc(var(--step) * -2))}.lift.up .k3{transform:translateY(calc(var(--step) * -3))}.lift.up .k4{transform:translateY(calc(var(--step) * -4))}.lift.up .k5{transform:translateY(calc(var(--step) * -5))}.lift.up .k6{transform:translateY(calc(var(--step) * -6))}.lift.up .k7{transform:translateY(calc(var(--step) * -7))}.lift.up .k8{transform:translateY(calc(var(--step) * -8))}
 .lift.up .lift-label{opacity:1}
 @media (prefers-reduced-motion:no-preference){.lift .slice{transition:transform .6s cubic-bezier(.2,.8,.2,1)}.lift-label{transition:opacity .3s .4s}}
-.map-info{margin-top:1rem}.map-info h3{margin:0 0 .25rem}

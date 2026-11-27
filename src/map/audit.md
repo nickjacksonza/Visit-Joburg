@@ -5,9 +5,9 @@ Draft of main areas only.
 Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = 10 SVG units. The draft is 56 by 56 km.
 
 - Areas with an OpenStreetMap outline: 3
-- Areas drawn as rough cells from a point: 86
-- Places not found: 8
-- Hexagons, city level: 1120, 1.0 km across; fewest in one area: 1
+- Areas drawn as rough cells from a point: 88
+- Places not found: 15
+- Hexagons, city level: 1119, 1.0 km across; fewest in one area: 1
 - Hexagons, region level (hexes-region.svg): 6999, 419 m across; fewest in one area: 9
 
 ## Not found
@@ -16,6 +16,13 @@ Add these by hand in Figma, or fix the name and fetch again.
 
 - Glenferness (area, Far North and Midrand)
 - Craighall (area, North West and Randburg)
+- Wierda Valley (area, Sandton, Rosebank and North Central)
+- Chislehurston (area, Sandton, Rosebank and North Central)
+- Atholhurst (area, Sandton, Rosebank and North Central)
+- Simba (area, Sandton, Rosebank and North Central)
+- Kramerville (area, Sandton, Rosebank and North Central)
+- Athol (area, Sandton, Rosebank and North Central)
+- Dunkeld West (area, Sandton, Rosebank and North Central)
 - Chiawelo (area, Soweto)
 - Phiri (area, Soweto)
 - Zondi (area, Soweto)
@@ -101,9 +108,11 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Parkmore: Parkmore, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, South 
 - Hurlingham: Hurlingham, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, Sout
 - Sandhurst: Sandhurst, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2146, South
+- Benmore Gardens: Benmore Gardens, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2146
 - Wynberg: Wynberg, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2096, South A
 - Alexandra: Alexandra, Johannesburg Ward 105, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2014, Sout
 - Hyde Park: Hyde Park, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2024, South
+- Dunkeld: Dunkeld, Johannesburg Ward 90, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2132, South 
 - Parkhurst: Parkhurst, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, Sou
 - Parktown North: Parktown North, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006
 - Parkwood: Parkwood, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, Sout

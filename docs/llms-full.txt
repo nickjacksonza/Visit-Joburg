@@ -15,9 +15,9 @@ Johannesburg is South Africa's biggest city and the place where much of its mode
 
 ## Map of Johannesburg's Suburbs
 
-Johannesburg spreads over a wide area, so it helps to know where each suburb sits. The ring road of the N1, N3 and N12 runs round the middle of the city. Pick a suburb, or tap the map, to lift it out of the map and read a short note on it. The [neighbourhoods list](https://example.com/neighbourhoods.html) has every area in words.
+Joburg spreads over a wide area, with the ring road of the N1, N3 and N12 round the middle. Pick an area, or tap the map, to raise it and read a short note. The [neighbourhoods list](https://example.com/neighbourhoods.html) has every area in words.
 
-Pick a suburbChoose a suburbThe ParksSandtonTownAll of Far North and MidrandFourwaysGlen AustinHalfway HouseLonehillAll of North West and RandburgCraighall ParkDouglasdaleEmmarentiaFairlandFerndaleFloridaJukskei ParkLindenNorthcliffOlivedaleRandpark RidgeRobindaleTriomfAll of Sandton, Rosebank and North CentralAlexandraBedfordviewBordeauxBrumaBryanstonBuccleuchEdenvaleHoughtonHurlinghamHyde ParkIllovoInandaKelvinMelroseModderfonteinMorningsideObservatoryOrchardsParkhurstParkmoreParktownParktown NorthParkviewParkwoodRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldWoodmeadWynbergAll of CentralBereaBraamfonteinDoornfonteinHillbrowJoubert ParkMabonengMarshalltownNewtownYeovilleAll of EastKensingtonAll of WestAuckland ParkRiverleaAll of SouthGlenvistaKenilworthMeredaleRobertshamAll of SowetoDiepkloofDlaminiDobsonvilleDubeEmndeniJabavuJabulaniKlipspruitMapetlaMeadowlandsMofoloMolapoMoletsaneMorokaNalediOrlando EastOrlando WestPimvilleProtea GlenProtea NorthSenaoaneTladiZola
+Pick an areaChoose an areaThe ParksSandtonTownAll of Far North and MidrandFourwaysGlen AustinHalfway HouseLonehillAll of North West and RandburgCraighall ParkDouglasdaleEmmarentiaFairlandFerndaleFloridaJukskei ParkLindenNorthcliffOlivedaleRandpark RidgeRobindaleTriomfAll of Sandton, Rosebank and North CentralAlexandraBedfordviewBenmore GardensBordeauxBrumaBryanstonBuccleuchDunkeldEdenvaleHoughtonHurlinghamHyde ParkIllovoInandaKelvinMelroseModderfonteinMorningsideObservatoryOrchardsParkhurstParkmoreParktownParktown NorthParkviewParkwoodRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldWoodmeadWynbergAll of CentralBereaBraamfonteinDoornfonteinHillbrowJoubert ParkMabonengMarshalltownNewtownYeovilleAll of EastKensingtonAll of WestAuckland ParkRiverleaAll of SouthGlenvistaKenilworthMeredaleRobertshamAll of SowetoDiepkloofDlaminiDobsonvilleDubeEmndeniJabavuJabulaniKlipspruitMapetlaMeadowlandsMofoloMolapoMoletsaneMorokaNalediOrlando EastOrlando WestPimvilleProtea GlenProtea NorthSenaoaneTladiZola
 
 Draft map: shapes are approximate. Base outlines © OpenStreetMap contributors.
 
@@ -335,7 +335,7 @@ For a first visit, stay in Rosebank or Sandton. Both have Gautrain stations, a g
 
 ## Every Area in This Guide
 
-We are writing up 190 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
+We are writing up 196 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -394,20 +394,23 @@ We are writing up 190 areas, grouped by part of the city. The main areas are in 
 - Weltevreden Park
 - Westdene
 
-### Sandton, Rosebank and North Central (57 areas)
+### Sandton, Rosebank and North Central (63 areas)
 
 - Abbotsford
 - **Alexandra**
-- Athol
+- **Athol**
+- **Atholhurst**
 - **Bedfordview**
+- **Benmore Gardens**
 - **Bordeaux**
 - Bramley
 - **Bruma**
 - **Bryanston**
 - **Buccleuch**
+- **Chislehurston**
 - Dowerglen
-- Dunkeld
-- Dunkeld West
+- **Dunkeld**
+- **Dunkeld West**
 - Duxberry
 - **Edenvale**
 - Elton Hill
@@ -422,6 +425,7 @@ We are writing up 190 areas, grouped by part of the city. The main areas are in 
 - **Inanda**
 - **Kelvin**
 - Killarney
+- **Kramerville**
 - Linbro Park
 - Marlboro Gardens
 - **Melrose**
@@ -447,9 +451,11 @@ We are writing up 190 areas, grouped by part of the city. The main areas are in 
 - **Sandown**
 - **Sandringham**
 - **Saxonwold**
+- **Simba**
 - Strathavon
 - Waverley
 - Westcliff
+- **Wierda Valley**
 - Winston Ridge
 - **Woodmead**
 - **Wynberg**

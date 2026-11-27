@@ -2,7 +2,7 @@
 var sel=document.getElementById('map-area'),fig=document.getElementById('map'),info=document.getElementById('map-info'),
 out=document.getElementById('map-out');
 if(!sel||!fig||!info||!window.fetch||!window.DOMParser)return;
-var NS='http://www.w3.org/2000/svg',SLICES=8,svg=null,loading=null,region=null,full=null,view=null,anim=0,
+var NS='http://www.w3.org/2000/svg',SLICES=8,svg=null,loading=null,region=null,full=null,view=null,anim=0,city=null,goal=null,
 still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 function load(){
 if(loading)return loading;
@@ -14,13 +14,20 @@ svg.removeAttribute('width');
 svg.removeAttribute('height');
 svg.setAttribute('class','map-svg');
 svg.setAttribute('aria-label',img.getAttribute('alt'));
-full=svg.getAttribute('viewBox').split(/\s+/).map(Number);
-view=full.slice();
+svg.setAttribute('preserveAspectRatio','xMidYMid meet');
 var fine=document.createElementNS(NS,'g');
 fine.id='fine';
 var hexes=svg.getElementById('hexes');
 hexes.parentNode.insertBefore(fine,hexes.nextSibling);
 fig.replaceChild(svg,img);
+city=union([svg.getElementById('hexes'),svg.getElementById('ring-road')].filter(Boolean));
+full=fit(city,1.06);
+setView(full);
+window.addEventListener('resize',function(){
+full=fit(city,1.06);
+cancelAnimationFrame(anim);
+setView(goal?fit(goal,1):full);
+});
 groupLabels();
 svg.addEventListener('click',onTap);
 svg.addEventListener('pointermove',onHover);
@@ -46,11 +53,21 @@ setView(from.map(function(a,i){return a+(v[i]-a)*e;}));
 if(t<1)anim=requestAnimationFrame(step);else if(done)done();
 })(t0);
 }
+function avail(){
+var r=svg.getBoundingClientRect(),panel=document.querySelector('.map-panel'),left=0;
+if(panel&&getComputedStyle(panel).position==='absolute')left=Math.max(0,panel.getBoundingClientRect().right-r.left+16);
+return{w:r.width,h:r.height,left:left};
+}
+function fit(b,pad){
+var a=avail(),bw=b.width*pad,bh=b.height*pad;
+var s=Math.min((a.w-a.left)/bw,a.h/bh),vw=a.w/s,vh=a.h/s;
+var cx=b.x+b.width/2,cy=b.y+b.height/2;
+return[cx-(a.left+(a.w-a.left)/2)/s,cy-vh/2,vw,vh];
+}
 function frame(box){
-var a=full[2]/full[3],w=Math.max(box.width*2.4,70),h=Math.max(box.height*2.4,70);
-if(w/h>a)h=w/a;else w=h*a;
-var cx=box.x+box.width/2,cy=box.y+box.height/2-h*0.08;
-return[cx-w/2,cy-h/2,w,h];
+var w=Math.max(box.width*2.2,60),h=Math.max(box.height*2.2,60);
+goal={x:box.x+box.width/2-w/2,y:box.y+box.height/2-h*0.56,width:w,height:h};
+return fit(goal,1);
 }
 function hexD(x,y,r){
 var d='';
@@ -156,6 +173,7 @@ h.textContent=name;
 p.textContent=groups.length+' suburbs on the map: '+opts.map(function(o){return o.textContent;}).join(', ')+'. Pick one to zoom in.';
 info.appendChild(h);
 info.appendChild(p);
+goal=null;
 zoomTo(full.slice(),function(){lift(groups,name,0.05);});
 }
 function pickGroup(){
@@ -242,6 +260,7 @@ if(!svg)return;
 clear();
 svg.classList.remove('fine');
 out.hidden=true;
+goal=null;
 zoomTo(full.slice());
 }
 function show(opt){

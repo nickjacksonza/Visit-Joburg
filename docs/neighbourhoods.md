@@ -68,7 +68,7 @@ For a first visit, stay in Rosebank or Sandton. Both have Gautrain stations, a g
 
 ## Every Area in This Guide
 
-We are writing up 190 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
+We are writing up 196 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -127,20 +127,23 @@ We are writing up 190 areas, grouped by part of the city. The main areas are in 
 - Weltevreden Park
 - Westdene
 
-### Sandton, Rosebank and North Central (57 areas)
+### Sandton, Rosebank and North Central (63 areas)
 
 - Abbotsford
 - **Alexandra**
-- Athol
+- **Athol**
+- **Atholhurst**
 - **Bedfordview**
+- **Benmore Gardens**
 - **Bordeaux**
 - Bramley
 - **Bruma**
 - **Bryanston**
 - **Buccleuch**
+- **Chislehurston**
 - Dowerglen
-- Dunkeld
-- Dunkeld West
+- **Dunkeld**
+- **Dunkeld West**
 - Duxberry
 - **Edenvale**
 - Elton Hill
@@ -155,6 +158,7 @@ We are writing up 190 areas, grouped by part of the city. The main areas are in 
 - **Inanda**
 - **Kelvin**
 - Killarney
+- **Kramerville**
 - Linbro Park
 - Marlboro Gardens
 - **Melrose**
@@ -180,9 +184,11 @@ We are writing up 190 areas, grouped by part of the city. The main areas are in 
 - **Sandown**
 - **Sandringham**
 - **Saxonwold**
+- **Simba**
 - Strathavon
 - Waverley
 - Westcliff
+- **Wierda Valley**
 - Winston Ridge
 - **Woodmead**
 - **Wynberg**

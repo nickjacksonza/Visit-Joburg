@@ -5659,5 +5659,65 @@
     -26.1941667
    ]
   }
+ },
+ "wierda-valley": {
+  "query": "Wierda Valley, Gauteng",
+  "found": false
+ },
+ "benmore-gardens": {
+  "query": "Benmore Gardens, Johannesburg",
+  "found": true,
+  "name": "Benmore Gardens",
+  "display_name": "Benmore Gardens, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2146, South Africa",
+  "osm": "node/262695085",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0886111,
+  "lng": 28.0458333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0458333,
+    -26.0886111
+   ]
+  }
+ },
+ "chislehurston": {
+  "query": "Chislehurston, Gauteng",
+  "found": false
+ },
+ "atholhurst": {
+  "query": "Atholhurst, Gauteng",
+  "found": false
+ },
+ "simba": {
+  "query": "Simba, Gauteng",
+  "found": false
+ },
+ "kramerville": {
+  "query": "Kramerville, Gauteng",
+  "found": false
+ },
+ "dunkeld": {
+  "query": "Dunkeld, Johannesburg",
+  "found": true,
+  "name": "Dunkeld",
+  "display_name": "Dunkeld, Johannesburg Ward 90, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2132, South Africa",
+  "osm": "node/262719951",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1358333,
+  "lng": 28.0411111,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0411111,
+    -26.1358333
+   ]
+  }
+ },
+ "dunkeld-west": {
+  "query": "Dunkeld West, Gauteng",
+  "found": false
  }
 }

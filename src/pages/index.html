@@ -28,10 +28,15 @@ hero: true
   </div>
 </section>
 
-<section aria-labelledby="map-h">
-  <h2 id="map-h">Map of Johannesburg's Suburbs</h2>
-  <p>Johannesburg spreads over a wide area, so it helps to know where each suburb sits. The ring road of the N1, N3 and N12 runs round the middle of the city. Pick a suburb, or tap the map, to lift it out of the map and read a short note on it. The <a href="neighbourhoods.html">neighbourhoods list</a> has every area in words.</p>
-  {{ map_html }}
+<section class="band band-map" aria-labelledby="map-h">
+  <div class="map-stage">
+    <div class="map-panel">
+      <h2 id="map-h">Map of Johannesburg's Suburbs</h2>
+      <p>Joburg spreads over a wide area, with the ring road of the N1, N3 and N12 round the middle. Pick an area, or tap the map, to raise it and read a short note. The <a href="neighbourhoods.html">neighbourhoods list</a> has every area in words.</p>
+      {{ map_controls }}
+    </div>
+    {{ map_figure }}
+  </div>
 </section>
 
 <section aria-labelledby="see">

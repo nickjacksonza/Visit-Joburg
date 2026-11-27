@@ -575,13 +575,14 @@ def map_html(root):
         o += "".join(f'<option value="{p["id"]}" data-region="{rid}" data-summary="{esc(p["summary"])}"'
                     + (f' data-href="{root}neighbourhoods/{p["id"]}.html"' if has_page(p) else "") + f'>{esc(p["name"])}</option>' for p in here)
         opts.append(f'<optgroup label="{esc(r["name"])}">{o}</optgroup>')
-    return (f'<div class="map-pick"><label for="map-area">Pick a suburb</label><select id="map-area"><option value="">Choose a suburb</option>{"".join(opts)}</select>'
-            f'<button type="button" class="btn btn-ghost" id="map-out" hidden>Whole city</button></div>'
-            f'<figure class="map" id="map"><img src="{root}map/joburg.svg" width="{w}" height="{h}" loading="lazy" decoding="async" '
-            f'alt="Map of Johannesburg: the main suburbs shaded in hexagons, with the ring road of the N1, N3 and N12 around the city and the main roads.">'
-            f'<figcaption>Draft map: shapes are approximate. {esc(MAP_CREDIT)}.</figcaption></figure>'
-            f'<div class="map-info" id="map-info" aria-live="polite"></div>'
-            f'<script src="{root}js/map.js?v={VERSIONS["map_js"]}" defer></script>')
+    return {
+        "map_controls": f'<div class="map-pick"><label for="map-area">Pick an area</label><select id="map-area"><option value="">Choose an area</option>{"".join(opts)}</select>'
+                        f'<button type="button" class="btn btn-ghost" id="map-out" hidden>Whole city</button></div>'
+                        f'<div class="map-info" id="map-info" aria-live="polite"></div>',
+        "map_figure": f'<figure class="map" id="map"><img src="{root}map/joburg.svg" width="{w}" height="{h}" loading="lazy" decoding="async" '
+                      f'alt="Map of Johannesburg: the main suburbs shaded in hexagons, with the ring road of the N1, N3 and N12 around the city and the main roads.">'
+                      f'<figcaption>Draft map: shapes are approximate. {esc(MAP_CREDIT)}.</figcaption></figure>'
+                      f'<script src="{root}js/map.js?v={VERSIONS["map_js"]}" defer></script>'}
 
 
 def build_context(meta, body, rel, root, modified):
@@ -615,7 +616,7 @@ def build_context(meta, body, rel, root, modified):
         "faq_html": faq_html(), "attractions_html": attractions_html(root), "neighbourhoods_html": neighbourhoods_html(root), "directory_html": directory_html(root),
         "events_html": events_html(), "posts_html": posts_html(root), "share_html": share_html(canonical, meta["title"]), "foot_social": foot_social(),
         "attraction_count": len(site["attractions"]), "neighbourhood_count": len(featured_areas()),
-        "map_html": map_html(root) if rel == "index.html" else "",
+        **(map_html(root) if rel == "index.html" else {"map_controls": "", "map_figure": ""}),
         "area_count": sum(p["kind"] == "area" for p in PLACES.values()),
         "info_box": info_box(Path(rel).stem, root) if rel.startswith("neighbourhoods/") else "",
         **{f"info_box_{pid}": info_box(pid, root, level=3) for pid, p in PLACES.items() if p["kind"] == "area" and p["summary"]},
