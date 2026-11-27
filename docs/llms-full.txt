@@ -17,7 +17,7 @@ Johannesburg is South Africa's biggest city and the place where much of its mode
 
 Joburg spreads over a wide area, with the ring road of the N1, N3 and N12 round the middle. Pick an area, or tap the map, to raise it and read a short note. The [neighbourhoods list](https://example.com/neighbourhoods.html) has every area in words.
 
-Pick an areaChoose an areaThe ParksSandtonTownAll of Far North and MidrandDainfernFourwaysGlen AustinHalfway HouseLonehillAll of North West and RandburgBlairgowrieCraighall ParkDouglasdaleEmmarentiaFairlandFerndaleFloridaJukskei ParkLindenMelvilleNorthcliffOlivedaleRandpark RidgeRobindaleTriomfAll of Sandton, Rosebank and North CentralAlexandraBedfordviewBenmore GardensBordeauxBrumaBryanstonBuccleuchDunkeldEdenvaleGreensideHoughtonHurlinghamHyde ParkIllovoInandaKelvinMelroseModderfonteinMorningsideObservatoryOrchardsParkhurstParkmoreParktownParktown NorthParkviewParkwoodRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldWestcliffWoodmeadWynbergAll of CentralBereaBraamfonteinDoornfonteinHillbrowJoubert ParkMabonengMarshalltownNewtownYeovilleAll of EastDenverKensingtonAll of WestAuckland ParkRiverleaAll of SouthEldorado ParkGlenvistaKenilworthMeredaleMondeorOrmondeRobertshamTurffonteinAll of SowetoDiepkloofDlaminiDobsonvilleDubeEmndeniJabavuJabulaniKlipspruitMapetlaMeadowlandsMofoloMolapoMoletsaneMorokaNalediOrlando EastOrlando WestPimvilleProtea GlenProtea NorthSenaoaneTladiZola
+Pick an areaChoose an areaThe ParksSandtonTownAll of Far North and MidrandDainfernFourwaysGlen AustinHalfway HouseKyalamiLonehillAll of North West and RandburgBlairgowrieCraighall ParkDouglasdaleEmmarentiaFairlandFerndaleFloridaJukskei ParkLindenMelvilleNorthcliffOlivedaleRandpark RidgeRobindaleTriomfAll of Sandton, Rosebank and North CentralAlexandraAtholhurstAthollBedfordviewBenmore GardensBordeauxBrumaBryanstonBuccleuchChislehurstonDunkeldDunkeld WestEdenvaleGreensideHoughtonHurlinghamHyde ParkIllovoInandaKelvinMelroseModderfonteinMorningsideObservatoryOrchardsParkhurstParkmoreParktownParktown NorthParkviewParkwoodRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldSimbaWestcliffWierda ValleyWoodmeadWynbergAll of CentralBereaBraamfonteinDoornfonteinHillbrowJoubert ParkMabonengMarshalltownNewtownYeovilleAll of EastCity DeepDenverKensingtonAll of WestAuckland ParkRiverleaAll of SouthEldorado ParkGlenvistaKenilworthMeredaleMondeorOrmondeRobertshamTurffonteinAll of SowetoDiepkloofDlaminiDobsonvilleDubeEmndeniJabavuJabulaniKlipspruitKliptownMapetlaMeadowlandsMofoloMolapoMoletsaneMorokaNalediOrlando EastOrlando WestPimvilleProtea GlenProtea NorthSenaoaneTladiZola
 
 ### Area Lists
 
@@ -400,8 +400,8 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 
 - Abbotsford
 - **Alexandra**
-- **Athol**
 - **Atholhurst**
+- **Atholl**
 - **Bedfordview**
 - **Benmore Gardens**
 - **Bordeaux**

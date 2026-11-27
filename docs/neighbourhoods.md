@@ -131,8 +131,8 @@ We are writing up 196 areas, grouped by part of the city. The main areas are in 
 
 - Abbotsford
 - **Alexandra**
-- **Athol**
 - **Atholhurst**
+- **Atholl**
 - **Bedfordview**
 - **Benmore Gardens**
 - **Bordeaux**

@@ -5,31 +5,22 @@ Draft of main areas only.
 Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = 10 SVG units. The draft is 56 by 57 km.
 
 - Areas with an OpenStreetMap outline: 3
-- Areas drawn as rough cells from a point: 98
-- Places not found: 18
-- Hexagons, city level: 1168, 1.0 km across; fewest in one area: 1
-- Hexagons, region level (hexes-region.svg): 7303, 419 m across; fewest in one area: 9
+- Areas drawn as rough cells from a point: 107
+- Places not found: 9
+- Hexagons, city level: 1188, 1.0 km across; fewest in one area: 1
+- Hexagons, region level (hexes-region.svg): 7422, 419 m across; fewest in one area: 5
 
 ## Not found
 
 Add these by hand in Figma, or fix the name and fetch again.
 
-- Kyalami (area, Far North and Midrand)
 - Glenferness (area, Far North and Midrand)
 - Craighall (area, North West and Randburg)
-- Wierda Valley (area, Sandton, Rosebank and North Central)
-- Chislehurston (area, Sandton, Rosebank and North Central)
-- Atholhurst (area, Sandton, Rosebank and North Central)
-- Simba (area, Sandton, Rosebank and North Central)
 - Kramerville (area, Sandton, Rosebank and North Central)
-- Athol (area, Sandton, Rosebank and North Central)
-- Dunkeld West (area, Sandton, Rosebank and North Central)
-- City Deep (area, East)
 - Crown Mines (area, South)
 - Chiawelo (area, Soweto)
 - Phiri (area, Soweto)
 - Zondi (area, Soweto)
-- Kliptown (area, Soweto)
 - Nooitgedacht (area, Just Outside the City)
 - Gosforth Park (attraction, Just Outside the City)
 
@@ -75,6 +66,7 @@ Bridges on the ring road: 28.
 The search may have found a place with the same name elsewhere. Each line is the place and what it matched.
 
 - Dainfern: OpenStreetMap: Dainfern Golf Estate (residential area)
+- Kyalami: Wikipedia: Kyalami
 - Lonehill: Wikipedia: Lone Hill
 - Fourways: Fourways, Johannesburg Ward 94, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2055, South
 - Cedar Square: Cedar Square Shopping Centre, Tuscany Place, Craigavon, Johannesburg Ward 96, Randburg, City of Johannesburg M
@@ -114,11 +106,17 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Parkmore: Parkmore, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, South 
 - Hurlingham: Hurlingham, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, Sout
 - Sandhurst: Sandhurst, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2146, South
+- Wierda Valley: Wikipedia: Wierda Valley
 - Benmore Gardens: Benmore Gardens, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2146
+- Chislehurston: Wikipedia: Chislehurston
+- Atholhurst: Wikipedia: Atholhurst
+- Simba: Wikipedia: Simba, Gauteng
+- Atholl: Wikipedia: Atholl, Gauteng
 - Wynberg: Wynberg, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2096, South A
 - Alexandra: Alexandra, Johannesburg Ward 105, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2014, Sout
 - Hyde Park: Hyde Park, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2024, South
 - Dunkeld: Dunkeld, Johannesburg Ward 90, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2132, South 
+- Dunkeld West: Wikipedia: Dunkeld West
 - Parkhurst: Parkhurst, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, Sou
 - Parktown North: Parktown North, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006
 - Parkwood: Parkwood, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, Sout
@@ -152,6 +150,7 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Doornfontein: Doornfontein, Johannesburg Ward 123, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 20
 - Kensington: Kensington, Johannesburg Ward 66, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
 - Denver: Denver, Johannesburg Ward 65, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, Sou
+- City Deep: Wikipedia: City Deep, Gauteng
 - Wemmer Pan: Wemmer Pan, Johannesburg Ward 57, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
 - Auckland Park: Wikipedia: Auckland Park
 - Riverlea: Riverlea, Johannesburg Ward 68, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
@@ -191,6 +190,7 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Molapo: Molapo, Johannesburg Ward 33, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1723, South Afr
 - Dlamini: Dlamini, Johannesburg Ward 19, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1860, South Af
 - Pimville: Pimville, Johannesburg Ward 22, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
+- Kliptown: Wikipedia: Kliptown
 - Klipspruit: Klipspruit, Johannesburg Ward 25, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
 - Diepkloof: Diepkloof, Johannesburg Ward 27, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, 
 - Chris Hani Baragwanath: Chris Hani Baragwanath Hospital, 26, Chris Hani Road, Power Park, Johannesburg Ward 24, Johannesburg, City of 

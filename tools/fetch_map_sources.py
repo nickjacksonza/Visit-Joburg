@@ -5,6 +5,7 @@
     python3 tools/fetch_map_sources.py --refresh  # fetch every place again
     python3 tools/fetch_map_sources.py --retry    # look again for places not found, using addresses (see below)
     python3 tools/fetch_map_sources.py --roads    # the ring road (N1 Western, N3 Eastern and N12 Southern Bypass) to src/map/source/roads.json
+    python3 tools/fetch_map_sources.py --corner "Waterfall Avenue" "Athole Avenue"   # where two streets meet, for a place's geo
     python3 tools/fetch_map_sources.py --main-roads   # other freeways and the main roads to src/map/source/main_roads.json
     python3 tools/fetch_map_sources.py --ring     # the ring road's turnoffs and bridges to src/map/source/ring_details.json (run --roads first)
     python3 tools/fetch_map_sources.py --major    # only the main areas, the attractions in them, the places outside the city and the city boundary
@@ -226,7 +227,29 @@ def fetch_ring():
     print(f"wrote {path.relative_to(ROOT)}: {len(junctions)} junction points, {len(bridges)} bridge segments")
 
 
+def corner(a, b):
+    """Where two streets meet, from OpenStreetMap: prints the corner to put in neighbourhoods.json as a place's geo.
+    For a suburb the search can't place, the owner names a corner near its middle."""
+    from shapely.geometry import shape
+    from shapely.ops import unary_union, nearest_points
+    lines = []
+    for name in (a, b):
+        res = [r for r in search(name, True, limit=40) if r["category"] == "highway" and r["geojson"]["type"] in ("LineString", "MultiLineString")]
+        if not res:
+            raise SystemExit(f"no street called {name} inside the city")
+        lines.append(unary_union([shape(r["geojson"]) for r in res]))
+        time.sleep(1.1)
+    p, q = nearest_points(*lines)
+    gap = p.distance(q) * 101000  # degrees to metres, near enough at this latitude
+    if gap > 80:
+        raise SystemExit(f"{a} and {b} come no closer than {gap:.0f} m: check the names")
+    print(json.dumps({"lat": round((p.y + q.y) / 2, 4), "lng": round((p.x + q.x) / 2, 4)}), f"(the streets meet within {gap:.0f} m)")
+
+
 def main():
+    if "--corner" in sys.argv:
+        i = sys.argv.index("--corner")
+        return corner(sys.argv[i + 1], sys.argv[i + 2])
     if "--roads" in sys.argv:
         return fetch_roads()
     if "--main-roads" in sys.argv:
