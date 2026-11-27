@@ -7,7 +7,7 @@
 --offblack:#1a1c20;--offwhite:#faf8f4;--grey:#5f646d;
 --ink:var(--offblack);--paper:var(--offwhite);--muted:var(--grey);--soft:#f1eee7;--line:#ddd8cd;--brand:var(--blue);--brand-ink:var(--offwhite);--radius:14px;
 --map-forest:#1c4a2e;--map-shadow:#10291a;--map-lift:#f5c400;--map-wall:#8a5a00;--map-ink:#1a1c20;--map-paper:#faf8f4;
---map-hl-yellow:#f5c400;--map-hl-orange:#f08c1a;--map-hl-red:#f4777a;--map-hl-pink:#f17fb0;--map-hl-violet:#b694e6;--map-hl-blue:#79aef9;--map-hl-teal:#3cc6b4;--map-hl-green:#7cc36e}
+--map-hl-yellow:#f5c400;--map-hl-orange:#f08c1a;--map-hl-red:#f4777a;--map-hl-pink:#f17fb0;--map-hl-violet:#b694e6;--map-hl-blue:#79aef9;--map-hl-teal:#3cc6b4;--map-hl-green:#7cc36e;--map-gold:#f5b800;--map-purple:#8a4fe0}
 @media (prefers-color-scheme:dark){:root{--red:#ff8a7a;--orange:#ffa25c;--yellow:#ffd84d;--green:#5fd39a;--blue:#7cb4ff;--violet:#b79cff;
 --offblack:#16181c;--offwhite:#f3f1ec;--grey:#a1a6ae;--ink:var(--offwhite);--paper:var(--offblack);--soft:#202329;--line:#33373f;--brand-ink:var(--offblack)}}
 *{box-sizing:border-box}
@@ -192,4 +192,8 @@ display:inline-flex;align-items:center;gap:.45rem;background:var(--map-paper);co
 @media (prefers-reduced-motion:no-preference){.lift .slice{transition:transform .6s cubic-bezier(.2,.8,.2,1)}.lift-label{transition:opacity .3s .4s}}
 /* Area list colours: the button swatch and the raised columns. */
 .hl-yellow{--hl:var(--map-hl-yellow)}.hl-orange{--hl:var(--map-hl-orange)}.hl-red{--hl:var(--map-hl-red)}.hl-pink{--hl:var(--map-hl-pink)}.hl-violet{--hl:var(--map-hl-violet)}.hl-blue{--hl:var(--map-hl-blue)}.hl-teal{--hl:var(--map-hl-teal)}.hl-green{--hl:var(--map-hl-green)}
+.lift.gradient .slice,.lift.gradient .top{fill:color-mix(in srgb,var(--map-gold) calc((1 - var(--t,0)) * 100%),var(--map-purple));stroke:color-mix(in srgb,var(--map-gold) calc((1 - var(--t,0)) * 100%),var(--map-purple))}
+.lift.gradient .slice{fill-opacity:.25;stroke-opacity:.6}.lift.gradient .top{fill-opacity:.85}
+.map-svg.picking #hexes path.picked{opacity:1}
+.hl-gautrain{--hl:var(--map-gold)}.map-list.hl-gautrain::before{background:linear-gradient(135deg,var(--map-gold),var(--map-purple))}
 .lift[class*="hl-"] .top{fill:var(--hl)}.lift[class*="hl-"] .slice{fill:var(--hl);stroke:var(--hl)}

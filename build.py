@@ -644,8 +644,12 @@ def map_html(root):
     popular = [f'<option value="group:{l["id"]}" {attrs}>{esc(l["name"])}</option>' for l, attrs in lists if l["picker"]]
     if popular:
         opts.append(f'<optgroup label="Popular areas">{"".join(popular)}</optgroup>')
+    if (SRC / "map" / "source" / "gautrain.json").exists():  # the hexagons that hold a Gautrain station, raised in a gold to purple gradient
+        opts.append(f'<optgroup label="Transport"><option value="gautrain" data-name="Gautrain stations" data-href="{root}gautrain.html">Gautrain stations</option></optgroup>')
     panel = "".join(f'<li><button type="button" class="map-list hl-{l["colour"]}" data-list="group:{l["id"]}" {attrs}>{esc(l["name"])}</button></li>'
                     for l, attrs in lists if l["panel"])
+    if (SRC / "map" / "source" / "gautrain.json").exists():
+        panel += '<li><button type="button" class="map-list hl-gautrain" data-list="gautrain" data-name="Gautrain stations">Gautrain stations</button></li>'
     for rid, r in REGIONS.items():
         here = sorted((PLACES[i] for i in ids if PLACES[i]["region"] == rid), key=lambda p: p["name"])
         if not here:
