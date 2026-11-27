@@ -115,7 +115,7 @@
         "Food"
       ],
       "img": "attr-vilakazi-street",
-      "neighbourhood": "soweto"
+      "neighbourhood": "orlando-west"
     },
     {
       "id": "hector-pieterson",
@@ -131,7 +131,7 @@
         "Museum"
       ],
       "img": "attr-hector-pieterson",
-      "neighbourhood": "soweto"
+      "neighbourhood": "orlando-west"
     },
     {
       "id": "cradle-of-humankind",
@@ -214,7 +214,7 @@
         "Museum"
       ],
       "img": "attr-mandela-house",
-      "neighbourhood": "soweto"
+      "neighbourhood": "orlando-west"
     },
     {
       "id": "zoo-lake",

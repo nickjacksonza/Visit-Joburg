@@ -68,7 +68,7 @@ For a first visit, stay in Rosebank or Sandton. Both have Gautrain stations, a g
 
 ## Every Area in This Guide
 
-We are writing up 160 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
+We are writing up 185 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -204,7 +204,7 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Selby
 - **Yeoville**
 
-### South (34 areas)
+### South (32 areas)
 
 - Alan Manor
 - Alberante
@@ -212,7 +212,6 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Booysens
 - Castleview
 - Crown Mines
-- **Diepkloof**
 - Eikenhof
 - Elandspark
 - Eldorado Park
@@ -228,7 +227,6 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Mulbarton
 - Naturena
 - Oakdene
-- Orlando East
 - Ormonde
 - Ridgeway
 - **Robertsham**
@@ -241,9 +239,36 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Turffontein
 - Winchester Hills
 
-### Soweto (1 area)
+### Soweto (28 areas)
 
-- **Soweto**
+- **Chiawelo**
+- **Diepkloof**
+- **Dlamini**
+- **Dobsonville**
+- **Dube**
+- **Emndeni**
+- **Jabavu**
+- **Jabulani**
+- **Klipspruit**
+- **Kliptown**
+- **Mapetla**
+- **Meadowlands**
+- **Mofolo**
+- **Molapo**
+- **Moletsane**
+- **Moroka**
+- **Naledi**
+- **Orlando East**
+- **Orlando West**
+- **Phiri**
+- **Pimville**
+- **Protea Glen**
+- **Protea North**
+- **Senaoane**
+- Soweto
+- **Tladi**
+- **Zola**
+- **Zondi**
 
 ### Just Outside the City (3 areas)
 

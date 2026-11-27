@@ -555,7 +555,8 @@ def map_html(root):
         here = sorted((PLACES[i] for i in ids if PLACES[i]["region"] == rid), key=lambda p: p["name"])
         if not here:
             continue
-        o = "".join(f'<option value="{p["id"]}" data-summary="{esc(p["summary"])}"'
+        o = f'<option value="all:{rid}" data-name="{esc(r["name"])}">All of {esc(r["name"])}</option>'
+        o += "".join(f'<option value="{p["id"]}" data-region="{rid}" data-summary="{esc(p["summary"])}"'
                     + (f' data-href="{root}neighbourhoods/{p["id"]}.html"' if has_page(p) else "") + f'>{esc(p["name"])}</option>' for p in here)
         opts.append(f'<optgroup label="{esc(r["name"])}">{o}</optgroup>')
     return (f'<div class="map-pick"><label for="map-area">Pick a suburb</label><select id="map-area"><option value="">Choose a suburb</option>{"".join(opts)}</select>'

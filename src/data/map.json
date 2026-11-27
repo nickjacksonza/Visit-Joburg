@@ -3,7 +3,7 @@
     {"id": "city", "name": "Whole city", "fit": "ring-road", "labels": "major", "for": "Getting your bearings"},
     {"id": "sandton-rosebank", "name": "Sandton and Rosebank", "fit": ["sandown", "rosebank", "illovo", "melrose", "hyde-park", "morningside"], "labels": "all", "for": "Business visitors and a first base"},
     {"id": "central", "name": "Central", "fit": ["braamfontein", "newtown", "marshalltown", "maboneng", "hillbrow", "auckland-park"], "labels": "all", "for": "History, arts and food"},
-    {"id": "soweto", "name": "Soweto", "fit": ["soweto", "diepkloof", "orlando-east"], "labels": "all", "for": "History and guided tours"},
+    {"id": "soweto", "name": "Soweto", "fit": ["orlando-west", "diepkloof", "orlando-east", "pimville", "meadowlands", "dobsonville", "protea-glen"], "labels": "all", "for": "History and guided tours"},
     {"id": "far-north", "name": "Far North", "fit": ["fourways", "lonehill", "dainfern", "kyalami", "sunninghill"], "labels": "all", "for": "Families, shopping and entertainment"}
   ],
   "visitor_types": [

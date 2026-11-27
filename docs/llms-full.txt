@@ -17,7 +17,7 @@ Johannesburg is South Africa's biggest city and the place where much of its mode
 
 Johannesburg spreads over a wide area, so it helps to know where each suburb sits. The ring road of the N1, N3 and N12 runs round the middle of the city. Pick a suburb, or tap the map, to lift it out of the map and read a short note on it. The [neighbourhoods list](https://example.com/neighbourhoods.html) has every area in words.
 
-Pick a suburbChoose a suburbFourwaysGlen AustinHalfway HouseLonehillDouglasdaleEmmarentiaFairlandFerndaleFloridaJukskei ParkLindenNorthcliffOlivedaleRandpark RidgeRobindaleTriomfBedfordviewBordeauxBrumaBryanstonBuccleuchEdenvaleHoughtonHurlinghamHyde ParkIllovoKelvinMelroseModderfonteinMorningsideObservatoryOrchardsParkmoreParktownParkviewRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldWoodmeadWynbergAuckland ParkBraamfonteinKensingtonRiverleaYeovilleDiepkloofGlenvistaKenilworthMeredaleRobertshamSoweto
+Pick a suburbChoose a suburbAll of Far North and MidrandFourwaysGlen AustinHalfway HouseLonehillAll of North West and RandburgDouglasdaleEmmarentiaFairlandFerndaleFloridaJukskei ParkLindenNorthcliffOlivedaleRandpark RidgeRobindaleTriomfAll of Sandton, Rosebank and North CentralBedfordviewBordeauxBrumaBryanstonBuccleuchEdenvaleHoughtonHurlinghamHyde ParkIllovoKelvinMelroseModderfonteinMorningsideObservatoryOrchardsParkmoreParktownParkviewRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldWoodmeadWynbergAll of Central, East and WestAuckland ParkBraamfonteinKensingtonRiverleaYeovilleAll of SouthGlenvistaKenilworthMeredaleRobertshamAll of SowetoDiepkloofDlaminiDobsonvilleDubeEmndeniJabavuJabulaniKlipspruitMapetlaMeadowlandsMofoloMolapoMoletsaneMorokaNalediOrlando EastOrlando WestPimvilleProtea GlenProtea NorthSenaoaneTladiZola
 
 Draft map: shapes are approximate. Base outlines © OpenStreetMap contributors.
 
@@ -335,7 +335,7 @@ For a first visit, stay in Rosebank or Sandton. Both have Gautrain stations, a g
 
 ## Every Area in This Guide
 
-We are writing up 160 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
+We are writing up 185 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -471,7 +471,7 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Selby
 - **Yeoville**
 
-### South (34 areas)
+### South (32 areas)
 
 - Alan Manor
 - Alberante
@@ -479,7 +479,6 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Booysens
 - Castleview
 - Crown Mines
-- **Diepkloof**
 - Eikenhof
 - Elandspark
 - Eldorado Park
@@ -495,7 +494,6 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Mulbarton
 - Naturena
 - Oakdene
-- Orlando East
 - Ormonde
 - Ridgeway
 - **Robertsham**
@@ -508,9 +506,36 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Turffontein
 - Winchester Hills
 
-### Soweto (1 area)
+### Soweto (28 areas)
 
-- **Soweto**
+- **Chiawelo**
+- **Diepkloof**
+- **Dlamini**
+- **Dobsonville**
+- **Dube**
+- **Emndeni**
+- **Jabavu**
+- **Jabulani**
+- **Klipspruit**
+- **Kliptown**
+- **Mapetla**
+- **Meadowlands**
+- **Mofolo**
+- **Molapo**
+- **Moletsane**
+- **Moroka**
+- **Naledi**
+- **Orlando East**
+- **Orlando West**
+- **Phiri**
+- **Pimville**
+- **Protea Glen**
+- **Protea North**
+- **Senaoane**
+- Soweto
+- **Tladi**
+- **Zola**
+- **Zondi**
 
 ### Just Outside the City (3 areas)
 

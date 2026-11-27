@@ -4784,5 +4784,687 @@
  "gosforth-park": {
   "query": "Gosforth Park",
   "found": false
+ },
+ "liliesleaf": {
+  "query": "Liliesleaf",
+  "found": true,
+  "name": "Liliesleaf Farm",
+  "display_name": "Liliesleaf Farm, George Avenue, Rivonia Gardens, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2151, South Africa",
+  "osm": "way/228363545",
+  "class": "tourism",
+  "type": "attraction",
+  "lat": -26.0440078,
+  "lng": 28.0545953,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      28.0533608,
+      -26.0436548
+     ],
+     [
+      28.0551043,
+      -26.0446742
+     ],
+     [
+      28.0555495,
+      -26.0444163
+     ],
+     [
+      28.0540475,
+      -26.0430572
+     ],
+     [
+      28.0533608,
+      -26.0436548
+     ]
+    ]
+   ]
+  }
+ },
+ "zoo-lake": {
+  "query": "Zoo Lake",
+  "found": true,
+  "name": "Zoo Lake",
+  "display_name": "Zoo Lake, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2193, South Africa",
+  "osm": "way/23370053",
+  "class": "leisure",
+  "type": "park",
+  "lat": -26.1593527,
+  "lng": 28.0304711,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      28.0271617,
+      -26.1575696
+     ],
+     [
+      28.0289666,
+      -26.1606727
+     ],
+     [
+      28.0339947,
+      -26.1656478
+     ],
+     [
+      28.0348182,
+      -26.1623899
+     ],
+     [
+      28.0337154,
+      -26.1608753
+     ],
+     [
+      28.0335287,
+      -26.1599349
+     ],
+     [
+      28.0319127,
+      -26.1583188
+     ],
+     [
+      28.0318923,
+      -26.1575787
+     ],
+     [
+      28.0333148,
+      -26.1553312
+     ],
+     [
+      28.029369,
+      -26.1542491
+     ],
+     [
+      28.0287903,
+      -26.1546538
+     ],
+     [
+      28.0283037,
+      -26.1563226
+     ],
+     [
+      28.0271617,
+      -26.1575696
+     ]
+    ]
+   ]
+  }
+ },
+ "origins-centre": {
+  "query": "Origins Centre",
+  "found": true,
+  "name": "Origins Centre",
+  "display_name": "Origins Centre, Yale Road, Braamfontein, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "way/26327903",
+  "class": "tourism",
+  "type": "museum",
+  "lat": -26.1929473,
+  "lng": 28.0282894,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      28.0279915,
+      -26.1929102
+     ],
+     [
+      28.0283183,
+      -26.1931867
+     ],
+     [
+      28.0286267,
+      -26.1931059
+     ],
+     [
+      28.0285182,
+      -26.1927723
+     ],
+     [
+      28.0279915,
+      -26.1929102
+     ]
+    ]
+   ]
+  }
+ },
+ "orlando-west": {
+  "query": "Orlando West, Johannesburg",
+  "found": true,
+  "name": "Orlando West",
+  "display_name": "Orlando West, Johannesburg Ward 40, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262714379",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2205556,
+  "lng": 27.9147222,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9147222,
+    -26.2205556
+   ]
+  }
+ },
+ "mandela-house": {
+  "query": "Mandela House",
+  "found": true,
+  "name": "Mandela House",
+  "display_name": "Mandela House, 8115, Vilakazi Street, Johannesburg Ward 39, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "way/674918334",
+  "class": "tourism",
+  "type": "museum",
+  "lat": -26.238497,
+  "lng": 27.9088035,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.9087094,
+      -26.2384064
+     ],
+     [
+      27.9088844,
+      -26.2386165
+     ],
+     [
+      27.9089508,
+      -26.2384666
+     ],
+     [
+      27.9087094,
+      -26.2384064
+     ]
+    ]
+   ]
+  }
+ },
+ "orlando-east": {
+  "query": "Orlando East, Johannesburg",
+  "found": true,
+  "name": "Orlando East",
+  "display_name": "Orlando East, Johannesburg Ward 31, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262714377",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2379008,
+  "lng": 27.9279136,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9279136,
+    -26.2379008
+   ]
+  }
+ },
+ "soccer-city": {
+  "query": "Soccer City",
+  "found": true,
+  "name": "FNB Stadium",
+  "display_name": "FNB Stadium, Stadium Avenue, Aeroton, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "way/48848017",
+  "class": "leisure",
+  "type": "stadium",
+  "lat": -26.2347063,
+  "lng": 27.9826439,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.9811356,
+      -26.2347787
+     ],
+     [
+      27.9817375,
+      -26.2358081
+     ],
+     [
+      27.9828198,
+      -26.2360702
+     ],
+     [
+      27.9838052,
+      -26.2355906
+     ],
+     [
+      27.9841501,
+      -26.2346338
+     ],
+     [
+      27.9836643,
+      -26.2337275
+     ],
+     [
+      27.9826547,
+      -26.2333714
+     ],
+     [
+      27.9814853,
+      -26.2338575
+     ],
+     [
+      27.9811356,
+      -26.2347787
+     ]
+    ]
+   ]
+  }
+ },
+ "nasrec": {
+  "query": "Nasrec",
+  "found": true,
+  "name": "Nasrec",
+  "display_name": "Nasrec, Recreation Road, Aeroton, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/335189478",
+  "class": "tourism",
+  "type": "attraction",
+  "lat": -26.2428482,
+  "lng": 27.9803213,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9803213,
+    -26.2428482
+   ]
+  }
+ },
+ "dube": {
+  "query": "Dube, Johannesburg",
+  "found": true,
+  "name": "Dube",
+  "display_name": "Dube, Johannesburg Ward 38, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1808, South Africa",
+  "osm": "node/262705206",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2386111,
+  "lng": 27.8927778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8927778,
+    -26.2386111
+   ]
+  }
+ },
+ "mofolo": {
+  "query": "Mofolo, Johannesburg",
+  "found": true,
+  "name": "Mofolo",
+  "display_name": "Mofolo, Johannesburg Ward 36, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1808, South Africa",
+  "osm": "node/262710258",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2394444,
+  "lng": 27.8833333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8833333,
+    -26.2394444
+   ]
+  }
+ },
+ "jabavu": {
+  "query": "Jabavu, Johannesburg",
+  "found": true,
+  "name": "Jabavu",
+  "display_name": "Jabavu, Johannesburg Ward 35, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1723, South Africa",
+  "osm": "node/262707241",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2466667,
+  "lng": 27.8736111,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8736111,
+    -26.2466667
+   ]
+  }
+ },
+ "moroka": {
+  "query": "Moroka, Johannesburg",
+  "found": true,
+  "name": "Moroka",
+  "display_name": "Moroka, Johannesburg Ward 33, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1860, South Africa",
+  "osm": "node/262712435",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2611111,
+  "lng": 27.875,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.875,
+    -26.2611111
+   ]
+  }
+ },
+ "meadowlands": {
+  "query": "Meadowlands, Johannesburg",
+  "found": true,
+  "name": "Meadowlands East Zone 3",
+  "display_name": "Meadowlands East Zone 3, Johannesburg Ward 41, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/1371671305",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2210981,
+  "lng": 27.9027835,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9027835,
+    -26.2210981
+   ]
+  }
+ },
+ "dobsonville": {
+  "query": "Dobsonville, Johannesburg",
+  "found": true,
+  "name": "Dobsonville",
+  "display_name": "Dobsonville, Johannesburg Ward 48, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1875, South Africa",
+  "osm": "node/262705142",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2238889,
+  "lng": 27.8666667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8666667,
+    -26.2238889
+   ]
+  }
+ },
+ "zola": {
+  "query": "Zola, Johannesburg",
+  "found": true,
+  "name": "Zola",
+  "display_name": "Zola, Johannesburg Ward 51, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1867, South Africa",
+  "osm": "node/262718983",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2422222,
+  "lng": 27.8363889,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8363889,
+    -26.2422222
+   ]
+  }
+ },
+ "jabulani": {
+  "query": "Jabulani, Johannesburg",
+  "found": true,
+  "name": "Jabulani",
+  "display_name": "Jabulani, Johannesburg Ward 46, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1723, South Africa",
+  "osm": "node/262707244",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2422222,
+  "lng": 27.8569444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8569444,
+    -26.2422222
+   ]
+  }
+ },
+ "naledi": {
+  "query": "Naledi, Johannesburg",
+  "found": true,
+  "name": "Naledi",
+  "display_name": "Naledi, Johannesburg Ward 52, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1861, South Africa",
+  "osm": "node/262713092",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2480556,
+  "lng": 27.8236111,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8236111,
+    -26.2480556
+   ]
+  }
+ },
+ "protea-glen": {
+  "query": "Protea Glen, Johannesburg",
+  "found": true,
+  "name": "Protea Glen",
+  "display_name": "Protea Glen, Johannesburg Ward 14, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1819, South Africa",
+  "osm": "node/262715091",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2722222,
+  "lng": 27.8169444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8169444,
+    -26.2722222
+   ]
+  }
+ },
+ "protea-north": {
+  "query": "Protea North, Johannesburg",
+  "found": true,
+  "name": "Protea North",
+  "display_name": "Protea North, Johannesburg Ward 14, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1819, South Africa",
+  "osm": "node/262715092",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2694444,
+  "lng": 27.8319444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8319444,
+    -26.2694444
+   ]
+  }
+ },
+ "chiawelo": {
+  "query": "Chiawelo, Gauteng",
+  "found": false
+ },
+ "senaoane": {
+  "query": "Senaoane, Johannesburg",
+  "found": true,
+  "name": "Senaoane",
+  "display_name": "Senaoane, Johannesburg Ward 15, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1818, South Africa",
+  "osm": "node/262715939",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2758333,
+  "lng": 27.8625,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8625,
+    -26.2758333
+   ]
+  }
+ },
+ "phiri": {
+  "query": "Phiri, Gauteng",
+  "found": false
+ },
+ "mapetla": {
+  "query": "Mapetla, Johannesburg",
+  "found": true,
+  "name": "Mapetla",
+  "display_name": "Mapetla, Johannesburg Ward 16, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1818, South Africa",
+  "osm": "node/262709383",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.27,
+  "lng": 27.8486111,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8486111,
+    -26.27
+   ]
+  }
+ },
+ "tladi": {
+  "query": "Tladi, Johannesburg",
+  "found": true,
+  "name": "Tladi",
+  "display_name": "Tladi, Johannesburg Ward 21, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1867, South Africa",
+  "osm": "node/262717955",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2558333,
+  "lng": 27.8416667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8416667,
+    -26.2558333
+   ]
+  }
+ },
+ "moletsane": {
+  "query": "Moletsane, Johannesburg",
+  "found": true,
+  "name": "Moletsane",
+  "display_name": "Moletsane, Johannesburg Ward 21, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1867, South Africa",
+  "osm": "node/262710276",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2494444,
+  "lng": 27.8491667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8491667,
+    -26.2494444
+   ]
+  }
+ },
+ "molapo": {
+  "query": "Molapo, Johannesburg",
+  "found": true,
+  "name": "Molapo",
+  "display_name": "Molapo, Johannesburg Ward 33, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1723, South Africa",
+  "osm": "node/262710274",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2580556,
+  "lng": 27.8627778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8627778,
+    -26.2580556
+   ]
+  }
+ },
+ "zondi": {
+  "query": "Zondi, Gauteng",
+  "found": false
+ },
+ "dlamini": {
+  "query": "Dlamini, Johannesburg",
+  "found": true,
+  "name": "Dlamini",
+  "display_name": "Dlamini, Johannesburg Ward 19, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1860, South Africa",
+  "osm": "node/262705139",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2727778,
+  "lng": 27.8788889,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.8788889,
+    -26.2727778
+   ]
+  }
+ },
+ "pimville": {
+  "query": "Pimville, Johannesburg",
+  "found": true,
+  "name": "Pimville",
+  "display_name": "Pimville, Johannesburg Ward 22, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262714787",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2711467,
+  "lng": 27.9058557,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9058557,
+    -26.2711467
+   ]
+  }
+ },
+ "kliptown": {
+  "query": "Kliptown, Gauteng",
+  "found": false
+ },
+ "klipspruit": {
+  "query": "Klipspruit, Johannesburg",
+  "found": true,
+  "name": "Klipspruit",
+  "display_name": "Klipspruit, Johannesburg Ward 25, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262707678",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2541667,
+  "lng": 27.9102778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9102778,
+    -26.2541667
+   ]
+  }
+ },
+ "maropeng": {
+  "query": "Maropeng",
+  "found": true,
+  "name": "Maropeng",
+  "display_name": "Maropeng, Ga-Segonyana Ward 12, Ga-Segonyana Local Municipality, John Taolo Gaetsewe District Municipality, Northern Cape, South Africa",
+  "osm": "node/3966425236",
+  "class": "place",
+  "type": "suburb",
+  "lat": -27.3525652,
+  "lng": 23.3721896,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    23.3721896,
+    -27.3525652
+   ]
+  }
+ },
+ "emndeni": {
+  "query": "Emdeni, Johannesburg",
+  "found": true,
+  "name": "Emndeni",
+  "display_name": "Emndeni, Johannesburg Ward 52, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1861, South Africa",
+  "osm": "node/262705820",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2425,
+  "lng": 27.825,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.825,
+    -26.2425
+   ]
+  }
  }
 }

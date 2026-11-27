@@ -2,19 +2,23 @@
 
 Draft of main areas only.
 
-Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = 10 SVG units. The draft is 52 by 56 km.
+Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = 10 SVG units. The draft is 56 by 56 km.
 
 - Areas with an OpenStreetMap outline: 3
-- Areas drawn as rough cells from a point: 52
-- Places not found: 3
-- Hexagons, city level: 1022, 1.0 km across; fewest in one area: 3
-- Hexagons, region level (hexes-region.svg): 6391, 419 m across; fewest in one area: 23
+- Areas drawn as rough cells from a point: 73
+- Places not found: 7
+- Hexagons, city level: 1120, 1.0 km across; fewest in one area: 1
+- Hexagons, region level (hexes-region.svg): 6999, 419 m across; fewest in one area: 10
 
 ## Not found
 
 Add these by hand in Figma, or fix the name and fetch again.
 
 - Glenferness (area, Far North and Midrand)
+- Chiawelo (area, Soweto)
+- Phiri (area, Soweto)
+- Zondi (area, Soweto)
+- Kliptown (area, Soweto)
 - Nooitgedacht (area, Just Outside the City)
 - Gosforth Park (attraction, Just Outside the City)
 
@@ -81,7 +85,7 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Triomf: Sophiatown (Triomf), Johannesburg Ward 86, Johannesburg, City of Johannesburg Metropolitan Municipality, Gaute
 - Bryanston: Bryanston, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa
 - Rivonia: Rivonia, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2128, South 
-- Liliesleaf: position from neighbourhoods.json
+- Liliesleaf: Liliesleaf Farm, George Avenue, Rivonia Gardens, Johannesburg Ward 106, Sandton, City of Johannesburg Metropol
 - Woodmead: Woodmead, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2157, South
 - Morningside: Morningside, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2057, So
 - River Club: River Club, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 1617, Sou
@@ -98,7 +102,7 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Wynberg: Wynberg, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2096, South A
 - Hyde Park: Hyde Park, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2024, South
 - Parkview: Parkview, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
-- Zoo Lake: position from neighbourhoods.json
+- Zoo Lake: Zoo Lake, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2193, Sout
 - Parktown: Parktown, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Illovo: Illovo, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2196, South Af
 - Melrose: Melrose, Johannesburg Ward 74, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2121, South 
@@ -113,21 +117,44 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Bedfordview: Bedfordview, Ekurhuleni Ward 20, City of Ekurhuleni Metropolitan Municipality, Gauteng, 2013, South Africa
 - Auckland Park: Wikipedia: Auckland Park
 - Braamfontein: Braamfontein, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 200
-- Origins Centre: position from neighbourhoods.json
+- Origins Centre: Origins Centre, Yale Road, Braamfontein, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan
 - Yeoville: Yeoville, Johannesburg Ward 67, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Ellis Park Stadium: Emirates Park, South Park Lane, Commercial area, Troyeville, Johannesburg Ward 123, Johannesburg, City of Joha
 - Kensington: Kensington, Johannesburg Ward 66, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
 - Riverlea: Riverlea, Johannesburg Ward 68, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
-- Diepkloof: Diepkloof, Johannesburg Ward 27, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, 
-- Chris Hani Baragwanath: Chris Hani Baragwanath Hospital, 26, Chris Hani Road, Power Park, Johannesburg Ward 24, Johannesburg, City of 
 - Robertsham: Robertsham, Johannesburg Ward 54, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
 - Kenilworth: Kenilworth, Johannesburg Ward 124, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001
 - Meredale: Wikipedia: Meredale
 - Southgate: Southgate Mall, Columbine Avenue, Alan Manor, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metrop
 - Glenvista: Glenvista, Johannesburg Ward 23, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, 
-- Soweto: Johannesburg Ward 53, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa
-- Mandela House: position from neighbourhoods.json
+- Orlando West: Orlando West, Johannesburg Ward 40, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 200
+- Mandela House: Mandela House, 8115, Vilakazi Street, Johannesburg Ward 39, Johannesburg, City of Johannesburg Metropolitan Mu
+- Orlando East: Orlando East, Johannesburg Ward 31, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 200
+- Soccer City: FNB Stadium, Stadium Avenue, Aeroton, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metropolitan M
+- Nasrec: Nasrec, Recreation Road, Aeroton, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metropolitan Munic
+- Dube: Dube, Johannesburg Ward 38, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1808, South Afric
+- Mofolo: Mofolo, Johannesburg Ward 36, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1808, South Afr
+- Jabavu: Jabavu, Johannesburg Ward 35, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1723, South Afr
+- Moroka: Moroka, Johannesburg Ward 33, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1860, South Afr
+- Meadowlands: Meadowlands East Zone 3, Johannesburg Ward 41, Johannesburg, City of Johannesburg Metropolitan Municipality, G
+- Dobsonville: Dobsonville, Johannesburg Ward 48, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1875, Sout
+- Zola: Zola, Johannesburg Ward 51, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1867, South Afric
+- Emndeni: Emndeni, Johannesburg Ward 52, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1861, South Af
+- Jabulani: Jabulani, Johannesburg Ward 46, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1723, South A
+- Naledi: Naledi, Johannesburg Ward 52, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1861, South Afr
+- Protea Glen: Protea Glen, Johannesburg Ward 14, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1819, Sout
+- Protea North: Protea North, Johannesburg Ward 14, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1819, Sou
+- Senaoane: Senaoane, Johannesburg Ward 15, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1818, South A
+- Mapetla: Mapetla, Johannesburg Ward 16, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1818, South Af
+- Tladi: Tladi, Johannesburg Ward 21, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1867, South Afri
+- Moletsane: Moletsane, Johannesburg Ward 21, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1867, South 
+- Molapo: Molapo, Johannesburg Ward 33, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1723, South Afr
+- Dlamini: Dlamini, Johannesburg Ward 19, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, 1860, South Af
+- Pimville: Pimville, Johannesburg Ward 22, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
+- Klipspruit: Klipspruit, Johannesburg Ward 25, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
+- Diepkloof: Diepkloof, Johannesburg Ward 27, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, 
+- Chris Hani Baragwanath: Chris Hani Baragwanath Hospital, 26, Chris Hani Road, Power Park, Johannesburg Ward 24, Johannesburg, City of 
 - Lion & Safari Park: Lion Park, Nkomazi Ward 7, Nkomazi, Ehlanzeni, Mpumalanga, South Africa
-- Maropeng: position from neighbourhoods.json
+- Maropeng: Maropeng, Ga-Segonyana Ward 12, Ga-Segonyana Local Municipality, John Taolo Gaetsewe District Municipality, No
 - Lanseria: Wikipedia: Lanseria International Airport (the area is named after it)
 - Hartbeespoort: Wikipedia: Hartbeespoort

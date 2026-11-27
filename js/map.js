@@ -113,12 +113,16 @@
     return y / (n.length / 2);
   }
 
-  function lift(id, grp) {
-    var cells = [].map.call(grp.querySelectorAll('path'), function (p) {
-      var d = p.getAttribute('d');
-      return { d: d, y: centreY(d) };
-    }).sort(function (a, b) { return a.y - b.y; });
-    var n = cells.length > 300 ? 4 : SLICES, height = view[3] * 0.1;
+  function lift(groups, name, share) {  // groups: the hexagon groups to raise; name: the label over them
+    var cells = [];
+    groups.forEach(function (grp) {
+      [].forEach.call(grp.querySelectorAll('path'), function (p) {
+        var d = p.getAttribute('d');
+        cells.push({ d: d, y: centreY(d) });
+      });
+    });
+    cells.sort(function (a, b) { return a.y - b.y; });
+    var n = cells.length > 300 ? 4 : SLICES, height = view[3] * share;
     var g = document.createElementNS(NS, 'g');
     g.setAttribute('class', 'lift');
     g.style.setProperty('--step', (height / n).toFixed(2) + 'px');
@@ -130,20 +134,48 @@
         g.appendChild(s);
       }
     });
-    var box = grp.getBBox(), label = svg.getElementById('label-' + id);
-    if (label) {
-      var l = label.cloneNode(true);
-      l.removeAttribute('id');
-      l.setAttribute('class', 'lift-label');
-      l.setAttribute('x', box.x + box.width / 2);
-      l.setAttribute('y', box.y - height - 8 * view[2] / full[2]);
-      g.appendChild(l);
-    }
+    var x0 = Infinity, x1 = -Infinity, y0 = Infinity;
+    groups.forEach(function (grp) {
+      var b = grp.getBBox();
+      x0 = Math.min(x0, b.x); x1 = Math.max(x1, b.x + b.width); y0 = Math.min(y0, b.y);
+    });
+    var l = document.createElementNS(NS, 'text');
+    l.setAttribute('class', 'lift-label');
+    l.setAttribute('x', (x0 + x1) / 2);
+    l.setAttribute('y', y0 - height - 8 * view[2] / full[2]);
+    l.setAttribute('text-anchor', 'middle');
+    l.setAttribute('font-size', '13');
+    l.setAttribute('font-weight', '700');
+    l.setAttribute('font-family', 'Inter, Arial, sans-serif');
+    l.setAttribute('stroke-width', '3');
+    l.setAttribute('paint-order', 'stroke');
+    l.textContent = name;
+    g.appendChild(l);
     svg.appendChild(g);
     requestAnimationFrame(function () { requestAnimationFrame(function () { g.classList.add('up'); }); });
   }
 
+  function pickRegion(rid) {  // a whole part of the city: stay at whole-city view and raise every suburb in it
+    clear();
+    svg.classList.remove('fine');
+    var opts = [].slice.call(sel.querySelectorAll('option[data-region="' + rid + '"]'));
+    var groups = opts.map(function (o) { return svg.getElementById('hex-' + o.value); }).filter(Boolean);
+    if (!groups.length) return;
+    out.hidden = false;
+    svg.classList.add('picking');
+    groups.forEach(function (g) { g.classList.add('picked'); });
+    var name = sel.options[sel.selectedIndex].getAttribute('data-name');
+    info.textContent = '';
+    var h = document.createElement('h3'), p = document.createElement('p');
+    h.textContent = name;
+    p.textContent = groups.length + ' suburbs on the map: ' + opts.map(function (o) { return o.textContent; }).join(', ') + '. Pick one to zoom in.';
+    info.appendChild(h);
+    info.appendChild(p);
+    zoomTo(full.slice(), function () { lift(groups, name, 0.05); });
+  }
+
   function pick(id) {
+    if (id && id.indexOf('all:') === 0) return pickRegion(id.slice(4));
     clear();
     var city = id && svg.getElementById('hex-' + id);
     if (!city) { info.textContent = ''; whole(); return; }
@@ -157,7 +189,7 @@
     zoomTo(target, function () {
       var grp = showFine(target) && fineGroup(id);
       if (grp) grp.classList.add('picked');
-      lift(id, grp || city);
+      lift([grp || city], sel.options[sel.selectedIndex].textContent, 0.1);
     });
   }
 
