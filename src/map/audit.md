@@ -6,7 +6,7 @@ Drawn by tools/make_map.py from the positions in neighbourhoods.json and attract
 
 - Areas with an OpenStreetMap outline: 6
 - Areas drawn as rough cells from a point: 163
-- Places not found: 30
+- Places not found: 34
 - Hexagons, city level: 1230, 1.0 km across; fewest in one area: 1
 - Hexagons, region level (hexes-region.svg): 7693, 419 m across; fewest in one area: 3
 
@@ -42,6 +42,10 @@ These have no position (geo). Run tools/fetch_map_sources.py, or look one up (an
 - Phiri (area, Soweto)
 - Zondi (area, Soweto)
 - Nooitgedacht (area, Just Outside the City)
+- Benoni (area, Just Outside the City)
+- Boksburg (area, Just Outside the City)
+- Springs (area, Just Outside the City)
+- Brakpan (area, Just Outside the City)
 - Northgate and The Dome (attraction, North West and Randburg)
 - Gosforth Park (attraction, Just Outside the City)
 

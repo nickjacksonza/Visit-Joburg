@@ -228,9 +228,9 @@
 
   function stationHexes() {  // the 1 km hexagons that hold a Gautrain station, each with its station's name
     var found = [], seen = {}, paths = [].slice.call(svg.querySelectorAll('#hexes path'));
-    [].forEach.call(svg.querySelectorAll('#gautrain-stations > g, #sandton-station'), function (n) {
+    [].forEach.call(svg.querySelectorAll('#gautrain-stations > g'), function (n) {
       var b = n.getBBox(), pt = new DOMPoint(b.x + b.width / 2, b.y + b.height / 2), id = n.id.replace(/^station-/, ''),
-        t = svg.getElementById(n.id === 'sandton-station' ? 'station-label-san' : 'station-label-' + id);
+        t = svg.getElementById('station-label-' + id);
       var hit = null, near = null, best = Infinity;
       for (var i = 0; i < paths.length && !hit; i++) {
         if (paths[i].isPointInFill && paths[i].isPointInFill(pt)) hit = paths[i];

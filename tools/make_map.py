@@ -342,7 +342,7 @@ if _main.exists():
 
 # The Gautrain: its two rail lines and the stations inside the map, from src/map/source/gautrain.json. The lines run
 # straight from station to station, so they show the order of stops, not the true track. Under the ring road, which
-# stays the most prominent line. Sandton Station is also an attraction, so its dot is drawn with the attractions.
+# stays the most prominent line. Sandton Station is also an attraction, so it gets an attraction icon on top.
 _gt = ROOT / "src" / "map" / "source" / "gautrain.json"
 if _gt.exists():
     GT = json.loads(_gt.read_text(encoding="utf-8"))
@@ -367,8 +367,6 @@ if _gt.exists():
         svg.append(f'<path id="{ln["id"].lower()}" data-name="{esc(ln["name"])}" d="{d}" fill="none" stroke="{GOLD}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>')
     svg.append('<g id="gautrain-stations">')
     for st, sx, sy in gstations:
-        if st["id"] == "STN-SAN":  # drawn as the sandton-station attraction
-            continue
         svg.append(f'<g id="station-{st["id"][4:].lower()}" data-name="{esc(st["name"])}"><circle cx="{sx:.0f}" cy="{sy:.0f}" r="5" fill="{PAPER}" stroke="{GOLD}" stroke-width="3"/></g>')
     svg.append("</g>")
     svg.append('<g id="gautrain-labels">')
@@ -469,14 +467,69 @@ if city.get("found"):
     if g is not None and g.geom_type in ("Polygon", "MultiPolygon"):
         svg.append(f'<g id="city-boundary"><path id="city-of-johannesburg" d="{path_d(g)}" fill="none" stroke="{PAPER}" stroke-width="2" stroke-dasharray="10 5" stroke-opacity="0.4"/></g>')
 
-svg.append('<g id="attractions">')
+# Attraction icons. Each attraction has a round marker with an icon for its category (from its tags). At whole-city view
+# attractions within 1 km of each other share one marker (layer attraction-clusters, a count badge when there are
+# several); zoomed in, each has its own (layer attractions). Icons are line drawings on a 24 by 24 grid, our own.
+ICONS = {
+    "transport": '<rect x="6" y="3" width="12" height="14" rx="3"/><path d="M6 11h12M9 21l2-4M15 21l-2-4"/><circle cx="9.5" cy="14" r=".7"/><circle cx="14.5" cy="14" r=".7"/>',
+    "museums": '<path d="M3 8l9-5 9 5z"/><path d="M5 11v7M10 11v7M14 11v7M19 11v7M3 21h18"/>',
+    "history": '<path d="M12 2l3 5v11H9V7z"/><path d="M6 21h12"/>',
+    "sport": '<ellipse cx="12" cy="12" rx="9" ry="6"/><ellipse cx="12" cy="12" rx="4" ry="2.2"/>',
+    "shopping": '<path d="M6 8h12l1 13H5z"/><path d="M9 8V7a3 3 0 0 1 6 0v1"/>',
+    "entertainment": '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+    "science": '<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/>',
+    "arts": '<rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M4 17l5-4 4 3 3-2 4 3"/>',
+    "markets": '<path d="M4 9h16l-1-5H5z"/><path d="M5 9v11h14V9"/>',
+    "nightlife": '<path d="M6 4h12l-6 8z"/><path d="M12 12v8M8 20h8"/>',
+    "food": '<path d="M8 3v8M5 3v5a3 3 0 0 0 6 0V3M8 11v10M17 3c-2 2-2 6 0 8v10"/>',
+    "outdoors": '<path d="M12 21v-6"/><path d="M12 3l6 8h-3l4 6H5l4-6H6z"/>',
+    "family": '<circle cx="9" cy="7" r="2.5"/><circle cx="17" cy="9" r="2"/><path d="M4 20v-3a5 5 0 0 1 10 0v3M15 20v-2a3.5 3.5 0 0 1 6 0v2"/>',
+    "architecture": '<path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/>',
+    "day-trips": '<path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+}
+ICON_ORDER = ["transport", "museums", "history", "sport", "shopping", "entertainment", "science", "arts", "markets", "nightlife", "food", "outdoors", "family", "architecture", "day-trips"]
+
+
+def icon_of(tags):
+    return next((t for t in ICON_ORDER if t in tags), "day-trips")
+
+
+svg.append("<defs>" + "".join(f'<symbol id="icon-{k}" viewBox="0 0 24 24">{v}</symbol>' for k, v in ICONS.items()) + "</defs>")
+marks = []
 for p in places:
     if p["kind"] != "attraction" or p["region"] == "outlying" or p["id"] not in hits:
         continue
     x, y = proj(hits[p["id"]]["lng"], hits[p["id"]]["lat"])
     if not (minx - PAD < x < maxx + PAD and miny - PAD < y < maxy + PAD):
         continue
-    svg.append(f'<circle id="{p["id"]}" data-name="{esc(p["name"])}" cx="{(x - ox) * UNIT:.1f}" cy="{(y - oy) * UNIT:.1f}" r="5" fill="{INK}" stroke="{PAPER}" stroke-width="2"/>')
+    marks.append((p, x, y))
+
+
+def marker(mid, name, sx, sy, icon, count=0, extra=""):
+    out = (f'<g id="{mid}" data-name="{esc(name)}"{extra}><circle cx="{sx:.1f}" cy="{sy:.1f}" r="9" fill="{PAPER}" stroke="{INK}" stroke-width="1.5"/>'
+           f'<use href="#icon-{icon}" x="{sx - 6:.1f}" y="{sy - 6:.1f}" width="12" height="12" fill="none" stroke="{INK}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>')
+    if count > 1:
+        out += (f'<circle cx="{sx + 7:.1f}" cy="{sy - 7:.1f}" r="4.5" fill="{INK}" stroke="{PAPER}" stroke-width="1"/>'
+                f'<text x="{sx + 7:.1f}" y="{sy - 4.8:.1f}" font-family="Inter, Arial, sans-serif" font-size="6.5" font-weight="700" text-anchor="middle" fill="{PAPER}">{count}</text>')
+    return out + "</g>"
+
+
+svg.append('<g id="attractions" display="none">')  # zoomed in (js/map.js shows it): one marker each
+for p, x, y in marks:
+    svg.append(marker(p["id"], p["name"], (x - ox) * UNIT, (y - oy) * UNIT, icon_of(p["tags"])))
+svg.append("</g>")
+svg.append('<g id="attraction-clusters">')  # whole-city view: one marker for attractions within 1 km of each other
+clusters = []
+for p, x, y in marks:
+    c = next((c for c in clusters if math.hypot(c[0][1] - x, c[0][2] - y) < 1.0), None)
+    if c is None:
+        clusters.append([(p, x, y)])
+    else:
+        c.append((p, x, y))
+for c in clusters:
+    p, x, y = c[0]
+    names = ", ".join(m[0]["name"] for m in c)
+    svg.append(marker(f'cluster-{p["id"]}', names, (x - ox) * UNIT, (y - oy) * UNIT, icon_of(set(t for m in c for t in m[0]["tags"])), len(c)))
 svg.append("</g>")
 
 svg.append('<g id="labels">')

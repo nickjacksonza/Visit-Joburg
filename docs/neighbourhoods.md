@@ -629,7 +629,7 @@ Also called restaurant strips.
 
 ## Every Area in This Guide
 
-We are writing up 199 areas in 9 parts of the city, and 171 of them are on the map so far. Soweto is listed township by township. The main areas are in bold, and an area with a guide is a link.
+We are writing up 203 areas in 9 parts of the city, and 171 of them are on the map so far. Soweto is listed township by township. The main areas are in bold, and an area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -851,11 +851,15 @@ We are writing up 199 areas in 9 parts of the city, and 171 of them are on the m
 - Zola
 - Zondi
 
-### Just Outside the City (3 areas)
+### Just Outside the City (7 areas)
 
+- Benoni
+- Boksburg
+- Brakpan
 - **Hartbeespoort**
 - Lanseria
 - Nooitgedacht
+- Springs
 
 Next: [how to get around](https://example.com/getting-around.html).
 
