@@ -70,6 +70,53 @@ def load_events():
 
 
 EVENTS = load_events()
+
+
+# ---------------------------------------------------------------- neighbourhoods and the places in them
+PLACES_FILE = SRC / "data" / "neighbourhoods.json"
+PLACE_KINDS = ("area", "attraction")
+
+
+def load_places():
+    """Read and check src/data/neighbourhoods.json: every area and attraction the guide plans to cover.
+    A bad entry fails the build. Entries start as a name only; fill in tags, geo and summary as each place is written up."""
+    data = json.loads(PLACES_FILE.read_text(encoding="utf-8"))
+    tags, regions = data["tags"], {r["id"]: r for r in data["regions"]}
+    places, attractions = {}, {a["id"] for a in site["attractions"]}
+    for p in data["places"]:
+        where = f"neighbourhoods.json: {p.get('name') or p.get('id')}"
+        if not isinstance(p.get("id"), str) or not SLUG.match(p["id"]) or p["id"] in places:
+            raise SystemExit(f"{where}: missing or duplicate id")
+        if not isinstance(p.get("name"), str) or not p["name"].strip() or BAD_CHARS.search(p["name"]):
+            raise SystemExit(f"{where}: bad name")
+        if p.get("region") not in regions:
+            raise SystemExit(f"{where}: unknown region {p.get('region')!r}")
+        if p.get("kind") not in PLACE_KINDS or not isinstance(p.get("major"), bool):
+            raise SystemExit(f"{where}: kind must be area or attraction, and major true or false")
+        if p["parent"] is not None and (p["kind"] != "attraction" or places.get(p["parent"], {}).get("kind") != "area"):
+            raise SystemExit(f"{where}: parent must be an area listed above it, and only attractions have a parent")
+        if p.get("attraction_id") and p["attraction_id"] not in attractions:
+            raise SystemExit(f"{where}: attraction_id {p['attraction_id']!r} is not in site.json attractions")
+        bad = [x for x in p["tags"] if x not in tags]
+        if bad:
+            raise SystemExit(f"{where}: unknown tags {bad}. Add them to the tags list at the top of the file first.")
+        g = p["geo"]
+        if g is not None and not (isinstance(g, dict) and -27 < g.get("lat", 0) < -25 and 27 < g.get("lng", 0) < 29):
+            raise SystemExit(f"{where}: geo must be null or {{\"lat\": -26.2, \"lng\": 28.0}} near Johannesburg")
+        for k, lim in (("summary", 300), ("good_for", 120), ("notes", 300)):
+            if len(p.get(k, "")) > lim or BAD_CHARS.search(p.get(k, "")):
+                raise SystemExit(f"{where}: {k} is too long or has < > or control characters")
+        places[p["id"]] = p
+    for a in site["attractions"]:
+        if a.get("neighbourhood") is not None and places.get(a["neighbourhood"], {}).get("kind") != "area":
+            raise SystemExit(f"site.json attraction {a['id']}: neighbourhood {a['neighbourhood']!r} is not an area in neighbourhoods.json")
+    for page in (SRC / "pages" / "neighbourhoods").glob("*.html"):
+        if page.stem not in places or not places[page.stem]["summary"]:
+            raise SystemExit(f"{page.relative_to(ROOT)}: add {page.stem!r} to neighbourhoods.json with a summary first")
+    return tags, regions, places
+
+
+TAGS, REGIONS, PLACES = load_places()
 IMAGES = {i["name"]: i for i in json.loads((SRC / "data" / "images.json").read_text(encoding="utf-8"))}
 
 
@@ -155,12 +202,84 @@ def attractions_html(root=""):
     return "\n".join(out)
 
 
-def neighbourhoods_html():
-    return "\n".join(
-        f'<section class="card" id="{n["id"]}"><h3>{esc(n["name"])}</h3><p>{esc(n["summary"])}</p>'
-        f'<p class="muted">Good for: {esc(n["for"])}</p>'
-        f'<p><a href="{maps_url(n["name"], n["lat"], n["lng"])}">Open in Maps<span class="visually-hidden">: {esc(n["name"])}</span></a></p></section>'
-        for n in site["neighbourhoods"])
+def has_page(p):
+    return (SRC / "pages" / "neighbourhoods" / f"{p['id']}.html").exists()
+
+
+def featured_areas():
+    """Areas with a summary, in file order: the ones written up so far."""
+    return [p for p in PLACES.values() if p["kind"] == "area" and p["summary"]]
+
+
+def places_here(area):
+    """Attractions in an area: those listed under it in neighbourhoods.json, plus the things-to-do attractions linked to it."""
+    kids = [p for p in PLACES.values() if p["parent"] == area["id"]]
+    linked = {p.get("attraction_id") for p in kids}
+    return kids + [a for a in site["attractions"] if a.get("neighbourhood") == area["id"] and a["id"] not in linked]
+
+
+def place_link(x, root):
+    """Where a place in an info box links to: its own page, or its card on the things-to-do page."""
+    if x.get("kind") == "area" and has_page(x):
+        return f'{root}neighbourhoods/{x["id"]}.html'
+    aid = x["id"] if "kind" not in x else x.get("attraction_id")
+    return f"{root}things-to-do.html#{aid}" if aid else ""
+
+
+def info_box(pid, root, level=2):
+    """A short fact box about one area, built from neighbourhoods.json. Use {{ info_box }} on an area's own page,
+    or {{ info_box_<id> }} (heading level 3) inside a section of any other page."""
+    p = PLACES[pid]
+    h = f"h{level}"
+    rows = [("Part of the city", REGIONS[p["region"]]["name"])]
+    if p["tags"]:
+        rows.append(("Good for", ", ".join(TAGS[x] for x in p["tags"])))
+    items = []
+    for x in places_here(p):
+        href = place_link(x, root)
+        name = esc(x["name"])
+        items.append(f'<li><a href="{href}">{name}</a></li>' if href else f"<li>{name}</li>")
+    dl = "".join(f"<dt>{esc(k)}</dt><dd>{esc(v)}</dd>" for k, v in rows)
+    if items:
+        dl += f'<dt>Places here</dt><dd><ul>{"".join(items)}</ul></dd>'
+    links = []
+    if has_page(p) and level != 2:  # level 2 is the box on the area's own page, which needs no link to itself
+        links.append(f'<a href="{root}neighbourhoods/{pid}.html">Read the {esc(p["name"])} guide</a>')
+    if p["geo"]:
+        links.append(f'<a href="{maps_url(p["name"], p["geo"]["lat"], p["geo"]["lng"])}">Open in Maps<span class="visually-hidden">: {esc(p["name"])}</span></a>')
+    foot = f'<p>{" &middot; ".join(links)}</p>' if links else ""
+    return (f'<aside class="info-box" aria-labelledby="ib-{pid}"><{h} id="ib-{pid}">{esc(p["name"])} at a Glance</{h}>'
+            f'<p>{esc(p["summary"])}</p><dl>{dl}</dl>{foot}</aside>')
+
+
+def neighbourhoods_html(root=""):
+    out = []
+    for n in featured_areas():
+        links = []
+        if has_page(n):
+            links.append(f'<a href="{root}neighbourhoods/{n["id"]}.html">Read the {esc(n["name"])} guide</a>')
+        if n["geo"]:
+            links.append(f'<a href="{maps_url(n["name"], n["geo"]["lat"], n["geo"]["lng"])}">Open in Maps<span class="visually-hidden">: {esc(n["name"])}</span></a>')
+        good = f'<p class="muted">Good for: {esc(n["good_for"])}</p>' if n.get("good_for") else ""
+        out.append(f'<section class="card" id="{n["id"]}"><h3>{esc(n["name"])}</h3><p>{esc(n["summary"])}</p>{good}'
+                   f'<p>{" &middot; ".join(links)}</p></section>')
+    return "\n".join(out)
+
+
+def directory_html(root=""):
+    """Every area in neighbourhoods.json, grouped by part of the city. Main areas are in bold. Works without script."""
+    out = []
+    for r in REGIONS.values():
+        areas = [p for p in PLACES.values() if p["region"] == r["id"] and p["kind"] == "area"]
+        if not areas:
+            continue
+        lis = []
+        for p in sorted(areas, key=lambda p: p["name"]):
+            name = esc(p["name"])
+            name = f'<a href="{root}neighbourhoods/{p["id"]}.html">{name}</a>' if has_page(p) else name
+            lis.append(f"<li><strong>{name}</strong></li>" if p["major"] else f"<li>{name}</li>")
+        out.append(f'<details class="faq"><summary>{esc(r["name"])} ({len(areas)} area{"" if len(areas) == 1 else "s"})</summary><ul class="area-list">{"".join(lis)}</ul></details>')
+    return "\n".join(out)
 
 
 def posts_html(root=""):
@@ -228,9 +347,32 @@ def attraction_node(a):
     return n
 
 
-def neighbourhood_node(x, url):
-    return {"@type": "Place", "@id": f"{url}#{x['id']}", "name": x["name"], "description": x["summary"], "geo": geo(x),
-            "hasMap": maps_url(x["name"], x["lat"], x["lng"]), "containedInPlace": {"@id": DEST}}
+def place_id(p):
+    """One @id per area: its own page if it has one, else its card on the neighbourhoods page."""
+    return f"{D}/neighbourhoods/{p['id']}.html#place" if has_page(p) else f"{D}/neighbourhoods.html#{p['id']}"
+
+
+def neighbourhood_node(p, full=False):
+    n = {"@type": "Place", "@id": place_id(p), "name": p["name"], "description": p["summary"], "containedInPlace": {"@id": DEST}}
+    if p.get("aka"):
+        n["alternateName"] = p["aka"]
+    if p["geo"]:
+        n["geo"] = geo(p["geo"])
+        n["hasMap"] = maps_url(p["name"], p["geo"]["lat"], p["geo"]["lng"])
+    if p["tags"]:
+        n["keywords"] = [TAGS[x] for x in p["tags"]]
+    if full:
+        here = []
+        for x in places_here(p):
+            if "kind" not in x:  # a things-to-do attraction, described on that page
+                here.append({"@id": attraction_id(x)})
+            elif x.get("attraction_id"):
+                here.append({"@id": f"{D}/things-to-do.html#{x['attraction_id']}"})
+            else:
+                here.append({"@type": "Place", "name": x["name"], **({"description": x["summary"]} if x["summary"] else {})})
+        if here:
+            n["containsPlace"] = here
+    return n
 
 
 def faq_node(url):
@@ -267,8 +409,13 @@ def graph(page):
         webpage["mainEntity"] = {"@type": "ItemList", "numberOfItems": len(site["attractions"]),
                                  "itemListElement": [{"@type": "ListItem", "position": i, "item": {"@id": attraction_id(a)}} for i, a in enumerate(site["attractions"], 1)]}
     elif kind == "neighbourhoods":
-        nodes += [neighbourhood_node(x, url) for x in site["neighbourhoods"]]
-        webpage["mainEntity"] = {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i, "item": {"@id": f"{url}#{x['id']}"}} for i, x in enumerate(site["neighbourhoods"], 1)]}
+        areas = featured_areas()
+        nodes += [neighbourhood_node(x) for x in areas]
+        webpage["mainEntity"] = {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i, "item": {"@id": place_id(x)}} for i, x in enumerate(areas, 1)]}
+    elif kind == "neighbourhood":
+        p = PLACES[page["place"]]
+        nodes.append(neighbourhood_node(p, full=True))
+        webpage["about"] = webpage["mainEntity"] = {"@id": place_id(p)}
     elif kind == "faq":
         # The FAQPage is the WebPage itself here, so its questions go on the same node.
         webpage["mainEntity"] = faq_node(url)["mainEntity"]
@@ -368,10 +515,14 @@ def build_context(meta, body, rel, root, modified):
     if rel not in ("index.html", "404.html") and not rel.endswith("/index.html"):
         if rel.startswith("blog/"):
             crumbs.append(("Blog", f"{D}/blog.html"))
+        if rel.startswith("neighbourhoods/"):
+            crumbs.append(("Neighbourhoods", f"{D}/neighbourhoods.html"))
         crumbs.append((meta.get("crumb", meta["title"]), canonical))
     page = {**meta, "canonical": canonical, "modified": modified, "crumbs": crumbs, "body_": body}
     if rel.startswith("blog/"):
         page["kind"], page["slug_"] = "post", Path(rel).stem
+    if rel.startswith("neighbourhoods/"):
+        page["kind"], page["place"] = "neighbourhood", Path(rel).stem
     ctx = {**{k: v for k, v in site.items() if isinstance(v, (str, int))}, **meta}
     post = next((p for p in site["posts"] if rel == f'blog/{p["slug"]}.html'), None)
     ctx.update({
@@ -386,9 +537,12 @@ def build_context(meta, body, rel, root, modified):
         "phone_link": f'<a href="tel:{site["phone_e164"]}">{esc(site["phone"])}</a>', "year": datetime.date.today().year,
         "robots": meta.get("robots", "index, follow, max-image-preview:large"),
         "hero_preload": (f'<link rel="preload" as="image" type="image/avif" href="{root}images/hero-800w.avif" imagesrcset="{root}images/hero-480w.avif 480w, {root}images/hero-800w.avif 800w, {root}images/hero.avif 1200w" imagesizes="{IMAGES["hero"]["sizes"]}" fetchpriority="high">' if meta.get("hero") == "true" else ""),
-        "faq_html": faq_html(), "attractions_html": attractions_html(root), "neighbourhoods_html": neighbourhoods_html(),
+        "faq_html": faq_html(), "attractions_html": attractions_html(root), "neighbourhoods_html": neighbourhoods_html(root), "directory_html": directory_html(root),
         "events_html": events_html(), "posts_html": posts_html(root), "share_html": share_html(canonical, meta["title"]), "foot_social": foot_social(),
-        "attraction_count": len(site["attractions"]), "neighbourhood_count": len(site["neighbourhoods"]),
+        "attraction_count": len(site["attractions"]), "neighbourhood_count": len(featured_areas()),
+        "area_count": sum(p["kind"] == "area" for p in PLACES.values()),
+        "info_box": info_box(Path(rel).stem, root) if rel.startswith("neighbourhoods/") else "",
+        **{f"info_box_{pid}": info_box(pid, root, level=3) for pid, p in PLACES.items() if p["kind"] == "area" and p["summary"]},
         "img_hero": img("hero", root, eager=True), "img_card_history": img("card-history", root),
         "img_card_neighbourhoods": img("card-neighbourhoods", root), "img_card_outdoors": img("card-outdoors", root),
         "img_post": img(post["img"], root, eager=True) if post else "",

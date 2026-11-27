@@ -23,6 +23,6 @@ Every build runs automated checks on headings, images, links, forms and colour c
 
 Email hello@example.com. We reply within two working days.
 
-Last reviewed: 11 November 2026.
+Last reviewed: 26 November 2026.
 
 Source: https://example.com/accessibility.html

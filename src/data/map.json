@@ -1,0 +1,26 @@
+{
+  "views": [
+    {"id": "city", "name": "Whole city", "fit": "ring-road", "labels": "major", "for": "Getting your bearings"},
+    {"id": "sandton-rosebank", "name": "Sandton and Rosebank", "fit": ["sandown", "rosebank", "illovo", "melrose", "hyde-park", "morningside"], "labels": "all", "for": "Business visitors and a first base"},
+    {"id": "central", "name": "Central", "fit": ["braamfontein", "newtown", "marshalltown", "maboneng", "hillbrow", "auckland-park"], "labels": "all", "for": "History, arts and food"},
+    {"id": "soweto", "name": "Soweto", "fit": ["soweto", "diepkloof", "orlando-east"], "labels": "all", "for": "History and guided tours"},
+    {"id": "far-north", "name": "Far North", "fit": ["fourways", "lonehill", "dainfern", "kyalami", "sunninghill"], "labels": "all", "for": "Families, shopping and entertainment"}
+  ],
+  "visitor_types": [
+    {"id": "first-time", "name": "First-time visitor", "view": "city", "tags": ["history", "food", "markets"]},
+    {"id": "business", "name": "Business traveller", "view": "sandton-rosebank", "tags": ["food", "nightlife", "shopping"]},
+    {"id": "family", "name": "Family day out", "view": "city", "tags": ["family", "outdoors"]},
+    {"id": "history", "name": "History and culture", "view": "central", "tags": ["history", "arts"]},
+    {"id": "food-nightlife", "name": "Food and nightlife", "view": "city", "tags": ["food", "nightlife", "markets"]},
+    {"id": "shopping", "name": "Shopping", "view": "city", "tags": ["shopping", "markets"]}
+  ],
+  "hexes_across_ring": 20,
+  "hex_levels": [
+    {"level": "city", "hexes_across_ring": 20, "note": "The whole-city view: about 1 km hexagons, about 960 in all."},
+    {"level": "region", "hexes_across_ring": 50, "note": "Region views such as Sandton and Rosebank: about 420 m hexagons, about 6,000 in all, in hexes-region.svg."},
+    {"level": "detail", "hexes_across_ring": 200, "note": "Zoomed-in detail views only (for example Sandton): about 100 m hexagons, loaded for the part of the map on screen."}
+  ],
+  "highlight": {"shape": "hexagon", "layer": "hexes", "note": "A toggle fills the hexagons (hex-<place id>) of every area whose tags match."},
+  "landmark": {"layer": "ring-road", "note": "The ring road (N1 Western, N3 Eastern and N12 Southern Bypass) is always shown, above the area shading, in every view."},
+  "credit": "Base outlines © OpenStreetMap contributors"
+}

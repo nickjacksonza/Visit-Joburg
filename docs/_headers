@@ -57,6 +57,14 @@
   Link: <https://example.com/>; rel="canonical"
   X-Robots-Tag: noindex
 
+/neighbourhoods/braamfontein.md
+  Link: <https://example.com/neighbourhoods/braamfontein.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
+/neighbourhoods/fourways.md
+  Link: <https://example.com/neighbourhoods/fourways.html>; rel="canonical"
+  X-Robots-Tag: noindex
+
 /neighbourhoods.md
   Link: <https://example.com/neighbourhoods.html>; rel="canonical"
   X-Robots-Tag: noindex

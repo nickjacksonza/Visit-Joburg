@@ -119,3 +119,10 @@ h1,h2,h3,.brand{font-family:var(--display);font-weight:600;letter-spacing:.01em}
   body.nav-open{overflow:hidden}
 }
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* info box about one area, built from neighbourhoods.json */
+.info-box{background:var(--soft);border:1px solid var(--line);border-left:6px solid var(--green);border-radius:var(--radius);padding:1rem 1.25rem;margin:1.5rem 0}
+.info-box h2,.info-box h3{margin:0 0 .4rem;font-size:1.2rem}
+.info-box dl{display:grid;grid-template-columns:max-content 1fr;gap:.35rem 1rem;margin:.75rem 0}
+.info-box dt{font-weight:600}.info-box dd{margin:0}.info-box dd ul{margin:0;padding-left:1.1rem}
+@media (max-width:30em){.info-box dl{grid-template-columns:1fr}.info-box dd{margin-bottom:.4rem}}
+.area-list{columns:12rem;column-gap:1.5rem;padding-left:1.1rem;margin:.5rem 0 1rem}.area-list li{break-inside:avoid;margin:.15rem 0}

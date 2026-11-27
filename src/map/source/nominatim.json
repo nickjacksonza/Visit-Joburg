@@ -1,0 +1,4788 @@
+{
+ "_city": {
+  "query": "City of Johannesburg Metropolitan Municipality",
+  "found": true,
+  "name": "City of Johannesburg Metropolitan Municipality",
+  "display_name": "City of Johannesburg Metropolitan Municipality, Gauteng, South Africa",
+  "osm": "relation/594508",
+  "class": "boundary",
+  "type": "administrative",
+  "lat": -26.214795,
+  "lng": 27.9194779,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.71427,
+      -26.21387
+     ],
+     [
+      27.72495,
+      -26.2387
+     ],
+     [
+      27.72653,
+      -26.24019
+     ],
+     [
+      27.72611,
+      -26.24037
+     ],
+     [
+      27.72853,
+      -26.24249
+     ],
+     [
+      27.72915,
+      -26.24629
+     ],
+     [
+      27.75348,
+      -26.25804
+     ],
+     [
+      27.74465,
+      -26.27949
+     ],
+     [
+      27.7438,
+      -26.28722
+     ],
+     [
+      27.77651,
+      -26.28533
+     ],
+     [
+      27.7828,
+      -26.30435
+     ],
+     [
+      27.78972,
+      -26.30391
+     ],
+     [
+      27.7923,
+      -26.28747
+     ],
+     [
+      27.81368,
+      -26.28565
+     ],
+     [
+      27.8138,
+      -26.28477
+     ],
+     [
+      27.81421,
+      -26.28473
+     ],
+     [
+      27.81484,
+      -26.285
+     ],
+     [
+      27.81515,
+      -26.28692
+     ],
+     [
+      27.81529,
+      -26.30339
+     ],
+     [
+      27.82181,
+      -26.30407
+     ],
+     [
+      27.82447,
+      -26.33748
+     ],
+     [
+      27.81045,
+      -26.33289
+     ],
+     [
+      27.81159,
+      -26.364475
+     ],
+     [
+      27.751864,
+      -26.361995
+     ],
+     [
+      27.754736,
+      -26.38411
+     ],
+     [
+      27.76129,
+      -26.41915
+     ],
+     [
+      27.78618,
+      -26.41898
+     ],
+     [
+      27.79163,
+      -26.42019
+     ],
+     [
+      27.79455,
+      -26.42888
+     ],
+     [
+      27.78594,
+      -26.44762
+     ],
+     [
+      27.7834,
+      -26.4467
+     ],
+     [
+      27.78028,
+      -26.45258
+     ],
+     [
+      27.77277,
+      -26.45195
+     ],
+     [
+      27.7706,
+      -26.45137
+     ],
+     [
+      27.77044,
+      -26.45093
+     ],
+     [
+      27.76928,
+      -26.45096
+     ],
+     [
+      27.76894,
+      -26.44565
+     ],
+     [
+      27.75924,
+      -26.44466
+     ],
+     [
+      27.75971,
+      -26.48387
+     ],
+     [
+      27.77886,
+      -26.48501
+     ],
+     [
+      27.77955,
+      -26.47922
+     ],
+     [
+      27.82169,
+      -26.48488
+     ],
+     [
+      27.824468,
+      -26.479878
+     ],
+     [
+      27.82773,
+      -26.50443
+     ],
+     [
+      27.83507,
+      -26.49045
+     ],
+     [
+      27.85292,
+      -26.50029
+     ],
+     [
+      27.85985,
+      -26.50647
+     ],
+     [
+      27.86043,
+      -26.50626
+     ],
+     [
+      27.864548,
+      -26.509998
+     ],
+     [
+      27.86458,
+      -26.51073
+     ],
+     [
+      27.86614,
+      -26.51251
+     ],
+     [
+      27.86689,
+      -26.5128
+     ],
+     [
+      27.8713,
+      -26.51674
+     ],
+     [
+      27.8718,
+      -26.51757
+     ],
+     [
+      27.87254,
+      -26.51786
+     ],
+     [
+      27.87563,
+      -26.5205
+     ],
+     [
+      27.877978,
+      -26.521703
+     ],
+     [
+      27.8802,
+      -26.52226
+     ],
+     [
+      27.88671,
+      -26.52236
+     ],
+     [
+      27.88705,
+      -26.52622
+     ],
+     [
+      27.88737,
+      -26.52629
+     ],
+     [
+      27.88601,
+      -26.51086
+     ],
+     [
+      27.88655,
+      -26.50544
+     ],
+     [
+      27.88578,
+      -26.50519
+     ],
+     [
+      27.88612,
+      -26.50444
+     ],
+     [
+      27.88202,
+      -26.48949
+     ],
+     [
+      27.88079,
+      -26.48716
+     ],
+     [
+      27.87536,
+      -26.48089
+     ],
+     [
+      27.87205,
+      -26.47818
+     ],
+     [
+      27.87073,
+      -26.47561
+     ],
+     [
+      27.87078,
+      -26.47274
+     ],
+     [
+      27.86947,
+      -26.45333
+     ],
+     [
+      27.86984,
+      -26.45423
+     ],
+     [
+      27.86948,
+      -26.44659
+     ],
+     [
+      27.869075,
+      -26.444801
+     ],
+     [
+      27.87599,
+      -26.44036
+     ],
+     [
+      27.87733,
+      -26.43919
+     ],
+     [
+      27.88012,
+      -26.43867
+     ],
+     [
+      27.88012,
+      -26.43965
+     ],
+     [
+      27.87864,
+      -26.44088
+     ],
+     [
+      27.87915,
+      -26.44675
+     ],
+     [
+      27.91484,
+      -26.44097
+     ],
+     [
+      27.91221,
+      -26.45849
+     ],
+     [
+      27.91751,
+      -26.45858
+     ],
+     [
+      27.92227,
+      -26.42898
+     ],
+     [
+      27.93338,
+      -26.424185
+     ],
+     [
+      27.93555,
+      -26.39982
+     ],
+     [
+      27.89316,
+      -26.40431
+     ],
+     [
+      27.89436,
+      -26.39919
+     ],
+     [
+      27.893846,
+      -26.397467
+     ],
+     [
+      27.89463,
+      -26.39534
+     ],
+     [
+      27.89526,
+      -26.39165
+     ],
+     [
+      27.89512,
+      -26.38525
+     ],
+     [
+      27.89546,
+      -26.38177
+     ],
+     [
+      27.89644,
+      -26.37787
+     ],
+     [
+      27.89748,
+      -26.37557
+     ],
+     [
+      27.90055,
+      -26.37084
+     ],
+     [
+      27.90584,
+      -26.36388
+     ],
+     [
+      27.91223,
+      -26.35895
+     ],
+     [
+      27.927255,
+      -26.35628
+     ],
+     [
+      27.95339,
+      -26.3532
+     ],
+     [
+      27.95686,
+      -26.33516
+     ],
+     [
+      27.95887,
+      -26.33597
+     ],
+     [
+      27.97034,
+      -26.33711
+     ],
+     [
+      27.96998,
+      -26.3417
+     ],
+     [
+      28.00901,
+      -26.35058
+     ],
+     [
+      28.011389,
+      -26.339163
+     ],
+     [
+      28.01841,
+      -26.34167
+     ],
+     [
+      28.02127,
+      -26.34176
+     ],
+     [
+      28.02123,
+      -26.34203
+     ],
+     [
+      28.02414,
+      -26.34222
+     ],
+     [
+      28.02954,
+      -26.34162
+     ],
+     [
+      28.03961,
+      -26.34244
+     ],
+     [
+      28.04314,
+      -26.34718
+     ],
+     [
+      28.04193,
+      -26.34751
+     ],
+     [
+      28.04783,
+      -26.35958
+     ],
+     [
+      28.05034,
+      -26.35597
+     ],
+     [
+      28.051068,
+      -26.34908
+     ],
+     [
+      28.06707,
+      -26.342
+     ],
+     [
+      28.06727,
+      -26.33935
+     ],
+     [
+      28.06703,
+      -26.33942
+     ],
+     [
+      28.06655,
+      -26.33708
+     ],
+     [
+      28.08145,
+      -26.3343
+     ],
+     [
+      28.08178,
+      -26.33283
+     ],
+     [
+      28.08026,
+      -26.32091
+     ],
+     [
+      28.09107,
+      -26.31356
+     ],
+     [
+      28.09053,
+      -26.3067
+     ],
+     [
+      28.09462,
+      -26.30692
+     ],
+     [
+      28.094772,
+      -26.304724
+     ],
+     [
+      28.07807,
+      -26.30381
+     ],
+     [
+      28.07056,
+      -26.27262
+     ],
+     [
+      28.06669,
+      -26.27205
+     ],
+     [
+      28.06561,
+      -26.26823
+     ],
+     [
+      28.06882,
+      -26.26807
+     ],
+     [
+      28.07139,
+      -26.2673
+     ],
+     [
+      28.0707,
+      -26.26443
+     ],
+     [
+      28.07097,
+      -26.26392
+     ],
+     [
+      28.07719,
+      -26.25993
+     ],
+     [
+      28.095324,
+      -26.257581
+     ],
+     [
+      28.09525,
+      -26.25549
+     ],
+     [
+      28.122852,
+      -26.247929
+     ],
+     [
+      28.12462,
+      -26.23946
+     ],
+     [
+      28.12238,
+      -26.23923
+     ],
+     [
+      28.12332,
+      -26.23556
+     ],
+     [
+      28.12472,
+      -26.23404
+     ],
+     [
+      28.1244,
+      -26.23403
+     ],
+     [
+      28.1249,
+      -26.23171
+     ],
+     [
+      28.12421,
+      -26.23162
+     ],
+     [
+      28.12641,
+      -26.22986
+     ],
+     [
+      28.12762,
+      -26.22716
+     ],
+     [
+      28.12711,
+      -26.22718
+     ],
+     [
+      28.12703,
+      -26.22439
+     ],
+     [
+      28.12658,
+      -26.22433
+     ],
+     [
+      28.11274,
+      -26.16778
+     ],
+     [
+      28.11851,
+      -26.16686
+     ],
+     [
+      28.1142,
+      -26.1619
+     ],
+     [
+      28.11767,
+      -26.16004
+     ],
+     [
+      28.12049,
+      -26.15607
+     ],
+     [
+      28.12277,
+      -26.1515
+     ],
+     [
+      28.124546,
+      -26.149133
+     ],
+     [
+      28.13421,
+      -26.149471
+     ],
+     [
+      28.1329,
+      -26.14925
+     ],
+     [
+      28.13288,
+      -26.14805
+     ],
+     [
+      28.13205,
+      -26.14696
+     ],
+     [
+      28.13208,
+      -26.14364
+     ],
+     [
+      28.13378,
+      -26.13269
+     ],
+     [
+      28.13605,
+      -26.12641
+     ],
+     [
+      28.1376,
+      -26.12639
+     ],
+     [
+      28.135417,
+      -26.12189
+     ],
+     [
+      28.13843,
+      -26.11803
+     ],
+     [
+      28.14016,
+      -26.12337
+     ],
+     [
+      28.14132,
+      -26.12435
+     ],
+     [
+      28.14076,
+      -26.12588
+     ],
+     [
+      28.1639,
+      -26.12212
+     ],
+     [
+      28.16606,
+      -26.10724
+     ],
+     [
+      28.16879,
+      -26.10556
+     ],
+     [
+      28.17566,
+      -26.12021
+     ],
+     [
+      28.180481,
+      -26.119426
+     ],
+     [
+      28.17693,
+      -26.09839
+     ],
+     [
+      28.18222,
+      -26.09354
+     ],
+     [
+      28.18208,
+      -26.09312
+     ],
+     [
+      28.18342,
+      -26.09221
+     ],
+     [
+      28.18483,
+      -26.08926
+     ],
+     [
+      28.18092,
+      -26.08447
+     ],
+     [
+      28.18434,
+      -26.07864
+     ],
+     [
+      28.18196,
+      -26.07434
+     ],
+     [
+      28.17561,
+      -26.07367
+     ],
+     [
+      28.17941,
+      -26.06684
+     ],
+     [
+      28.17805,
+      -26.06345
+     ],
+     [
+      28.17138,
+      -26.06357
+     ],
+     [
+      28.17177,
+      -26.05812
+     ],
+     [
+      28.16999,
+      -26.05379
+     ],
+     [
+      28.16568,
+      -26.05602
+     ],
+     [
+      28.162,
+      -26.04715
+     ],
+     [
+      28.16047,
+      -26.04618
+     ],
+     [
+      28.16228,
+      -26.0442
+     ],
+     [
+      28.158164,
+      -26.038273
+     ],
+     [
+      28.16541,
+      -26.03506
+     ],
+     [
+      28.175227,
+      -26.03561
+     ],
+     [
+      28.174846,
+      -26.033124
+     ],
+     [
+      28.174253,
+      -26.032571
+     ],
+     [
+      28.172163,
+      -26.028589
+     ],
+     [
+      28.173696,
+      -26.028112
+     ],
+     [
+      28.178121,
+      -26.028437
+     ],
+     [
+      28.17687,
+      -26.03568
+     ],
+     [
+      28.18799,
+      -26.03616
+     ],
+     [
+      28.18942,
+      -26.03207
+     ],
+     [
+      28.18743,
+      -26.03273
+     ],
+     [
+      28.179856,
+      -26.020847
+     ],
+     [
+      28.21446,
+      -25.99453
+     ],
+     [
+      28.211522,
+      -25.978918
+     ],
+     [
+      28.20914,
+      -25.97852
+     ],
+     [
+      28.2053,
+      -25.97686
+     ],
+     [
+      28.19907,
+      -25.97533
+     ],
+     [
+      28.19754,
+      -25.97459
+     ],
+     [
+      28.194453,
+      -25.9849
+     ],
+     [
+      28.16646,
+      -25.97927
+     ],
+     [
+      28.18105,
+      -25.91955
+     ],
+     [
+      28.11023,
+      -25.94491
+     ],
+     [
+      28.10547,
+      -25.9249
+     ],
+     [
+      28.09084,
+      -25.92743
+     ],
+     [
+      28.09016,
+      -25.92426
+     ],
+     [
+      28.08048,
+      -25.92522
+     ],
+     [
+      28.07723,
+      -25.92089
+     ],
+     [
+      28.07505,
+      -25.92921
+     ],
+     [
+      28.07455,
+      -25.92877
+     ],
+     [
+      28.04574,
+      -25.93155
+     ],
+     [
+      28.03916,
+      -25.92639
+     ],
+     [
+      28.029906,
+      -25.911102
+     ],
+     [
+      27.987859,
+      -25.93401
+     ],
+     [
+      27.98398,
+      -25.90283
+     ],
+     [
+      27.96686,
+      -25.91092
+     ],
+     [
+      27.9629,
+      -25.91049
+     ],
+     [
+      27.96234,
+      -25.90724
+     ],
+     [
+      27.95016,
+      -25.90617
+     ],
+     [
+      27.94978,
+      -25.9075
+     ],
+     [
+      27.94927,
+      -25.90794
+     ],
+     [
+      27.94842,
+      -25.90792
+     ],
+     [
+      27.94734,
+      -25.90725
+     ],
+     [
+      27.94668,
+      -25.90804
+     ],
+     [
+      27.94674,
+      -25.91216
+     ],
+     [
+      27.94736,
+      -25.91411
+     ],
+     [
+      27.94667,
+      -25.91494
+     ],
+     [
+      27.94164,
+      -25.91609
+     ],
+     [
+      27.939755,
+      -25.915165
+     ],
+     [
+      27.93201,
+      -25.91631
+     ],
+     [
+      27.94085,
+      -25.92838
+     ],
+     [
+      27.93234,
+      -25.92594
+     ],
+     [
+      27.90839,
+      -25.92693
+     ],
+     [
+      27.90768,
+      -25.92873
+     ],
+     [
+      27.90997,
+      -25.92956
+     ],
+     [
+      27.90976,
+      -25.9303
+     ],
+     [
+      27.90684,
+      -25.93168
+     ],
+     [
+      27.90518,
+      -25.93308
+     ],
+     [
+      27.90704,
+      -25.93764
+     ],
+     [
+      27.90822,
+      -25.94252
+     ],
+     [
+      27.90945,
+      -25.94413
+     ],
+     [
+      27.89759,
+      -25.95436
+     ],
+     [
+      27.91058,
+      -25.96764
+     ],
+     [
+      27.90736,
+      -25.97009
+     ],
+     [
+      27.91883,
+      -25.97126
+     ],
+     [
+      27.92271,
+      -25.9707
+     ],
+     [
+      27.9256,
+      -25.97861
+     ],
+     [
+      27.92353,
+      -25.99831
+     ],
+     [
+      27.91264,
+      -26.02821
+     ],
+     [
+      27.90437,
+      -26.03111
+     ],
+     [
+      27.89627,
+      -26.06185
+     ],
+     [
+      27.89418,
+      -26.058175
+     ],
+     [
+      27.89018,
+      -26.06017
+     ],
+     [
+      27.88803,
+      -26.056655
+     ],
+     [
+      27.88282,
+      -26.05925
+     ],
+     [
+      27.881135,
+      -26.05736
+     ],
+     [
+      27.8808,
+      -26.05748
+     ],
+     [
+      27.87824,
+      -26.060235
+     ],
+     [
+      27.878795,
+      -26.061255
+     ],
+     [
+      27.87779,
+      -26.061755
+     ],
+     [
+      27.876125,
+      -26.058015
+     ],
+     [
+      27.87052,
+      -26.05745
+     ],
+     [
+      27.86974,
+      -26.057785
+     ],
+     [
+      27.87118,
+      -26.06042
+     ],
+     [
+      27.871685,
+      -26.0603
+     ],
+     [
+      27.87211,
+      -26.0617
+     ],
+     [
+      27.87164,
+      -26.06199
+     ],
+     [
+      27.871985,
+      -26.062465
+     ],
+     [
+      27.86877,
+      -26.064195
+     ],
+     [
+      27.86897,
+      -26.0647
+     ],
+     [
+      27.86801,
+      -26.06507
+     ],
+     [
+      27.864645,
+      -26.056575
+     ],
+     [
+      27.85157,
+      -26.05979
+     ],
+     [
+      27.84964,
+      -26.06238
+     ],
+     [
+      27.86651,
+      -26.07511
+     ],
+     [
+      27.86437,
+      -26.07554
+     ],
+     [
+      27.842595,
+      -26.071845
+     ],
+     [
+      27.84225,
+      -26.0723
+     ],
+     [
+      27.84332,
+      -26.07312
+     ],
+     [
+      27.844215,
+      -26.075635
+     ],
+     [
+      27.844115,
+      -26.076545
+     ],
+     [
+      27.84503,
+      -26.07842
+     ],
+     [
+      27.84493,
+      -26.08084
+     ],
+     [
+      27.84456,
+      -26.08117
+     ],
+     [
+      27.84476,
+      -26.08254
+     ],
+     [
+      27.84415,
+      -26.08326
+     ],
+     [
+      27.83531,
+      -26.08463
+     ],
+     [
+      27.83762,
+      -26.08793
+     ],
+     [
+      27.83879,
+      -26.09105
+     ],
+     [
+      27.839665,
+      -26.092025
+     ],
+     [
+      27.83911,
+      -26.09222
+     ],
+     [
+      27.83926,
+      -26.09433
+     ],
+     [
+      27.83842,
+      -26.09547
+     ],
+     [
+      27.83985,
+      -26.09726
+     ],
+     [
+      27.83901,
+      -26.09909
+     ],
+     [
+      27.84011,
+      -26.10169
+     ],
+     [
+      27.840075,
+      -26.10292
+     ],
+     [
+      27.83975,
+      -26.10325
+     ],
+     [
+      27.84011,
+      -26.10432
+     ],
+     [
+      27.83959,
+      -26.1055
+     ],
+     [
+      27.839645,
+      -26.10687
+     ],
+     [
+      27.83863,
+      -26.10762
+     ],
+     [
+      27.83794,
+      -26.10765
+     ],
+     [
+      27.83519,
+      -26.10682
+     ],
+     [
+      27.83206,
+      -26.10856
+     ],
+     [
+      27.83184,
+      -26.10993
+     ],
+     [
+      27.83262,
+      -26.11137
+     ],
+     [
+      27.83189,
+      -26.11365
+     ],
+     [
+      27.83217,
+      -26.11456
+     ],
+     [
+      27.839,
+      -26.11685
+     ],
+     [
+      27.83786,
+      -26.11991
+     ],
+     [
+      27.83881,
+      -26.12022
+     ],
+     [
+      27.83738,
+      -26.12449
+     ],
+     [
+      27.835744,
+      -26.126031
+     ],
+     [
+      27.81304,
+      -26.16656
+     ],
+     [
+      27.812245,
+      -26.16695
+     ],
+     [
+      27.81423,
+      -26.16814
+     ],
+     [
+      27.815705,
+      -26.16826
+     ],
+     [
+      27.81815,
+      -26.16993
+     ],
+     [
+      27.81888,
+      -26.17093
+     ],
+     [
+      27.81979,
+      -26.17337
+     ],
+     [
+      27.81955,
+      -26.17437
+     ],
+     [
+      27.81853,
+      -26.17501
+     ],
+     [
+      27.818047,
+      -26.17596
+     ],
+     [
+      27.81352,
+      -26.17606
+     ],
+     [
+      27.80906,
+      -26.17506
+     ],
+     [
+      27.8106,
+      -26.18208
+     ],
+     [
+      27.78614,
+      -26.18195
+     ],
+     [
+      27.77199,
+      -26.21321
+     ],
+     [
+      27.71827,
+      -26.19893
+     ],
+     [
+      27.71776,
+      -26.202857
+     ],
+     [
+      27.72029,
+      -26.20386
+     ],
+     [
+      27.71928,
+      -26.21058
+     ],
+     [
+      27.71958,
+      -26.21067
+     ],
+     [
+      27.71851,
+      -26.21389
+     ],
+     [
+      27.7157,
+      -26.2143
+     ],
+     [
+      27.71427,
+      -26.21387
+     ]
+    ]
+   ]
+  }
+ },
+ "dainfern": {
+  "query": "Dainfern, Gauteng",
+  "found": false
+ },
+ "chartwell": {
+  "query": "Chartwell, Gauteng",
+  "found": false
+ },
+ "beaulieu": {
+  "query": "Beaulieu, Johannesburg",
+  "found": true,
+  "name": "Beaulieu",
+  "display_name": "Beaulieu, Johannesburg Ward 94, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 1684, South Africa",
+  "osm": "node/321527434",
+  "class": "place",
+  "type": "suburb",
+  "lat": -25.9711224,
+  "lng": 28.0674319,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0674319,
+    -25.9711224
+   ]
+  }
+ },
+ "blue-hills": {
+  "query": "Blue Hills, Johannesburg",
+  "found": true,
+  "name": "Blue Hills",
+  "display_name": "Blue Hills, Johannesburg Ward 112, City of Johannesburg Metropolitan Municipality, Gauteng, 1687, South Africa",
+  "osm": "node/27287448",
+  "class": "place",
+  "type": "suburb",
+  "lat": -25.9382165,
+  "lng": 28.1043655,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1043655,
+    -25.9382165
+   ]
+  }
+ },
+ "crowthorne": {
+  "query": "Crowthorne, Johannesburg",
+  "found": true,
+  "name": "Crowthorne",
+  "display_name": "Crowthorne, Johannesburg Ward 112, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 1684, South Africa",
+  "osm": "node/351829106",
+  "class": "place",
+  "type": "suburb",
+  "lat": -25.974898,
+  "lng": 28.0850578,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0850578,
+    -25.974898
+   ]
+  }
+ },
+ "kyalami": {
+  "query": "Kyalami, Gauteng",
+  "found": false
+ },
+ "carlswald": {
+  "query": "Carlswald, Johannesburg",
+  "found": true,
+  "name": "Carlswald",
+  "display_name": "Carlswald, Johannesburg Ward 112, Midrand, City of Johannesburg Metropolitan Municipality, Gauteng, 1684, South Africa",
+  "osm": "node/351121520",
+  "class": "place",
+  "type": "suburb",
+  "lat": -25.9832152,
+  "lng": 28.0991162,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0991162,
+    -25.9832152
+   ]
+  }
+ },
+ "lonehill": {
+  "query": "Lonehill, Gauteng",
+  "found": false
+ },
+ "fourways": {
+  "query": "Fourways, Johannesburg",
+  "found": true,
+  "name": "Fourways",
+  "display_name": "Fourways, Johannesburg Ward 94, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2055, South Africa",
+  "osm": "node/30857433",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.004472,
+  "lng": 28.0042447,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0042447,
+    -26.004472
+   ]
+  }
+ },
+ "cedar-square": {
+  "query": "Cedar Square",
+  "found": true,
+  "name": "Cedar Square Shopping Centre",
+  "display_name": "Cedar Square Shopping Centre, Tuscany Place, Craigavon, Johannesburg Ward 96, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2155, South Africa",
+  "osm": "way/122404399",
+  "class": "shop",
+  "type": "mall",
+  "lat": -26.0170207,
+  "lng": 27.9992272,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.9979102,
+      -26.0166034
+     ],
+     [
+      27.9999333,
+      -26.0181195
+     ],
+     [
+      28.0003839,
+      -26.0178272
+     ],
+     [
+      27.9999581,
+      -26.0167411
+     ],
+     [
+      27.9985587,
+      -26.0159887
+     ],
+     [
+      27.9980128,
+      -26.0158887
+     ],
+     [
+      27.9979102,
+      -26.0166034
+     ]
+    ]
+   ]
+  }
+ },
+ "fourways-mall": {
+  "query": "Fourways Mall",
+  "found": true,
+  "name": "Fourways Mall",
+  "display_name": "Fourways Mall, Witkoppen Extensions, Johannesburg Ward 94, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa",
+  "osm": "relation/7691867",
+  "class": "landuse",
+  "type": "retail",
+  "lat": -26.0184568,
+  "lng": 28.0055974,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      28.0043512,
+      -26.0180695
+     ],
+     [
+      28.0043857,
+      -26.0197288
+     ],
+     [
+      28.0060944,
+      -26.0197027
+     ],
+     [
+      28.0068428,
+      -26.0191304
+     ],
+     [
+      28.0067848,
+      -26.017768
+     ],
+     [
+      28.0076846,
+      -26.0175685
+     ],
+     [
+      28.0075569,
+      -26.0168759
+     ],
+     [
+      28.0063714,
+      -26.0169773
+     ],
+     [
+      28.0063075,
+      -26.0178473
+     ],
+     [
+      28.0060601,
+      -26.01785
+     ],
+     [
+      28.0060329,
+      -26.0170105
+     ],
+     [
+      28.0053181,
+      -26.0170343
+     ],
+     [
+      28.0053154,
+      -26.0180162
+     ],
+     [
+      28.0043512,
+      -26.0180695
+     ]
+    ]
+   ]
+  }
+ },
+ "montecasino": {
+  "query": "Montecasino",
+  "found": true,
+  "name": "Montecasino",
+  "display_name": "Montecasino, Witkoppen Road, Magaliessig, Johannesburg Ward 106, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2068, South Africa",
+  "osm": "way/141199310",
+  "class": "building",
+  "type": "retail",
+  "lat": -26.0243364,
+  "lng": 28.0133357,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      28.0108847,
+      -26.0232224
+     ],
+     [
+      28.0118806,
+      -26.0246393
+     ],
+     [
+      28.0117206,
+      -26.0254809
+     ],
+     [
+      28.0137301,
+      -26.0258165
+     ],
+     [
+      28.0138664,
+      -26.0250921
+     ],
+     [
+      28.0145318,
+      -26.0248234
+     ],
+     [
+      28.0144981,
+      -26.0243745
+     ],
+     [
+      28.0147502,
+      -26.0247312
+     ],
+     [
+      28.0152008,
+      -26.0245143
+     ],
+     [
+      28.0152252,
+      -26.0242542
+     ],
+     [
+      28.0145481,
+      -26.0242451
+     ],
+     [
+      28.0141273,
+      -26.023558
+     ],
+     [
+      28.0126512,
+      -26.0235047
+     ],
+     [
+      28.0116731,
+      -26.0228016
+     ],
+     [
+      28.0108847,
+      -26.0232224
+     ]
+    ]
+   ]
+  }
+ },
+ "paulshof": {
+  "query": "Paulshof, Johannesburg",
+  "found": true,
+  "name": "Paulshof",
+  "display_name": "Paulshof, Johannesburg Ward 106, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2021, South Africa",
+  "osm": "node/611053584",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0296389,
+  "lng": 28.0338194,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0338194,
+    -26.0296389
+   ]
+  }
+ },
+ "glenferness": {
+  "query": "Glenferness, Gauteng",
+  "found": false
+ },
+ "sunninghill": {
+  "query": "Sunninghill, Johannesburg",
+  "found": true,
+  "name": "Sunninghill",
+  "display_name": "Sunninghill, Johannesburg Ward 93, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2157, South Africa",
+  "osm": "node/262717631",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0352778,
+  "lng": 28.0758333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0758333,
+    -26.0352778
+   ]
+  }
+ },
+ "halfway-house": {
+  "query": "Halfway House, Johannesburg",
+  "found": true,
+  "name": "Halfway House",
+  "display_name": "Halfway House, Johannesburg Ward 110, Midrand, City of Johannesburg Metropolitan Municipality, Gauteng, 1682, South Africa",
+  "osm": "node/262706938",
+  "class": "place",
+  "type": "suburb",
+  "lat": -25.9949025,
+  "lng": 28.1289133,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1289133,
+    -25.9949025
+   ]
+  }
+ },
+ "glen-austin": {
+  "query": "Glen Austin, Gauteng",
+  "found": false
+ },
+ "president-park": {
+  "query": "President Park, Johannesburg",
+  "found": true,
+  "name": "President Park",
+  "display_name": "President Park, Johannesburg Ward 110, Midrand, City of Johannesburg Metropolitan Municipality, Gauteng, 1685, South Africa",
+  "osm": "node/368233834",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0063598,
+  "lng": 28.1484664,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1484664,
+    -26.0063598
+   ]
+  }
+ },
+ "austin-view": {
+  "query": "Austin View, Johannesburg",
+  "found": true,
+  "name": "Austin View",
+  "display_name": "Austin View, Johannesburg Ward 110, Midrand, City of Johannesburg Metropolitan Municipality, Gauteng, 1692, South Africa",
+  "osm": "node/262694918",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.021549,
+  "lng": 28.1560805,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1560805,
+    -26.021549
+   ]
+  }
+ },
+ "kya-sand": {
+  "query": "Kya Sand, Gauteng",
+  "found": false
+ },
+ "north-riding": {
+  "query": "North Riding, Johannesburg",
+  "found": true,
+  "name": "North Riding",
+  "display_name": "North Riding, Johannesburg Ward 101, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2158, South Africa",
+  "osm": "node/262713882",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0547222,
+  "lng": 27.9683333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9683333,
+    -26.0547222
+   ]
+  }
+ },
+ "northgate-the-dome": {
+  "query": "Northgate and The Dome",
+  "found": false
+ },
+ "jukskei-park": {
+  "query": "Jukskei Park, Gauteng",
+  "found": false
+ },
+ "douglasdale": {
+  "query": "Douglasdale, Johannesburg",
+  "found": true,
+  "name": "Douglasdale",
+  "display_name": "Douglasdale, Johannesburg Ward 115, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2155, South Africa",
+  "osm": "node/262705193",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0388889,
+  "lng": 27.995,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.995,
+    -26.0388889
+   ]
+  }
+ },
+ "olivedale": {
+  "query": "Olivedale, Johannesburg",
+  "found": true,
+  "name": "Olivedale",
+  "display_name": "Olivedale, Johannesburg Ward 115, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2060, South Africa",
+  "osm": "node/30864064",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0555556,
+  "lng": 27.9788889,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9788889,
+    -26.0555556
+   ]
+  }
+ },
+ "sharonlea": {
+  "query": "Sharonlea, Johannesburg",
+  "found": true,
+  "name": "Sharonlea",
+  "display_name": "Sharonlea, Johannesburg Ward 101, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2158, South Africa",
+  "osm": "node/29728125",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0641667,
+  "lng": 27.9655556,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9655556,
+    -26.0641667
+   ]
+  }
+ },
+ "northwold": {
+  "query": "Northwold, Johannesburg",
+  "found": true,
+  "name": "Northwold",
+  "display_name": "Northwold, Johannesburg Ward 101, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2125, South Africa",
+  "osm": "node/29728135",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0769444,
+  "lng": 27.9569444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9569444,
+    -26.0769444
+   ]
+  }
+ },
+ "ruimsig": {
+  "query": "Ruimsig, Gauteng",
+  "found": false
+ },
+ "honeydew": {
+  "query": "Honeydew, Johannesburg",
+  "found": true,
+  "name": "Honeydew",
+  "display_name": "Honeydew, Roodepoort, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa",
+  "osm": "way/691207866",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0788389,
+  "lng": 27.9253018,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.9223196,
+      -26.0816806
+     ],
+     [
+      27.9273487,
+      -26.0823442
+     ],
+     [
+      27.928028,
+      -26.0785946
+     ],
+     [
+      27.9257189,
+      -26.0768225
+     ],
+     [
+      27.9230703,
+      -26.0756083
+     ],
+     [
+      27.9223196,
+      -26.0816806
+     ]
+    ]
+   ]
+  }
+ },
+ "boskruin": {
+  "query": "Boskruin, Johannesburg",
+  "found": true,
+  "name": "Boskruin",
+  "display_name": "Boskruin, Johannesburg Ward 101, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2199, South Africa",
+  "osm": "node/38407886",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0866887,
+  "lng": 27.951404,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.951404,
+    -26.0866887
+   ]
+  }
+ },
+ "randpark-ridge": {
+  "query": "Randpark Ridge, Johannesburg",
+  "found": true,
+  "name": "Randpark Ridge",
+  "display_name": "Randpark Ridge, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2156, South Africa",
+  "osm": "way/691430611",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1008333,
+  "lng": 27.9569444,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.9262313,
+      -26.1022491
+     ],
+     [
+      27.9581136,
+      -26.1196017
+     ],
+     [
+      27.958321,
+      -26.1187043
+     ],
+     [
+      27.9566827,
+      -26.1172496
+     ],
+     [
+      27.9566433,
+      -26.1141324
+     ],
+     [
+      27.9576519,
+      -26.1129594
+     ],
+     [
+      27.9605739,
+      -26.1114605
+     ],
+     [
+      27.9612562,
+      -26.1069537
+     ],
+     [
+      27.9628947,
+      -26.1040469
+     ],
+     [
+      27.9656024,
+      -26.0994133
+     ],
+     [
+      27.9675497,
+      -26.1006769
+     ],
+     [
+      27.9673177,
+      -26.099555
+     ],
+     [
+      27.9678366,
+      -26.0980246
+     ],
+     [
+      27.9696414,
+      -26.0959374
+     ],
+     [
+      27.9676095,
+      -26.0957257
+     ],
+     [
+      27.967751,
+      -26.0947785
+     ],
+     [
+      27.9621711,
+      -26.0945727
+     ],
+     [
+      27.9601127,
+      -26.0918036
+     ],
+     [
+      27.9569734,
+      -26.0927467
+     ],
+     [
+      27.9550313,
+      -26.0941974
+     ],
+     [
+      27.9535689,
+      -26.0969123
+     ],
+     [
+      27.9528923,
+      -26.0975792
+     ],
+     [
+      27.9521064,
+      -26.0979432
+     ],
+     [
+      27.9509417,
+      -26.0979691
+     ],
+     [
+      27.9495085,
+      -26.0970412
+     ],
+     [
+      27.9498057,
+      -26.0955015
+     ],
+     [
+      27.9480612,
+      -26.0952084
+     ],
+     [
+      27.9478756,
+      -26.0962566
+     ],
+     [
+      27.9455491,
+      -26.0956401
+     ],
+     [
+      27.9473115,
+      -26.0863753
+     ],
+     [
+      27.9449358,
+      -26.0815244
+     ],
+     [
+      27.9388735,
+      -26.0860099
+     ],
+     [
+      27.934983,
+      -26.0863617
+     ],
+     [
+      27.9333377,
+      -26.0836618
+     ],
+     [
+      27.9280235,
+      -26.0783592
+     ],
+     [
+      27.9276265,
+      -26.0798791
+     ],
+     [
+      27.9262313,
+      -26.1022491
+     ]
+    ]
+   ]
+  }
+ },
+ "radiokop": {
+  "query": "Radiokop, Johannesburg",
+  "found": true,
+  "name": "Radiokop",
+  "display_name": "Radiokop, Roodepoort, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa",
+  "osm": "way/691178923",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1052778,
+  "lng": 27.9216667,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.9073055,
+      -26.1045374
+     ],
+     [
+      27.9140069,
+      -26.117243
+     ],
+     [
+      27.9150353,
+      -26.1176846
+     ],
+     [
+      27.9257347,
+      -26.1034726
+     ],
+     [
+      27.9262041,
+      -26.1020382
+     ],
+     [
+      27.9266915,
+      -26.0967448
+     ],
+     [
+      27.9218916,
+      -26.0970513
+     ],
+     [
+      27.9170507,
+      -26.098237
+     ],
+     [
+      27.9199942,
+      -26.1058375
+     ],
+     [
+      27.9130901,
+      -26.103547
+     ],
+     [
+      27.9073055,
+      -26.1045374
+     ]
+    ]
+   ]
+  }
+ },
+ "ferndale": {
+  "query": "Ferndale, Johannesburg",
+  "found": true,
+  "name": "Ferndale",
+  "display_name": "Ferndale, Johannesburg Ward 104, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2194, South Africa",
+  "osm": "node/262706250",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0847222,
+  "lng": 27.9894444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9894444,
+    -26.0847222
+   ]
+  }
+ },
+ "weltevreden-park": {
+  "query": "Weltevreden Park, Gauteng",
+  "found": false
+ },
+ "fairland": {
+  "query": "Fairland, Johannesburg",
+  "found": true,
+  "name": "Fairland",
+  "display_name": "Fairland, Johannesburg Ward 98, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2160, South Africa",
+  "osm": "node/96426546",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1336111,
+  "lng": 27.9444444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9444444,
+    -26.1336111
+   ]
+  }
+ },
+ "darrenwood": {
+  "query": "Darrenwood, Johannesburg",
+  "found": true,
+  "name": "Darrenwood",
+  "display_name": "Darrenwood, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2104, South Africa",
+  "osm": "node/262704836",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1266667,
+  "lng": 27.9861111,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9861111,
+    -26.1266667
+   ]
+  }
+ },
+ "blackheath": {
+  "query": "Blackheath, Johannesburg",
+  "found": true,
+  "name": "Blackheath",
+  "display_name": "Blackheath, Johannesburg Ward 88, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2195, South Africa",
+  "osm": "node/262695216",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1344444,
+  "lng": 27.9741667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9741667,
+    -26.1344444
+   ]
+  }
+ },
+ "cresta": {
+  "query": "Cresta, Johannesburg",
+  "found": true,
+  "name": "Cresta",
+  "display_name": "Cresta, Johannesburg Ward 98, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2118, South Africa",
+  "osm": "node/262704739",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1252778,
+  "lng": 27.9811111,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9811111,
+    -26.1252778
+   ]
+  }
+ },
+ "cresta-centre": {
+  "query": "Cresta Centre",
+  "found": true,
+  "name": "Golden Spear Spur",
+  "display_name": "Golden Spear Spur, Beyers Naudé Drive, Aldara Park, Johannesburg Ward 98, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2195, South Africa",
+  "osm": "node/6047505624",
+  "class": "amenity",
+  "type": "restaurant",
+  "lat": -26.1308085,
+  "lng": 27.9763868,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9763868,
+    -26.1308085
+   ]
+  }
+ },
+ "fontainebleau": {
+  "query": "Fontainebleau, Johannesburg",
+  "found": true,
+  "name": "Fontainebleau",
+  "display_name": "Fontainebleau, Johannesburg Ward 104, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2194, South Africa",
+  "osm": "node/262706278",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1011111,
+  "lng": 27.9747222,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9747222,
+    -26.1011111
+   ]
+  }
+ },
+ "blairgowrie": {
+  "query": "Blairgowrie, Johannesburg",
+  "found": true,
+  "name": "Blairgowrie",
+  "display_name": "Blairgowrie, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 1865, South Africa",
+  "osm": "node/262719316",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1111111,
+  "lng": 28.0075,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0075,
+    -26.1111111
+   ]
+  }
+ },
+ "craighall-park": {
+  "query": "Craighall Park, Johannesburg",
+  "found": true,
+  "name": "Craighall Park",
+  "display_name": "Craighall Park, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2024, South Africa",
+  "osm": "node/262719728",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1263889,
+  "lng": 28.0233333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0233333,
+    -26.1263889
+   ]
+  }
+ },
+ "robindale": {
+  "query": "Robindale, Johannesburg",
+  "found": true,
+  "name": "Robindale",
+  "display_name": "Robindale, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 1865, South Africa",
+  "osm": "node/262715584",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.115,
+  "lng": 27.9944444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9944444,
+    -26.115
+   ]
+  }
+ },
+ "victory-park": {
+  "query": "Victory Park, Johannesburg",
+  "found": true,
+  "name": "Victory Park",
+  "display_name": "Victory Park, Johannesburg Ward 117, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, South Africa",
+  "osm": "node/262718368",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1313889,
+  "lng": 28.0055556,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0055556,
+    -26.1313889
+   ]
+  }
+ },
+ "linden": {
+  "query": "Linden, Johannesburg",
+  "found": true,
+  "name": "Linden",
+  "display_name": "Linden, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2104, South Africa",
+  "osm": "node/262708717",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1319444,
+  "lng": 27.9933333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9933333,
+    -26.1319444
+   ]
+  }
+ },
+ "northcliff": {
+  "query": "Northcliff, Johannesburg",
+  "found": true,
+  "name": "Northcliff",
+  "display_name": "Northcliff, Johannesburg Ward 98, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2118, South Africa",
+  "osm": "node/249094599",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1311111,
+  "lng": 27.9622222,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9622222,
+    -26.1311111
+   ]
+  }
+ },
+ "emmarentia": {
+  "query": "Emmarentia, Johannesburg",
+  "found": true,
+  "name": "Emmarentia",
+  "display_name": "Emmarentia, Johannesburg Ward 88, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2104, South Africa",
+  "osm": "node/252968821",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1472222,
+  "lng": 27.9958333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9958333,
+    -26.1472222
+   ]
+  }
+ },
+ "botanical-garden": {
+  "query": "Johannesburg Botanical Garden",
+  "found": true,
+  "name": "Walter Sisulu National Botanical Gardens",
+  "display_name": "Walter Sisulu National Botanical Gardens, Krugersdorp, Mogale City Local Municipality, West Rand District Municipality, Gauteng, South Africa",
+  "osm": "way/54890255",
+  "class": "leisure",
+  "type": "garden",
+  "lat": -26.0823219,
+  "lng": 27.8296691,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.8078824,
+      -26.0661269
+     ],
+     [
+      27.8194805,
+      -26.0748416
+     ],
+     [
+      27.8226507,
+      -26.0748088
+     ],
+     [
+      27.8236055,
+      -26.0784563
+     ],
+     [
+      27.8239696,
+      -26.0821413
+     ],
+     [
+      27.8251719,
+      -26.0829294
+     ],
+     [
+      27.8260539,
+      -26.083036
+     ],
+     [
+      27.827134,
+      -26.0843116
+     ],
+     [
+      27.830745,
+      -26.0865238
+     ],
+     [
+      27.8315244,
+      -26.0869324
+     ],
+     [
+      27.8332491,
+      -26.087007
+     ],
+     [
+      27.8332489,
+      -26.0873052
+     ],
+     [
+      27.8343338,
+      -26.0875823
+     ],
+     [
+      27.8354003,
+      -26.0892571
+     ],
+     [
+      27.8348484,
+      -26.0895343
+     ],
+     [
+      27.8329288,
+      -26.0896098
+     ],
+     [
+      27.8326986,
+      -26.0893217
+     ],
+     [
+      27.8322068,
+      -26.0899288
+     ],
+     [
+      27.8312632,
+      -26.0896674
+     ],
+     [
+      27.8310611,
+      -26.0899443
+     ],
+     [
+      27.8298429,
+      -26.089565
+     ],
+     [
+      27.8298105,
+      -26.0891792
+     ],
+     [
+      27.8301721,
+      -26.0891018
+     ],
+     [
+      27.8299054,
+      -26.0885918
+     ],
+     [
+      27.8290707,
+      -26.0891392
+     ],
+     [
+      27.8315038,
+      -26.0921897
+     ],
+     [
+      27.8320091,
+      -26.0918683
+     ],
+     [
+      27.8345448,
+      -26.0940944
+     ],
+     [
+      27.8356833,
+      -26.0939328
+     ],
+     [
+      27.837633,
+      -26.0946093
+     ],
+     [
+      27.8376174,
+      -26.0952105
+     ],
+     [
+      27.8368743,
+      -26.095381
+     ],
+     [
+      27.8379776,
+      -26.0971607
+     ],
+     [
+      27.8389108,
+      -26.0978563
+     ],
+     [
+      27.8388933,
+      -26.0982398
+     ],
+     [
+      27.8395348,
+      -26.0983487
+     ],
+     [
+      27.8413147,
+      -26.094705
+     ],
+     [
+      27.8426642,
+      -26.0952767
+     ],
+     [
+      27.8432267,
+      -26.0947556
+     ],
+     [
+      27.8441103,
+      -26.0952312
+     ],
+     [
+      27.847974,
+      -26.0898978
+     ],
+     [
+      27.8449039,
+      -26.0878997
+     ],
+     [
+      27.8458227,
+      -26.0845123
+     ],
+     [
+      27.8437905,
+      -26.0840237
+     ],
+     [
+      27.844075,
+      -26.08308
+     ],
+     [
+      27.8428133,
+      -26.0834678
+     ],
+     [
+      27.8418326,
+      -26.0827173
+     ],
+     [
+      27.8399391,
+      -26.0835554
+     ],
+     [
+      27.8354704,
+      -26.0829819
+     ],
+     [
+      27.8313795,
+      -26.0755237
+     ],
+     [
+      27.8285815,
+      -26.0795843
+     ],
+     [
+      27.8264526,
+      -26.074029
+     ],
+     [
+      27.8296919,
+      -26.072656
+     ],
+     [
+      27.827537,
+      -26.0699731
+     ],
+     [
+      27.8250146,
+      -26.0714127
+     ],
+     [
+      27.821922,
+      -26.0713192
+     ],
+     [
+      27.8191262,
+      -26.0671921
+     ],
+     [
+      27.813576,
+      -26.066347
+     ],
+     [
+      27.8078824,
+      -26.0661269
+     ]
+    ]
+   ]
+  }
+ },
+ "florida": {
+  "query": "Florida, Johannesburg",
+  "found": true,
+  "name": "Florida",
+  "display_name": "Florida, Johannesburg Ward 70, Roodepoort, City of Johannesburg Metropolitan Municipality, Gauteng, 2709, South Africa",
+  "osm": "node/249094593",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1752726,
+  "lng": 27.9233293,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9233293,
+    -26.1752726
+   ]
+  }
+ },
+ "maraisburg": {
+  "query": "Maraisburg, Gauteng",
+  "found": true,
+  "name": "Maraisburg",
+  "display_name": "Maraisburg, Johannesburg Ward 86, Roodepoort, City of Johannesburg Metropolitan Municipality, Gauteng, 1712, South Africa",
+  "osm": "node/249094596",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1749941,
+  "lng": 27.9405503,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9405503,
+    -26.1749941
+   ]
+  }
+ },
+ "newlands": {
+  "query": "Newlands, Johannesburg",
+  "found": true,
+  "name": "Newlands",
+  "display_name": "Newlands, Johannesburg Ward 82, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262713248",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1775,
+  "lng": 27.9644444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9644444,
+    -26.1775
+   ]
+  }
+ },
+ "triomf": {
+  "query": "Triomf, Johannesburg",
+  "found": true,
+  "name": "Sophiatown (Triomf)",
+  "display_name": "Sophiatown (Triomf), Johannesburg Ward 86, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262717983",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.175,
+  "lng": 27.9763889,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9763889,
+    -26.175
+   ]
+  }
+ },
+ "melville": {
+  "query": "Melville, Johannesburg",
+  "found": true,
+  "name": "Melville",
+  "display_name": "Melville, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2092, South Africa",
+  "osm": "node/13659631086",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1751548,
+  "lng": 28.0064413,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0064413,
+    -26.1751548
+   ]
+  }
+ },
+ "sundowner": {
+  "query": "Sundowner, Johannesburg",
+  "found": true,
+  "name": "Sundowner",
+  "display_name": "Sundowner, Johannesburg Ward 114, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2169, South Africa",
+  "osm": "node/38407883",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0755556,
+  "lng": 27.9372222,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9372222,
+    -26.0755556
+   ]
+  }
+ },
+ "westdene": {
+  "query": "Westdene, Johannesburg",
+  "found": true,
+  "name": "Westdene",
+  "display_name": "Westdene, Johannesburg Ward 69, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262718714",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.175,
+  "lng": 27.9908333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9908333,
+    -26.175
+   ]
+  }
+ },
+ "crosby": {
+  "query": "Crosby, Johannesburg",
+  "found": true,
+  "name": "Crosby",
+  "display_name": "Crosby, Johannesburg Ward 69, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/242925004",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1927778,
+  "lng": 27.9838889,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9838889,
+    -26.1927778
+   ]
+  }
+ },
+ "bryanston": {
+  "query": "Bryanston, Johannesburg",
+  "found": true,
+  "name": "Bryanston",
+  "display_name": "Bryanston, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa",
+  "osm": "way/1534382637",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0513889,
+  "lng": 28.0280556,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.975647,
+      -26.0663756
+     ],
+     [
+      27.9848227,
+      -26.0710841
+     ],
+     [
+      27.99061,
+      -26.0752671
+     ],
+     [
+      27.9890497,
+      -26.0701902
+     ],
+     [
+      27.9907934,
+      -26.0689275
+     ],
+     [
+      27.9884201,
+      -26.0666722
+     ],
+     [
+      27.9912722,
+      -26.063937
+     ],
+     [
+      27.9958499,
+      -26.0675924
+     ],
+     [
+      27.9921245,
+      -26.0708557
+     ],
+     [
+      27.996423,
+      -26.0761141
+     ],
+     [
+      27.9990366,
+      -26.0721076
+     ],
+     [
+      28.0129074,
+      -26.0800925
+     ],
+     [
+      28.0145031,
+      -26.0777356
+     ],
+     [
+      28.0170894,
+      -26.0794043
+     ],
+     [
+      28.0184565,
+      -26.0797348
+     ],
+     [
+      28.0187362,
+      -26.0791803
+     ],
+     [
+      28.0204488,
+      -26.0781706
+     ],
+     [
+      28.0210353,
+      -26.0768036
+     ],
+     [
+      28.0186182,
+      -26.0710376
+     ],
+     [
+      28.0189228,
+      -26.0711321
+     ],
+     [
+      28.0250452,
+      -26.0792034
+     ],
+     [
+      28.0255367,
+      -26.0793739
+     ],
+     [
+      28.0246843,
+      -26.0830021
+     ],
+     [
+      28.0252651,
+      -26.0830658
+     ],
+     [
+      28.0262607,
+      -26.0826495
+     ],
+     [
+      28.027307,
+      -26.0827119
+     ],
+     [
+      28.0286423,
+      -26.0809124
+     ],
+     [
+      28.0288699,
+      -26.0798049
+     ],
+     [
+      28.0295394,
+      -26.0788567
+     ],
+     [
+      28.0311702,
+      -26.0784095
+     ],
+     [
+      28.0320714,
+      -26.0773765
+     ],
+     [
+      28.0328868,
+      -26.077045
+     ],
+     [
+      28.0336421,
+      -26.0768677
+     ],
+     [
+      28.0347242,
+      -26.0771465
+     ],
+     [
+      28.0369596,
+      -26.0753757
+     ],
+     [
+      28.0380538,
+      -26.0734986
+     ],
+     [
+      28.0374187,
+      -26.0700678
+     ],
+     [
+      28.0392424,
+      -26.0692055
+     ],
+     [
+      28.0524719,
+      -26.066232
+     ],
+     [
+      28.0562673,
+      -26.0607258
+     ],
+     [
+      28.0568307,
+      -26.0604818
+     ],
+     [
+      28.0514306,
+      -26.0567001
+     ],
+     [
+      28.0524435,
+      -26.0548783
+     ],
+     [
+      28.051655,
+      -26.0543848
+     ],
+     [
+      28.0532001,
+      -26.0529973
+     ],
+     [
+      28.053286,
+      -26.0517828
+     ],
+     [
+      28.0512368,
+      -26.0499129
+     ],
+     [
+      28.0495523,
+      -26.0478309
+     ],
+     [
+      28.0500689,
+      -26.046567
+     ],
+     [
+      28.0502175,
+      -26.0439752
+     ],
+     [
+      28.0506766,
+      -26.0432324
+     ],
+     [
+      28.0343011,
+      -26.0383626
+     ],
+     [
+      28.0329694,
+      -26.0376649
+     ],
+     [
+      28.0334971,
+      -26.0359171
+     ],
+     [
+      28.0339182,
+      -26.0354477
+     ],
+     [
+      28.0341902,
+      -26.0339882
+     ],
+     [
+      28.0312961,
+      -26.0339756
+     ],
+     [
+      28.0281612,
+      -26.0344404
+     ],
+     [
+      28.0157548,
+      -26.037821
+     ],
+     [
+      28.0085692,
+      -26.0406773
+     ],
+     [
+      28.0067806,
+      -26.0416294
+     ],
+     [
+      27.9975295,
+      -26.0496244
+     ],
+     [
+      27.9943342,
+      -26.050423
+     ],
+     [
+      27.9882429,
+      -26.0527264
+     ],
+     [
+      27.9872403,
+      -26.0540622
+     ],
+     [
+      27.9853434,
+      -26.0538872
+     ],
+     [
+      27.9834472,
+      -26.0571164
+     ],
+     [
+      27.9817024,
+      -26.0589625
+     ],
+     [
+      27.9818264,
+      -26.0603861
+     ],
+     [
+      27.9812247,
+      -26.0610295
+     ],
+     [
+      27.978923,
+      -26.0617517
+     ],
+     [
+      27.9777128,
+      -26.0630547
+     ],
+     [
+      27.9759922,
+      -26.0638437
+     ],
+     [
+      27.975647,
+      -26.0663756
+     ]
+    ]
+   ]
+  }
+ },
+ "rivonia": {
+  "query": "Rivonia, Johannesburg",
+  "found": true,
+  "name": "Rivonia",
+  "display_name": "Rivonia, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2128, South Africa",
+  "osm": "node/206998388",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0533333,
+  "lng": 28.0594444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0594444,
+    -26.0533333
+   ]
+  }
+ },
+ "woodmead": {
+  "query": "Woodmead, Johannesburg",
+  "found": true,
+  "name": "Woodmead",
+  "display_name": "Woodmead, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2157, South Africa",
+  "osm": "node/262718868",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0433333,
+  "lng": 28.0644444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0644444,
+    -26.0433333
+   ]
+  }
+ },
+ "duxberry": {
+  "query": "Duxberry, Johannesburg",
+  "found": true,
+  "name": "Duxberry",
+  "display_name": "Duxberry, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2010, South Africa",
+  "osm": "node/262719959",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0727778,
+  "lng": 28.0522222,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0522222,
+    -26.0727778
+   ]
+  }
+ },
+ "gallo-manor": {
+  "query": "Gallo Manor, Johannesburg",
+  "found": true,
+  "name": "Gallo Manor",
+  "display_name": "Gallo Manor, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2057, South Africa",
+  "osm": "node/262706321",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0641667,
+  "lng": 28.0780556,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0780556,
+    -26.0641667
+   ]
+  }
+ },
+ "morningside": {
+  "query": "Morningside, Johannesburg",
+  "found": true,
+  "name": "Morningside",
+  "display_name": "Morningside, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2057, South Africa",
+  "osm": "node/262712405",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0780556,
+  "lng": 28.0644444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0644444,
+    -26.0780556
+   ]
+  }
+ },
+ "river-club": {
+  "query": "River Club, Johannesburg",
+  "found": true,
+  "name": "River Club",
+  "display_name": "River Club, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 1617, South Africa",
+  "osm": "node/254599068",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0744444,
+  "lng": 28.0433333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0433333,
+    -26.0744444
+   ]
+  }
+ },
+ "strathavon": {
+  "query": "Strathavon, Johannesburg",
+  "found": true,
+  "name": "Strathavon",
+  "display_name": "Strathavon, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2052, South Africa",
+  "osm": "node/262717597",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.095,
+  "lng": 28.07,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.07,
+    -26.095
+   ]
+  }
+ },
+ "sandown": {
+  "query": "Sandown, Johannesburg",
+  "found": true,
+  "name": "Sandown",
+  "display_name": "Sandown, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2052, South Africa",
+  "osm": "node/262722131",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0919444,
+  "lng": 28.0658333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0658333,
+    -26.0919444
+   ]
+  }
+ },
+ "nelson-mandela-square": {
+  "query": "Nelson Mandela Square",
+  "found": true,
+  "name": "Nelson Mandela Square",
+  "display_name": "Nelson Mandela Square, Maude Street, Sandown, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2146, South Africa",
+  "osm": "way/223648937",
+  "class": "shop",
+  "type": "mall",
+  "lat": -26.1072731,
+  "lng": 28.0546125,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      28.0536665,
+      -26.1073316
+     ],
+     [
+      28.0539911,
+      -26.1075073
+     ],
+     [
+      28.053831,
+      -26.1078771
+     ],
+     [
+      28.0548749,
+      -26.1081695
+     ],
+     [
+      28.055556,
+      -26.1072146
+     ],
+     [
+      28.0545373,
+      -26.1063749
+     ],
+     [
+      28.0536665,
+      -26.1073316
+     ]
+    ]
+   ]
+  }
+ },
+ "sandton-city": {
+  "query": "Sandton City",
+  "found": true,
+  "name": "Sandton City",
+  "display_name": "Sandton City, Pybus Avenue, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 1969, South Africa",
+  "osm": "way/223646718",
+  "class": "shop",
+  "type": "mall",
+  "lat": -26.1090427,
+  "lng": 28.0524052,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      28.0499816,
+      -26.1091382
+     ],
+     [
+      28.0531175,
+      -26.1108175
+     ],
+     [
+      28.0551768,
+      -26.1092419
+     ],
+     [
+      28.0540407,
+      -26.1086594
+     ],
+     [
+      28.0541387,
+      -26.1080362
+     ],
+     [
+      28.0520935,
+      -26.107186
+     ],
+     [
+      28.0516262,
+      -26.1071933
+     ],
+     [
+      28.0499816,
+      -26.1091382
+     ]
+    ]
+   ]
+  }
+ },
+ "buccleuch": {
+  "query": "Buccleuch, Johannesburg",
+  "found": true,
+  "name": "Buccleuch",
+  "display_name": "Buccleuch, Johannesburg Ward 32, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2054, South Africa",
+  "osm": "node/262719487",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0552778,
+  "lng": 28.1108333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1108333,
+    -26.0552778
+   ]
+  }
+ },
+ "linbro-park": {
+  "query": "Linbro Park, Gauteng",
+  "found": false
+ },
+ "modderfontein": {
+  "query": "Modderfontein, Gauteng",
+  "found": false
+ },
+ "kelvin": {
+  "query": "Kelvin, Johannesburg",
+  "found": true,
+  "name": "Kelvin",
+  "display_name": "Kelvin, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa",
+  "osm": "way/1067495747",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.075,
+  "lng": 28.0947222,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      28.0882055,
+      -26.0760119
+     ],
+     [
+      28.0969575,
+      -26.0880792
+     ],
+     [
+      28.1000863,
+      -26.0863135
+     ],
+     [
+      28.1032037,
+      -26.0840534
+     ],
+     [
+      28.1064655,
+      -26.0825651
+     ],
+     [
+      28.0958322,
+      -26.0709423
+     ],
+     [
+      28.0906449,
+      -26.0684217
+     ],
+     [
+      28.0897532,
+      -26.070203
+     ],
+     [
+      28.0882055,
+      -26.0760119
+     ]
+    ]
+   ]
+  }
+ },
+ "marlboro-gardens": {
+  "query": "Marlboro Gardens, Gauteng",
+  "found": false
+ },
+ "bordeaux": {
+  "query": "Bordeaux, Johannesburg",
+  "found": true,
+  "name": "Bordeaux",
+  "display_name": "Bordeaux, Johannesburg Ward 102, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, South Africa",
+  "osm": "node/262719391",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0963889,
+  "lng": 28.0136111,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0136111,
+    -26.0963889
+   ]
+  }
+ },
+ "parkmore": {
+  "query": "Parkmore, Johannesburg",
+  "found": true,
+  "name": "Parkmore",
+  "display_name": "Parkmore, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, South Africa",
+  "osm": "node/254673040",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.0952778,
+  "lng": 28.0375,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0375,
+    -26.0952778
+   ]
+  }
+ },
+ "hurlingham": {
+  "query": "Hurlingham, Johannesburg",
+  "found": true,
+  "name": "Hurlingham",
+  "display_name": "Hurlingham, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, South Africa",
+  "osm": "node/262707134",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1022222,
+  "lng": 28.0277778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0277778,
+    -26.1022222
+   ]
+  }
+ },
+ "glenadrienne": {
+  "query": "Glenadrienne, Gauteng",
+  "found": false
+ },
+ "sandhurst": {
+  "query": "Sandhurst, Johannesburg",
+  "found": true,
+  "name": "Sandhurst",
+  "display_name": "Sandhurst, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2146, South Africa",
+  "osm": "node/262722130",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1077778,
+  "lng": 28.0441667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0441667,
+    -26.1077778
+   ]
+  }
+ },
+ "athol": {
+  "query": "Athol, Gauteng",
+  "found": false
+ },
+ "wynberg": {
+  "query": "Wynberg, Johannesburg",
+  "found": true,
+  "name": "Wynberg",
+  "display_name": "Wynberg, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2096, South Africa",
+  "osm": "node/2779282009",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1106925,
+  "lng": 28.0835422,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0835422,
+    -26.1106925
+   ]
+  }
+ },
+ "hyde-park": {
+  "query": "Hyde Park, Johannesburg",
+  "found": true,
+  "name": "Hyde Park",
+  "display_name": "Hyde Park, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2024, South Africa",
+  "osm": "node/262720639",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1197222,
+  "lng": 28.0397222,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0397222,
+    -26.1197222
+   ]
+  }
+ },
+ "parkview": {
+  "query": "Parkview, Johannesburg",
+  "found": true,
+  "name": "Parkview",
+  "display_name": "Parkview, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262714555",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1641667,
+  "lng": 28.0252778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0252778,
+    -26.1641667
+   ]
+  }
+ },
+ "parktown": {
+  "query": "Parktown, Johannesburg",
+  "found": true,
+  "name": "Parktown",
+  "display_name": "Parktown, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262721888",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1816667,
+  "lng": 28.0277778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0277778,
+    -26.1816667
+   ]
+  }
+ },
+ "illovo": {
+  "query": "Illovo, Johannesburg",
+  "found": true,
+  "name": "Illovo",
+  "display_name": "Illovo, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2196, South Africa",
+  "osm": "node/262720659",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1227778,
+  "lng": 28.0552778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0552778,
+    -26.1227778
+   ]
+  }
+ },
+ "melrose": {
+  "query": "Melrose, Johannesburg",
+  "found": true,
+  "name": "Melrose",
+  "display_name": "Melrose, Johannesburg Ward 74, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2121, South Africa",
+  "osm": "node/262721320",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.14,
+  "lng": 28.0494444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0494444,
+    -26.14
+   ]
+  }
+ },
+ "rosebank": {
+  "query": "Rosebank, Johannesburg",
+  "found": true,
+  "name": "Johannesburg Ward 117",
+  "display_name": "Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa",
+  "osm": "relation/3597365",
+  "class": "boundary",
+  "type": "administrative",
+  "lat": -26.1450972,
+  "lng": 28.0305885,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.996194,
+      -26.12675
+     ],
+     [
+      28.0041389,
+      -26.1334737
+     ],
+     [
+      27.9998213,
+      -26.1454477
+     ],
+     [
+      28.0135161,
+      -26.1418952
+     ],
+     [
+      28.0140621,
+      -26.1427162
+     ],
+     [
+      28.0143489,
+      -26.1425617
+     ],
+     [
+      28.0149993,
+      -26.1428817
+     ],
+     [
+      28.0151619,
+      -26.1436109
+     ],
+     [
+      28.0159173,
+      -26.1442613
+     ],
+     [
+      28.0218175,
+      -26.1485414
+     ],
+     [
+      28.0239873,
+      -26.1486186
+     ],
+     [
+      28.0235,
+      -26.149351
+     ],
+     [
+      28.024859,
+      -26.150115
+     ],
+     [
+      28.0258799,
+      -26.1497966
+     ],
+     [
+      28.025011,
+      -26.1517662
+     ],
+     [
+      28.027449,
+      -26.1555064
+     ],
+     [
+      28.0284817,
+      -26.1557104
+     ],
+     [
+      28.0271619,
+      -26.1572266
+     ],
+     [
+      28.0270863,
+      -26.157879
+     ],
+     [
+      28.0289627,
+      -26.1607679
+     ],
+     [
+      28.034063,
+      -26.1657825
+     ],
+     [
+      28.0332331,
+      -26.1697442
+     ],
+     [
+      28.034151,
+      -26.1697382
+     ],
+     [
+      28.0355881,
+      -26.17035
+     ],
+     [
+      28.0403832,
+      -26.1687564
+     ],
+     [
+      28.0409552,
+      -26.1679994
+     ],
+     [
+      28.0426684,
+      -26.1680819
+     ],
+     [
+      28.0439831,
+      -26.1691719
+     ],
+     [
+      28.0479956,
+      -26.1650142
+     ],
+     [
+      28.0435823,
+      -26.1426046
+     ],
+     [
+      28.0441715,
+      -26.1409029
+     ],
+     [
+      28.0346434,
+      -26.1369469
+     ],
+     [
+      28.0319087,
+      -26.1370016
+     ],
+     [
+      28.0248413,
+      -26.1341022
+     ],
+     [
+      28.0250704,
+      -26.1328758
+     ],
+     [
+      28.0207947,
+      -26.1278659
+     ],
+     [
+      28.0185305,
+      -26.1292266
+     ],
+     [
+      28.0182858,
+      -26.1290518
+     ],
+     [
+      28.0165311,
+      -26.1298748
+     ],
+     [
+      28.01669,
+      -26.1289646
+     ],
+     [
+      28.0160542,
+      -26.1271072
+     ],
+     [
+      28.016413,
+      -26.1264579
+     ],
+     [
+      28.0163221,
+      -26.1257767
+     ],
+     [
+      28.0156319,
+      -26.1247504
+     ],
+     [
+      28.016195,
+      -26.1235334
+     ],
+     [
+      28.016068,
+      -26.122572
+     ],
+     [
+      28.0050862,
+      -26.1196952
+     ],
+     [
+      28.003438,
+      -26.1236539
+     ],
+     [
+      28.0028604,
+      -26.1236385
+     ],
+     [
+      27.9998105,
+      -26.1210353
+     ],
+     [
+      27.9986354,
+      -26.1207203
+     ],
+     [
+      27.996194,
+      -26.12675
+     ]
+    ]
+   ]
+  }
+ },
+ "saxonwold": {
+  "query": "Saxonwold, Johannesburg",
+  "found": true,
+  "name": "Saxonwold",
+  "display_name": "Saxonwold, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2193, South Africa",
+  "osm": "node/252026933",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1583333,
+  "lng": 28.0394444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0394444,
+    -26.1583333
+   ]
+  }
+ },
+ "orchards": {
+  "query": "Orchards, Johannesburg",
+  "found": true,
+  "name": "Orchards",
+  "display_name": "Orchards, Johannesburg Ward 74, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2037, South Africa",
+  "osm": "node/262714353",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1547222,
+  "lng": 28.0794444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0794444,
+    -26.1547222
+   ]
+  }
+ },
+ "sandringham": {
+  "query": "Sandringham, Johannesburg",
+  "found": true,
+  "name": "Sandringham",
+  "display_name": "Sandringham, Johannesburg Ward 72, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2119, South Africa",
+  "osm": "node/262715746",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1494444,
+  "lng": 28.1019444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1019444,
+    -26.1494444
+   ]
+  }
+ },
+ "edenvale": {
+  "query": "Edenvale, Gauteng",
+  "found": true,
+  "name": "Edenvale",
+  "display_name": "Edenvale, Ekurhuleni Ward 19, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1609, South Africa",
+  "osm": "node/113358821",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1366667,
+  "lng": 28.1511111,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1511111,
+    -26.1366667
+   ]
+  }
+ },
+ "houghton": {
+  "query": "Houghton, Johannesburg",
+  "found": true,
+  "name": "Houghton Estate",
+  "display_name": "Houghton Estate, Johannesburg Ward 73, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262707125",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1581938,
+  "lng": 28.0589807,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0589807,
+    -26.1581938
+   ]
+  }
+ },
+ "observatory": {
+  "query": "Observatory, Gauteng",
+  "found": true,
+  "name": "Hartebeesthoek Radio Astronomy Observatory",
+  "display_name": "Hartebeesthoek Radio Astronomy Observatory, Mogale City Ward 32, Mogale City Local Municipality, West Rand District Municipality, Gauteng, South Africa",
+  "osm": "node/4115143868",
+  "class": "place",
+  "type": "locality",
+  "lat": -25.8910867,
+  "lng": 27.6873215,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.6873215,
+    -25.8910867
+   ]
+  }
+ },
+ "bruma": {
+  "query": "Bruma, Johannesburg",
+  "found": true,
+  "name": "Bruma",
+  "display_name": "Bruma, Johannesburg Ward 118, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262704397",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1766667,
+  "lng": 28.1083333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1083333,
+    -26.1766667
+   ]
+  }
+ },
+ "bedfordview": {
+  "query": "Bedfordview, Gauteng",
+  "found": true,
+  "name": "Bedfordview",
+  "display_name": "Bedfordview, Ekurhuleni Ward 20, City of Ekurhuleni Metropolitan Municipality, Gauteng, 2013, South Africa",
+  "osm": "node/262719150",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1763889,
+  "lng": 28.1425,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.1425,
+    -26.1763889
+   ]
+  }
+ },
+ "auckland-park": {
+  "query": "Auckland Park, Gauteng",
+  "found": false
+ },
+ "braamfontein": {
+  "query": "Braamfontein, Johannesburg",
+  "found": true,
+  "name": "Braamfontein",
+  "display_name": "Braamfontein, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262695470",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1923008,
+  "lng": 28.0361353,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0361353,
+    -26.1923008
+   ]
+  }
+ },
+ "yeoville": {
+  "query": "Yeoville, Johannesburg",
+  "found": true,
+  "name": "Yeoville",
+  "display_name": "Yeoville, Johannesburg Ward 67, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262718900",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1838889,
+  "lng": 28.0641667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0641667,
+    -26.1838889
+   ]
+  }
+ },
+ "ellis-park-stadium": {
+  "query": "Ellis Park Stadium",
+  "found": true,
+  "name": "Emirates Park",
+  "display_name": "Emirates Park, South Park Lane, Commercial area, Troyeville, Johannesburg Ward 123, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "way/50638867",
+  "class": "leisure",
+  "type": "stadium",
+  "lat": -26.1974789,
+  "lng": 28.0607682,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      28.0597857,
+      -26.1975818
+     ],
+     [
+      28.0599332,
+      -26.1983439
+     ],
+     [
+      28.0615867,
+      -26.1983583
+     ],
+     [
+      28.0616072,
+      -26.1966827
+     ],
+     [
+      28.0601077,
+      -26.1965258
+     ],
+     [
+      28.0597857,
+      -26.1975818
+     ]
+    ]
+   ]
+  }
+ },
+ "kensington": {
+  "query": "Kensington, Johannesburg",
+  "found": true,
+  "name": "Kensington",
+  "display_name": "Kensington, Johannesburg Ward 66, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262707457",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1961111,
+  "lng": 28.0969444,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0969444,
+    -26.1961111
+   ]
+  }
+ },
+ "riverlea": {
+  "query": "Riverlea, Johannesburg",
+  "found": true,
+  "name": "Riverlea",
+  "display_name": "Riverlea, Johannesburg Ward 68, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262715334",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2116871,
+  "lng": 27.9740329,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9740329,
+    -26.2116871
+   ]
+  }
+ },
+ "diepkloof": {
+  "query": "Diepkloof, Johannesburg",
+  "found": true,
+  "name": "Diepkloof",
+  "display_name": "Diepkloof, Johannesburg Ward 27, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262705083",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2419444,
+  "lng": 27.9502778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    27.9502778,
+    -26.2419444
+   ]
+  }
+ },
+ "chris-hani-baragwanath": {
+  "query": "Chris Hani Baragwanath",
+  "found": true,
+  "name": "Chris Hani Baragwanath Hospital",
+  "display_name": "Chris Hani Baragwanath Hospital, 26, Chris Hani Road, Power Park, Johannesburg Ward 24, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 1864, South Africa",
+  "osm": "way/59530128",
+  "class": "amenity",
+  "type": "hospital",
+  "lat": -26.2614737,
+  "lng": 27.9388815,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.93152,
+      -26.2623576
+     ],
+     [
+      27.9344244,
+      -26.2626811
+     ],
+     [
+      27.9343126,
+      -26.2639861
+     ],
+     [
+      27.9379119,
+      -26.2638522
+     ],
+     [
+      27.9369574,
+      -26.2651143
+     ],
+     [
+      27.9436548,
+      -26.2655078
+     ],
+     [
+      27.9453434,
+      -26.2652659
+     ],
+     [
+      27.9453425,
+      -26.2644363
+     ],
+     [
+      27.9457992,
+      -26.2643994
+     ],
+     [
+      27.9462533,
+      -26.2603272
+     ],
+     [
+      27.9316388,
+      -26.2591825
+     ],
+     [
+      27.93152,
+      -26.2623576
+     ]
+    ]
+   ]
+  }
+ },
+ "robertsham": {
+  "query": "Robertsham, Johannesburg",
+  "found": true,
+  "name": "Robertsham",
+  "display_name": "Robertsham, Johannesburg Ward 54, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262715576",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2427778,
+  "lng": 28.0163889,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0163889,
+    -26.2427778
+   ]
+  }
+ },
+ "kenilworth": {
+  "query": "Kenilworth, Johannesburg",
+  "found": true,
+  "name": "Kenilworth",
+  "display_name": "Kenilworth, Johannesburg Ward 124, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262707455",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2461111,
+  "lng": 28.0488889,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0488889,
+    -26.2461111
+   ]
+  }
+ },
+ "meredale": {
+  "query": "Meredale, Gauteng",
+  "found": false
+ },
+ "southgate": {
+  "query": "Southgate",
+  "found": true,
+  "name": "Southgate Mall",
+  "display_name": "Southgate Mall, Columbine Avenue, Alan Manor, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "relation/6173914",
+  "class": "shop",
+  "type": "mall",
+  "lat": -26.2661824,
+  "lng": 27.9824108,
+  "geojson": {
+   "type": "MultiPolygon",
+   "coordinates": [
+    [
+     [
+      [
+       27.9768727,
+       -26.2661488
+      ],
+      [
+       27.9769459,
+       -26.2668725
+      ],
+      [
+       27.9773918,
+       -26.2668299
+      ],
+      [
+       27.9774328,
+       -26.2672224
+      ],
+      [
+       27.9783801,
+       -26.2675239
+      ],
+      [
+       27.9776846,
+       -26.2670793
+      ],
+      [
+       27.9776206,
+       -26.2660593
+      ],
+      [
+       27.9788735,
+       -26.2655074
+      ],
+      [
+       27.979282,
+       -26.2657077
+      ],
+      [
+       27.9796268,
+       -26.2651643
+      ],
+      [
+       27.9792191,
+       -26.2649734
+      ],
+      [
+       27.9768727,
+       -26.2661488
+      ]
+     ]
+    ],
+    [
+     [
+      [
+       27.9813622,
+       -26.2679127
+      ],
+      [
+       27.9821958,
+       -26.2681563
+      ],
+      [
+       27.9825423,
+       -26.2679608
+      ],
+      [
+       27.9833148,
+       -26.2659596
+      ],
+      [
+       27.9829715,
+       -26.2658634
+      ],
+      [
+       27.9836603,
+       -26.2648322
+      ],
+      [
+       27.9824619,
+       -26.2644974
+      ],
+      [
+       27.9821883,
+       -26.2658538
+      ],
+      [
+       27.9817559,
+       -26.265727
+      ],
+      [
+       27.9815038,
+       -26.2664053
+      ],
+      [
+       27.9819308,
+       -26.2665224
+      ],
+      [
+       27.9813622,
+       -26.2679127
+      ]
+     ]
+    ]
+   ]
+  }
+ },
+ "glenvista": {
+  "query": "Glenvista, Johannesburg",
+  "found": true,
+  "name": "Glenvista",
+  "display_name": "Glenvista, Johannesburg Ward 23, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262706692",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2827778,
+  "lng": 28.0547222,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0547222,
+    -26.2827778
+   ]
+  }
+ },
+ "soweto": {
+  "query": "Soweto, Johannesburg",
+  "found": true,
+  "name": "Johannesburg Ward 53",
+  "display_name": "Johannesburg Ward 53, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa",
+  "osm": "relation/3597424",
+  "class": "boundary",
+  "type": "administrative",
+  "lat": -26.250268,
+  "lng": 27.7746397,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      27.71427,
+      -26.21387
+     ],
+     [
+      27.72495,
+      -26.2387
+     ],
+     [
+      27.72653,
+      -26.24019
+     ],
+     [
+      27.72611,
+      -26.24037
+     ],
+     [
+      27.72853,
+      -26.24249
+     ],
+     [
+      27.72915,
+      -26.24629
+     ],
+     [
+      27.75348,
+      -26.25804
+     ],
+     [
+      27.74465,
+      -26.27949
+     ],
+     [
+      27.7438,
+      -26.28722
+     ],
+     [
+      27.77651,
+      -26.28533
+     ],
+     [
+      27.7828,
+      -26.30435
+     ],
+     [
+      27.78972,
+      -26.30391
+     ],
+     [
+      27.7923,
+      -26.28747
+     ],
+     [
+      27.8030268,
+      -26.2865594
+     ],
+     [
+      27.7945454,
+      -26.2806885
+     ],
+     [
+      27.7959482,
+      -26.2800299
+     ],
+     [
+      27.7966211,
+      -26.2804464
+     ],
+     [
+      27.7992844,
+      -26.276238
+     ],
+     [
+      27.8004914,
+      -26.2752731
+     ],
+     [
+      27.806153,
+      -26.27233
+     ],
+     [
+      27.8118744,
+      -26.2705145
+     ],
+     [
+      27.8084048,
+      -26.2620705
+     ],
+     [
+      27.8109641,
+      -26.2617776
+     ],
+     [
+      27.8107691,
+      -26.2601197
+     ],
+     [
+      27.811283,
+      -26.2595119
+     ],
+     [
+      27.8124392,
+      -26.2590325
+     ],
+     [
+      27.8135699,
+      -26.2577997
+     ],
+     [
+      27.813346,
+      -26.256913
+     ],
+     [
+      27.81352,
+      -26.254913
+     ],
+     [
+      27.8119776,
+      -26.2522637
+     ],
+     [
+      27.8119577,
+      -26.2516976
+     ],
+     [
+      27.8125538,
+      -26.2510844
+     ],
+     [
+      27.810755,
+      -26.249052
+     ],
+     [
+      27.810391,
+      -26.2477
+     ],
+     [
+      27.810657,
+      -26.24666
+     ],
+     [
+      27.810452,
+      -26.244158
+     ],
+     [
+      27.811421,
+      -26.242408
+     ],
+     [
+      27.810342,
+      -26.241931
+     ],
+     [
+      27.8123,
+      -26.24026
+     ],
+     [
+      27.81442,
+      -26.23967
+     ],
+     [
+      27.81526,
+      -26.23909
+     ],
+     [
+      27.81896,
+      -26.23514
+     ],
+     [
+      27.81925,
+      -26.235319
+     ],
+     [
+      27.820174,
+      -26.233874
+     ],
+     [
+      27.81929,
+      -26.233425
+     ],
+     [
+      27.819415,
+      -26.233207
+     ],
+     [
+      27.8222695,
+      -26.2314277
+     ],
+     [
+      27.8083616,
+      -26.229644
+     ],
+     [
+      27.8033726,
+      -26.2295576
+     ],
+     [
+      27.8026816,
+      -26.2153938
+     ],
+     [
+      27.8085504,
+      -26.2008301
+     ],
+     [
+      27.779685,
+      -26.19622
+     ],
+     [
+      27.77199,
+      -26.21321
+     ],
+     [
+      27.71827,
+      -26.19893
+     ],
+     [
+      27.71776,
+      -26.202857
+     ],
+     [
+      27.72029,
+      -26.20386
+     ],
+     [
+      27.71928,
+      -26.21058
+     ],
+     [
+      27.71958,
+      -26.21067
+     ],
+     [
+      27.71851,
+      -26.21389
+     ],
+     [
+      27.7157,
+      -26.2143
+     ],
+     [
+      27.71427,
+      -26.21387
+     ]
+    ]
+   ]
+  }
+ },
+ "lion-park": {
+  "query": "Lion Park",
+  "found": true,
+  "name": "Lion Park",
+  "display_name": "Lion Park, Nkomazi Ward 7, Nkomazi, Ehlanzeni, Mpumalanga, South Africa",
+  "osm": "node/345457045",
+  "class": "leisure",
+  "type": "nature_reserve",
+  "lat": -25.4333333,
+  "lng": 31.7583333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    31.7583333,
+    -25.4333333
+   ]
+  }
+ },
+ "nooitgedacht": {
+  "query": "Nooitgedacht",
+  "found": true,
+  "name": "Nooitgedacht",
+  "display_name": "Nooitgedacht, Renosterberg Local Municipality, Pixley ka Seme District Municipality, Northern Cape, South Africa",
+  "osm": "way/1329886926",
+  "class": "boundary",
+  "type": "administrative",
+  "lat": -29.8756682,
+  "lng": 24.5602999,
+  "geojson": {
+   "type": "Polygon",
+   "coordinates": [
+    [
+     [
+      24.5581032,
+      -29.8737049
+     ],
+     [
+      24.5606335,
+      -29.8783887
+     ],
+     [
+      24.5624971,
+      -29.8776315
+     ],
+     [
+      24.5599659,
+      -29.8729482
+     ],
+     [
+      24.5581032,
+      -29.8737049
+     ]
+    ]
+   ]
+  }
+ },
+ "lanseria": {
+  "query": "Lanseria, Gauteng",
+  "found": false
+ },
+ "hartbeespoort": {
+  "query": "Hartbeespoort, Gauteng",
+  "found": false
+ },
+ "gosforth-park": {
+  "query": "Gosforth Park",
+  "found": false
+ }
+}

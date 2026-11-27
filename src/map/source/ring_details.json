@@ -1,0 +1,910 @@
+{
+"junctions": [
+{
+"road": "n1",
+"name": "R512 Malibongwe Drive",
+"ref": "90",
+"lat": -26.0777324,
+"lng": 27.9710878,
+"osm": "node/21587277"
+},
+{
+"road": "n1",
+"name": "Buccleuch Interchange",
+"ref": "104B",
+"lat": -26.0455378,
+"lng": 28.0935762,
+"osm": "node/21587328"
+},
+{
+"road": "n3",
+"name": "Buccleuch Interchange",
+"ref": "104",
+"lat": -26.0508467,
+"lng": 28.1013071,
+"osm": "node/21587464"
+},
+{
+"road": "n3",
+"name": "",
+"ref": "124",
+"lat": -26.0753298,
+"lng": 28.1129019,
+"osm": "node/21588082"
+},
+{
+"road": "n3",
+"name": "119A Edenvale",
+"ref": "119A",
+"lat": -26.1137181,
+"lng": 28.1319015,
+"osm": "node/21588102"
+},
+{
+"road": "n3",
+"name": "119B Johannesburg",
+"ref": "119B",
+"lat": -26.1191386,
+"lng": 28.1345311,
+"osm": "node/21588104"
+},
+{
+"road": "n3",
+"name": "Rand Airport Road",
+"ref": "106",
+"lat": -26.2313898,
+"lng": 28.1258226,
+"osm": "node/21588161"
+},
+{
+"road": "n12",
+"name": "N12",
+"ref": "105",
+"lat": -26.2362982,
+"lng": 28.125612,
+"osm": "node/21588164"
+},
+{
+"road": "n1",
+"name": "M9 Rivonia Road",
+"ref": "100",
+"lat": -26.0393317,
+"lng": 28.0664045,
+"osm": "node/21588781"
+},
+{
+"road": "n1",
+"name": "Sandton",
+"ref": "95",
+"lat": -26.0370162,
+"lng": 28.0189565,
+"osm": "node/21589112"
+},
+{
+"road": "n1",
+"name": "R512 Malibongwe Drive",
+"ref": "90",
+"lat": -26.0689883,
+"lng": 27.9761191,
+"osm": "node/21589163"
+},
+{
+"road": "n1",
+"name": "M5 Honeydew",
+"ref": "85",
+"lat": -26.1105198,
+"lng": 27.9579851,
+"osm": "node/21598500"
+},
+{
+"road": "n1",
+"name": "",
+"ref": "",
+"lat": -26.1472165,
+"lng": 27.9296902,
+"osm": "node/21598681"
+},
+{
+"road": "n1",
+"name": "Roodepoort",
+"ref": "80",
+"lat": -26.1574741,
+"lng": 27.9280649,
+"osm": "node/25708774"
+},
+{
+"road": "n1",
+"name": "",
+"ref": "67",
+"lat": -26.2425958,
+"lng": 27.9626135,
+"osm": "node/25711469"
+},
+{
+"road": "n1",
+"name": "N12",
+"ref": "67",
+"lat": -26.265482,
+"lng": 27.9529042,
+"osm": "node/25711719"
+},
+{
+"road": "n3",
+"name": "Gilloolys Interchange",
+"ref": "113",
+"lat": -26.1767065,
+"lng": 28.1314858,
+"osm": "node/26399540"
+},
+{
+"road": "n3",
+"name": "Gilloolys Interchange",
+"ref": "113",
+"lat": -26.1629213,
+"lng": 28.1335758,
+"osm": "node/32335996"
+},
+{
+"road": "n12",
+"name": "Johannesburg",
+"ref": "399",
+"lat": -26.2686223,
+"lng": 28.0659445,
+"osm": "node/59972682"
+},
+{
+"road": "n12",
+"name": "Reading Interchange",
+"ref": "402",
+"lat": -26.2619406,
+"lng": 28.1039296,
+"osm": "node/59973755"
+},
+{
+"road": "n12",
+"name": "N17",
+"ref": "406",
+"lat": -26.2472187,
+"lng": 28.1231228,
+"osm": "node/59973801"
+},
+{
+"road": "n12",
+"name": "Reading Interchange",
+"ref": "402",
+"lat": -26.2632817,
+"lng": 28.0861279,
+"osm": "node/59973820"
+},
+{
+"road": "n12",
+"name": "Johannesburg",
+"ref": "399",
+"lat": -26.269143,
+"lng": 28.0560914,
+"osm": "node/59973845"
+},
+{
+"road": "n12",
+"name": "Johannesburg",
+"ref": "396",
+"lat": -26.2690276,
+"lng": 28.0365488,
+"osm": "node/59973861"
+},
+{
+"road": "n12",
+"name": "Johannesburg",
+"ref": "393",
+"lat": -26.2602338,
+"lng": 28.013235,
+"osm": "node/59973874"
+},
+{
+"road": "n12",
+"name": "Uncle Charlies Interchange",
+"ref": "391",
+"lat": -26.2629326,
+"lng": 27.9810767,
+"osm": "node/59973911"
+},
+{
+"road": "n12",
+"name": "",
+"ref": "67",
+"lat": -26.2617805,
+"lng": 27.9703103,
+"osm": "node/59973914"
+},
+{
+"road": "n12",
+"name": "Old Potch Road",
+"ref": "",
+"lat": -26.261196,
+"lng": 27.9650974,
+"osm": "node/59973917"
+},
+{
+"road": "n3",
+"name": "M16 Linksfield Road",
+"ref": "116",
+"lat": -26.1439317,
+"lng": 28.131841,
+"osm": "node/103916318"
+},
+{
+"road": "n3",
+"name": "Van Buuren Road",
+"ref": "110",
+"lat": -26.1850981,
+"lng": 28.1340954,
+"osm": "node/103930008"
+},
+{
+"road": "n3",
+"name": "R25 Modderfontein Road",
+"ref": "119B",
+"lat": -26.1299382,
+"lng": 28.1343639,
+"osm": "node/109025520"
+},
+{
+"road": "n3",
+"name": "Marlboro Dr",
+"ref": "124",
+"lat": -26.0870095,
+"lng": 28.1155032,
+"osm": "node/109058265"
+},
+{
+"road": "n3",
+"name": "Geldenhuys Interchange",
+"ref": "108B",
+"lat": -26.2176644,
+"lng": 28.1306022,
+"osm": "node/113429365"
+},
+{
+"road": "n3",
+"name": "Geldenhuys Interchange",
+"ref": "108A",
+"lat": -26.2196455,
+"lng": 28.129163,
+"osm": "node/113433141"
+},
+{
+"road": "n1",
+"name": "Gordon Road",
+"ref": "78",
+"lat": -26.1697968,
+"lng": 27.9424894,
+"osm": "node/247766323"
+},
+{
+"road": "n1",
+"name": "Gordon Road",
+"ref": "78",
+"lat": -26.1623787,
+"lng": 27.9348701,
+"osm": "node/247766459"
+},
+{
+"road": "n1",
+"name": "Roodepoort",
+"ref": "75",
+"lat": -26.1907516,
+"lng": 27.9485723,
+"osm": "node/257750330"
+},
+{
+"road": "n12",
+"name": "N3",
+"ref": "105",
+"lat": -26.2493694,
+"lng": 28.1224345,
+"osm": "node/288964676"
+},
+{
+"road": "n12",
+"name": "Johannesburg",
+"ref": "393",
+"lat": -26.2602446,
+"lng": 28.0031835,
+"osm": "node/288979168"
+},
+{
+"road": "n1",
+"name": "M70 Soweto Highway",
+"ref": "69",
+"lat": -26.2384978,
+"lng": 27.9610031,
+"osm": "node/289078000"
+},
+{
+"road": "n1",
+"name": "M5 Honeydew",
+"ref": "85",
+"lat": -26.11924,
+"lng": 27.9489044,
+"osm": "node/289092615"
+},
+{
+"road": "n3",
+"name": "Van Buuren Road",
+"ref": "110",
+"lat": -26.1992416,
+"lng": 28.1329711,
+"osm": "node/303774390"
+},
+{
+"road": "n3",
+"name": "",
+"ref": "108",
+"lat": -26.2055028,
+"lng": 28.1363513,
+"osm": "node/303774566"
+},
+{
+"road": "n12",
+"name": "",
+"ref": "404",
+"lat": -26.2578474,
+"lng": 28.118019,
+"osm": "node/303856687"
+},
+{
+"road": "n12",
+"name": "",
+"ref": "404",
+"lat": -26.2564044,
+"lng": 28.1206173,
+"osm": "node/303856959"
+},
+{
+"road": "n1",
+"name": "M9 Rivonia Road",
+"ref": "100",
+"lat": -26.0378736,
+"lng": 28.0511761,
+"osm": "node/339300333"
+},
+{
+"road": "n1",
+"name": "Sandton",
+"ref": "95",
+"lat": -26.0403407,
+"lng": 28.008943,
+"osm": "node/339334934"
+},
+{
+"road": "n3",
+"name": "M16 Linksfield Road",
+"ref": "116",
+"lat": -26.1514991,
+"lng": 28.1316827,
+"osm": "node/344394118"
+},
+{
+"road": "n3",
+"name": "London Road",
+"ref": "121",
+"lat": -26.1088556,
+"lng": 28.1285641,
+"osm": "node/434481278"
+},
+{
+"road": "n3",
+"name": "London Road",
+"ref": "121",
+"lat": -26.0977812,
+"lng": 28.1195857,
+"osm": "node/434481600"
+},
+{
+"road": "n12",
+"name": "Johannesburg",
+"ref": "396",
+"lat": -26.2661184,
+"lng": 28.0254337,
+"osm": "node/774103461"
+},
+{
+"road": "n1",
+"name": "Johannesburg",
+"ref": "71",
+"lat": -26.2131489,
+"lng": 27.9584847,
+"osm": "node/1233165938"
+},
+{
+"road": "n1",
+"name": "Roodepoort",
+"ref": "75",
+"lat": -26.1810762,
+"lng": 27.9455637,
+"osm": "node/5245878932"
+},
+{
+"road": "n1",
+"name": "Buccleuch Interchange",
+"ref": "104A",
+"lat": -26.0426314,
+"lng": 28.0870292,
+"osm": "node/5883116594"
+}
+],
+"bridges": [
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.2585695,
+"lng": 27.9623495,
+"osm": "way/8022065"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0613557,
+"lng": 27.9834926,
+"osm": "way/19648663"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.061732,
+"lng": 27.9833484,
+"osm": "way/19648679"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0461351,
+"lng": 28.094859,
+"osm": "way/23060199"
+},
+{
+"road": "n12",
+"name": "Southern Bypass",
+"kind": "yes",
+"lat": -26.239399,
+"lng": 28.1248811,
+"osm": "way/23283500"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.2583004,
+"lng": 27.9621634,
+"osm": "way/27344700"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.2119971,
+"lng": 27.9581506,
+"osm": "way/27358381"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.2110789,
+"lng": 27.9575199,
+"osm": "way/27358415"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.1514016,
+"lng": 27.9273914,
+"osm": "way/27440043"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.1519586,
+"lng": 27.9274048,
+"osm": "way/27440045"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.2120285,
+"lng": 28.1345817,
+"osm": "way/27608179"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.2126379,
+"lng": 28.1343169,
+"osm": "way/27608183"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.213813,
+"lng": 28.1333363,
+"osm": "way/27608374"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.2141811,
+"lng": 28.1332367,
+"osm": "way/27608376"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0382642,
+"lng": 28.0546669,
+"osm": "way/28125506"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0441973,
+"lng": 28.0902961,
+"osm": "way/28125744"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0443607,
+"lng": 28.0910663,
+"osm": "way/28125752"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0460502,
+"lng": 28.0943011,
+"osm": "way/28125842"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0381417,
+"lng": 28.0553877,
+"osm": "way/30686223"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.1926372,
+"lng": 28.1327289,
+"osm": "way/30997926"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.1930203,
+"lng": 28.1327676,
+"osm": "way/30997933"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.1358576,
+"lng": 28.1327837,
+"osm": "way/31127593"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.1363368,
+"lng": 28.1328899,
+"osm": "way/31127597"
+},
+{
+"road": "n12",
+"name": "Southern Bypass",
+"kind": "yes",
+"lat": -26.2703889,
+"lng": 28.0475016,
+"osm": "way/32265946"
+},
+{
+"road": "n12",
+"name": "Southern Bypass",
+"kind": "yes",
+"lat": -26.2688688,
+"lng": 28.0616489,
+"osm": "way/32266011"
+},
+{
+"road": "n12",
+"name": "Southern Bypass",
+"kind": "yes",
+"lat": -26.2690793,
+"lng": 28.0610065,
+"osm": "way/32266022"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0988371,
+"lng": 27.9647761,
+"osm": "way/41752401"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0983602,
+"lng": 27.9648533,
+"osm": "way/41752405"
+},
+{
+"road": "n12",
+"name": "Southern Bypass",
+"kind": "yes",
+"lat": -26.24425,
+"lng": 28.1238155,
+"osm": "way/62051189"
+},
+{
+"road": "n12",
+"name": "Southern Bypass",
+"kind": "yes",
+"lat": -26.2455731,
+"lng": 28.1242197,
+"osm": "way/62051191"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.0569385,
+"lng": 28.1048735,
+"osm": "way/63529749"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.0566309,
+"lng": 28.104512,
+"osm": "way/63529752"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.1662108,
+"lng": 28.133243,
+"osm": "way/65168627"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.1657596,
+"lng": 28.1331417,
+"osm": "way/65168632"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.2157397,
+"lng": 28.1319798,
+"osm": "way/65200255"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.2163708,
+"lng": 28.1317451,
+"osm": "way/65200257"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.2186995,
+"lng": 28.1300903,
+"osm": "way/65201496"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.2184579,
+"lng": 28.1300576,
+"osm": "way/65201497"
+},
+{
+"road": "n12",
+"name": "Southern Bypass",
+"kind": "yes",
+"lat": -26.2551961,
+"lng": 28.1214241,
+"osm": "way/65754889"
+},
+{
+"road": "n12",
+"name": "Southern Bypass",
+"kind": "yes",
+"lat": -26.2495281,
+"lng": 28.1229508,
+"osm": "way/65754903"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.137239,
+"lng": 27.9346449,
+"osm": "way/70799932"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.1376755,
+"lng": 27.9345841,
+"osm": "way/70799938"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.2281307,
+"lng": 27.9615955,
+"osm": "way/73135988"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.2278975,
+"lng": 27.9612883,
+"osm": "way/73136112"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0388869,
+"lng": 28.0651697,
+"osm": "way/79542037"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0384406,
+"lng": 28.0605288,
+"osm": "way/79542047"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0383061,
+"lng": 28.0612301,
+"osm": "way/79542048"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0390148,
+"lng": 28.0647252,
+"osm": "way/79542051"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0796195,
+"lng": 27.9708602,
+"osm": "way/79549816"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0789384,
+"lng": 27.9708094,
+"osm": "way/79549830"
+},
+{
+"road": "n12",
+"name": "Southern Bypass",
+"kind": "yes",
+"lat": -26.26996,
+"lng": 28.0481864,
+"osm": "way/200132074"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.1948732,
+"lng": 27.9506891,
+"osm": "way/542609112"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.1947768,
+"lng": 27.9509483,
+"osm": "way/542609115"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.0658829,
+"lng": 28.1094298,
+"osm": "way/623931395"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.0661763,
+"lng": 28.1097523,
+"osm": "way/623931399"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0626513,
+"lng": 27.9819705,
+"osm": "way/727616569"
+},
+{
+"road": "n1",
+"name": "Western Bypass",
+"kind": "yes",
+"lat": -26.0631717,
+"lng": 27.9816426,
+"osm": "way/727616571"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.1379157,
+"lng": 28.1326725,
+"osm": "way/756637631"
+},
+{
+"road": "n3",
+"name": "Eastern Bypass",
+"kind": "yes",
+"lat": -26.1375797,
+"lng": 28.1325357,
+"osm": "way/756637633"
+}
+]
+}

@@ -14,6 +14,15 @@ An independent visitor's guide to Johannesburg. A fast, accessible static site b
 3. Run the build and the checks. Commit `docs/` with your changes.
 4. Swap the placeholder images for real photos: put a file at `images/<dir>/<name>.webp` at the size in `src/data/images.json`, then run `pip install pillow && python3 tools/make_images.py --no-fetch`.
 
+## Neighbourhoods
+
+`src/data/neighbourhoods.json` lists every area and attraction the guide plans to cover: 160 areas and 19 attractions, grouped by part of the city, with the main areas marked. Most entries are a name only for now. Fill in `summary`, `tags` and `geo` as each place is written up and mapped.
+
+- An area with a summary appears as a card on the neighbourhoods page. Every area appears in the list at the foot of that page.
+- An area guide is a page at `src/pages/neighbourhoods/<id>.html`. Braamfontein and Fourways are the examples. Each shows an info box built from the data.
+- The info box can go on any page with `{{ info_box_<id> }}`. The first-day blog post shows Braamfontein's.
+- `tags` and `geo` are there for the planned map: tags for the shading toggles, and `geo` for where each place sits.
+
 ## Events editor
 
 Events come from `content/events.json`. Edit that file on GitHub, or use the editor at `/editor/`: sign in with a password, then add, change, hide or remove events and press "Save and publish". The editor commits the file to `main`, and the "Rebuild docs" workflow rebuilds and publishes the site in one to three minutes. A bad edit fails the build, so the live site keeps the last good version.

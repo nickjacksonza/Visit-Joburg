@@ -82,7 +82,8 @@
         "History",
         "Museum"
       ],
-      "img": "attr-apartheid-museum"
+      "img": "attr-apartheid-museum",
+      "neighbourhood": "ormonde"
     },
     {
       "id": "constitution-hill",
@@ -97,7 +98,8 @@
         "History",
         "Architecture"
       ],
-      "img": "attr-constitution-hill"
+      "img": "attr-constitution-hill",
+      "neighbourhood": "braamfontein"
     },
     {
       "id": "vilakazi-street",
@@ -112,7 +114,8 @@
         "History",
         "Food"
       ],
-      "img": "attr-vilakazi-street"
+      "img": "attr-vilakazi-street",
+      "neighbourhood": "soweto"
     },
     {
       "id": "hector-pieterson",
@@ -127,7 +130,8 @@
         "History",
         "Museum"
       ],
-      "img": "attr-hector-pieterson"
+      "img": "attr-hector-pieterson",
+      "neighbourhood": "soweto"
     },
     {
       "id": "cradle-of-humankind",
@@ -144,7 +148,8 @@
         "Outdoors"
       ],
       "img": "attr-cradle",
-      "locality": "Mogale City"
+      "locality": "Mogale City",
+      "neighbourhood": null
     },
     {
       "id": "botanical-garden",
@@ -160,7 +165,8 @@
         "Free"
       ],
       "img": "attr-botanical-garden",
-      "free": true
+      "free": true,
+      "neighbourhood": "emmarentia"
     },
     {
       "id": "origins-centre",
@@ -175,7 +181,8 @@
         "Science",
         "Museum"
       ],
-      "img": "attr-origins-centre"
+      "img": "attr-origins-centre",
+      "neighbourhood": "braamfontein"
     },
     {
       "id": "liliesleaf",
@@ -190,57 +197,8 @@
         "History",
         "Museum"
       ],
-      "img": "attr-liliesleaf"
-    }
-  ],
-  "neighbourhoods": [
-    {
-      "id": "braamfontein",
-      "name": "Braamfontein",
-      "lat": -26.1929,
-      "lng": 28.0357,
-      "summary": "A student district next to Wits University. Rooftop bars, galleries, coffee shops and a busy Saturday food market.",
-      "for": "Food markets, nightlife, Constitution Hill"
-    },
-    {
-      "id": "maboneng",
-      "name": "Maboneng",
-      "lat": -26.2044,
-      "lng": 28.0583,
-      "summary": "A small, walkable precinct on the east side of the city centre, known for street art, galleries, independent shops and restaurants.",
-      "for": "Street art, galleries, weekend markets"
-    },
-    {
-      "id": "soweto",
-      "name": "Soweto",
-      "lat": -26.2485,
-      "lng": 27.854,
-      "summary": "South Africa's best-known township and the heart of much of the country's history. Go with a local guide to get the most from it.",
-      "for": "History, Vilakazi Street, local food"
-    },
-    {
-      "id": "melville",
-      "name": "Melville",
-      "lat": -26.175,
-      "lng": 28.008,
-      "summary": "A relaxed suburb with a strip of cafés, bookshops and bars along 7th Street, close to the Melville Koppies nature reserve.",
-      "for": "Cafés, live music, a walk on the koppies"
-    },
-    {
-      "id": "rosebank",
-      "name": "Rosebank",
-      "lat": -26.146,
-      "lng": 28.0436,
-      "summary": "A compact business and shopping district with its own Gautrain station, a weekend rooftop market and several galleries.",
-      "for": "A first base, shopping, galleries"
-    },
-    {
-      "id": "newtown",
-      "name": "Newtown",
-      "lat": -26.203,
-      "lng": 28.032,
-      "summary": "A cultural quarter in the west of the city centre, home to the Market Theatre and Mary Fitzgerald Square.",
-      "for": "Theatre, music, history"
+      "img": "attr-liliesleaf",
+      "neighbourhood": "rivonia"
     }
   ],
   "faqs": [
