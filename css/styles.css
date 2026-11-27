@@ -136,14 +136,20 @@ h1,h2,h3,.brand{font-family:var(--display);font-weight:600;letter-spacing:.01em}
 .map figcaption{padding:.4rem .8rem;color:var(--map-paper);font-size:.85rem}
 .js .map img{cursor:pointer}.map-svg #hexes path{cursor:pointer}
 .map-svg #labels,.map-svg .lift{pointer-events:none}
-.map-svg.picking #hexes path{opacity:.35}
-.map-svg #hexes .picked path{opacity:.8;fill:var(--map-shadow)}
+.map-svg.picking #hexes path,.map-svg.picking #fine path{opacity:.35}
+.map-svg #hexes .picked path,.map-svg #fine .picked path{opacity:.8;fill:var(--map-shadow)}
+.map-svg #fine{display:none}.map-svg.fine #fine{display:inline}.map-svg.fine #hexes{display:none}
+/* Zoomed in, symbols and names keep their size on screen: --z is the share of the whole map in view (1 at full size). */
+.map-svg #labels text,.map-svg #ring-turnoffs>g,.map-svg [id^="marker-"],.map-svg #ring-bridges>path,.map-svg #attractions>*,.map-svg .lift-label{transform-box:fill-box;transform-origin:center;transform:scale(var(--z,1))}
+.map-svg #main-roads text[font-size="8"]{font-size:calc(8px * var(--z,1));stroke-width:calc(2.5px * var(--z,1))}
+.map-svg #main-roads text[font-size="5.5"]{font-size:calc(5.5px * var(--z,1));stroke-width:calc(1.7px * var(--z,1))}
+.map-svg.zoomed #regions path,.map-svg.zoomed #areas>*,.map-svg.zoomed #main-roads path,.map-svg.zoomed #freeways path,.map-svg.zoomed #ring-road path,.map-svg.zoomed #city-boundary *{vector-effect:non-scaling-stroke}
+.map-pick .btn{margin:0}
 .map-svg #areas .picked{stroke:var(--map-lift);stroke-width:1.5}
 .lift .slice{fill:var(--map-wall);stroke:var(--map-shadow);stroke-width:.4}
 .lift .top{fill:var(--map-lift);stroke:var(--map-ink);stroke-width:.6}
 .lift-label{opacity:0;fill:var(--map-ink);stroke:var(--map-paper)}
-.lift.up .k1{transform:translateY(-5px)}.lift.up .k2{transform:translateY(-10px)}.lift.up .k3{transform:translateY(-15px)}.lift.up .k4{transform:translateY(-20px)}
-.lift.up .k5{transform:translateY(-25px)}.lift.up .k6{transform:translateY(-30px)}.lift.up .k7{transform:translateY(-35px)}.lift.up .k8{transform:translateY(-40px)}
+.lift.up .k1{transform:translateY(calc(var(--step) * -1))}.lift.up .k2{transform:translateY(calc(var(--step) * -2))}.lift.up .k3{transform:translateY(calc(var(--step) * -3))}.lift.up .k4{transform:translateY(calc(var(--step) * -4))}.lift.up .k5{transform:translateY(calc(var(--step) * -5))}.lift.up .k6{transform:translateY(calc(var(--step) * -6))}.lift.up .k7{transform:translateY(calc(var(--step) * -7))}.lift.up .k8{transform:translateY(calc(var(--step) * -8))}
 .lift.up .lift-label{opacity:1}
 @media (prefers-reduced-motion:no-preference){.lift .slice{transition:transform .6s cubic-bezier(.2,.8,.2,1)}.lift-label{transition:opacity .3s .4s}}
 .map-info{margin-top:1rem}.map-info h3{margin:0 0 .25rem}

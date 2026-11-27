@@ -533,6 +533,13 @@ def build_map():
     out = OUT / "map"
     out.mkdir(exist_ok=True)
     (out / "joburg.svg").write_text(ET.tostring(tree, encoding="unicode"), encoding="utf-8")
+    # The 420 m hexagons as compact data (centre and colour), loaded only when a visitor zooms into a suburb.
+    hx = json.loads((SRC / "map" / "hexes.json").read_text(encoding="utf-8"))
+    reg = hx.get("levels", {}).get("region")
+    if reg:
+        data = {"r": round(reg["hex_radius"] * 0.92, 2),
+                "areas": {pid: [[x, y, c[1:]] for (x, y), c in zip(cs, reg["colours"][pid])] for pid, cs in reg["areas"].items()}}
+        (out / "region.json").write_text(json.dumps(data, separators=(",", ":")), encoding="utf-8")
     hexes = tree.find(f"{{{SVG_NS}}}g[@id='hexes']")
     ids = [g.get("id")[4:] for g in hexes] if hexes is not None else []
     w, h = (round(float(x)) for x in tree.get("viewBox").split()[2:])
@@ -551,7 +558,8 @@ def map_html(root):
         o = "".join(f'<option value="{p["id"]}" data-summary="{esc(p["summary"])}"'
                     + (f' data-href="{root}neighbourhoods/{p["id"]}.html"' if has_page(p) else "") + f'>{esc(p["name"])}</option>' for p in here)
         opts.append(f'<optgroup label="{esc(r["name"])}">{o}</optgroup>')
-    return (f'<div class="map-pick"><label for="map-area">Pick a suburb</label><select id="map-area"><option value="">Choose a suburb</option>{"".join(opts)}</select></div>'
+    return (f'<div class="map-pick"><label for="map-area">Pick a suburb</label><select id="map-area"><option value="">Choose a suburb</option>{"".join(opts)}</select>'
+            f'<button type="button" class="btn btn-ghost" id="map-out" hidden>Whole city</button></div>'
             f'<figure class="map" id="map"><img src="{root}map/joburg.svg" width="{w}" height="{h}" loading="lazy" decoding="async" '
             f'alt="Map of Johannesburg: the main suburbs shaded in hexagons, with the ring road of the N1, N3 and N12 around the city and the main roads.">'
             f'<figcaption>Draft map: shapes are approximate. {esc(MAP_CREDIT)}.</figcaption></figure>'
