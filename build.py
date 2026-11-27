@@ -752,7 +752,7 @@ def build():
     MAP = build_map()
     if (ROOT / "editor").exists():  # the owner's events editor, served at /editor/ (noindex, not in the sitemap)
         shutil.copytree(ROOT / "editor", OUT / "editor")
-    for d in ("images", "fonts"):
+    for d in ("images", "fonts", "downloads"):
         if (ROOT / d).exists():
             shutil.copytree(ROOT / d, OUT / d)
     partials = {p.stem: p.read_text(encoding="utf-8") for p in (SRC / "partials").glob("*.html")}

@@ -28,7 +28,7 @@ A place is defined in one file and referred to everywhere else by `id`. Files in
 
 ## Rules
 
-- `docs/` is generated and committed. Rebuild and commit it with every change to `src/`, `content/`, `css/`, `js/`, `editor/` or `images/`. Never edit `docs/` by hand.
+- `docs/` is generated and committed. Rebuild and commit it with every change to `src/`, `content/`, `css/`, `js/`, `editor/`, `images/` or `downloads/`. Never edit `docs/` by hand.
 - Visible lists and their JSON-LD are built from the same data, so they stay in step. `build.py` checks every data file and fails the build on a bad entry.
 - Pages are `src/pages/**.html` with front matter (`title`, `description`, `kind`, optional `robots`, `crumb`, `hero`, `body_class`). `kind` picks the schema built in `graph()` in `build.py`: `home`, `attractions`, `neighbourhoods`, `events`, `faq`, `blog`, `about`, `contact`. Pages under `blog/` are posts and need a matching entry in `posts`. Pages under `neighbourhoods/` are area guides and need a matching entry with a summary in `neighbourhoods.json`.
 - Every internal link and asset path is relative to the page depth (`{{ root }}`). Never hardcode a leading `/`.
@@ -67,7 +67,7 @@ A place is defined in one file and referred to everywhere else by `id`. Files in
 ## Map
 
 - The base map is our own SVG, true to geography (1 km = 10 units). `tools/make_map.py` draws the draft `src/map/joburg-draft.svg` from every placed area and attraction, with outlines and roads from `src/map/source/`; it is refined in the Figma file "Visit Joburg Map" and exported back as `src/map/joburg.svg`. See `src/map/README.md`. `src/map/audit.md` lists places still without a position and every position's source.
-- The Gautrain (layer `gautrain`) is drawn by `tools/make_map.py` from `src/map/source/gautrain.json`: stations and two straight station-to-station lines, under the ring road. Sandton Station is also an attraction (`sandton-station`). The guide page is `src/pages/gautrain.html`. It links to the official timetable and does not copy it; if a PDF is added, put it in `src/static/`, date it and say where it came from.
+- The Gautrain (layer `gautrain`) is drawn by `tools/make_map.py` from `src/map/source/gautrain.json`: stations and two straight station-to-station lines, under the ring road. Sandton Station is also an attraction (`sandton-station`). The guide page is `src/pages/gautrain.html`. It links to the official timetable and does not copy it; the timetable PDF is in `downloads/` (copied to `docs/downloads/` by `build.py`) and comes from the Gautrain 2025 fare guide brochure (June 2025). Replace it and update the page's wording and the station times when a newer timetable is out.
 - Every shape's `id` (its Figma layer name) is its place id in `neighbourhoods.json`. Never repeat names, tags or summaries in the SVG.
 - `src/data/map.json` holds the hexagon levels, the view frames drawn on the draft for Figma, the landmark and the credit.
 - Hexagons have levels (`hex_levels` in `map.json`): about 1 km at city level, about 420 m at region level (`src/map/hexes-region.svg`, loaded only when a visitor zooms into a region), about 100 m in detail views only. Never draw the 100 m level across the whole map; it is about 96,000 shapes.

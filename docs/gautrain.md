@@ -41,7 +41,30 @@ You pay at the station gates. The Gautrain website explains the cards and ways t
 
 ## Timetable
 
-The Gautrain changes its timetable from time to time. Check the latest version on the [official Gautrain website](https://www.gautrain.co.za/) before you travel, and again on the day if you have a flight to catch. Allow extra time to reach the airport.
+Trains run every day, with the first departures from the main stations at about 05:30 and the last at about 20:30.
+
+- **Weekdays, peak:** a train every 10 minutes.
+- **Weekdays, off-peak:** a train every 20 minutes.
+- **Weekends and public holidays:** every 30 minutes from 05:30 to 09:00 and from 16:00 to 20:30, and every 20 minutes from 09:00 to 16:00.
+
+[Download the Gautrain train schedule (PDF, 420 KB)](https://example.com/downloads/gautrain-train-schedule-2025.pdf). It shows every departure on both lines, on weekdays and on weekends and public holidays. It comes from the Gautrain's 2025 fare guide brochure, made in June 2025.
+
+The Gautrain changes its timetable from time to time. Before you travel, and again on the day if you have a flight to catch, check the [official Gautrain website](https://www.gautrain.co.za/) for a newer version.
+
+### When Each Station Opens and Closes
+
+Stations open a little before the first train and close a little after the last. Times differ by station:
+
+- Park: 05:14 to 21:28
+- Rosebank: 05:18 to 21:24
+- Sandton: 05:06 to 21:20
+- Marlboro: 05:10 to 21:15
+- Midrand: 05:33 to 21:09
+- Centurion: 05:24 to 21:08
+- Pretoria: 05:17 to 21:17
+- Hatfield: 05:09 to 21:22
+- Rhodesfield: 05:14 to 21:12
+- O.R. Tambo International Airport: 05:12 to 21:14
 
 ## Getting From the Station to Your Destination
 
