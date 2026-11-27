@@ -169,7 +169,7 @@ display:inline-flex;align-items:center;gap:.45rem;background:var(--map-paper);co
 .map-svg #fine{display:none}.map-svg.fine #fine{display:inline}.map-svg.fine #hexes{display:none}
 /* Zoomed in, symbols and names keep their size on screen: --z is the share of the whole map in view (1 at full size). */
 .map-svg{--k:.7}
-.map-svg #labels text,.map-svg #ring-turnoffs>g,.map-svg [id^="marker-"],.map-svg #ring-bridges>path,.map-svg #gautrain-stations>g,.map-svg #attractions>*,.map-svg .lift-label{transform-box:fill-box;transform-origin:center;transform:scale(calc(var(--z,1) * var(--k)))}
+.map-svg #labels text,.map-svg #ring-turnoffs>g,.map-svg [id^="marker-"],.map-svg #ring-bridges>path,.map-svg #gautrain-stations>g,.map-svg #attractions>*,.map-svg #attraction-clusters>*,.map-svg .lift-label{transform-box:fill-box;transform-origin:center;transform:scale(calc(var(--z,1) * var(--k)))}
 .map-svg #main-roads text[font-size="8"]{font-size:calc(8px * var(--z,1) * var(--k));stroke-width:calc(2.5px * var(--z,1) * var(--k))}
 .map-svg #main-roads text[font-size="5.5"]{font-size:calc(5.5px * var(--z,1) * var(--k));stroke-width:calc(1.7px * var(--z,1) * var(--k))}
 .map-svg.zoomed #regions path,.map-svg.zoomed #areas>*,.map-svg.zoomed #main-roads path,.map-svg.zoomed #freeways path,.map-svg.zoomed #ring-road path,.map-svg.zoomed #gautrain path,.map-svg.zoomed #city-boundary *{vector-effect:non-scaling-stroke}
@@ -178,7 +178,7 @@ display:inline-flex;align-items:center;gap:.45rem;background:var(--map-paper);co
 .lift .top{fill:var(--map-lift);fill-opacity:.5;stroke:var(--map-ink);stroke-width:.6}
 /* Names: at whole-city view only the popular areas are named; suburb names show once zoomed in, smaller, and any
    suburb's name shows under the pointer. */
-.map-svg #labels,.map-svg #gautrain-labels{display:none}.map-svg.zoomed #labels,.map-svg.zoomed #gautrain-labels{display:inline}
+.map-svg #labels,.map-svg #gautrain-labels{display:none}.map-svg.zoomed #labels,.map-svg.zoomed #gautrain-labels,.map-svg.zoomed #attractions{display:inline}.map-svg.zoomed #attraction-clusters{display:none}
 .map-svg #labels text{transform:scale(calc(var(--z,1) * .55))}
 .map-svg #gautrain-labels text{transform-box:fill-box;transform-origin:left center;transform:scale(calc(var(--z,1) * .55))}
 .map-svg #outlying>*{transform-box:fill-box;transform-origin:center;transform:scale(calc(var(--z,1) * var(--k)))}

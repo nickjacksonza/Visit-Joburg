@@ -21,7 +21,7 @@ exported back here as `joburg.svg`. The home page builds its map from that file 
 Every shape's `id` is the place's `id` in `neighbourhoods.json`, for example `fourways`. In Figma this is the layer
 name. Names, tags, summaries and guides stay in the JSON, so the SVG never repeats them.
 
-- Layer groups, bottom to top: `regions`, `hexes`, `areas` (outlines only), `main-roads`, `freeways`, `ring-road`, `ring-turnoffs`, `ring-bridges`, `city-boundary`, `attractions`, `labels`, `outlying`, `credit`.
+- Layer groups, bottom to top: `regions`, `hexes`, `areas` (outlines only), `main-roads`, `freeways`, `ring-road`, `ring-turnoffs`, `ring-bridges`, `city-boundary`, `attractions`, `attraction-clusters`, `labels`, `outlying`, `credit`.
 - `hexes` holds the highlight shapes: one shape per area, `hex-<place id>`, made of the hexagons (about 1.4 km across)
   whose centres fall in that area. Every area has at least one. The map page fills them when a toggle matches.
   Gaps between areas narrower than about 6 km (`FILL_KM` in `tools/make_map.py`), such as between Soweto and Diepkloof

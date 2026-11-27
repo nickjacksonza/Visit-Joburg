@@ -665,7 +665,7 @@ def map_html(root):
                         f'<div class="map-info" id="map-info" aria-live="polite"></div>',
         "map_figure": f'<figure class="map" id="map"><img src="{root}map/joburg.svg" width="{w}" height="{h}" loading="lazy" decoding="async" '
                       f'alt="Map of Johannesburg: the main suburbs shaded in hexagons, with the ring road of the N1, N3 and N12 around the city, the main roads and the Gautrain line.">'
-                      f'<figcaption>Draft map: shapes are approximate. The orange line is the Gautrain. {esc(MAP_CREDIT)}.</figcaption></figure>'
+                      f'<figcaption>Draft map: shapes are approximate. The orange line is the Gautrain. Round icons mark attractions. {esc(MAP_CREDIT)}.</figcaption></figure>'
                       f'<script src="{root}js/map.js?v={VERSIONS["map_js"]}" defer></script>'}
 
 

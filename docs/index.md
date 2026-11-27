@@ -21,7 +21,7 @@ Pick an areaChoose an areaThe ParksSandtonTownGautrain stationsAll of Far North 
 
 ### Area Lists
 
-Draft map: shapes are approximate. The orange line is the Gautrain. Base outlines © OpenStreetMap contributors.
+Draft map: shapes are approximate. The orange line is the Gautrain. Round icons mark attractions. Base outlines © OpenStreetMap contributors.
 
 ## What to See When You Visit Johannesburg
 
