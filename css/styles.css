@@ -5,7 +5,8 @@
 :root{--display:"Cal Sans","Cal Sans Fallback",system-ui,sans-serif;
 --red:#b42318;--orange:#b54708;--yellow:#f5c400;--green:#18794e;--blue:#175cd3;--violet:#6927da;
 --offblack:#1a1c20;--offwhite:#faf8f4;--grey:#5f646d;
---ink:var(--offblack);--paper:var(--offwhite);--muted:var(--grey);--soft:#f1eee7;--line:#ddd8cd;--brand:var(--blue);--brand-ink:var(--offwhite);--radius:14px}
+--ink:var(--offblack);--paper:var(--offwhite);--muted:var(--grey);--soft:#f1eee7;--line:#ddd8cd;--brand:var(--blue);--brand-ink:var(--offwhite);--radius:14px;
+--map-forest:#1c4a2e;--map-shadow:#10291a;--map-lift:#f5c400;--map-wall:#8a5a00;--map-ink:#1a1c20;--map-paper:#faf8f4}
 @media (prefers-color-scheme:dark){:root{--red:#ff8a7a;--orange:#ffa25c;--yellow:#ffd84d;--green:#5fd39a;--blue:#7cb4ff;--violet:#b79cff;
 --offblack:#16181c;--offwhite:#f3f1ec;--grey:#a1a6ae;--ink:var(--offwhite);--paper:var(--offblack);--soft:#202329;--line:#33373f;--brand-ink:var(--offblack)}}
 *{box-sizing:border-box}
@@ -126,3 +127,23 @@ h1,h2,h3,.brand{font-family:var(--display);font-weight:600;letter-spacing:.01em}
 .info-box dt{font-weight:600}.info-box dd{margin:0}.info-box dd ul{margin:0;padding-left:1.1rem}
 @media (max-width:30em){.info-box dl{grid-template-columns:1fr}.info-box dd{margin-bottom:.4rem}}
 .area-list{columns:12rem;column-gap:1.5rem;padding-left:1.1rem;margin:.5rem 0 1rem}.area-list li{break-inside:avoid;margin:.15rem 0}
+/* Map: the same forest-green look in both colour schemes. Picking a suburb dims the other hexagons and lifts the
+   suburb's hexagons as columns of slices (k1 to k8), which rise only when the visitor has not asked for reduced motion. */
+.map-pick{display:none}.js .map-pick{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:0 0 1rem}
+.map-pick select{font:inherit;min-height:44px;padding:.5rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);max-width:100%}
+.map{margin:0;background:var(--map-forest);border-radius:var(--radius);overflow:hidden}
+.map img,.map-svg{display:block;width:100%;height:auto}
+.map figcaption{padding:.4rem .8rem;color:var(--map-paper);font-size:.85rem}
+.js .map img{cursor:pointer}.map-svg #hexes path{cursor:pointer}
+.map-svg #labels,.map-svg .lift{pointer-events:none}
+.map-svg.picking #hexes path{opacity:.35}
+.map-svg #hexes .picked path{opacity:.8;fill:var(--map-shadow)}
+.map-svg #areas .picked{stroke:var(--map-lift);stroke-width:1.5}
+.lift .slice{fill:var(--map-wall);stroke:var(--map-shadow);stroke-width:.4}
+.lift .top{fill:var(--map-lift);stroke:var(--map-ink);stroke-width:.6}
+.lift-label{opacity:0;fill:var(--map-ink);stroke:var(--map-paper)}
+.lift.up .k1{transform:translateY(-5px)}.lift.up .k2{transform:translateY(-10px)}.lift.up .k3{transform:translateY(-15px)}.lift.up .k4{transform:translateY(-20px)}
+.lift.up .k5{transform:translateY(-25px)}.lift.up .k6{transform:translateY(-30px)}.lift.up .k7{transform:translateY(-35px)}.lift.up .k8{transform:translateY(-40px)}
+.lift.up .lift-label{opacity:1}
+@media (prefers-reduced-motion:no-preference){.lift .slice{transition:transform .6s cubic-bezier(.2,.8,.2,1)}.lift-label{transition:opacity .3s .4s}}
+.map-info{margin-top:1rem}.map-info h3{margin:0 0 .25rem}

@@ -13,6 +13,14 @@ Johannesburg is South Africa's biggest city and the place where much of its mode
 - **7**neighbourhoods worth an afternoon
 - **1886**the year gold was found on the Witwatersrand and the city began
 
+## Map of Johannesburg's Suburbs
+
+Johannesburg spreads over a wide area, so it helps to know where each suburb sits. The ring road of the N1, N3 and N12 runs round the middle of the city. Pick a suburb, or tap the map, to lift it out of the map and read a short note on it. The [neighbourhoods list](https://example.com/neighbourhoods.html) has every area in words.
+
+Pick a suburbChoose a suburbFourwaysGlen AustinHalfway HouseLonehillDouglasdaleEmmarentiaFairlandFerndaleFloridaJukskei ParkLindenNorthcliffOlivedaleRandpark RidgeRobindaleTriomfBedfordviewBordeauxBrumaBryanstonBuccleuchEdenvaleHoughtonHurlinghamHyde ParkIllovoKelvinMelroseModderfonteinMorningsideObservatoryOrchardsParkmoreParktownParkviewRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldWoodmeadWynbergAuckland ParkBraamfonteinKensingtonRiverleaYeovilleDiepkloofGlenvistaKenilworthMeredaleRobertshamSoweto
+
+Draft map: shapes are approximate. Base outlines © OpenStreetMap contributors.
+
 ## What to See When You Visit Johannesburg
 
 Most visitors come for the history, stay for the food and music, and leave surprised by how green the city is. Here are three ways to spend your time.

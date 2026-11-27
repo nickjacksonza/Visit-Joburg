@@ -509,6 +509,56 @@ def url_for(rel):
     return D + "/" + ("" if rel == "index.html" else rel.replace("index.html", "") if rel.endswith("/index.html") else rel)
 
 
+# ---------------------------------------------------------------- the map
+# The site uses the Figma export (src/map/joburg.svg) once it exists, and the open-data draft until then. Shape ids are
+# place ids in both, so nothing else changes when the export arrives.
+MAP_SRC = SRC / "map" / ("joburg.svg" if (SRC / "map" / "joburg.svg").exists() else "joburg-draft.svg")
+SVG_NS = "http://www.w3.org/2000/svg"
+MAP_CREDIT = json.loads((SRC / "data" / "map.json").read_text(encoding="utf-8"))["credit"]
+MAP = (0, 0, [])
+
+
+def build_map():
+    """Write docs/map/joburg.svg, a web copy of the base map without the guide-only layers (the dashed view frames) and
+    the notes for editors. Returns the map's size and the ids of the areas that have hexagons."""
+    import xml.etree.ElementTree as ET
+    ET.register_namespace("", SVG_NS)
+    tree = ET.fromstring(MAP_SRC.read_text(encoding="utf-8"))
+    for g in [g for g in tree if g.get("id") in ("views",)]:
+        tree.remove(g)
+    for el in tree.iter():
+        for a in [a for a in el.attrib if a.startswith("data-")]:
+            del el.attrib[a]
+    tree.set("role", "img")
+    out = OUT / "map"
+    out.mkdir(exist_ok=True)
+    (out / "joburg.svg").write_text(ET.tostring(tree, encoding="unicode"), encoding="utf-8")
+    hexes = tree.find(f"{{{SVG_NS}}}g[@id='hexes']")
+    ids = [g.get("id")[4:] for g in hexes] if hexes is not None else []
+    w, h = (round(float(x)) for x in tree.get("viewBox").split()[2:])
+    return w, h, [i for i in ids if i in PLACES]
+
+
+def map_html(root):
+    """The home-page map: a plain picture that needs no script, and a suburb picker that js/map.js wakes up. The picker
+    lists every area on the map, grouped by part of the city; each option carries what the info panel shows."""
+    w, h, ids = MAP
+    opts = []
+    for rid, r in REGIONS.items():
+        here = sorted((PLACES[i] for i in ids if PLACES[i]["region"] == rid), key=lambda p: p["name"])
+        if not here:
+            continue
+        o = "".join(f'<option value="{p["id"]}" data-summary="{esc(p["summary"])}"'
+                    + (f' data-href="{root}neighbourhoods/{p["id"]}.html"' if has_page(p) else "") + f'>{esc(p["name"])}</option>' for p in here)
+        opts.append(f'<optgroup label="{esc(r["name"])}">{o}</optgroup>')
+    return (f'<div class="map-pick"><label for="map-area">Pick a suburb</label><select id="map-area"><option value="">Choose a suburb</option>{"".join(opts)}</select></div>'
+            f'<figure class="map" id="map"><img src="{root}map/joburg.svg" width="{w}" height="{h}" loading="lazy" decoding="async" '
+            f'alt="Map of Johannesburg: the main suburbs shaded in hexagons, with the ring road of the N1, N3 and N12 around the city and the main roads.">'
+            f'<figcaption>Draft map: shapes are approximate. {esc(MAP_CREDIT)}.</figcaption></figure>'
+            f'<div class="map-info" id="map-info" aria-live="polite"></div>'
+            f'<script src="{root}js/map.js?v={VERSIONS["map_js"]}" defer></script>')
+
+
 def build_context(meta, body, rel, root, modified):
     canonical = url_for(rel)
     crumbs = []
@@ -540,6 +590,7 @@ def build_context(meta, body, rel, root, modified):
         "faq_html": faq_html(), "attractions_html": attractions_html(root), "neighbourhoods_html": neighbourhoods_html(root), "directory_html": directory_html(root),
         "events_html": events_html(), "posts_html": posts_html(root), "share_html": share_html(canonical, meta["title"]), "foot_social": foot_social(),
         "attraction_count": len(site["attractions"]), "neighbourhood_count": len(featured_areas()),
+        "map_html": map_html(root) if rel == "index.html" else "",
         "area_count": sum(p["kind"] == "area" for p in PLACES.values()),
         "info_box": info_box(Path(rel).stem, root) if rel.startswith("neighbourhoods/") else "",
         **{f"info_box_{pid}": info_box(pid, root, level=3) for pid, p in PLACES.items() if p["kind"] == "area" and p["summary"]},
@@ -588,6 +639,11 @@ def build():
     VERSIONS["css"], VERSIONS["js"] = (hashlib.sha256(x.encode()).hexdigest()[:8] for x in (css, js))
     (OUT / "css" / "site.css").write_text(css, encoding="utf-8")
     (OUT / "js" / "scripts.js").write_text(js, encoding="utf-8")
+    map_js = minify_js((ROOT / "js" / "map.js").read_text(encoding="utf-8"))
+    VERSIONS["map_js"] = hashlib.sha256(map_js.encode()).hexdigest()[:8]
+    (OUT / "js" / "map.js").write_text(map_js, encoding="utf-8")
+    global MAP
+    MAP = build_map()
     if (ROOT / "editor").exists():  # the owner's events editor, served at /editor/ (noindex, not in the sitemap)
         shutil.copytree(ROOT / "editor", OUT / "editor")
     for d in ("images", "fonts"):
