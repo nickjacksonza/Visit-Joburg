@@ -31,9 +31,10 @@ EXTRA = {"_city": ("City of Johannesburg Metropolitan Municipality", None)}
 
 
 def search(q, bounded=True, **extra):
-    params = {**extra, "q": q, "format": "jsonv2", "polygon_geojson": 1, "polygon_threshold": 0.0002, "limit": 8, "countrycodes": "za"}
+    params = {"q": q, "format": "jsonv2", "polygon_geojson": 1, "polygon_threshold": 0.0002, "limit": 8, "countrycodes": "za"}
     if bounded:
         params.update({"viewbox": VIEWBOX, "bounded": 1})
+    params.update(extra)  # a road can narrow the box
     req = urllib.request.Request(f"{API}?{urllib.parse.urlencode(params)}", headers={"User-Agent": AGENT})
     with urllib.request.urlopen(req, timeout=60) as r:
         return json.load(r)
@@ -95,16 +96,28 @@ OTHER_ROADS = [
     ("hendrik-potgieter", "Hendrik Potgieter Rd", "Hendrik Potgieter Road", "main"),
     ("marlboro", "Marlboro Dr", "Marlboro Drive", "main"),
     ("linksfield", "Linksfield Rd", "Linksfield Road", "main"),
+    ("chris-hani", "Chris Hani Rd", "Chris Hani Road", "main"),
+    ("joe-slovo", "Joe Slovo Dr", "Joe Slovo Drive", "main"),
+    # Streets: thinner, for the Central and Soweto views. A common name is searched only inside its own box
+    # (west, south, east, north), so a Main Street elsewhere is not picked up.
+    ("commissioner", "Commissioner St", "Commissioner Street", "street", "27.95,-26.23,28.12,-26.18"),
+    ("main-street", "Main St", "Main Street", "street", "28.02,-26.215,28.07,-26.195"),
+    ("kerk", "Kerk St", "Kerk Street", "street", "28.02,-26.215,28.07,-26.19"),
+    ("albertina-sisulu", "Albertina Sisulu Rd", "Albertina Sisulu Road", "street", "27.95,-26.23,28.12,-26.18"),
+    ("smit", "Smit St", "Smit Street", "street", "28.01,-26.20,28.07,-26.18"),
+    ("vilakazi", "Vilakazi St", "Vilakazi Street", "street", "27.88,-26.25,27.93,-26.225"),
 ]
 MAIN_TYPES = {"motorway", "trunk", "primary", "secondary", "tertiary", "motorway_link", "trunk_link", "primary_link"}
 
 
-def fetch_named(name, types, max_pages=25):
+def fetch_named(name, types, max_pages=25, box=None):
     """Every road segment with this exact name (or ref), paging past Nominatim's 50-result limit. A short name such as
     R21 also matches many unrelated places, so paging stops after max_pages."""
     seen, lines, ids = [], [], []
     for _ in range(max_pages):
         extra = {"exclude_place_ids": ",".join(seen)} if seen else {}
+        if box:
+            extra["viewbox"] = box
         res = search(name, True, limit=50, extratags=1, **extra)
         new = [r for r in res if str(r["place_id"]) not in seen]
         if not new:
@@ -124,10 +137,11 @@ def fetch_other_roads():
     """Saves after each road and skips roads already in the file, so a stopped run picks up where it left off."""
     path = OUT.parent / "main_roads.json"
     out = json.loads(path.read_text(encoding="utf-8")) if path.exists() and "--refresh" not in sys.argv else {}
-    for key, label, name, kind in OTHER_ROADS:
+    for key, label, name, kind, *box in OTHER_ROADS:
         if key in out:
             continue
-        lines, ids = fetch_named(name, {"motorway", "trunk"} if kind == "freeway" else MAIN_TYPES)
+        types = {"motorway", "trunk"} if kind == "freeway" else MAIN_TYPES | ({"residential", "unclassified", "living_street", "pedestrian"} if kind == "street" else set())
+        lines, ids = fetch_named(name, types, box=box[0] if box else None)
         out[key] = {"label": label, "name": name, "kind": kind, "ways": ids, "segments": lines}
         path.write_text(json.dumps(out, separators=(",", ":")) + "\n", encoding="utf-8")
         print(f"  {label} ({name}): {len(lines)} segments", flush=True)
