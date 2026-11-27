@@ -2,13 +2,13 @@
 
 Every area and attraction with a position (geo) is drawn.
 
-Drawn by tools/make_map.py from the positions in neighbourhoods.json and attractions.json, with outlines from src/map/source/nominatim.json. 1 km = 10 SVG units. The draft is 53 by 63 km.
+Drawn by tools/make_map.py from the positions in neighbourhoods.json and attractions.json, with outlines from src/map/source/nominatim.json. 1 km = 10 SVG units. The draft is 59 by 63 km.
 
 - Areas with an OpenStreetMap outline: 6
-- Areas drawn as rough cells from a point: 162
+- Areas drawn as rough cells from a point: 163
 - Places not found: 30
-- Hexagons, city level: 1194, 1.0 km across; fewest in one area: 1
-- Hexagons, region level (hexes-region.svg): 7454, 419 m across; fewest in one area: 3
+- Hexagons, city level: 1230, 1.0 km across; fewest in one area: 1
+- Hexagons, region level (hexes-region.svg): 7693, 419 m across; fewest in one area: 3
 
 ## Not placed yet
 
@@ -195,6 +195,7 @@ From geo_source. Check any that look wrong.
 - Berea: OpenStreetMap
 - Joubert Park: OpenStreetMap: Joubert Park, the park the suburb is named after
 - Doornfontein: OpenStreetMap
+- Kempton Park: Owner: Gautrain station file (Rhodesfield station, in Kempton Park)
 - Kensington: OpenStreetMap
 - Denver: OpenStreetMap
 - Malvern: OpenStreetMap

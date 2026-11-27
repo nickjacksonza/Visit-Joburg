@@ -396,6 +396,12 @@ Good for: Street art, galleries, weekend markets
 
 [Open in Maps: Maboneng](https://www.google.com/maps/search/?api=1&query=-26.2044,28.0583)
 
+### Kempton Park
+
+A town east of Johannesburg, in the Ekurhuleni municipality, and home to O.R. Tambo International Airport and the Gautrain's airport station. Mostly homes, offices and light industry.
+
+[Open in Maps: Kempton Park](https://www.google.com/maps/search/?api=1&query=-26.128112,28.225046)
+
 ### Kensington
 
 A residential suburb in the east of the city. We list no visitor sights here yet.
@@ -623,7 +629,7 @@ Also called restaurant strips.
 
 ## Every Area in This Guide
 
-We are writing up 198 areas in 9 parts of the city, and 170 of them are on the map so far. Soweto is listed township by township. The main areas are in bold, and an area with a guide is a link.
+We are writing up 199 areas in 9 parts of the city, and 171 of them are on the map so far. Soweto is listed township by township. The main areas are in bold, and an area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -763,11 +769,12 @@ We are writing up 198 areas in 9 parts of the city, and 170 of them are on the m
 - Selby
 - **Yeoville**
 
-### East (5 areas)
+### East (6 areas)
 
 - City Deep
 - Denver
 - Heriotdale
+- **Kempton Park**
 - **Kensington**
 - Malvern
 

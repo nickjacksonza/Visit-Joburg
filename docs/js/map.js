@@ -217,7 +217,10 @@ if(dist<best&&dist<=q.width*0.75){best=dist;near=paths[i];}
 }
 }
 hit=hit||near;
-if(hit&&!seen[hit.getAttribute('d')]){seen[hit.getAttribute('d')]=1;found.push({path:hit,name:t?t.textContent:n.id});}
+if(!hit)return;
+var key=hit.getAttribute('d'),nm=t?t.textContent:n.id;
+if(seen[key])seen[key].names.push(nm);
+else{seen[key]={path:hit,names:[nm]};found.push(seen[key]);}
 });
 return found;
 }
@@ -233,7 +236,8 @@ hexes.forEach(function(h){h.path.classList.add('picked');});
 info.textContent='';
 var h=document.createElement('h3'),p=document.createElement('p');
 h.textContent='Gautrain stations';
-p.textContent=hexes.length+' stations on the map: '+hexes.map(function(x){return x.name;}).join(', ')+'. Stations further out are off the edge of the map.';
+var names=[].concat.apply([],hexes.map(function(x){return x.names;}));
+p.textContent=names.length+' stations on the map: '+names.join(', ')+'. Stations further out are off the edge of the map.';
 info.appendChild(h);
 info.appendChild(p);
 if(opt&&opt.getAttribute('data-href')){
