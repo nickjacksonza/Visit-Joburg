@@ -31,6 +31,9 @@ name. Names, tags, summaries and guides stay in the JSON, so the SVG never repea
 - `ring-turnoffs` has one stop per interchange, `turnoff-<road>-<exit number>` (for example `turnoff-n1-100`), showing
   the exit number. The full name is in `data-name` in the draft. Both directions of traffic are merged into one stop.
   `ring-bridges` marks the bridges on the ring road, `bridge-<road>-<n>`. `audit.md` lists every turnoff to check.
+- `main-roads` holds the main roads (`road-<key>`, white over a dark casing, name along the road as `road-label-<key>`)
+  and, thinner and underneath, the inner-city and Soweto streets: Commissioner, Main, Kerk and Smit Streets, Albertina
+  Sisulu Road and Vilakazi Street. Their names crowd at city scale, so they are for the Central and Soweto views.
 - Region shapes are named `region-<region id>`, labels `label-<place id>`.
 - `data-shape="outline"` means the shape came from an OpenStreetMap outline. `data-shape="rough"` means it is a rough
   cell around a single point: the ground nearer that point than any other, at most 2.5 km out (4 km in the main-areas

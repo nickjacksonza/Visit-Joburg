@@ -310,6 +310,12 @@ if _main.exists():
         d = " ".join("M" + " L".join(f"{(x - ox) * UNIT:.0f},{(y - oy) * UNIT:.0f}" for x, y in s.coords) for s in segs)
         drawn.append((key, r, d, max(segs, key=lambda s: s.length)))
     svg.append('<g id="main-roads">')
+    for key, r, d, _ in drawn:  # inner-city and Soweto streets: thinner, under the main roads
+        if r["kind"] == "street":
+            svg.append(f'<path id="road-{key}-casing" d="{d}" fill="none" stroke="{FOREST_DARK}" stroke-opacity="0.55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>')
+    for key, r, d, _ in drawn:
+        if r["kind"] == "street":
+            svg.append(f'<path id="road-{key}" data-name="{esc(r["name"])}" d="{d}" fill="none" stroke="{PAPER}" stroke-opacity="0.85" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>')
     for key, r, d, _ in drawn:
         if r["kind"] == "main":
             svg.append(f'<path id="road-{key}-casing" d="{d}" fill="none" stroke="{FOREST_DARK}" stroke-opacity="0.55" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>')
@@ -317,16 +323,17 @@ if _main.exists():
         if r["kind"] == "main":
             svg.append(f'<path id="road-{key}" data-name="{esc(r["name"])}" d="{d}" fill="none" stroke="{PAPER}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>')
     for key, r, d, longest in drawn:  # name along the road, at the middle of its longest stretch
-        if r["kind"] != "main":
+        if r["kind"] not in ("main", "street"):
             continue
+        fs = 8 if r["kind"] == "main" else 5.5
         a, b = longest.interpolate(0.47, normalized=True), longest.interpolate(0.53, normalized=True)
         ang = math.degrees(math.atan2(b.y - a.y, b.x - a.x))
         if ang > 90 or ang < -90:
             ang -= 180 if ang > 0 else -180
         m = longest.interpolate(0.5, normalized=True)
         mx, my = (m.x - ox) * UNIT, (m.y - oy) * UNIT
-        svg.append(f'<text id="road-label-{key}" x="{mx:.0f}" y="{my + 3:.0f}" transform="rotate({ang:.0f} {mx:.0f} {my:.0f})" font-family="Inter, Arial, sans-serif" font-size="8" '
-                   f'font-weight="700" text-anchor="middle" fill="{PAPER}" stroke="{FOREST_DARK}" stroke-width="2.5" paint-order="stroke">{esc(r["label"])}</text>')
+        svg.append(f'<text id="road-label-{key}" x="{mx:.0f}" y="{my + 3:.0f}" transform="rotate({ang:.0f} {mx:.0f} {my:.0f})" font-family="Inter, Arial, sans-serif" font-size="{fs}" '
+                   f'font-weight="700" text-anchor="middle" fill="{PAPER}" stroke="{FOREST_DARK}" stroke-width="{fs * 0.31:.1f}" paint-order="stroke">{esc(r["label"])}</text>')
     svg.append("</g>")
     svg.append('<g id="freeways">')
     for key, r, d, _ in drawn:

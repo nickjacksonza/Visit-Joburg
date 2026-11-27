@@ -17,7 +17,7 @@ without the network.
 The data is © OpenStreetMap contributors, under the Open Database License (ODbL). Keep the credit line on the map,
 and keep this file open if it is published.
 """
-import json, sys, time, urllib.parse, urllib.request
+import json, sys, time, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -36,8 +36,14 @@ def search(q, bounded=True, **extra):
         params.update({"viewbox": VIEWBOX, "bounded": 1})
     params.update(extra)  # a road can narrow the box
     req = urllib.request.Request(f"{API}?{urllib.parse.urlencode(params)}", headers={"User-Agent": AGENT})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.load(r)
+    for wait in (30, 60, 120, None):  # Nominatim answers 429 or 629 when asked too often: back off and try again
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 629) or wait is None:
+                raise
+            time.sleep(wait)
 
 
 def pick(results, kind):
@@ -129,7 +135,7 @@ def fetch_named(name, types, max_pages=25, box=None):
                 lines.append(r["geojson"])
                 if r["osm_type"] == "way":
                     ids.append(r["osm_id"])
-        time.sleep(1.1)
+        time.sleep(2)
     return lines, ids
 
 
