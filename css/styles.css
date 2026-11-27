@@ -137,7 +137,7 @@ h1,h2,h3,.brand{font-family:var(--display);font-weight:600;letter-spacing:.01em}
 .js .map img{cursor:pointer}.map-svg #hexes path{cursor:pointer}
 .map-svg #labels,.map-svg .lift{pointer-events:none}
 .map-svg.picking #hexes path,.map-svg.picking #fine path{opacity:.35}
-.map-svg #hexes .picked path,.map-svg #fine .picked path{opacity:.8;fill:var(--map-shadow)}
+.map-svg #hexes .picked path,.map-svg #fine .picked path{opacity:1}
 .map-svg #fine{display:none}.map-svg.fine #fine{display:inline}.map-svg.fine #hexes{display:none}
 /* Zoomed in, symbols and names keep their size on screen: --z is the share of the whole map in view (1 at full size). */
 .map-svg #labels text,.map-svg #ring-turnoffs>g,.map-svg [id^="marker-"],.map-svg #ring-bridges>path,.map-svg #attractions>*,.map-svg .lift-label{transform-box:fill-box;transform-origin:center;transform:scale(var(--z,1))}
@@ -146,8 +146,16 @@ h1,h2,h3,.brand{font-family:var(--display);font-weight:600;letter-spacing:.01em}
 .map-svg.zoomed #regions path,.map-svg.zoomed #areas>*,.map-svg.zoomed #main-roads path,.map-svg.zoomed #freeways path,.map-svg.zoomed #ring-road path,.map-svg.zoomed #city-boundary *{vector-effect:non-scaling-stroke}
 .map-pick .btn{margin:0}
 .map-svg #areas .picked{stroke:var(--map-lift);stroke-width:1.5}
-.lift .slice{fill:var(--map-wall);stroke:var(--map-shadow);stroke-width:.4}
-.lift .top{fill:var(--map-lift);stroke:var(--map-ink);stroke-width:.6}
+.lift .slice{fill:var(--map-wall);fill-opacity:.16;stroke:var(--map-lift);stroke-opacity:.45;stroke-width:.4}
+.lift .top{fill:var(--map-lift);fill-opacity:.5;stroke:var(--map-ink);stroke-width:.6}
+/* Names: at whole-city view only the popular areas are named; suburb names show once zoomed in, smaller, and any
+   suburb's name shows under the pointer. */
+.map-svg #labels{display:none}.map-svg.zoomed #labels{display:inline}
+.map-svg #labels text{transform:scale(calc(var(--z,1) * .75))}
+.map-svg #outlying text{transform-box:fill-box;transform-origin:left center;transform:scale(.75)}
+#group-labels text,.hover-label{font:700 9px Inter,Arial,sans-serif;text-anchor:middle;dominant-baseline:middle;fill:var(--map-ink);stroke:var(--map-paper);stroke-width:2.5px;paint-order:stroke;pointer-events:none}
+#group-labels text{font-size:11px}.map-svg.zoomed #group-labels,.map-svg.picking #group-labels{display:none}
+.hover-label{display:none;transform-box:fill-box;transform-origin:center;transform:scale(var(--z,1))}.hover-label.on{display:inline}
 .lift-label{opacity:0;fill:var(--map-ink);stroke:var(--map-paper)}
 .lift.up .k1{transform:translateY(calc(var(--step) * -1))}.lift.up .k2{transform:translateY(calc(var(--step) * -2))}.lift.up .k3{transform:translateY(calc(var(--step) * -3))}.lift.up .k4{transform:translateY(calc(var(--step) * -4))}.lift.up .k5{transform:translateY(calc(var(--step) * -5))}.lift.up .k6{transform:translateY(calc(var(--step) * -6))}.lift.up .k7{transform:translateY(calc(var(--step) * -7))}.lift.up .k8{transform:translateY(calc(var(--step) * -8))}
 .lift.up .lift-label{opacity:1}

@@ -5466,5 +5466,198 @@
     -26.2425
    ]
   }
+ },
+ "craighall": {
+  "query": "Craighall, Johannesburg",
+  "found": false,
+  "note": "The search returns Craighall Park; OpenStreetMap has no separate Craighall."
+ },
+ "alexandra": {
+  "query": "Alexandra, Johannesburg",
+  "found": true,
+  "name": "Alexandra",
+  "display_name": "Alexandra, Johannesburg Ward 105, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2014, South Africa",
+  "osm": "node/262719072",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.104444,
+  "lng": 28.098889,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.098889,
+    -26.104444
+   ]
+  }
+ },
+ "parkhurst": {
+  "query": "Parkhurst, Johannesburg",
+  "found": true,
+  "name": "Parkhurst",
+  "display_name": "Parkhurst, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, South Africa",
+  "osm": "node/262721886",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1397222,
+  "lng": 28.0188889,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0188889,
+    -26.1397222
+   ]
+  }
+ },
+ "parktown-north": {
+  "query": "Parktown North, Johannesburg",
+  "found": true,
+  "name": "Parktown North",
+  "display_name": "Parktown North, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, South Africa",
+  "osm": "node/262721889",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1394444,
+  "lng": 28.0302778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0302778,
+    -26.1394444
+   ]
+  }
+ },
+ "parkwood": {
+  "query": "Parkwood, Johannesburg",
+  "found": true,
+  "name": "Parkwood",
+  "display_name": "Parkwood, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, South Africa",
+  "osm": "node/262721890",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1508333,
+  "lng": 28.0302778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0302778,
+    -26.1508333
+   ]
+  }
+ },
+ "inanda": {
+  "query": "Inanda, Johannesburg",
+  "found": true,
+  "name": "Inanda",
+  "display_name": "Inanda, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 1969, South Africa",
+  "osm": "node/262720661",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1186111,
+  "lng": 28.0591667,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0591667,
+    -26.1186111
+   ]
+  }
+ },
+ "newtown": {
+  "query": "Newtown, Johannesburg",
+  "found": true,
+  "name": "Newtown",
+  "display_name": "Newtown, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/2360004610",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2038975,
+  "lng": 28.0342814,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0342814,
+    -26.2038975
+   ]
+  }
+ },
+ "marshalltown": {
+  "query": "Marshalltown, Johannesburg",
+  "found": true,
+  "name": "Marshalltown",
+  "display_name": "Marshalltown, Johannesburg Ward 124, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/12728272395",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.2074695,
+  "lng": 28.0424417,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0424417,
+    -26.2074695
+   ]
+  }
+ },
+ "hillbrow": {
+  "query": "Hillbrow, Johannesburg",
+  "found": true,
+  "name": "Hillbrow",
+  "display_name": "Hillbrow, Johannesburg Ward 63, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262706997",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1880556,
+  "lng": 28.0483333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0483333,
+    -26.1880556
+   ]
+  }
+ },
+ "maboneng": {
+  "query": "Maboneng, Gauteng",
+  "found": false
+ },
+ "berea": {
+  "query": "Berea, Johannesburg",
+  "found": true,
+  "name": "Berea",
+  "display_name": "Berea, Johannesburg Ward 64, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262695100",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1822222,
+  "lng": 28.0533333,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0533333,
+    -26.1822222
+   ]
+  }
+ },
+ "joubert-park": {
+  "query": "Joubert Park, Gauteng",
+  "found": false
+ },
+ "doornfontein": {
+  "query": "Doornfontein, Johannesburg",
+  "found": true,
+  "name": "Doornfontein",
+  "display_name": "Doornfontein, Johannesburg Ward 123, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "osm": "node/262705184",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1941667,
+  "lng": 28.0577778,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.0577778,
+    -26.1941667
+   ]
+  }
  }
 }

@@ -44,7 +44,7 @@ MAPCFG = json.loads((ROOT / "src" / "data" / "map.json").read_text(encoding="utf
 HEX_KM = 0.8      # hexagon size, centre to corner; replaced below by the ring road's width / hexes_across_ring
 MAX_KM2 = 250      # an outline bigger than this is not a suburb; treat the match as a point
 PALETTE = {"far-north-midrand": "#f5c400", "north-west-randburg": "#18794e", "sandton-rosebank": "#175cd3",
-           "central-east-west": "#b42318", "south": "#b54708", "soweto": "#6927da", "outlying": "#5f646d"}
+           "central": "#b42318", "east": "#c4320a", "west": "#9e1c5c", "south": "#b54708", "soweto": "#6927da", "outlying": "#5f646d"}
 
 places = DATA["places"]
 if MAJOR:  # main areas, the attractions inside them, and the places outside the city

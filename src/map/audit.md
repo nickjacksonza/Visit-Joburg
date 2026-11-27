@@ -5,16 +5,17 @@ Draft of main areas only.
 Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = 10 SVG units. The draft is 56 by 56 km.
 
 - Areas with an OpenStreetMap outline: 3
-- Areas drawn as rough cells from a point: 73
-- Places not found: 7
+- Areas drawn as rough cells from a point: 86
+- Places not found: 8
 - Hexagons, city level: 1120, 1.0 km across; fewest in one area: 1
-- Hexagons, region level (hexes-region.svg): 6999, 419 m across; fewest in one area: 10
+- Hexagons, region level (hexes-region.svg): 6999, 419 m across; fewest in one area: 9
 
 ## Not found
 
 Add these by hand in Figma, or fix the name and fetch again.
 
 - Glenferness (area, Far North and Midrand)
+- Craighall (area, North West and Randburg)
 - Chiawelo (area, Soweto)
 - Phiri (area, Soweto)
 - Zondi (area, Soweto)
@@ -76,6 +77,7 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Randpark Ridge: Randpark Ridge, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2156, South Africa
 - Ferndale: Ferndale, Johannesburg Ward 104, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2194, Sout
 - Fairland: Fairland, Johannesburg Ward 98, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2160, South
+- Craighall Park: Craighall Park, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2024, 
 - Robindale: Robindale, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 1865, Sout
 - Linden: Linden, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2104, South A
 - Northcliff: Northcliff, Johannesburg Ward 98, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2118, Sou
@@ -100,10 +102,15 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Hurlingham: Hurlingham, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, Sout
 - Sandhurst: Sandhurst, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2146, South
 - Wynberg: Wynberg, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2096, South A
+- Alexandra: Alexandra, Johannesburg Ward 105, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2014, Sout
 - Hyde Park: Hyde Park, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2024, South
+- Parkhurst: Parkhurst, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, Sou
+- Parktown North: Parktown North, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006
+- Parkwood: Parkwood, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2006, Sout
 - Parkview: Parkview, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Zoo Lake: Zoo Lake, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2193, Sout
 - Parktown: Parktown, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
+- Inanda: Inanda, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 1969, South Af
 - Illovo: Illovo, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2196, South Af
 - Melrose: Melrose, Johannesburg Ward 74, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2121, South 
 - Rosebank: Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa
@@ -115,12 +122,19 @@ The search may have found a place with the same name elsewhere. Each line is the
 - Observatory: OpenStreetMap: Observatory Park, in the suburb (the search matched an observatory far away)
 - Bruma: Bruma, Johannesburg Ward 118, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, Sou
 - Bedfordview: Bedfordview, Ekurhuleni Ward 20, City of Ekurhuleni Metropolitan Municipality, Gauteng, 2013, South Africa
-- Auckland Park: Wikipedia: Auckland Park
 - Braamfontein: Braamfontein, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 200
 - Origins Centre: Origins Centre, Yale Road, Braamfontein, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan
+- Newtown: Newtown, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, So
+- Marshalltown: Marshalltown, Johannesburg Ward 124, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 20
+- Hillbrow: Hillbrow, Johannesburg Ward 63, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Yeoville: Yeoville, Johannesburg Ward 67, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Ellis Park Stadium: Emirates Park, South Park Lane, Commercial area, Troyeville, Johannesburg Ward 123, Johannesburg, City of Joha
+- Maboneng: position from neighbourhoods.json
+- Berea: Berea, Johannesburg Ward 64, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, Sout
+- Joubert Park: OpenStreetMap: Joubert Park, the park the suburb is named after
+- Doornfontein: Doornfontein, Johannesburg Ward 123, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 20
 - Kensington: Kensington, Johannesburg Ward 66, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
+- Auckland Park: Wikipedia: Auckland Park
 - Riverlea: Riverlea, Johannesburg Ward 68, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
 - Robertsham: Robertsham, Johannesburg Ward 54, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
 - Kenilworth: Kenilworth, Johannesburg Ward 124, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001

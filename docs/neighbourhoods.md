@@ -68,7 +68,7 @@ For a first visit, stay in Rosebank or Sandton. Both have Gautrain stations, a g
 
 ## Every Area in This Guide
 
-We are writing up 185 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
+We are writing up 190 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -89,12 +89,13 @@ We are writing up 185 areas, grouped by part of the city. The main areas are in 
 - President Park
 - Sunninghill
 
-### North West and Randburg (34 areas)
+### North West and Randburg (35 areas)
 
 - Blackheath
 - Blairgowrie
 - Boskruin
-- Craighall Park
+- **Craighall**
+- **Craighall Park**
 - Cresta
 - Crosby
 - Darrenwood
@@ -126,9 +127,10 @@ We are writing up 185 areas, grouped by part of the city. The main areas are in 
 - Weltevreden Park
 - Westdene
 
-### Sandton, Rosebank and North Central (56 areas)
+### Sandton, Rosebank and North Central (57 areas)
 
 - Abbotsford
+- **Alexandra**
 - Athol
 - **Bedfordview**
 - **Bordeaux**
@@ -150,7 +152,7 @@ We are writing up 185 areas, grouped by part of the city. The main areas are in 
 - **Hurlingham**
 - **Hyde Park**
 - **Illovo**
-- Inanda
+- **Inanda**
 - **Kelvin**
 - Killarney
 - Linbro Park
@@ -164,12 +166,12 @@ We are writing up 185 areas, grouped by part of the city. The main areas are in 
 - Oaklands
 - **Observatory**
 - **Orchards**
-- Parkhurst
+- **Parkhurst**
 - **Parkmore**
 - **Parktown**
-- Parktown North
+- **Parktown North**
 - **Parkview**
-- Parkwood
+- **Parkwood**
 - Rembrandt Park
 - **River Club**
 - **Rivonia**
@@ -185,24 +187,33 @@ We are writing up 185 areas, grouped by part of the city. The main areas are in 
 - **Woodmead**
 - **Wynberg**
 
-### Central, East and West (16 areas)
+### Central (10 areas)
 
-- **Auckland Park**
+- **Berea**
 - **[Braamfontein](https://example.com/neighbourhoods/braamfontein.html)**
+- **Doornfontein**
+- **Hillbrow**
+- **Joubert Park**
+- **Maboneng**
+- **Marshalltown**
+- **Newtown**
+- Selby
+- **Yeoville**
+
+### East (5 areas)
+
 - City Deep
 - Denver
 - Heriotdale
-- Hillbrow
 - **Kensington**
-- Langlaagte
-- Maboneng
 - Malvern
-- Marshalltown
+
+### West (4 areas)
+
+- **Auckland Park**
+- Langlaagte
 - Mayfair
-- Newtown
 - **Riverlea**
-- Selby
-- **Yeoville**
 
 ### South (32 areas)
 

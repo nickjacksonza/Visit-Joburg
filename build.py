@@ -107,16 +107,25 @@ def load_places():
             if len(p.get(k, "")) > lim or BAD_CHARS.search(p.get(k, "")):
                 raise SystemExit(f"{where}: {k} is too long or has < > or control characters")
         places[p["id"]] = p
+    for g in data.get("groups", []):  # popular names for a cluster of areas, such as The Parks or Town
+        where = f"neighbourhoods.json group {g.get('name') or g.get('id')}"
+        if not isinstance(g.get("id"), str) or not SLUG.match(g["id"]) or g["id"] in regions or g["id"] in [x["id"] for x in data["groups"] if x is not g]:
+            raise SystemExit(f"{where}: missing or duplicate id")
+        if not isinstance(g.get("name"), str) or not g["name"].strip() or BAD_CHARS.search(g["name"]):
+            raise SystemExit(f"{where}: bad name")
+        bad = [a for a in g.get("areas", []) if places.get(a, {}).get("kind") != "area"]
+        if bad or not g.get("areas"):
+            raise SystemExit(f"{where}: areas must be area ids listed in places; not found: {bad}")
     for a in site["attractions"]:
         if a.get("neighbourhood") is not None and places.get(a["neighbourhood"], {}).get("kind") != "area":
             raise SystemExit(f"site.json attraction {a['id']}: neighbourhood {a['neighbourhood']!r} is not an area in neighbourhoods.json")
     for page in (SRC / "pages" / "neighbourhoods").glob("*.html"):
         if page.stem not in places or not places[page.stem]["summary"]:
             raise SystemExit(f"{page.relative_to(ROOT)}: add {page.stem!r} to neighbourhoods.json with a summary first")
-    return tags, regions, places
+    return tags, regions, places, data.get("groups", [])
 
 
-TAGS, REGIONS, PLACES = load_places()
+TAGS, REGIONS, PLACES, GROUPS = load_places()
 IMAGES = {i["name"]: i for i in json.loads((SRC / "data" / "images.json").read_text(encoding="utf-8"))}
 
 
@@ -550,7 +559,14 @@ def map_html(root):
     """The home-page map: a plain picture that needs no script, and a suburb picker that js/map.js wakes up. The picker
     lists every area on the map, grouped by part of the city; each option carries what the info panel shows."""
     w, h, ids = MAP
-    opts = []
+    opts, popular = [], []
+    for g in GROUPS:  # popular names for a cluster of areas: only the areas drawn on the map
+        here = [a for a in g["areas"] if a in ids]
+        if here:
+            aka = f' data-aka="{esc(", ".join(g["aka"]))}"' if g.get("aka") else ""
+            popular.append(f'<option value="group:{g["id"]}" data-name="{esc(g["name"])}" data-areas="{" ".join(here)}"{aka}>{esc(g["name"])}</option>')
+    if popular:
+        opts.append(f'<optgroup label="Popular areas">{"".join(popular)}</optgroup>')
     for rid, r in REGIONS.items():
         here = sorted((PLACES[i] for i in ids if PLACES[i]["region"] == rid), key=lambda p: p["name"])
         if not here:
