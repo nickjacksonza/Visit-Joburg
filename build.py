@@ -699,7 +699,7 @@ def build_context(meta, body, rel, root, modified):
         "hero_preload": (f'<link rel="preload" as="image" type="image/avif" href="{root}images/hero-800w.avif" imagesrcset="{root}images/hero-480w.avif 480w, {root}images/hero-800w.avif 800w, {root}images/hero.avif 1200w" imagesizes="{IMAGES["hero"]["sizes"]}" fetchpriority="high">' if meta.get("hero") == "true" else ""),
         "faq_html": faq_html(), "attractions_html": attractions_html(root), "neighbourhoods_html": neighbourhoods_html(root), "directory_html": directory_html(root), "area_lists_html": area_lists_html(root),
         "events_html": events_html(), "posts_html": posts_html(root), "share_html": share_html(canonical, meta["title"]), "foot_social": foot_social(),
-        "attraction_count": len(FEATURED), "neighbourhood_count": len(featured_areas()),
+        "attraction_count": len(FEATURED), "neighbourhood_count": sum(1 for p in featured_areas() if p["tags"]),
         **(map_html(root) if rel == "index.html" else {"map_controls": "", "map_figure": "", "map_lists": ""}),
         "area_count": len(PLACES), "region_count": len(REGIONS), "mapped_count": sum(1 for p in PLACES.values() if p["geo"]),
         "info_box": info_box(Path(rel).stem, root) if rel.startswith("neighbourhoods/") else "",
