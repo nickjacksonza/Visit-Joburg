@@ -38,6 +38,12 @@ name. Names, tags, summaries and guides stay in the JSON, so the SVG never repea
   direction from the city centre (north red, then clockwise through orange, yellow, green, blue, indigo and violet), and
   its richness grows with distance, from soft grey at the centre to full colour about 14 km out (`wheel()` in
   `tools/make_map.py`). The ring road is white on dark green so it stands out from every colour.
+- Hexagons come in levels (`hex_levels` in `src/data/map.json`), smaller as you zoom in: the city level has 20 across
+  the ring road (about 1 km each, about 960 in all), and the detail level has 200 across (about 100 m each). The detail
+  level would be about 96,000 hexagons over the whole map, too heavy for a page or for Figma, so it is drawn only in
+  detail views (`tools/make_detail.py`) and loads only for the part of the map on screen.
+- When an SVG from these tools is imported into Figma, set every text layer's outline (stroke) to Outside. Figma ignores
+  the SVG setting that puts the outline behind the letters, so labels otherwise turn into blobs.
 - `views` holds a dashed frame per view in `src/data/map.json`, as a guide. The city view frames the ring road, and
   `hexes_across_ring` sets the hexagon size from the ring road's width (20 across: about 1 km each).
 - `hexes.json` keeps every hexagon's centre and colour, and the map's projection, for the other tools and the map page.

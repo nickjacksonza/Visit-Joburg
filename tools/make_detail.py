@@ -10,7 +10,7 @@ in white, wider for bigger roads, over the base map's colour-wheel hexagons. On 
 1 km = 10 units, the same as joburg-draft.svg, so a detail view lines up with the base map.
 Street data © OpenStreetMap contributors (ODbL).
 """
-import json, math, re, sys, urllib.request
+import colorsys, json, math, re, sys, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -52,14 +52,41 @@ x0, y1 = xy(w, s)
 x1, y0 = xy(e, n)
 FOREST, FOREST_DARK, PAPER, INK = "#1c4a2e", "#10291a", "#faf8f4", "#1a1c20"
 out = [f'<rect x="{x0:.1f}" y="{y0:.1f}" width="{x1 - x0:.1f}" height="{y1 - y0:.1f}" fill="{FOREST}"/>']
-# Hexagons of the areas in the box, as faint coloured outlines under the streets.
+# Detail hexagons: the fine level from map.json (hexes_across_ring at the "detail" level, about 100 m each). Each belongs
+# to the area of the nearest city-level hexagon and takes its colour from the same colour wheel as the base map.
 R = HEX["hex_radius"]
 inbox = lambda x, y: x0 - R < x < x1 + R and y0 - R < y < y1 + R
-for a, cs in HEX["areas"].items():
-    for (cx, cy), col in zip(cs, HEX["colours"][a]):
-        if inbox(cx, cy):
-            pts = [(cx + R * math.cos(math.radians(30 + 60 * k)), cy + R * math.sin(math.radians(30 + 60 * k))) for k in range(6)]
-            out.append(f'<path id="hex-{a}-{cx:.0f}-{cy:.0f}" d="M{" L".join(f"{x:.2f},{y:.2f}" for x, y in pts)}Z" fill="{col}" fill-opacity="0.45" stroke="{FOREST}" stroke-width="0.12"/>')
+MAPCFG = json.loads((ROOT / "src" / "data" / "map.json").read_text())
+across = next(l["hexes_across_ring"] for l in MAPCFG["hex_levels"] if l["level"] == "detail")
+city_across = next(l["hexes_across_ring"] for l in MAPCFG["hex_levels"] if l["level"] == "city")
+r = R * city_across / across                       # fine hexagon, centre to corner, in SVG units
+SITE = json.loads((ROOT / "src" / "data" / "site.json").read_text())
+cbx, cby = xy(SITE["city"]["lng"], SITE["city"]["lat"])
+
+
+def wheel(x, y):  # the same colour wheel as tools/make_map.py, in SVG units (10 per km)
+    dx, dy = x - cbx, y - cby
+    bearing = (math.degrees(math.atan2(dx, -dy)) + 360) % 360
+    k = min(1.0, math.hypot(dx, dy) / 140)
+    rr, gg, bb = colorsys.hls_to_rgb(bearing / 360, 0.80 - 0.22 * k, 0.08 + 0.72 * k)
+    return "#" + "".join(f"{round(v * 255):02x}" for v in (rr, gg, bb))
+
+
+coarse = [(c[0], c[1], a) for a, cs in HEX["areas"].items() for c in cs if inbox(c[0], c[1])]
+fine = 0
+row, y = 0, y0 - r
+while y <= y1 + r:
+    x = x0 - r * math.sqrt(3) + (r * math.sqrt(3) / 2 if row % 2 else 0)
+    while x <= x1 + r * math.sqrt(3):
+        near = min(coarse, key=lambda c: (c[0] - x) ** 2 + (c[1] - y) ** 2) if coarse else None
+        if near and (near[0] - x) ** 2 + (near[1] - y) ** 2 < (1.2 * R) ** 2:
+            pts = [(x + r * 0.9 * math.cos(math.radians(30 + 60 * k)), y + r * 0.9 * math.sin(math.radians(30 + 60 * k))) for k in range(6)]
+            out.append(f'<path d="M{" L".join(f"{px:.2f},{py:.2f}" for px, py in pts)}Z" fill="{wheel(x, y)}" fill-opacity="0.55" data-place="{near[2]}"/>')
+            fine += 1
+        x += r * math.sqrt(3)
+    y += 1.5 * r
+    row += 1
+print(f"  {fine} detail hexagons, {2 * r * math.sqrt(3) / 2 * 100:.0f} m across")
 # Streets, smallest first so bigger roads draw on top.
 for st in sorted(det["streets"], key=lambda st: WIDTH[st["type"]]):
     if len(st["pts"]) < 2:

@@ -15,6 +15,10 @@
     {"id": "shopping", "name": "Shopping", "view": "city", "tags": ["shopping", "markets"]}
   ],
   "hexes_across_ring": 20,
+  "hex_levels": [
+    {"level": "city", "hexes_across_ring": 20, "note": "The whole-city view: about 1 km hexagons, about 960 in all."},
+    {"level": "detail", "hexes_across_ring": 200, "note": "Zoomed-in detail views only (for example Sandton): about 100 m hexagons, loaded for the part of the map on screen."}
+  ],
   "highlight": {"shape": "hexagon", "layer": "hexes", "note": "A toggle fills the hexagons (hex-<place id>) of every area whose tags match."},
   "landmark": {"layer": "ring-road", "note": "The ring road (N1 Western, N3 Eastern and N12 Southern Bypass) is always shown, above the area shading, in every view."},
   "credit": "Base outlines © OpenStreetMap contributors"

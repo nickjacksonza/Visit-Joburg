@@ -44,6 +44,7 @@ An independent visitor's guide to Johannesburg, built from the my-site schema, S
 - The base map is our own SVG, true to geography (1 km = 10 units). `tools/make_map.py` draws the draft `src/map/joburg-draft.svg` from `src/map/source/`; it is refined in the Figma file "Visit Joburg Map" and exported back as `src/map/joburg.svg`. See `src/map/README.md`.
 - Every shape's `id` (its Figma layer name) is its place id in `neighbourhoods.json`. Never repeat names, tags or summaries in the SVG.
 - `src/data/map.json` holds the map views (each frames a list of areas), the visitor types (a view plus tags), the highlight style and the landmark.
+- Hexagons have levels (`hex_levels` in `map.json`): about 1 km at city level, about 100 m in detail views only. Never draw the 100 m level across the whole map; it is about 96,000 shapes.
 - Toggles highlight areas with hexagons: the `hexes` layer has one shape per area, `hex-<place id>`. Do not shade the area outlines themselves.
 - The ring road (N1 Western, N3 Eastern and N12 Southern Bypass, layer `ring-road`) is the map's main landmark. Keep it prominent and above the area shading in every view. Its turnoffs (`ring-turnoffs`, ids `turnoff-<road>-<exit>`) and bridges (`ring-bridges`) sit on top of it.
 - `tools/fetch_map_sources.py` and `tools/make_map.py` are one-off tools: they need the network and `pip install shapely`. The site build never runs them.
