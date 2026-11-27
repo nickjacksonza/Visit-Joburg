@@ -105,7 +105,7 @@ A place is defined in one file and referred to everywhere else by `id`. Files in
 
 - The map runs on the draft SVG. The Figma file holds an earlier copy plus a newer upload ("Joburg base map update") still to be swapped in; Figma's Starter plan allows about 20 MCP calls a month, so batch Figma work into as few calls as possible.
 - Areas still without a position are listed in `src/map/audit.md` (Craighall, Kramerville, Crown Mines, Chiawelo, Phiri, Zondi, Glenferness and a few more). The owner can give a street corner for each.
-- 7 of 196 areas have a summary and 2 have a guide page. Area write-ups are the next big content job; if they grow long, consider one Markdown file per area in `content/areas/` with an editor.
+- 67 of 198 areas have a summary, including all 61 main areas, and 4 have a guide page (Braamfontein, Fourways, Sandton, The Parks). Many summaries are short and say "We list no visitor sights here yet"; they need real write-ups as the owner adds detail. Sandton and The Parks are names for groups of suburbs, so they have no position and are not drawn as themselves (`map: false`). Area write-ups are the next big content job; if they grow long, consider one Markdown file per area in `content/areas/` with an editor.
 - The editors need setting up on the live site after the first merge (see `README.md`).
 
 ## Voice

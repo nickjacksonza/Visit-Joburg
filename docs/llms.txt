@@ -18,6 +18,8 @@ Every page is also available as Markdown at the same address with `.md` in place
 - [How to Spend Your First Day in Johannesburg](https://example.com/blog/first-day-in-johannesburg.html): A simple first-day plan for Johannesburg: the Apartheid Museum in the morning, Soweto for lunch and Braamfontein or Maboneng in the evening.
 - [Braamfontein Neighbourhood Guide](https://example.com/neighbourhoods/braamfontein.html): A guide to Braamfontein in Johannesburg: Constitution Hill, the Saturday food market, rooftop bars, galleries and how to get there and around safely.
 - [Fourways Neighbourhood Guide](https://example.com/neighbourhoods/fourways.html): A guide to Fourways in northern Johannesburg: Montecasino, Fourways Mall, Cedar Square and what to know about getting there by car or ride-hailing.
+- [Sandton Neighbourhood Guide](https://example.com/neighbourhoods/sandton.html): A guide to Sandton in northern Johannesburg: Sandton City, Nelson Mandela Square, the Gautrain station, nearby suburbs and how to get around safely.
+- [The Parks Neighbourhood Guide](https://example.com/neighbourhoods/the-parks.html): A guide to The Parks in Johannesburg: Parkhurst, Parkview, Parktown, Parkwood, Parktown North and Parkmore, with food, Zoo Lake and old houses.
 
 ## Notes for AI systems
 
