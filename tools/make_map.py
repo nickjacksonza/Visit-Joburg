@@ -3,16 +3,16 @@
 
     pip install shapely          # once; only this tool needs it, the site build does not
     python3 tools/fetch_map_sources.py
-    python3 tools/make_map.py            # every area found
-    python3 tools/make_map.py --major    # main areas only (the first draft)
+    python3 tools/make_map.py            # every area and attraction with a position
 
-Reads src/data/neighbourhoods.json, src/map/source/nominatim.json and src/map/source/positions.json. Writes the draft SVG and src/map/audit.md.
+Reads the positions (geo) in src/data/neighbourhoods.json and src/data/attractions.json, and area outlines from
+src/map/source/nominatim.json. Writes the draft SVG and src/map/audit.md.
 The draft is a starting point to refine in Figma, true to geography (1 km = 10 SVG units):
 
 - An area mapped as an outline in OpenStreetMap keeps that outline (data-shape="outline").
 - An area mapped only as a point gets a rough cell: the ground nearer to it than to any other area's point,
   kept within 2.5 km of the point (data-shape="rough"). Redraw these by hand where it matters.
-- An area or attraction not found is left out and listed in audit.md.
+- An area or attraction with no position yet is left out and listed in audit.md.
 
 Every shape's id is its id in neighbourhoods.json. Layers: regions, areas, hexes, ring-road, city-boundary, attractions,
 labels, outlying, credit.
@@ -38,38 +38,26 @@ SITE = json.loads((ROOT / "src" / "data" / "site.json").read_text(encoding="utf-
 SRC = json.loads((ROOT / "src" / "map" / "source" / "nominatim.json").read_text(encoding="utf-8"))
 OUT, AUDIT = ROOT / "src" / "map" / "joburg-draft.svg", ROOT / "src" / "map" / "audit.md"
 UNIT = 10          # SVG units per km
-MAJOR = "--major" in sys.argv
-CELL_KM = 4.0 if MAJOR else 2.5   # a rough cell reaches at most this far from its point (main areas are further apart)
+CELL_KM = 2.5      # a rough cell reaches at most this far from its point
 MAPCFG = json.loads((ROOT / "src" / "data" / "map.json").read_text(encoding="utf-8"))
-HEX_KM = 0.8      # hexagon size, centre to corner; replaced below by the ring road's width / hexes_across_ring
+HEX_KM = 0.8      # hexagon size, centre to corner; replaced below by the ring road's width (hex_levels in map.json)
 MAX_KM2 = 250      # an outline bigger than this is not a suburb; treat the match as a point
 PALETTE = {"far-north-midrand": "#f5c400", "north-west-randburg": "#18794e", "sandton-rosebank": "#175cd3",
-           "central-east-west": "#b42318", "south": "#b54708", "soweto": "#6927da", "outlying": "#5f646d"}
+           "central": "#b42318", "east": "#c4320a", "west": "#9e1c5c", "south": "#b54708", "soweto": "#6927da", "outlying": "#5f646d"}
 
-places = DATA["places"]
-if MAJOR:  # main areas, the attractions inside them, and the places outside the city
-    majors = {p["id"] for p in places if p["major"]}
-    places = [p for p in places if p["major"] or p["parent"] in majors or p["region"] == "outlying"]
+# Every area and attraction with a position (geo) is drawn. geo is the one checked centre of each place; the search
+# cache is used only for an area's OpenStreetMap outline, when the outline's point agrees with geo.
+ATTR = json.loads((ROOT / "src" / "data" / "attractions.json").read_text(encoding="utf-8"))["attractions"]
+places = [dict(p, kind="area") for p in DATA["places"]] + [dict(a, kind="attraction") for a in ATTR]
 regions = {r["id"]: r for r in DATA["regions"]}
-hits = {pid: dict(v) for pid, v in SRC.items() if v.get("found")}
-for p in places:  # a position already in neighbourhoods.json beats a search result
-    if p.get("geo") and p["id"] in hits:
-        hits[p["id"]].update(lat=p["geo"]["lat"], lng=p["geo"]["lng"], geojson={"type": "Point", "coordinates": [p["geo"]["lng"], p["geo"]["lat"]]})
-    elif p.get("geo"):
-        hits[p["id"]] = {"found": True, "display_name": "position from neighbourhoods.json", "lat": p["geo"]["lat"], "lng": p["geo"]["lng"],
-                         "geojson": {"type": "Point", "coordinates": [p["geo"]["lng"], p["geo"]["lat"]]}}
-# A match more than FAR_KM from the city centre (80 km for places outside the city) is the same name somewhere else: drop it.
-FAR_KM = 40
 CBD = SITE["city"]
+hits = {}
 for p in places:
-    h = hits.get(p["id"])
-    if h and math.hypot((h["lng"] - CBD["lng"]) * 100, (h["lat"] - CBD["lat"]) * 111) > (80 if p["region"] == "outlying" else FAR_KM):
-        del hits[p["id"]]
-_pos = ROOT / "src" / "map" / "source" / "positions.json"
-for pid, v in (json.loads(_pos.read_text(encoding="utf-8")) if _pos.exists() else {}).items():
-    if not pid.startswith("_") and pid not in hits:  # positions for places the search could not find
-        hits[pid] = {"found": True, "display_name": v["source"], "lat": v["lat"], "lng": v["lng"],
-                     "geojson": {"type": "Point", "coordinates": [v["lng"], v["lat"]]}}
+    if not p.get("geo") or p.get("map") is False:
+        continue
+    g, h = p["geo"], SRC.get(p["id"], {})
+    shape_ok = p["kind"] == "area" and h.get("found") and math.hypot((h["lng"] - g["lng"]) * 100, (h["lat"] - g["lat"]) * 111) < 1.0
+    hits[p["id"]] = {"lat": g["lat"], "lng": g["lng"], "geojson": h["geojson"] if shape_ok else {"type": "Point", "coordinates": [g["lng"], g["lat"]]}}
 in_city = [p for p in places if p["region"] != "outlying" and p["id"] in hits]
 lat0 = sum(hits[p["id"]]["lat"] for p in in_city) / len(in_city)
 lng0 = sum(hits[p["id"]]["lng"] for p in in_city) / len(in_city)
@@ -132,6 +120,19 @@ for p in areas:
         g = pts[pid].buffer(0.4)
     shapes[pid], kinds[pid] = g, "rough"
 
+# Close the gaps: any strip of ground narrower than about 2 * FILL_KM between areas (such as between Soweto and
+# Diepkloof, or round Kelvin and Douglasdale) joins the area whose point is nearest, so the hexagons cover the city
+# without holes. The outer edge stays where it was.
+FILL_KM = 3.0
+footprint = unary_union(list(shapes.values())).buffer(FILL_KM).buffer(-FILL_KM)
+for p in areas:
+    pid = p["id"]
+    if kinds[pid] == "rough":
+        g = shapes[pid].union(cell_of[pid].intersection(footprint))
+        if taken is not None:
+            g = g.difference(taken)
+        shapes[pid] = g.buffer(0)
+
 # ---------------------------------------------------------------- hexagon grid for highlighting
 # The ring road sets the scale: the whole-city view frames it, and hexes_across_ring hexagons span its width.
 _roads_file = ROOT / "src" / "map" / "source" / "roads.json"
@@ -139,7 +140,7 @@ RING_BOX = None
 if _roads_file.exists():
     _ring = unary_union([proj_geom(s) for r in json.loads(_roads_file.read_text(encoding="utf-8")).values() for s in r["segments"]])
     RING_BOX = _ring.bounds
-    HEX_KM = (RING_BOX[2] - RING_BOX[0]) / MAPCFG.get("hexes_across_ring", 20) / math.sqrt(3)
+    HEX_KM = (RING_BOX[2] - RING_BOX[0]) / 20 / math.sqrt(3)
 
 
 
@@ -172,6 +173,12 @@ def build_level(hex_km):
                 owner[c] = p["id"]
                 level[p["id"]].append(c)
                 break
+    fp = prep(footprint)
+    for c in cells:  # a gap the Voronoi cells left (next to an outline): the nearest area takes the hexagon
+        if c not in owner and fp.contains(Point(c)):
+            pid = min(areas, key=lambda p: shapes[p["id"]].distance(Point(c)))["id"]
+            owner[c] = pid
+            level[pid].append(c)
     for p in areas:  # a small area with no hexagon takes the nearest one from a neighbour that has more than one
         pid = p["id"]
         if level[pid]:
@@ -291,6 +298,12 @@ if _main.exists():
         d = " ".join("M" + " L".join(f"{(x - ox) * UNIT:.0f},{(y - oy) * UNIT:.0f}" for x, y in s.coords) for s in segs)
         drawn.append((key, r, d, max(segs, key=lambda s: s.length)))
     svg.append('<g id="main-roads">')
+    for key, r, d, _ in drawn:  # inner-city and Soweto streets: thinner, under the main roads
+        if r["kind"] == "street":
+            svg.append(f'<path id="road-{key}-casing" d="{d}" fill="none" stroke="{FOREST_DARK}" stroke-opacity="0.55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>')
+    for key, r, d, _ in drawn:
+        if r["kind"] == "street":
+            svg.append(f'<path id="road-{key}" data-name="{esc(r["name"])}" d="{d}" fill="none" stroke="{PAPER}" stroke-opacity="0.85" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>')
     for key, r, d, _ in drawn:
         if r["kind"] == "main":
             svg.append(f'<path id="road-{key}-casing" d="{d}" fill="none" stroke="{FOREST_DARK}" stroke-opacity="0.55" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>')
@@ -298,16 +311,17 @@ if _main.exists():
         if r["kind"] == "main":
             svg.append(f'<path id="road-{key}" data-name="{esc(r["name"])}" d="{d}" fill="none" stroke="{PAPER}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>')
     for key, r, d, longest in drawn:  # name along the road, at the middle of its longest stretch
-        if r["kind"] != "main":
+        if r["kind"] not in ("main", "street"):
             continue
+        fs = 8 if r["kind"] == "main" else 5.5
         a, b = longest.interpolate(0.47, normalized=True), longest.interpolate(0.53, normalized=True)
         ang = math.degrees(math.atan2(b.y - a.y, b.x - a.x))
         if ang > 90 or ang < -90:
             ang -= 180 if ang > 0 else -180
         m = longest.interpolate(0.5, normalized=True)
         mx, my = (m.x - ox) * UNIT, (m.y - oy) * UNIT
-        svg.append(f'<text id="road-label-{key}" x="{mx:.0f}" y="{my + 3:.0f}" transform="rotate({ang:.0f} {mx:.0f} {my:.0f})" font-family="Inter, Arial, sans-serif" font-size="8" '
-                   f'font-weight="700" text-anchor="middle" fill="{PAPER}" stroke="{FOREST_DARK}" stroke-width="2.5" paint-order="stroke">{esc(r["label"])}</text>')
+        svg.append(f'<text id="road-label-{key}" x="{mx:.0f}" y="{my + 3:.0f}" transform="rotate({ang:.0f} {mx:.0f} {my:.0f})" font-family="Inter, Arial, sans-serif" font-size="{fs}" '
+                   f'font-weight="700" text-anchor="middle" fill="{PAPER}" stroke="{FOREST_DARK}" stroke-width="{fs * 0.31:.1f}" paint-order="stroke">{esc(r["label"])}</text>')
     svg.append("</g>")
     svg.append('<g id="freeways">')
     for key, r, d, _ in drawn:
@@ -418,26 +432,13 @@ if city.get("found"):
         svg.append(f'<g id="city-boundary"><path id="city-of-johannesburg" d="{path_d(g)}" fill="none" stroke="{PAPER}" stroke-width="2" stroke-dasharray="10 5" stroke-opacity="0.4"/></g>')
 
 svg.append('<g id="attractions">')
-seen = set()
 for p in places:
-    if p["kind"] != "attraction" or p["region"] == "outlying":
+    if p["kind"] != "attraction" or p["region"] == "outlying" or p["id"] not in hits:
         continue
-    a = next((a for a in SITE["attractions"] if a["id"] == p.get("attraction_id")), None)
-    if a:
-        x, y = proj(a["lng"], a["lat"])
-    elif p["id"] in hits:
-        x, y = proj(hits[p["id"]]["lng"], hits[p["id"]]["lat"])
-    else:
-        continue
-    seen.add(p.get("attraction_id"))
-    svg.append(f'<circle id="{p["id"]}" data-name="{esc(p["name"])}" cx="{(x - ox) * UNIT:.1f}" cy="{(y - oy) * UNIT:.1f}" r="5" fill="{INK}" stroke="{PAPER}" stroke-width="2"/>')
-for a in SITE["attractions"]:  # the detailed things-to-do attractions not already listed under an area
-    if a["id"] in seen or (MAJOR and a.get("neighbourhood") not in {p["id"] for p in areas}):
-        continue
-    x, y = proj(a["lng"], a["lat"])
+    x, y = proj(hits[p["id"]]["lng"], hits[p["id"]]["lat"])
     if not (minx - PAD < x < maxx + PAD and miny - PAD < y < maxy + PAD):
         continue
-    svg.append(f'<circle id="{a["id"]}" data-name="{esc(a["name"])}" cx="{(x - ox) * UNIT:.1f}" cy="{(y - oy) * UNIT:.1f}" r="5" fill="{INK}" stroke="{PAPER}" stroke-width="2"/>')
+    svg.append(f'<circle id="{p["id"]}" data-name="{esc(p["name"])}" cx="{(x - ox) * UNIT:.1f}" cy="{(y - oy) * UNIT:.1f}" r="5" fill="{INK}" stroke="{PAPER}" stroke-width="2"/>')
 svg.append("</g>")
 
 svg.append('<g id="labels">')
@@ -514,14 +515,14 @@ if hex_region:  # the region level as its own file, so the map page can load it 
 
 # ---------------------------------------------------------------- audit
 missing = [p for p in places if p["id"] not in hits]
-lines = ["# Map draft audit", "", f"Draft of {'main areas only' if MAJOR else 'every area'}.", "", f"Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = {UNIT} SVG units. The draft is {W / UNIT:.0f} by {H / UNIT:.0f} km.", "",
+lines = ["# Map draft audit", "", "Every area and attraction with a position (geo) is drawn.", "", f"Drawn by tools/make_map.py from the positions in neighbourhoods.json and attractions.json, with outlines from src/map/source/nominatim.json. 1 km = {UNIT} SVG units. The draft is {W / UNIT:.0f} by {H / UNIT:.0f} km.", "",
          f"- Areas with an OpenStreetMap outline: {sum(v == 'outline' for v in kinds.values())}",
          f"- Areas drawn as rough cells from a point: {sum(v == 'rough' for v in kinds.values())}",
          f"- Places not found: {len(missing)}",
          f"- Hexagons, city level: {sum(len(v) for v in hex_of.values())}, {HEX_KM * math.sqrt(3):.1f} km across; fewest in one area: {min(len(v) for v in hex_of.values())}",
          (f"- Hexagons, region level (hexes-region.svg): {sum(len(v) for v in hex_region.values())}, {HEX_KM_REGION * math.sqrt(3) * 1000:.0f} m across; fewest in one area: {min(len(v) for v in hex_region.values())}" if hex_region else ""), ""]
 if missing:
-    lines += ["## Not found", "", "Add these by hand in Figma, or fix the name and fetch again.", ""]
+    lines += ["## Not placed yet", "", "These have no position (geo). Run tools/fetch_map_sources.py, or look one up (an owner's street corner with --corner, Google Maps, Wikipedia) and record where it came from in geo_source.", ""]
     lines += [f"- {p['name']} ({p['kind']}, {regions[p['region']]['name']})" for p in missing] + [""]
 if turnoffs:
     lines += ["## Ring road turnoffs", "", "Names as OpenStreetMap has them. Check these, and fill in any that are missing or only name a destination.", ""]
@@ -531,8 +532,8 @@ if turnoffs:
     lines += ["", f"Bridges on the ring road: {len(bridges)}.", ""]
 if notes:
     lines += ["## Notes", ""] + [f"- {PLACES_NAME}: {n}" for PLACES_NAME, n in ((next(p['name'] for p in places if p['id'] == k), v) for k, v in notes.items())] + [""]
-lines += ["## Check these matches", "", "The search may have found a place with the same name elsewhere. Each line is the place and what it matched.", ""]
-lines += [f"- {p['name']}: {hits[p['id']]['display_name'][:110]}" for p in places if p["id"] in hits]
+lines += ["## Where each position came from", "", "From geo_source. Check any that look wrong.", ""]
+lines += [f"- {p['name']}: {p['geo_source']}" for p in places if p["id"] in hits]
 AUDIT.write_text("\n".join(lines) + "\n", encoding="utf-8")
 print(f"wrote {OUT.relative_to(ROOT)} ({OUT.stat().st_size // 1024} KB), {AUDIT.relative_to(ROOT)}")
 print(f"outlines {sum(v == 'outline' for v in kinds.values())}, rough {sum(v == 'rough' for v in kinds.values())}, missing {len(missing)}")

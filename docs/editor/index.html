@@ -20,7 +20,7 @@
 </main>
 
 <main id="setup" class="panel" hidden>
-  <h1>Events editor set-up</h1>
+  <h1>Editor set-up</h1>
   <ol>
     <li>On GitHub, create a fine-grained token for this repository only, with Contents: Read and write, and Actions: Read-only.</li>
     <li>Paste it here and choose a password of at least 16 characters (four or five random words work well).</li>
@@ -36,13 +36,14 @@
 </main>
 
 <div id="editor" hidden>
-  <header class="top"><h1>Events</h1><button id="signout" class="link" type="button">Sign out</button></header>
+  <header class="top"><h1>Events</h1><nav><a href="area-lists.html">Area lists</a> <button id="signout" class="link" type="button">Sign out</button></nav></header>
   <div id="status" class="status" role="status" aria-live="polite"></div>
   <main id="app"></main>
   <div id="bar" class="bar" hidden><span id="count"></span><button id="discard" class="btn" type="button">Discard</button><button id="save" class="btn primary" type="button">Save and publish</button></div>
 </div>
 <script src="config.js"></script>
 <script src="editor-lib.js"></script>
+<script src="core.js"></script>
 <script src="editor.js"></script>
 </body>
 </html>

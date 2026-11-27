@@ -1,22 +1,46 @@
 # Map draft audit
 
-Draft of main areas only.
+Every area and attraction with a position (geo) is drawn.
 
-Drawn from src/map/source/nominatim.json by tools/make_map.py. 1 km = 10 SVG units. The draft is 52 by 56 km.
+Drawn by tools/make_map.py from the positions in neighbourhoods.json and attractions.json, with outlines from src/map/source/nominatim.json. 1 km = 10 SVG units. The draft is 53 by 63 km.
 
-- Areas with an OpenStreetMap outline: 3
-- Areas drawn as rough cells from a point: 52
-- Places not found: 4
-- Hexagons, city level: 957, 1.0 km across; fewest in one area: 3
-- Hexagons, region level (hexes-region.svg): 5936, 419 m across; fewest in one area: 15
+- Areas with an OpenStreetMap outline: 6
+- Areas drawn as rough cells from a point: 162
+- Places not found: 28
+- Hexagons, city level: 1194, 1.0 km across; fewest in one area: 1
+- Hexagons, region level (hexes-region.svg): 7454, 419 m across; fewest in one area: 3
 
-## Not found
+## Not placed yet
 
-Add these by hand in Figma, or fix the name and fetch again.
+These have no position (geo). Run tools/fetch_map_sources.py, or look one up (an owner's street corner with --corner, Google Maps, Wikipedia) and record where it came from in geo_source.
 
+- Chartwell (area, Far North and Midrand)
 - Glenferness (area, Far North and Midrand)
-- Lion Park (attraction, Just Outside the City)
+- Kya Sand (area, North West and Randburg)
+- Ruimsig (area, North West and Randburg)
+- Weltevreden Park (area, North West and Randburg)
+- Craighall (area, North West and Randburg)
+- Linbro Park (area, Sandton, Rosebank and North Central)
+- Marlboro Gardens (area, Sandton, Rosebank and North Central)
+- Glenadrienne (area, Sandton, Rosebank and North Central)
+- Kramerville (area, Sandton, Rosebank and North Central)
+- Elton Hill (area, Sandton, Rosebank and North Central)
+- Winston Ridge (area, Sandton, Rosebank and North Central)
+- Melrose Arch (area, Sandton, Rosebank and North Central)
+- Rembrandt Park (area, Sandton, Rosebank and North Central)
+- Selby (area, Central)
+- Heriotdale (area, East)
+- Crown Mines (area, South)
+- Southdale (area, South)
+- Steeldale (area, South)
+- Florentia (area, South)
+- Alrode (area, South)
+- Soweto (area, Soweto)
+- Chiawelo (area, Soweto)
+- Phiri (area, Soweto)
+- Zondi (area, Soweto)
 - Nooitgedacht (area, Just Outside the City)
+- Northgate and The Dome (attraction, North West and Randburg)
 - Gosforth Park (attraction, Just Outside the City)
 
 ## Ring road turnoffs
@@ -56,73 +80,203 @@ Names as OpenStreetMap has them. Check these, and fill in any that are missing o
 
 Bridges on the ring road: 28.
 
-## Check these matches
+## Where each position came from
 
-The search may have found a place with the same name elsewhere. Each line is the place and what it matched.
+From geo_source. Check any that look wrong.
 
+- Dainfern: OpenStreetMap: Dainfern Golf Estate (residential area)
+- Beaulieu: OpenStreetMap
+- Blue Hills: OpenStreetMap
+- Crowthorne: OpenStreetMap
+- Kyalami: Wikipedia: Kyalami
+- Carlswald: OpenStreetMap
 - Lonehill: Wikipedia: Lone Hill
-- Fourways: Fourways, Johannesburg Ward 94, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2055, South
-- Cedar Square: Cedar Square Shopping Centre, Tuscany Place, Craigavon, Johannesburg Ward 96, Randburg, City of Johannesburg M
-- Fourways Mall: Fourways Mall, Witkoppen Extensions, Johannesburg Ward 94, Randburg, City of Johannesburg Metropolitan Municip
-- Montecasino: Montecasino, Witkoppen Road, Magaliessig, Johannesburg Ward 106, Randburg, City of Johannesburg Metropolitan M
-- Halfway House: Halfway House, Johannesburg Ward 110, Midrand, City of Johannesburg Metropolitan Municipality, Gauteng, 1682, 
+- Fourways: OpenStreetMap
+- Paulshof: OpenStreetMap
+- Sunninghill: OpenStreetMap
+- Halfway House: OpenStreetMap
 - Glen Austin: Wikipedia: Glen Austin
+- President Park: OpenStreetMap
+- Austin View: OpenStreetMap
+- North Riding: OpenStreetMap
 - Jukskei Park: Wikipedia: Jukskei Park
-- Douglasdale: Douglasdale, Johannesburg Ward 115, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2155, S
-- Olivedale: Olivedale, Johannesburg Ward 115, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2060, Sou
-- Randpark Ridge: Randpark Ridge, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2156, South Africa
-- Ferndale: Ferndale, Johannesburg Ward 104, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2194, Sout
-- Fairland: Fairland, Johannesburg Ward 98, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2160, South
-- Robindale: Robindale, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 1865, Sout
-- Linden: Linden, Johannesburg Ward 99, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2104, South A
-- Northcliff: Northcliff, Johannesburg Ward 98, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2118, Sou
-- Emmarentia: Emmarentia, Johannesburg Ward 88, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2104, Sou
-- Johannesburg Botanical Garden: Walter Sisulu National Botanical Gardens, Krugersdorp, Mogale City Local Municipality, West Rand District Muni
-- Florida: Florida, Johannesburg Ward 70, Roodepoort, City of Johannesburg Metropolitan Municipality, Gauteng, 2709, Sout
-- Triomf: Sophiatown (Triomf), Johannesburg Ward 86, Johannesburg, City of Johannesburg Metropolitan Municipality, Gaute
-- Bryanston: Bryanston, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa
-- Rivonia: Rivonia, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2128, South 
-- Woodmead: Woodmead, Johannesburg Ward 106, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2157, South
-- Morningside: Morningside, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2057, So
-- River Club: River Club, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 1617, Sou
-- Sandown: Sandown, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2052, South 
-- Nelson Mandela Square: Nelson Mandela Square, Maude Street, Sandown, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolita
-- Sandton City: Sandton City, Pybus Avenue, Johannesburg Ward 103, Sandton, City of Johannesburg Metropolitan Municipality, Ga
-- Buccleuch: Buccleuch, Johannesburg Ward 32, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2054, South
+- Douglasdale: OpenStreetMap
+- Olivedale: OpenStreetMap
+- Sharonlea: OpenStreetMap
+- Northwold: OpenStreetMap
+- Honeydew: OpenStreetMap
+- Boskruin: OpenStreetMap
+- Randpark Ridge: OpenStreetMap
+- Radiokop: OpenStreetMap
+- Ferndale: OpenStreetMap
+- Fairland: OpenStreetMap
+- Darrenwood: OpenStreetMap
+- Blackheath: OpenStreetMap
+- Cresta: OpenStreetMap
+- Fontainebleau: OpenStreetMap
+- Blairgowrie: OpenStreetMap
+- Craighall Park: Owner: the corner of Waterfall Avenue and Athole Avenue, looked up in OpenStreetMap
+- Robindale: OpenStreetMap
+- Victory Park: OpenStreetMap
+- Linden: OpenStreetMap
+- Northcliff: OpenStreetMap
+- Emmarentia: OpenStreetMap
+- Florida: OpenStreetMap
+- Maraisburg: OpenStreetMap
+- Newlands: OpenStreetMap
+- Triomf: OpenStreetMap
+- Melville: OpenStreetMap
+- Sundowner: OpenStreetMap
+- Westdene: OpenStreetMap
+- Crosby: OpenStreetMap
+- Bryanston: OpenStreetMap
+- Rivonia: OpenStreetMap
+- Woodmead: OpenStreetMap
+- Duxberry: OpenStreetMap
+- Gallo Manor: OpenStreetMap
+- Morningside: OpenStreetMap
+- River Club: OpenStreetMap
+- Strathavon: OpenStreetMap
+- Sandown: OpenStreetMap
+- Buccleuch: OpenStreetMap
 - Modderfontein: Wikipedia: Modderfontein (East Rand)
-- Kelvin: Kelvin, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa
-- Bordeaux: Bordeaux, Johannesburg Ward 102, Randburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, Sout
-- Parkmore: Parkmore, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, South 
-- Hurlingham: Hurlingham, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2129, Sout
-- Sandhurst: Sandhurst, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2146, South
-- Wynberg: Wynberg, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2096, South A
-- Hyde Park: Hyde Park, Johannesburg Ward 90, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2024, South
-- Parkview: Parkview, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
-- Parktown: Parktown, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
-- Illovo: Illovo, Johannesburg Ward 91, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2196, South Af
-- Melrose: Melrose, Johannesburg Ward 74, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2121, South 
-- Rosebank: Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa
-- Saxonwold: Saxonwold, Johannesburg Ward 117, Rosebank, City of Johannesburg Metropolitan Municipality, Gauteng, 2193, Sou
-- Orchards: Orchards, Johannesburg Ward 74, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2037, South 
-- Sandringham: Sandringham, Johannesburg Ward 72, Sandton, City of Johannesburg Metropolitan Municipality, Gauteng, 2119, Sou
-- Edenvale: Edenvale, Ekurhuleni Ward 19, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1609, South Africa
-- Houghton: Houghton Estate, Johannesburg Ward 73, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 
+- Kelvin: OpenStreetMap
+- Bordeaux: OpenStreetMap
+- Parkmore: OpenStreetMap
+- Hurlingham: OpenStreetMap
+- Sandhurst: OpenStreetMap
+- Wierda Valley: Wikipedia: Wierda Valley
+- Benmore Gardens: OpenStreetMap
+- Chislehurston: Wikipedia: Chislehurston
+- Atholhurst: Wikipedia: Atholhurst
+- Simba: Wikipedia: Simba, Gauteng
+- Atholl: Wikipedia: Atholl, Gauteng
+- Wynberg: OpenStreetMap
+- Alexandra: OpenStreetMap
+- Hyde Park: OpenStreetMap
+- Dunkeld: OpenStreetMap
+- Dunkeld West: Wikipedia: Dunkeld West
+- Parkhurst: OpenStreetMap
+- Parktown North: OpenStreetMap
+- Parkwood: OpenStreetMap
+- Greenside: OpenStreetMap
+- Parkview: OpenStreetMap
+- Westcliff: OpenStreetMap
+- Parktown: OpenStreetMap
+- Inanda: OpenStreetMap
+- Illovo: OpenStreetMap
+- Melrose: OpenStreetMap
+- Abbotsford: OpenStreetMap
+- Bramley: OpenStreetMap
+- Rosebank: OpenStreetMap
+- Saxonwold: OpenStreetMap
+- Killarney: OpenStreetMap
+- Melrose North: OpenStreetMap
+- Orchards: OpenStreetMap
+- Waverley: OpenStreetMap
+- Sandringham: OpenStreetMap
+- Fairmount: OpenStreetMap
+- Edenvale: OpenStreetMap
+- Dowerglen: OpenStreetMap
+- Norwood: OpenStreetMap
+- Oaklands: OpenStreetMap
+- Houghton: OpenStreetMap
 - Observatory: OpenStreetMap: Observatory Park, in the suburb (the search matched an observatory far away)
-- Bruma: Bruma, Johannesburg Ward 118, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, Sou
-- Bedfordview: Bedfordview, Ekurhuleni Ward 20, City of Ekurhuleni Metropolitan Municipality, Gauteng, 2013, South Africa
+- Bruma: OpenStreetMap
+- Bedfordview: OpenStreetMap
+- Braamfontein: OpenStreetMap
+- Newtown: OpenStreetMap
+- Marshalltown: OpenStreetMap
+- Hillbrow: OpenStreetMap
+- Yeoville: OpenStreetMap
+- Maboneng: Guide data, checked by hand
+- Berea: OpenStreetMap
+- Joubert Park: OpenStreetMap: Joubert Park, the park the suburb is named after
+- Doornfontein: OpenStreetMap
+- Kensington: OpenStreetMap
+- Denver: OpenStreetMap
+- Malvern: OpenStreetMap
+- City Deep: Wikipedia: City Deep, Gauteng
 - Auckland Park: Wikipedia: Auckland Park
-- Braamfontein: Braamfontein, Johannesburg Ward 60, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 200
-- Yeoville: Yeoville, Johannesburg Ward 67, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
-- Ellis Park Stadium: Emirates Park, South Park Lane, Commercial area, Troyeville, Johannesburg Ward 123, Johannesburg, City of Joha
-- Kensington: Kensington, Johannesburg Ward 66, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
-- Riverlea: Riverlea, Johannesburg Ward 68, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, S
-- Diepkloof: Diepkloof, Johannesburg Ward 27, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, 
-- Chris Hani Baragwanath: Chris Hani Baragwanath Hospital, 26, Chris Hani Road, Power Park, Johannesburg Ward 24, Johannesburg, City of 
-- Robertsham: Robertsham, Johannesburg Ward 54, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001,
-- Kenilworth: Kenilworth, Johannesburg Ward 124, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001
+- Mayfair: OpenStreetMap
+- Langlaagte: OpenStreetMap
+- Riverlea: OpenStreetMap
+- Eldorado Park: OpenStreetMap: Eldoradopark (place, spelled as one word there)
+- Ormonde: OpenStreetMap
+- Booysens: OpenStreetMap
+- Turffontein: OpenStreetMap
+- Robertsham: OpenStreetMap
+- Kenilworth: OpenStreetMap
+- Rosettenville: OpenStreetMap
+- Oakdene: OpenStreetMap
+- Roseacre: OpenStreetMap
+- Elandspark: OpenStreetMap
 - Meredale: Wikipedia: Meredale
-- Southgate: Southgate Mall, Columbine Avenue, Alan Manor, Johannesburg Ward 125, Johannesburg, City of Johannesburg Metrop
-- Glenvista: Glenvista, Johannesburg Ward 23, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, 
-- Soweto: Johannesburg Ward 53, Soweto, City of Johannesburg Metropolitan Municipality, Gauteng, South Africa
+- Eikenhof: OpenStreetMap
+- Naturena: OpenStreetMap
+- Mondeor: OpenStreetMap
+- Alan Manor: OpenStreetMap
+- Glenvista: OpenStreetMap
+- Linmeyer: OpenStreetMap
+- South Hills: OpenStreetMap
+- Alberante: OpenStreetMap
+- Mulbarton: OpenStreetMap
+- Kibler Park: OpenStreetMap
+- Meyersdal: OpenStreetMap
+- Ridgeway: OpenStreetMap
+- Winchester Hills: OpenStreetMap
+- Forest Hill: OpenStreetMap
+- Southcrest: OpenStreetMap
+- Castleview: OpenStreetMap
+- Orlando West: OpenStreetMap
+- Orlando East: OpenStreetMap
+- Dube: OpenStreetMap
+- Mofolo: OpenStreetMap
+- Jabavu: OpenStreetMap
+- Moroka: OpenStreetMap
+- Meadowlands: OpenStreetMap
+- Dobsonville: OpenStreetMap
+- Zola: OpenStreetMap
+- Emndeni: OpenStreetMap
+- Jabulani: OpenStreetMap
+- Naledi: OpenStreetMap
+- Protea Glen: OpenStreetMap
+- Protea North: OpenStreetMap
+- Senaoane: OpenStreetMap
+- Mapetla: OpenStreetMap
+- Tladi: OpenStreetMap
+- Moletsane: OpenStreetMap
+- Molapo: OpenStreetMap
+- Dlamini: OpenStreetMap
+- Pimville: OpenStreetMap
+- Kliptown: Wikipedia: Kliptown
+- Klipspruit: OpenStreetMap
+- Diepkloof: OpenStreetMap
 - Lanseria: Wikipedia: Lanseria International Airport (the area is named after it)
 - Hartbeespoort: Wikipedia: Hartbeespoort
+- Apartheid Museum: Guide data, checked by hand
+- Constitution Hill: Guide data, checked by hand
+- Vilakazi Street, Soweto: Guide data, checked by hand
+- Hector Pieterson Memorial and Museum: Guide data, checked by hand
+- Cradle of Humankind: Guide data, checked by hand
+- Johannesburg Botanical Garden: Guide data, checked by hand
+- Origins Centre: OpenStreetMap
+- Liliesleaf: OpenStreetMap
+- Mandela House: OpenStreetMap
+- Zoo Lake: OpenStreetMap
+- Lion & Safari Park: OpenStreetMap
+- Cedar Square: OpenStreetMap
+- Fourways Mall: OpenStreetMap
+- Montecasino: OpenStreetMap
+- Cresta Centre: OpenStreetMap
+- Nelson Mandela Square: OpenStreetMap
+- Sandton City: OpenStreetMap
+- Ellis Park Stadium: OpenStreetMap
+- Wemmer Pan: OpenStreetMap
+- Gold Reef City: OpenStreetMap
+- Santarama: OpenStreetMap
+- Southgate: OpenStreetMap
+- Klipriviersberg Nature Reserve: OpenStreetMap
+- Soccer City: OpenStreetMap
+- Nasrec: OpenStreetMap
+- Chris Hani Baragwanath: OpenStreetMap

@@ -74,15 +74,34 @@ EVENTS = load_events()
 
 # ---------------------------------------------------------------- neighbourhoods and the places in them
 PLACES_FILE = SRC / "data" / "neighbourhoods.json"
-PLACE_KINDS = ("area", "attraction")
+ATTRACTIONS_FILE = SRC / "data" / "attractions.json"
+
+
+def check_geo(where, x):
+    """A position is a centre near Johannesburg plus where it came from, or null and null until the place is mapped."""
+    g, src = x.get("geo"), x.get("geo_source")
+    if g is None:
+        if src is not None:
+            raise SystemExit(f"{where}: geo_source must be null while geo is null")
+        return
+    if not (isinstance(g, dict) and set(g) == {"lat", "lng"} and -27 < g["lat"] < -25 and 27 < g["lng"] < 29):
+        raise SystemExit(f"{where}: geo must be null or {{\"lat\": -26.2, \"lng\": 28.0}} near Johannesburg")
+    if not isinstance(src, str) or not src.strip() or len(src) > 160 or BAD_CHARS.search(src):
+        raise SystemExit(f"{where}: say where the position came from in geo_source (for example \"OpenStreetMap\")")
+
+
+def check_text(where, x, fields):
+    for k, lim in fields:
+        if not isinstance(x.get(k, ""), str) or len(x.get(k, "")) > lim or BAD_CHARS.search(x.get(k, "")):
+            raise SystemExit(f"{where}: {k} is too long or has < > or control characters")
 
 
 def load_places():
-    """Read and check src/data/neighbourhoods.json: every area and attraction the guide plans to cover.
-    A bad entry fails the build. Entries start as a name only; fill in tags, geo and summary as each place is written up."""
+    """Read and check src/data/neighbourhoods.json: the tag list, the parts of the city and every area the guide plans
+    to cover. A bad entry fails the build. Areas start as a name only; fill in tags, geo and summary as each is written up."""
     data = json.loads(PLACES_FILE.read_text(encoding="utf-8"))
     tags, regions = data["tags"], {r["id"]: r for r in data["regions"]}
-    places, attractions = {}, {a["id"] for a in site["attractions"]}
+    places = {}
     for p in data["places"]:
         where = f"neighbourhoods.json: {p.get('name') or p.get('id')}"
         if not isinstance(p.get("id"), str) or not SLUG.match(p["id"]) or p["id"] in places:
@@ -91,33 +110,89 @@ def load_places():
             raise SystemExit(f"{where}: bad name")
         if p.get("region") not in regions:
             raise SystemExit(f"{where}: unknown region {p.get('region')!r}")
-        if p.get("kind") not in PLACE_KINDS or not isinstance(p.get("major"), bool):
-            raise SystemExit(f"{where}: kind must be area or attraction, and major true or false")
-        if p["parent"] is not None and (p["kind"] != "attraction" or places.get(p["parent"], {}).get("kind") != "area"):
-            raise SystemExit(f"{where}: parent must be an area listed above it, and only attractions have a parent")
-        if p.get("attraction_id") and p["attraction_id"] not in attractions:
-            raise SystemExit(f"{where}: attraction_id {p['attraction_id']!r} is not in site.json attractions")
+        if not isinstance(p.get("major"), bool):
+            raise SystemExit(f"{where}: major (a main area) must be true or false")
+        if p.get("map", True) is not True and p.get("map") is not False:
+            raise SystemExit(f"{where}: map is false for a place not drawn as itself (such as Soweto, drawn as its townships); leave it out otherwise")
         bad = [x for x in p["tags"] if x not in tags]
         if bad:
             raise SystemExit(f"{where}: unknown tags {bad}. Add them to the tags list at the top of the file first.")
-        g = p["geo"]
-        if g is not None and not (isinstance(g, dict) and -27 < g.get("lat", 0) < -25 and 27 < g.get("lng", 0) < 29):
-            raise SystemExit(f"{where}: geo must be null or {{\"lat\": -26.2, \"lng\": 28.0}} near Johannesburg")
-        for k, lim in (("summary", 300), ("good_for", 120), ("notes", 300)):
-            if len(p.get(k, "")) > lim or BAD_CHARS.search(p.get(k, "")):
-                raise SystemExit(f"{where}: {k} is too long or has < > or control characters")
+        check_geo(where, p)
+        check_text(where, p, (("summary", 300), ("good_for", 120), ("notes", 300)))
         places[p["id"]] = p
-    for a in site["attractions"]:
-        if a.get("neighbourhood") is not None and places.get(a["neighbourhood"], {}).get("kind") != "area":
-            raise SystemExit(f"site.json attraction {a['id']}: neighbourhood {a['neighbourhood']!r} is not an area in neighbourhoods.json")
     for page in (SRC / "pages" / "neighbourhoods").glob("*.html"):
         if page.stem not in places or not places[page.stem]["summary"]:
             raise SystemExit(f"{page.relative_to(ROOT)}: add {page.stem!r} to neighbourhoods.json with a summary first")
     return tags, regions, places
 
 
+TYPES = ("TouristAttraction", "Museum", "Park", "LandmarksOrHistoricalBuildings", "Zoo", "StadiumOrArena", "ShoppingCenter")
+
+
+def load_attractions():
+    """Read and check src/data/attractions.json: every attraction once. Each sits in an area (or, outside the city, has
+    a direction). Featured ones get a card and schema on the things-to-do page, so they need a street, type and image."""
+    data = json.loads(ATTRACTIONS_FILE.read_text(encoding="utf-8"))
+    out, seen = [], set()
+    for a in data["attractions"]:
+        where = f"attractions.json: {a.get('name') or a.get('id')}"
+        if not isinstance(a.get("id"), str) or not SLUG.match(a["id"]) or a["id"] in seen or a["id"] in PLACES:
+            raise SystemExit(f"{where}: missing or duplicate id (ids must differ from area ids too)")
+        seen.add(a["id"])
+        if not isinstance(a.get("name"), str) or not a["name"].strip() or BAD_CHARS.search(a["name"]):
+            raise SystemExit(f"{where}: bad name")
+        if a.get("area") is not None and a["area"] not in PLACES:
+            raise SystemExit(f"{where}: area {a['area']!r} is not an area in neighbourhoods.json")
+        if a.get("region") not in REGIONS or (a.get("area") and PLACES[a["area"]]["region"] != a["region"]):
+            raise SystemExit(f"{where}: region must be a part of the city, the same as its area's")
+        bad = [x for x in a.get("tags", []) if x not in TAGS]
+        if bad:
+            raise SystemExit(f"{where}: unknown tags {bad}. Add them to the tags list in neighbourhoods.json first.")
+        check_geo(where, a)
+        check_text(where, a, (("summary", 300), ("notes", 300), ("label", 80), ("street", 80)))
+        if a.get("featured"):
+            if not all(a.get(k) for k in ("geo", "summary", "label", "street", "type", "img")) or a["type"] not in TYPES or a["img"] not in IMAGES:
+                raise SystemExit(f"{where}: a featured attraction needs geo, summary, label, street, img (in images.json) and a type from {TYPES}")
+        out.append(a)
+    return out
+
+
 TAGS, REGIONS, PLACES = load_places()
+AREAS_FILE = ROOT / "content" / "area-lists.json"
+
+
+def load_areas():
+    """Read and check content/area-lists.json, the area lists the owner edits at /editor/area-lists.html: popular names for
+    clusters of suburbs (The Parks, Town), each with a colour and where it shows. Same rules as editor/area-lists-lib.js."""
+    data = json.loads(AREAS_FILE.read_text(encoding="utf-8"))
+    colours, seen = data.get("colours"), set()
+    if not isinstance(colours, list) or not colours or not all(isinstance(c, str) and SLUG.match(c) for c in colours):
+        raise SystemExit("content/area-lists.json: the colours list is broken")
+    if not isinstance(data.get("lists"), list) or len(data["lists"]) > 40:
+        raise SystemExit("content/area-lists.json: needs a lists list of at most 40 lists")
+    for l in data["lists"]:
+        where = f"content/area-lists.json: {l.get('name') or l.get('id')}"
+        if not isinstance(l.get("id"), str) or not SLUG.match(l["id"]) or l["id"] in seen:
+            raise SystemExit(f"{where}: missing or duplicate id")
+        seen.add(l["id"])
+        if not isinstance(l.get("name"), str) or not l["name"].strip() or len(l["name"]) > 40 or BAD_CHARS.search(l["name"]):
+            raise SystemExit(f"{where}: bad name")
+        if not isinstance(l.get("aka"), list) or len(l["aka"]) > 5 or any(not isinstance(a, str) or len(a) > 40 or BAD_CHARS.search(a) for a in l["aka"]):
+            raise SystemExit(f"{where}: bad 'also called' names")
+        if l.get("colour") not in colours:
+            raise SystemExit(f"{where}: colour must be one of {colours}")
+        if not isinstance(l.get("picker"), bool) or not isinstance(l.get("panel"), bool):
+            raise SystemExit(f"{where}: picker and panel must be true or false")
+        bad = [a for a in l.get("areas", []) if a not in PLACES]
+        if bad or not l.get("areas") or len(l["areas"]) > 80:
+            raise SystemExit(f"{where}: areas must be 1 to 80 area ids from neighbourhoods.json; not found: {bad}")
+    return data
+
+
+AREAS = load_areas()
 IMAGES = {i["name"]: i for i in json.loads((SRC / "data" / "images.json").read_text(encoding="utf-8"))}
+ATTRACTIONS = load_attractions()
+FEATURED = [a for a in ATTRACTIONS if a.get("featured")]  # the things-to-do page: a card and schema each
 
 
 def img(name, root, eager=False, cls=""):
@@ -194,11 +269,11 @@ def faq_html():
 
 def attractions_html(root=""):
     out = []
-    for a in site["attractions"]:
-        tags = "".join(f"<li>{esc(t)}</li>" for t in a["tags"])
+    for a in FEATURED:
+        tags = "".join(f"<li>{esc(TAGS[t])}</li>" for t in a["tags"]) + ("<li>Free</li>" if a.get("free") else "")
         out.append(f'<article class="card" id="{a["id"]}">{img(a["img"], root)}<h3>{esc(a["name"])}</h3>'
-                   f'<p class="muted">{esc(a["area"])}</p><p>{esc(a["summary"])}</p><ul class="tag-list">{tags}</ul>'
-                   f'<p><a href="{maps_url(a["name"], a["lat"], a["lng"])}">Open in Maps<span class="visually-hidden">: {esc(a["name"])}</span></a></p></article>')
+                   f'<p class="muted">{esc(a["label"])}</p><p>{esc(a["summary"])}</p><ul class="tag-list">{tags}</ul>'
+                   f'<p><a href="{maps_url(a["name"], a["geo"]["lat"], a["geo"]["lng"])}">Open in Maps<span class="visually-hidden">: {esc(a["name"])}</span></a></p></article>')
     return "\n".join(out)
 
 
@@ -208,22 +283,17 @@ def has_page(p):
 
 def featured_areas():
     """Areas with a summary, in file order: the ones written up so far."""
-    return [p for p in PLACES.values() if p["kind"] == "area" and p["summary"]]
+    return [p for p in PLACES.values() if p["summary"]]
 
 
 def places_here(area):
-    """Attractions in an area: those listed under it in neighbourhoods.json, plus the things-to-do attractions linked to it."""
-    kids = [p for p in PLACES.values() if p["parent"] == area["id"]]
-    linked = {p.get("attraction_id") for p in kids}
-    return kids + [a for a in site["attractions"] if a.get("neighbourhood") == area["id"] and a["id"] not in linked]
+    """The attractions in an area, in attractions.json order."""
+    return [a for a in ATTRACTIONS if a["area"] == area["id"]]
 
 
 def place_link(x, root):
-    """Where a place in an info box links to: its own page, or its card on the things-to-do page."""
-    if x.get("kind") == "area" and has_page(x):
-        return f'{root}neighbourhoods/{x["id"]}.html'
-    aid = x["id"] if "kind" not in x else x.get("attraction_id")
-    return f"{root}things-to-do.html#{aid}" if aid else ""
+    """Where an attraction in an info box links to: its card on the things-to-do page, if it has one."""
+    return f"{root}things-to-do.html#{x['id']}" if x.get("featured") else ""
 
 
 def info_box(pid, root, level=2):
@@ -270,7 +340,7 @@ def directory_html(root=""):
     """Every area in neighbourhoods.json, grouped by part of the city. Main areas are in bold. Works without script."""
     out = []
     for r in REGIONS.values():
-        areas = [p for p in PLACES.values() if p["region"] == r["id"] and p["kind"] == "area"]
+        areas = [p for p in PLACES.values() if p["region"] == r["id"]]
         if not areas:
             continue
         lis = []
@@ -279,6 +349,22 @@ def directory_html(root=""):
             name = f'<a href="{root}neighbourhoods/{p["id"]}.html">{name}</a>' if has_page(p) else name
             lis.append(f"<li><strong>{name}</strong></li>" if p["major"] else f"<li>{name}</li>")
         out.append(f'<details class="faq"><summary>{esc(r["name"])} ({len(areas)} area{"" if len(areas) == 1 else "s"})</summary><ul class="area-list">{"".join(lis)}</ul></details>')
+    return "\n".join(out)
+
+
+def area_lists_html(root=""):
+    """The owner's area lists (content/area-lists.json) that show on the map, as foldable lists of their suburbs."""
+    out = []
+    for l in AREAS["lists"]:
+        if not (l["picker"] or l["panel"]):
+            continue
+        lis = []
+        for a in l["areas"]:
+            p = PLACES[a]
+            name = esc(p["name"])
+            lis.append(f'<li><a href="{root}neighbourhoods/{a}.html">{name}</a></li>' if has_page(p) else f"<li>{name}</li>")
+        aka = f'<p>Also called {esc(", ".join(l["aka"]))}.</p>' if l["aka"] else ""
+        out.append(f'<details class="faq"><summary>{esc(l["name"])} ({len(lis)} area{"" if len(lis) == 1 else "s"})</summary>{aka}<ul class="area-list">{"".join(lis)}</ul></details>')
     return "\n".join(out)
 
 
@@ -333,14 +419,14 @@ def destination_node(full=False):
          "geo": geo(CITY), "sameAs": CITY["wikipedia"],
          "containedInPlace": {"@type": "AdministrativeArea", "name": f'{CITY["region"]}, South Africa'}}
     if full:
-        n["includesAttraction"] = [{"@id": attraction_id(a)} for a in site["attractions"]]
+        n["includesAttraction"] = [{"@id": attraction_id(a)} for a in FEATURED]
     return n
 
 
 def attraction_node(a):
     t = "TouristAttraction" if a["type"] == "TouristAttraction" else ["TouristAttraction", a["type"]]
     n = {"@type": t, "@id": attraction_id(a), "name": a["name"], "description": a["summary"], "url": attraction_id(a),
-         "address": addr(a["street"], a.get("locality")), "geo": geo(a), "hasMap": maps_url(a["name"], a["lat"], a["lng"]),
+         "address": addr(a["street"], a.get("locality")), "geo": geo(a["geo"]), "hasMap": maps_url(a["name"], a["geo"]["lat"], a["geo"]["lng"]),
          "image": img_url(a["img"]), "containedInPlace": {"@id": DEST}}
     if a.get("free"):
         n["isAccessibleForFree"] = True
@@ -364,10 +450,8 @@ def neighbourhood_node(p, full=False):
     if full:
         here = []
         for x in places_here(p):
-            if "kind" not in x:  # a things-to-do attraction, described on that page
+            if x.get("featured"):  # described on the things-to-do page
                 here.append({"@id": attraction_id(x)})
-            elif x.get("attraction_id"):
-                here.append({"@id": f"{D}/things-to-do.html#{x['attraction_id']}"})
             else:
                 here.append({"@type": "Place", "name": x["name"], **({"description": x["summary"]} if x["summary"] else {})})
         if here:
@@ -405,9 +489,9 @@ def graph(page):
         webpage["about"] = {"@id": ORG}
         webpage["mainEntity"] = {"@id": ORG}
     elif kind == "attractions":
-        nodes += [attraction_node(a) for a in site["attractions"]]
-        webpage["mainEntity"] = {"@type": "ItemList", "numberOfItems": len(site["attractions"]),
-                                 "itemListElement": [{"@type": "ListItem", "position": i, "item": {"@id": attraction_id(a)}} for i, a in enumerate(site["attractions"], 1)]}
+        nodes += [attraction_node(a) for a in FEATURED]
+        webpage["mainEntity"] = {"@type": "ItemList", "numberOfItems": len(FEATURED),
+                                 "itemListElement": [{"@type": "ListItem", "position": i, "item": {"@id": attraction_id(a)}} for i, a in enumerate(FEATURED, 1)]}
     elif kind == "neighbourhoods":
         areas = featured_areas()
         nodes += [neighbourhood_node(x) for x in areas]
@@ -509,6 +593,78 @@ def url_for(rel):
     return D + "/" + ("" if rel == "index.html" else rel.replace("index.html", "") if rel.endswith("/index.html") else rel)
 
 
+# ---------------------------------------------------------------- the map
+# The site uses the Figma export (src/map/joburg.svg) once it exists, and the open-data draft until then. Shape ids are
+# place ids in both, so nothing else changes when the export arrives.
+MAP_SRC = SRC / "map" / ("joburg.svg" if (SRC / "map" / "joburg.svg").exists() else "joburg-draft.svg")
+SVG_NS = "http://www.w3.org/2000/svg"
+MAP_CREDIT = json.loads((SRC / "data" / "map.json").read_text(encoding="utf-8"))["credit"]
+MAP = (0, 0, [])
+
+
+def build_map():
+    """Write docs/map/joburg.svg, a web copy of the base map without the guide-only layers (the dashed view frames) and
+    the notes for editors. Returns the map's size and the ids of the areas that have hexagons."""
+    import xml.etree.ElementTree as ET
+    ET.register_namespace("", SVG_NS)
+    tree = ET.fromstring(MAP_SRC.read_text(encoding="utf-8"))
+    for g in [g for g in tree if g.get("id") in ("views",)]:
+        tree.remove(g)
+    for el in tree.iter():
+        for a in [a for a in el.attrib if a.startswith("data-")]:
+            del el.attrib[a]
+    tree.set("role", "img")
+    out = OUT / "map"
+    out.mkdir(exist_ok=True)
+    (out / "joburg.svg").write_text(ET.tostring(tree, encoding="unicode"), encoding="utf-8")
+    # The 420 m hexagons as compact data (centre and colour), loaded only when a visitor zooms into a suburb.
+    hx = json.loads((SRC / "map" / "hexes.json").read_text(encoding="utf-8"))
+    reg = hx.get("levels", {}).get("region")
+    if reg:
+        data = {"r": round(reg["hex_radius"] * 0.92, 2),
+                "areas": {pid: [[x, y, c[1:]] for (x, y), c in zip(cs, reg["colours"][pid])] for pid, cs in reg["areas"].items()}}
+        (out / "region.json").write_text(json.dumps(data, separators=(",", ":")), encoding="utf-8")
+    hexes = tree.find(f"{{{SVG_NS}}}g[@id='hexes']")
+    ids = [g.get("id")[4:] for g in hexes] if hexes is not None else []
+    w, h = (round(float(x)) for x in tree.get("viewBox").split()[2:])
+    return w, h, [i for i in ids if i in PLACES]
+
+
+def map_html(root):
+    """The home-page map: a plain picture that needs no script, and a suburb picker that js/map.js wakes up. The picker
+    lists every area on the map, grouped by part of the city; each option carries what the info panel shows."""
+    w, h, ids = MAP
+    opts, popular = [], []
+    lists = []
+    for l in AREAS["lists"]:  # the owner's area lists: only the suburbs drawn on the map
+        here = [a for a in l["areas"] if a in ids]
+        if here:
+            lists.append((l, f'data-name="{esc(l["name"])}" data-areas="{" ".join(here)}" data-colour="{l["colour"]}"'
+                             + (f' data-aka="{esc(", ".join(l["aka"]))}"' if l["aka"] else "")))
+    popular = [f'<option value="group:{l["id"]}" {attrs}>{esc(l["name"])}</option>' for l, attrs in lists if l["picker"]]
+    if popular:
+        opts.append(f'<optgroup label="Popular areas">{"".join(popular)}</optgroup>')
+    panel = "".join(f'<li><button type="button" class="map-list hl-{l["colour"]}" data-list="group:{l["id"]}" {attrs}>{esc(l["name"])}</button></li>'
+                    for l, attrs in lists if l["panel"])
+    for rid, r in REGIONS.items():
+        here = sorted((PLACES[i] for i in ids if PLACES[i]["region"] == rid), key=lambda p: p["name"])
+        if not here:
+            continue
+        o = f'<option value="all:{rid}" data-name="{esc(r["name"])}">All of {esc(r["name"])}</option>'
+        o += "".join(f'<option value="{p["id"]}" data-region="{rid}" data-summary="{esc(p["summary"])}"'
+                    + (f' data-href="{root}neighbourhoods/{p["id"]}.html"' if has_page(p) else "") + f'>{esc(p["name"])}</option>' for p in here)
+        opts.append(f'<optgroup label="{esc(r["name"])}">{o}</optgroup>')
+    return {
+        "map_lists": f'<ul class="map-lists">{panel}</ul>' if panel else "",
+        "map_controls": f'<div class="map-pick"><label for="map-area">Pick an area</label><select id="map-area"><option value="">Choose an area</option>{"".join(opts)}</select>'
+                        f'<button type="button" class="btn btn-ghost" id="map-out" hidden>Whole city</button></div>'
+                        f'<div class="map-info" id="map-info" aria-live="polite"></div>',
+        "map_figure": f'<figure class="map" id="map"><img src="{root}map/joburg.svg" width="{w}" height="{h}" loading="lazy" decoding="async" '
+                      f'alt="Map of Johannesburg: the main suburbs shaded in hexagons, with the ring road of the N1, N3 and N12 around the city and the main roads.">'
+                      f'<figcaption>Draft map: shapes are approximate. {esc(MAP_CREDIT)}.</figcaption></figure>'
+                      f'<script src="{root}js/map.js?v={VERSIONS["map_js"]}" defer></script>'}
+
+
 def build_context(meta, body, rel, root, modified):
     canonical = url_for(rel)
     crumbs = []
@@ -537,12 +693,13 @@ def build_context(meta, body, rel, root, modified):
         "phone_link": f'<a href="tel:{site["phone_e164"]}">{esc(site["phone"])}</a>', "year": datetime.date.today().year,
         "robots": meta.get("robots", "index, follow, max-image-preview:large"),
         "hero_preload": (f'<link rel="preload" as="image" type="image/avif" href="{root}images/hero-800w.avif" imagesrcset="{root}images/hero-480w.avif 480w, {root}images/hero-800w.avif 800w, {root}images/hero.avif 1200w" imagesizes="{IMAGES["hero"]["sizes"]}" fetchpriority="high">' if meta.get("hero") == "true" else ""),
-        "faq_html": faq_html(), "attractions_html": attractions_html(root), "neighbourhoods_html": neighbourhoods_html(root), "directory_html": directory_html(root),
+        "faq_html": faq_html(), "attractions_html": attractions_html(root), "neighbourhoods_html": neighbourhoods_html(root), "directory_html": directory_html(root), "area_lists_html": area_lists_html(root),
         "events_html": events_html(), "posts_html": posts_html(root), "share_html": share_html(canonical, meta["title"]), "foot_social": foot_social(),
-        "attraction_count": len(site["attractions"]), "neighbourhood_count": len(featured_areas()),
-        "area_count": sum(p["kind"] == "area" for p in PLACES.values()),
+        "attraction_count": len(FEATURED), "neighbourhood_count": len(featured_areas()),
+        **(map_html(root) if rel == "index.html" else {"map_controls": "", "map_figure": "", "map_lists": ""}),
+        "area_count": len(PLACES), "region_count": len(REGIONS), "mapped_count": sum(1 for p in PLACES.values() if p["geo"]),
         "info_box": info_box(Path(rel).stem, root) if rel.startswith("neighbourhoods/") else "",
-        **{f"info_box_{pid}": info_box(pid, root, level=3) for pid, p in PLACES.items() if p["kind"] == "area" and p["summary"]},
+        **{f"info_box_{pid}": info_box(pid, root, level=3) for pid, p in PLACES.items() if p["summary"]},
         "img_hero": img("hero", root, eager=True), "img_card_history": img("card-history", root),
         "img_card_neighbourhoods": img("card-neighbourhoods", root), "img_card_outdoors": img("card-outdoors", root),
         "img_post": img(post["img"], root, eager=True) if post else "",
@@ -588,6 +745,11 @@ def build():
     VERSIONS["css"], VERSIONS["js"] = (hashlib.sha256(x.encode()).hexdigest()[:8] for x in (css, js))
     (OUT / "css" / "site.css").write_text(css, encoding="utf-8")
     (OUT / "js" / "scripts.js").write_text(js, encoding="utf-8")
+    map_js = minify_js((ROOT / "js" / "map.js").read_text(encoding="utf-8"))
+    VERSIONS["map_js"] = hashlib.sha256(map_js.encode()).hexdigest()[:8]
+    (OUT / "js" / "map.js").write_text(map_js, encoding="utf-8")
+    global MAP
+    MAP = build_map()
     if (ROOT / "editor").exists():  # the owner's events editor, served at /editor/ (noindex, not in the sitemap)
         shutil.copytree(ROOT / "editor", OUT / "editor")
     for d in ("images", "fonts"):

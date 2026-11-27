@@ -26,3 +26,16 @@ input[type=checkbox]{min-height:0;width:1.2rem;height:1.2rem}
 .bar span{margin-right:auto}
 :focus-visible{outline:3px solid var(--brand);outline-offset:2px}
 [hidden]{display:none!important}
+.top nav{display:flex;gap:1rem;align-items:center}
+.list h2{grid-column:1/-1;margin:0}
+.lab{margin:0 0 .3rem;font-weight:600;font-size:.9rem}
+.swatches{display:flex;flex-wrap:wrap;gap:.4rem}
+.sw{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .6rem .3rem .4rem;border-radius:999px;font-weight:600;color:#1a1c20;min-height:44px}
+/* Keep these in step with the --map-hl-* tokens in css/styles.css. */
+.sw-yellow{background:#f5c400}.sw-orange{background:#f08c1a}.sw-red{background:#f4777a}.sw-pink{background:#f17fb0}
+.sw-violet{background:#b694e6}.sw-blue{background:#79aef9}.sw-teal{background:#3cc6b4}.sw-green{background:#7cc36e}
+.suburbs{display:grid;gap:.6rem;max-height:28rem;overflow:auto;margin-top:.5rem}
+.suburbs fieldset{border:1px solid var(--line);border-radius:8px;display:flex;flex-wrap:wrap;gap:.2rem 1rem}
+.suburbs legend{font-weight:600}.suburbs label{font-weight:400}.suburbs label.unmapped{opacity:.7}
+details summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
+input[type=search]{width:100%}

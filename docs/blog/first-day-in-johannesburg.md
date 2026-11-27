@@ -28,7 +28,7 @@ A student district next to Wits University. Rooftop bars, galleries, coffee shop
 
 **Part of the city**
 
-Central, East and West
+Central
 
 **Good for**
 

@@ -169,5 +169,44 @@
     "text": "Your First Day",
     "alt": "Placeholder image for a first day in Johannesburg",
     "sizes": "(min-width: 60rem) 928px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-mandela-house",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Mandela House",
+    "alt": "Placeholder image for Mandela House",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-zoo-lake",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Zoo Lake",
+    "alt": "Placeholder image for Zoo Lake",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
+  },
+  {
+    "name": "attr-lion-safari-park",
+    "dir": "attractions",
+    "w": 600,
+    "h": 400,
+    "widths": [
+      320,
+      600
+    ],
+    "text": "Lion & Safari Park",
+    "alt": "Placeholder image for Lion & Safari Park",
+    "sizes": "(min-width: 960px) 288px, calc(100vw - 2rem)"
   }
 ]

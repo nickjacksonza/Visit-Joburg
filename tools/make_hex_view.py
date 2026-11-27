@@ -24,7 +24,7 @@ tag = sys.argv[2] if len(sys.argv) > 2 else None
 view = next(v for v in MAP["views"] if v["id"] == view_id)
 places = {p["id"]: p for p in DATA["places"]}
 REGION = {"far-north-midrand": "#f5c400", "north-west-randburg": "#18794e", "sandton-rosebank": "#175cd3",
-          "central-east-west": "#b42318", "south": "#b54708", "soweto": "#6927da"}
+          "central": "#b42318", "east": "#c4320a", "west": "#9e1c5c", "south": "#b54708", "soweto": "#6927da"}
 FOREST, FOREST_DARK, PAPER, INK = "#1c4a2e", "#10291a", "#faf8f4", "#1a1c20"
 COLOUR = {a: dict(zip(map(tuple, HEX["areas"][a]), HEX["colours"][a])) for a in HEX["areas"]}
 TILT, LIFT, PER_HEX, BASE_H = 0.5, 70, 2.5, 8   # y squash, lift of the segment, height per hexagon, minimum height

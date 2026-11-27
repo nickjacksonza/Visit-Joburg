@@ -20,6 +20,6 @@ Visit Joburg is not linked to the City of Johannesburg, the Gauteng Tourism Auth
 
 If something is wrong or missing, [tell us](https://example.com/contact.html). We read every message.
 
-Last reviewed: 26 November 2026.
+Last reviewed: 27 November 2026.
 
 Source: https://example.com/about.html

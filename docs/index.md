@@ -9,9 +9,19 @@ Johannesburg is South Africa's biggest city and the place where much of its mode
 ## Johannesburg at a Glance
 
 - **1,750 m**above sea level, so days are mild and nights can be cool
-- **8**places to visit in this guide
+- **11**places to visit in this guide
 - **7**neighbourhoods worth an afternoon
 - **1886**the year gold was found on the Witwatersrand and the city began
+
+## Map of Johannesburg's Suburbs
+
+Joburg spreads over a wide area, with the ring road of the N1, N3 and N12 round the middle. Pick an area, or tap the map, to raise it and read a short note. The [neighbourhoods list](https://example.com/neighbourhoods.html) has every area in words.
+
+Pick an areaChoose an areaThe ParksSandtonTownAll of Far North and MidrandAustin ViewBeaulieuBlue HillsCarlswaldCrowthorneDainfernFourwaysGlen AustinHalfway HouseKyalamiLonehillPaulshofPresident ParkSunninghillAll of North West and RandburgBlackheathBlairgowrieBoskruinCraighall ParkCrestaCrosbyDarrenwoodDouglasdaleEmmarentiaFairlandFerndaleFloridaFontainebleauHoneydewJukskei ParkLindenMaraisburgMelvilleNewlandsNorth RidingNorthcliffNorthwoldOlivedaleRadiokopRandpark RidgeRobindaleSharonleaSundownerTriomfVictory ParkWestdeneAll of Sandton, Rosebank and North CentralAbbotsfordAlexandraAtholhurstAthollBedfordviewBenmore GardensBordeauxBramleyBrumaBryanstonBuccleuchChislehurstonDowerglenDunkeldDunkeld WestDuxberryEdenvaleFairmountGallo ManorGreensideHoughtonHurlinghamHyde ParkIllovoInandaKelvinKillarneyMelroseMelrose NorthModderfonteinMorningsideNorwoodOaklandsObservatoryOrchardsParkhurstParkmoreParktownParktown NorthParkviewParkwoodRiver ClubRivoniaRosebankSandhurstSandownSandringhamSaxonwoldSimbaStrathavonWaverleyWestcliffWierda ValleyWoodmeadWynbergAll of CentralBereaBraamfonteinDoornfonteinHillbrowJoubert ParkMabonengMarshalltownNewtownYeovilleAll of EastCity DeepDenverKensingtonMalvernAll of WestAuckland ParkLanglaagteMayfairRiverleaAll of SouthAlan ManorAlberanteBooysensCastleviewEikenhofElandsparkEldorado ParkForest HillGlenvistaKenilworthKibler ParkLinmeyerMeredaleMeyersdalMondeorMulbartonNaturenaOakdeneOrmondeRidgewayRobertshamRoseacreRosettenvilleSouth HillsSouthcrestTurffonteinWinchester HillsAll of SowetoDiepkloofDlaminiDobsonvilleDubeEmndeniJabavuJabulaniKlipspruitKliptownMapetlaMeadowlandsMofoloMolapoMoletsaneMorokaNalediOrlando EastOrlando WestPimvilleProtea GlenProtea NorthSenaoaneTladiZola
+
+### Area Lists
+
+Draft map: shapes are approximate. Base outlines © OpenStreetMap contributors.
 
 ## What to See When You Visit Johannesburg
 

@@ -22,6 +22,8 @@ Shopping, Entertainment, Family
 - Fourways Mall
 - Montecasino
 
+[Open in Maps: Fourways](https://www.google.com/maps/search/?api=1&query=-26.0045,28.0042)
+
 ## What to Do
 
 Montecasino is built to look like an Italian village, with streets, squares and restaurants under one roof. It has theatres that stage musicals and shows, cinemas and a bird garden that suits a family outing.

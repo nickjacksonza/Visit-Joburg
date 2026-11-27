@@ -2,7 +2,7 @@ Neighbourhoods
 
 # Johannesburg Neighbourhoods to Explore
 
-Joburg is spread out, so it helps to think of it as a set of smaller places. Pick one or two areas a day and travel between them by Gautrain or ride-hailing.
+Joburg is spread out, so it helps to think of it as a set of smaller places. Pick one or two areas a day and travel between them by Gautrain or ride-hailing. The [map on the home page](https://example.com/index.html#map-h) shows where each one sits.
 
 ## Where to Go
 
@@ -12,7 +12,7 @@ A busy suburb in the far north of the city, known for large shopping centres and
 
 Good for: Shopping, theatre and a family day out
 
-[Read the Fourways guide](https://example.com/neighbourhoods/fourways.html)
+[Read the Fourways guide](https://example.com/neighbourhoods/fourways.html) · [Open in Maps: Fourways](https://www.google.com/maps/search/?api=1&query=-26.0045,28.0042)
 
 ### Melville
 
@@ -60,15 +60,162 @@ South Africa's best-known township and the heart of much of the country's histor
 
 Good for: History, Vilakazi Street, local food
 
-[Open in Maps: Soweto](https://www.google.com/maps/search/?api=1&query=-26.2485,27.854)
-
 ## Where to Stay
 
 For a first visit, stay in Rosebank or Sandton. Both have Gautrain stations, a good choice of hotels and restaurants within a short walk. Melville and Parkhurst have smaller guest houses with a quieter, local feel.
 
+## Areas by the Names Locals Use
+
+Joburgers often name a cluster of suburbs together, such as The Parks or Town, or think of the city by theme. These lists match the ones on the map, where picking one raises its suburbs.
+
+### The Parks (6 areas)
+
+- Parkhurst
+- Parktown North
+- Parkview
+- Parkwood
+- Parktown
+- Parkmore
+
+### Sandton (15 areas)
+
+- Sandown
+- Sandhurst
+- Parkmore
+- Hyde Park
+- Craighall
+- Craighall Park
+- Inanda
+- Bryanston
+- Wierda Valley
+- Benmore Gardens
+- Chislehurston
+- Atholhurst
+- Atholl
+- Simba
+- Kramerville
+
+### Town (9 areas)
+
+Also called the CBD, the inner city.
+
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Newtown
+- Marshalltown
+- Hillbrow
+- Berea
+- Joubert Park
+- Doornfontein
+- Maboneng
+- Yeoville
+
+### Tourist Areas (13 areas)
+
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Newtown
+- Maboneng
+- Marshalltown
+- Hillbrow
+- Orlando West
+- Ormonde
+- Crown Mines
+- Rosebank
+- Sandown
+- Saxonwold
+- Emmarentia
+- Melville
+
+### Good Restaurants (12 areas)
+
+Also called restaurant strips.
+
+- Parkhurst
+- Greenside
+- Melville
+- Linden
+- Parkview
+- Rosebank
+- Illovo
+- Sandown
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Maboneng
+- [Fourways](https://example.com/neighbourhoods/fourways.html)
+- Orlando West
+
+### Nightlife (9 areas)
+
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Maboneng
+- Newtown
+- Melville
+- Greenside
+- Rosebank
+- Sandown
+- [Fourways](https://example.com/neighbourhoods/fourways.html)
+- Orlando West
+
+### Parks and Green Spaces (11 areas)
+
+- Emmarentia
+- Parkview
+- Saxonwold
+- Melville
+- Northcliff
+- Blairgowrie
+- Craighall
+- Kensington
+- Mondeor
+- City Deep
+- Moroka
+
+### Mandela’s Joburg (9 areas)
+
+- Orlando West
+- Alexandra
+- Marshalltown
+- Hillbrow
+- Rivonia
+- Houghton
+- Ormonde
+- Sandown
+- Kliptown
+
+### History and Heritage (10 areas)
+
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Hillbrow
+- Newtown
+- Marshalltown
+- Ormonde
+- Orlando West
+- Rivonia
+- Parktown
+- Crown Mines
+- Kliptown
+
+### Arts and Galleries (7 areas)
+
+- [Braamfontein](https://example.com/neighbourhoods/braamfontein.html)
+- Maboneng
+- Newtown
+- Rosebank
+- Parkwood
+- Melville
+- Parkhurst
+
+### Family Days Out (7 areas)
+
+- Crown Mines
+- Saxonwold
+- Parkview
+- Emmarentia
+- [Fourways](https://example.com/neighbourhoods/fourways.html)
+- Turffontein
+- City Deep
+
 ## Every Area in This Guide
 
-We are writing up 160 areas, grouped by part of the city. The main areas are in bold. An area with a guide is a link.
+We are writing up 196 areas in 9 parts of the city, and 170 of them are on the map so far. Soweto is listed township by township. The main areas are in bold, and an area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -89,11 +236,12 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - President Park
 - Sunninghill
 
-### North West and Randburg (34 areas)
+### North West and Randburg (35 areas)
 
 - Blackheath
 - Blairgowrie
 - Boskruin
+- Craighall
 - Craighall Park
 - Cresta
 - Crosby
@@ -126,16 +274,20 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Weltevreden Park
 - Westdene
 
-### Sandton, Rosebank and North Central (56 areas)
+### Sandton, Rosebank and North Central (63 areas)
 
 - Abbotsford
-- Athol
+- **Alexandra**
+- Atholhurst
+- Atholl
 - **Bedfordview**
+- Benmore Gardens
 - **Bordeaux**
 - Bramley
 - **Bruma**
 - **Bryanston**
 - **Buccleuch**
+- Chislehurston
 - Dowerglen
 - Dunkeld
 - Dunkeld West
@@ -153,6 +305,7 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Inanda
 - **Kelvin**
 - Killarney
+- Kramerville
 - Linbro Park
 - Marlboro Gardens
 - **Melrose**
@@ -178,33 +331,44 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - **Sandown**
 - **Sandringham**
 - **Saxonwold**
+- Simba
 - Strathavon
 - Waverley
 - Westcliff
+- Wierda Valley
 - Winston Ridge
 - **Woodmead**
 - **Wynberg**
 
-### Central, East and West (16 areas)
+### Central (10 areas)
 
-- **Auckland Park**
+- Berea
 - **[Braamfontein](https://example.com/neighbourhoods/braamfontein.html)**
-- City Deep
-- Denver
-- Heriotdale
+- Doornfontein
 - Hillbrow
-- **Kensington**
-- Langlaagte
+- Joubert Park
 - Maboneng
-- Malvern
 - Marshalltown
-- Mayfair
 - Newtown
-- **Riverlea**
 - Selby
 - **Yeoville**
 
-### South (34 areas)
+### East (5 areas)
+
+- City Deep
+- Denver
+- Heriotdale
+- **Kensington**
+- Malvern
+
+### West (4 areas)
+
+- **Auckland Park**
+- Langlaagte
+- Mayfair
+- **Riverlea**
+
+### South (32 areas)
 
 - Alan Manor
 - Alberante
@@ -212,7 +376,6 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Booysens
 - Castleview
 - Crown Mines
-- **Diepkloof**
 - Eikenhof
 - Elandspark
 - Eldorado Park
@@ -228,7 +391,6 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Mulbarton
 - Naturena
 - Oakdene
-- Orlando East
 - Ormonde
 - Ridgeway
 - **Robertsham**
@@ -241,9 +403,36 @@ We are writing up 160 areas, grouped by part of the city. The main areas are in 
 - Turffontein
 - Winchester Hills
 
-### Soweto (1 area)
+### Soweto (28 areas)
 
+- Chiawelo
+- **Diepkloof**
+- Dlamini
+- Dobsonville
+- Dube
+- Emndeni
+- Jabavu
+- Jabulani
+- Klipspruit
+- Kliptown
+- Mapetla
+- Meadowlands
+- Mofolo
+- Molapo
+- Moletsane
+- Moroka
+- Naledi
+- Orlando East
+- **Orlando West**
+- Phiri
+- Pimville
+- Protea Glen
+- Protea North
+- Senaoane
 - **Soweto**
+- Tladi
+- Zola
+- Zondi
 
 ### Just Outside the City (3 areas)
 
