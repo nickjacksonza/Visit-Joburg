@@ -6941,5 +6941,117 @@
     -26.2541667
    ]
   }
+ },
+ "kempton-park": {
+  "query": "Kempton Park, Gauteng",
+  "found": true,
+  "name": "Kempton Park",
+  "display_name": "Kempton Park, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1619, South Africa",
+  "osm": "node/262720778",
+  "class": "place",
+  "type": "town",
+  "lat": -26.0964372,
+  "lng": 28.2336325,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.2336325,
+    -26.0964372
+   ]
+  }
+ },
+ "benoni": {
+  "query": "Benoni",
+  "found": true,
+  "name": "Benoni",
+  "display_name": "Benoni, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1500, South Africa",
+  "osm": "node/262719247",
+  "class": "place",
+  "type": "town",
+  "lat": -26.1930356,
+  "lng": 28.3082376,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.3082376,
+    -26.1930356
+   ]
+  }
+ },
+ "boksburg": {
+  "query": "Boksburg",
+  "found": true,
+  "name": "Boksburg",
+  "display_name": "Boksburg, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1459, South Africa",
+  "osm": "node/26458742",
+  "class": "place",
+  "type": "town",
+  "lat": -26.2124639,
+  "lng": 28.2617471,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.2617471,
+    -26.2124639
+   ]
+  }
+ },
+ "springs": {
+  "query": "Springs",
+  "found": true,
+  "name": "Springs",
+  "display_name": "Springs, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1559, South Africa",
+  "osm": "node/262722203",
+  "class": "place",
+  "type": "town",
+  "lat": -26.2550033,
+  "lng": 28.4373147,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.4373147,
+    -26.2550033
+   ]
+  }
+ },
+ "brakpan": {
+  "query": "Brakpan",
+  "found": true,
+  "name": "Brakpan",
+  "display_name": "Brakpan, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1518, South Africa",
+  "osm": "node/262719421",
+  "class": "place",
+  "type": "town",
+  "lat": -26.235278,
+  "lng": 28.37,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.37,
+    -26.235278
+   ]
+  }
+ },
+ "rhodesfield": {
+  "query": "Rhodesfield, Gauteng",
+  "found": true,
+  "name": "Rhodesfield",
+  "display_name": "Rhodesfield, Ekurhuleni Ward 17, Kempton Park, City of Ekurhuleni Metropolitan Municipality, Gauteng, 1627, South Africa",
+  "osm": "node/3373621194",
+  "class": "place",
+  "type": "suburb",
+  "lat": -26.1162933,
+  "lng": 28.2338688,
+  "geojson": {
+   "type": "Point",
+   "coordinates": [
+    28.2338688,
+    -26.1162933
+   ]
+  }
+ },
+ "or-tambo-airport": {
+  "query": "O.R. Tambo International Airport, Gauteng",
+  "found": false
  }
 }

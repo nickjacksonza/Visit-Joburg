@@ -2,13 +2,13 @@
 
 Every area and attraction with a position (geo) is drawn.
 
-Drawn by tools/make_map.py from the positions in neighbourhoods.json and attractions.json, with outlines from src/map/source/nominatim.json. 1 km = 10 SVG units. The draft is 59 by 63 km.
+Drawn by tools/make_map.py from the positions in neighbourhoods.json and attractions.json, with outlines from src/map/source/nominatim.json. 1 km = 10 SVG units. The draft is 60 by 63 km.
 
 - Areas with an OpenStreetMap outline: 6
-- Areas drawn as rough cells from a point: 163
-- Places not found: 34
-- Hexagons, city level: 1230, 1.0 km across; fewest in one area: 1
-- Hexagons, region level (hexes-region.svg): 7693, 419 m across; fewest in one area: 3
+- Areas drawn as rough cells from a point: 165
+- Places not found: 30
+- Hexagons, city level: 1259, 1.0 km across; fewest in one area: 1
+- Hexagons, region level (hexes-region.svg): 7860, 419 m across; fewest in one area: 3
 
 ## Not placed yet
 
@@ -42,10 +42,6 @@ These have no position (geo). Run tools/fetch_map_sources.py, or look one up (an
 - Phiri (area, Soweto)
 - Zondi (area, Soweto)
 - Nooitgedacht (area, Just Outside the City)
-- Benoni (area, Just Outside the City)
-- Boksburg (area, Just Outside the City)
-- Springs (area, Just Outside the City)
-- Brakpan (area, Just Outside the City)
 - Northgate and The Dome (attraction, North West and Randburg)
 - Gosforth Park (attraction, Just Outside the City)
 
@@ -199,7 +195,9 @@ From geo_source. Check any that look wrong.
 - Berea: OpenStreetMap
 - Joubert Park: OpenStreetMap: Joubert Park, the park the suburb is named after
 - Doornfontein: OpenStreetMap
-- Kempton Park: Owner: Gautrain station file (Rhodesfield station, in Kempton Park)
+- Kempton Park: OpenStreetMap
+- Rhodesfield: OpenStreetMap
+- O.R. Tambo International Airport: OpenStreetMap: the airport's railway station, by the terminal
 - Kensington: OpenStreetMap
 - Denver: OpenStreetMap
 - Malvern: OpenStreetMap
@@ -261,6 +259,10 @@ From geo_source. Check any that look wrong.
 - Diepkloof: OpenStreetMap
 - Lanseria: Wikipedia: Lanseria International Airport (the area is named after it)
 - Hartbeespoort: Wikipedia: Hartbeespoort
+- Benoni: OpenStreetMap
+- Boksburg: OpenStreetMap
+- Springs: OpenStreetMap
+- Brakpan: OpenStreetMap
 - Apartheid Museum: Guide data, checked by hand
 - Constitution Hill: Guide data, checked by hand
 - Vilakazi Street, Soweto: Guide data, checked by hand
