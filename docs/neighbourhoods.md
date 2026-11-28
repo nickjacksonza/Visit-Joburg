@@ -400,7 +400,15 @@ Good for: Street art, galleries, weekend markets
 
 A town east of Johannesburg, in the Ekurhuleni municipality, and home to O.R. Tambo International Airport and the Gautrain's airport station. Mostly homes, offices and light industry.
 
-[Open in Maps: Kempton Park](https://www.google.com/maps/search/?api=1&query=-26.128112,28.225046)
+[Open in Maps: Kempton Park](https://www.google.com/maps/search/?api=1&query=-26.0964,28.2336)
+
+### O.R. Tambo International Airport
+
+Johannesburg's international airport, in Kempton Park. Its Gautrain station links it to Sandton in about 15 minutes.
+
+Good for: Arrivals and departures, and the Gautrain to Sandton
+
+[Open in Maps: O.R. Tambo International Airport](https://www.google.com/maps/search/?api=1&query=-26.1322,28.2311)
 
 ### Kensington
 
@@ -629,7 +637,7 @@ Also called restaurant strips.
 
 ## Every Area in This Guide
 
-We are writing up 203 areas in 9 parts of the city, and 171 of them are on the map so far. Soweto is listed township by township. The main areas are in bold, and an area with a guide is a link.
+We are writing up 205 areas in 9 parts of the city, and 177 of them are on the map so far. Soweto is listed township by township. The main areas are in bold, and an area with a guide is a link.
 
 ### Far North and Midrand (16 areas)
 
@@ -769,7 +777,7 @@ We are writing up 203 areas in 9 parts of the city, and 171 of them are on the m
 - Selby
 - **Yeoville**
 
-### East (6 areas)
+### East (8 areas)
 
 - City Deep
 - Denver
@@ -777,6 +785,8 @@ We are writing up 203 areas in 9 parts of the city, and 171 of them are on the m
 - **Kempton Park**
 - **Kensington**
 - Malvern
+- **O.R. Tambo International Airport**
+- Rhodesfield
 
 ### West (4 areas)
 
